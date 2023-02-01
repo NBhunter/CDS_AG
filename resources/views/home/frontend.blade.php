@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
-    <title>Chuyển Đổi số vừa và nhỏ</title>
+    <title>Chuyển đổi số tỉnh An Giang</title>
     <!-- boottrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -53,7 +53,7 @@
           <a class="nav-link active" aria-current="page" style="color:#0f62ac" href="#">Trang chủ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Tin Tức</a>
+          <a class="nav-link active" href="#">Tin tức</a>
         </li>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,7 +68,7 @@
         </li> -->
         <li class="nav-item dropdown ">
         <!-- <div class="nav-item "> -->
-  <a class="nav-link dropdown active">Danh Mục</a>
+  <a class="nav-link dropdown active">Danh mục</a>
   <div class="dropdown-content">
     <a href="#">Nông Nghiệp</a>
     <a href="#">Công Nghiệp</a>
@@ -79,14 +79,14 @@
         </li>
     
   <li class="nav-item">
-          <a class="nav-link active" href="#">Đánh giá Doanh Nghiệp</a>
+          <a class="nav-link active" href="#">Đánh giá doanh nghiệp</a>
         </li>
 <!-- </div> -->
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
     </div>
   </div>
