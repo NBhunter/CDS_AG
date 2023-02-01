@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- link root -->
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">/
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
-    <title>Chuyển Đổi số vừa và nhỏ</title>
-
+    <title>Chuyển đổi số tỉnh An Giang</title>
     <!-- boottrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
@@ -55,32 +54,33 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" style="color:#0f62ac" href="#">Trang chủ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Tin Tức</a>
+          <a class="nav-link active" aria-current="page" style="color:#0f62ac" href="#">TRANG CHỦ</a>
         </li>
         <li class="nav-item dropdown ">
         <!-- <div class="nav-item "> -->
-  <a class="nav-link dropdown active">Danh Mục</a>
+  <a class="nav-link dropdown active">DANH MỤC</a>
   <div class="dropdown-content">
     <a href="#">Nông Nghiệp</a>
     <a href="#">Công Nghiệp</a>
     <a href="#">Dịch Vụ</a>
   </div>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">TIN TỨC</a>
+        </li>
+       
   <li class="nav-item">
-          <a class="nav-link active" href="#">Thư viện điện tử</a>
+          <a class="nav-link active" href="#">THƯ VIỆN ĐIỆN TỬ</a>
         </li>
     
   <li class="nav-item">
-          <a class="nav-link active" href="#">Đánh giá Doanh Nghiệp</a>
+          <a class="nav-link active" href="#">ĐÁNH GIÁ</a>
         </li>
 <!-- </div> -->
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
     </div>
   </div>
@@ -88,7 +88,8 @@
 <p>a </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bv</p>
 
 </body>
-<footer class=" text-center text-white" style="background-image: url({{asset('img/Footer.svg')}});">
+
+<footer class=" text-center text-white"  style="background-image: url({{asset('img/footer_br-01.jpg')}}) ;background-repeat: no-repeat;   background-position: center;  background-size: cover;" >
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
@@ -147,20 +148,19 @@
     </section>
     <!-- Section: Social media -->
   </div>
-  <section class="" style ="color: #333333;">
-    <div class="container text-center text-md-start mt-5">
+  <section class="" style ="color: #333333;" >
+    <div class="container text-center text-md-start mt-5" >
       <!-- Grid row -->
       <div class="row mt-6">
         <!-- Grid column -->
+
         <div class="col-md-8 col-lg-9 col-xl-7 ml-0 mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3 text-success"></i>Tỉnh An Giang
+          <p style="font-weight: bold;font-size: 18px;padding-top: 20px;;background: none;color: white;">Cổng thông tin điện tử</p>
+            <p style="font-weight: bold;font-size: 40px;background: none;color: white;">CHUYỂN ĐỔI SỐ </p>
           </h6>
-          <p>
-            Trang thông tin về chuyển đổi số cho doanh nghiệp vừa và nhỏ
-            trong tỉnh an giang
-          </p>
+          <p style="font-weight: bold; font-size: 18px;font-weight: bold;background: none;color: white;">CHO DOANH NGHIỆP VỪA VÀ NHỎ TẠI TỈNH AN GIANG</p>
         </div>
         <!-- Grid column -->
 
@@ -169,16 +169,17 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-5 mr-0 mb-md-0 mb-4">
+
+        <div class="col-md-4 col-lg-3 col-xl-5 mr-0 mb-md-0 mb-4 text-white">
+
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>
-          <p><i class="fas fa-home me-3 text-secondary"></i> Long Xuyên, An Giang</p>
+          <h6 class="text-uppercase fw-bold mb-4 text-white">THÔNG TIN LIÊN HỆ</h6>
+          <p><i class="fas fa-home text-white" style="font-weight: bold;"></i>  Long Xuyên, An Giang</p>
           <p>
-            <i class="fas fa-envelope me-3 text-secondary"></i>
-            nrbang_20TH@student.agu.edu.vn
-          </p>
-          <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
+            <i class="fas fa-envelope text-white"></i>  nrbang_20th@student.agu.edu.vn</p>
+          <p><i class="fas fa-phone text-white"></i>  + 01 234 567 88</p>
+          <p><i class="fas fa-street-view text-white"></i>  Số lượt truy cập</p>
+         
         </div>
         <!-- Grid column -->
       </div>
@@ -188,9 +189,8 @@
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">FIT</a>
+  <div class="text-center p-3" style="background-color: blue;">
+  <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
   </div>
   <!-- Copyright -->
 </footer>
