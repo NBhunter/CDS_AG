@@ -94,4 +94,148 @@
 <p>a </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bv</p>
 
 </body>
+<footer class="bg-light text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #55acee;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #0082ca;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #333333;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <section class="" style ="color: #333333;">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3 text-success"></i>Tỉnh An Giang
+          </h6>
+          <p>
+            Trang thông tin về chuyển đổi số cho doanh nghiệp vừa và nhỏ
+            trong tỉnh an giang
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Doanh mục
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Nông nghiệp</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Công nghiệp</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Dịch vụ</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Laravel</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Dành cho người dùng
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Tin tức</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Thư viện điện tử</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Đánh giá doanh nghiệp</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Hỗ trợ tự động</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>
+          <p><i class="fas fa-home me-3 text-secondary"></i> Long Xuyên, An Giang</p>
+          <p>
+            <i class="fas fa-envelope me-3 text-secondary"></i>
+            nrbang_20TH@student.agu.edu.vn
+          </p>
+          <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">FIT</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 </html>
