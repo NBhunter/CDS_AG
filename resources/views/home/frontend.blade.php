@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@yield('link')
   <!-- link root -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
-    <title>Chuyển đổi số tỉnh An Giang</title>
+    <title>Chuyển đổi số tỉnh An Giang </title>
     <!-- boottrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
@@ -54,26 +56,26 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" style="color:#0f62ac" href="#">TRANG CHỦ</a>
+          <a class="nav-link active" aria-current="page" style="color:#0000ff" href="#">TRANG CHỦ</a>
         </li>
         <li class="nav-item dropdown ">
         <!-- <div class="nav-item "> -->
-  <a class="nav-link dropdown active">DANH MỤC</a>
+  <a class="nav-link dropdown active"style="color:#0000ff">DANH MỤC</a>
   <div class="dropdown-content">
     <a href="#">Nông Nghiệp</a>
     <a href="#">Công Nghiệp</a>
     <a href="#">Dịch Vụ</a>
   </div>
         <li class="nav-item">
-          <a class="nav-link active" href="#">TIN TỨC</a>
+          <a class="nav-link active" style="color:#0000ff"href="#">TIN TỨC</a>
         </li>
-       
+
   <li class="nav-item">
-          <a class="nav-link active" href="#">THƯ VIỆN ĐIỆN TỬ</a>
+          <a class="nav-link active"style="color:#0000ff" href="#">THƯ VIỆN ĐIỆN TỬ</a>
         </li>
-    
+
   <li class="nav-item">
-          <a class="nav-link active" href="#">ĐÁNH GIÁ</a>
+          <a class="nav-link active" style="color:#0000ff"href="#">ĐÁNH GIÁ</a>
         </li>
 <!-- </div> -->
         </li>
@@ -85,8 +87,7 @@
     </div>
   </div>
 </nav>
-<p>a </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bv</p>
-
+@yield('content')
 </body>
 
 <footer class=" text-center text-white"  style="background-image: url({{asset('img/footer_br-01.jpg')}}) ;background-repeat: no-repeat;   background-position: center;  background-size: cover;" >
@@ -165,7 +166,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-       
+
         <!-- Grid column -->
 
         <!-- Grid column -->
@@ -179,7 +180,7 @@
             <i class="fas fa-envelope text-white"></i>  nrbang_20th@student.agu.edu.vn</p>
           <p><i class="fas fa-phone text-white"></i>  + 01 234 567 88</p>
           <p><i class="fas fa-street-view text-white"></i>  Số lượt truy cập</p>
-         
+
         </div>
         <!-- Grid column -->
       </div>

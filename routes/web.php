@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', function () {
     return view('home.frontend');
 });
+Route::get('/trangchu', function () {
+    return view('home.home');
+});
