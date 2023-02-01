@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <!-- link root -->
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">/
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
     <title>Chuyển Đổi số vừa và nhỏ</title>
+
     <!-- boottrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
@@ -86,7 +88,7 @@
 <p>a </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bva </br>bv</p>
 
 </body>
-<footer class="bg-light text-center text-white">
+<footer class=" text-center text-white" style="background-image: url({{asset('img/Footer.svg')}});">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
@@ -150,7 +152,7 @@
       <!-- Grid row -->
       <div class="row mt-6">
         <!-- Grid column -->
-        <div class="col-md-8 col-lg-9 col-xl-9 ml-0 mb-4">
+        <div class="col-md-8 col-lg-9 col-xl-7 ml-0 mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3 text-success"></i>Tỉnh An Giang
@@ -167,7 +169,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mr-0 mb-md-0 mb-4">
+        <div class="col-md-4 col-lg-3 col-xl-5 mr-0 mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>
           <p><i class="fas fa-home me-3 text-secondary"></i> Long Xuyên, An Giang</p>
