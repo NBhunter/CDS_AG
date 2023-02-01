@@ -8,7 +8,9 @@
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
     <title>Chuyển Đổi số vừa và nhỏ</title>
     <!-- boottrap -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -56,17 +58,6 @@
         <li class="nav-item">
           <a class="nav-link active" href="#">Tin Tức</a>
         </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Danh Mục
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="#">Nông Nghiệp</a></li>
-            <li><a class="dropdown-item" href="#">Công Nghiệp</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Dịch Vụ</a></li>
-          </ul>
-        </li> -->
         <li class="nav-item dropdown ">
         <!-- <div class="nav-item "> -->
   <a class="nav-link dropdown active">Danh Mục</a>
@@ -157,9 +148,9 @@
   <section class="" style ="color: #333333;">
     <div class="container text-center text-md-start mt-5">
       <!-- Grid row -->
-      <div class="row mt-3">
+      <div class="row mt-6">
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <div class="col-md-8 col-lg-9 col-xl-9 ml-0 mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3 text-success"></i>Tỉnh An Giang
@@ -172,49 +163,11 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Doanh mục
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Nông nghiệp</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Công nghiệp</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Dịch vụ</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Laravel</a>
-          </p>
-        </div>
+       
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Dành cho người dùng
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Tin tức</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Thư viện điện tử</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Đánh giá doanh nghiệp</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Hỗ trợ tự động</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <div class="col-md-4 col-lg-3 col-xl-3 mr-0 mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>
           <p><i class="fas fa-home me-3 text-secondary"></i> Long Xuyên, An Giang</p>
