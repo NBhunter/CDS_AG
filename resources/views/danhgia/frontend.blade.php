@@ -149,7 +149,45 @@
     </section>
     <!-- Section: Social media -->
   </div>
- 
+  <section class="" style ="color: #333333;" >
+    <div class="container text-center text-md-start mt-5" >
+      <!-- Grid row -->
+      <div class="row mt-6">
+        <!-- Grid column -->
+
+        <div class="col-md-8 col-lg-9 col-xl-7 ml-0 mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+          <p style="font-weight: bold;font-size: 18px;padding-top: 20px;;background: none;color: white;">Cổng thông tin điện tử</p>
+            <p style="font-weight: bold;font-size: 40px;background: none;color: white;">CHUYỂN ĐỔI SỐ </p>
+          </h6>
+          <p style="font-weight: bold; font-size: 18px;font-weight: bold;background: none;color: white;">CHO DOANH NGHIỆP VỪA VÀ NHỎ TẠI TỈNH AN GIANG</p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+
+        <div class="col-md-4 col-lg-3 col-xl-5 mr-0 mb-md-0 mb-4 text-white">
+
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-white">THÔNG TIN LIÊN HỆ</h6>
+          <p><i class="fas fa-home text-white" style="font-weight: bold;"></i>  Long Xuyên, An Giang</p>
+          <p>
+            <i class="fas fa-envelope text-white"></i>  nrbang_20th@student.agu.edu.vn</p>
+          <p><i class="fas fa-phone text-white"></i>  + 01 234 567 88</p>
+          <p><i class="fas fa-street-view text-white"></i>  Số lượt truy cập</p>
+
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Grid container -->
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: blue;">
