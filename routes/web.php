@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +19,7 @@ Route::get('/trangchu', function () {
     return view('home.home');
 });
 Route::get('/danhgia', function () {
-    return view('danhgia.frontend');
+    return view('danhgia.phieu1');
 });
+
+Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
