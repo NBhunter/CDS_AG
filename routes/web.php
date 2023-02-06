@@ -19,3 +19,6 @@ Route::get('/home', function () {
 Route::get('/trangchu', function () {
     return view('home.home');
 });
+Route::get('/danhgia', function () {
+    return view('danhgia.frontend');
+});
