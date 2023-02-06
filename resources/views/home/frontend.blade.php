@@ -90,7 +90,7 @@
 @yield('content')
 </body>
 
-<footer class=" text-center text-white"  style="background-image: url({{asset('img/footer_br-01.jpg')}}) ;background-repeat: no-repeat;   background-position: center;  background-size: cover;" >
+<footer class=" text-center text-white"  style="background-image: url({{asset('img/footer_br-01.jpg')}}) ;background-repeat: no-repeat;   background-position: center;  background-size: cover; width:100%;" >
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
@@ -149,7 +149,7 @@
     </section>
     <!-- Section: Social media -->
   </div>
- 
+
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: blue;">
