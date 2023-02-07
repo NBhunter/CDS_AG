@@ -15,18 +15,17 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/home', function () {
-    return view('home.frontend');
+    return view('DoanhNghiep.Dashboard');
 });
 Route::get('/trangchu', function () {
     return view('home.home');
 });
-Route::get('/danhgia', function () {
-    return view('danhgia.phieu1');
+Route::get('/dnviews', function () {
+    return view('DoanhNghiep.Dashboard');
 });
 
 Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
 
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-Auth::routes();
+// Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
