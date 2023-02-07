@@ -19,9 +19,9 @@
 </head>
 
 <body>
-	<div class="wrapper">
-		<nav id="sidebar" class="sidebar js-sidebar">
-			<div class="sidebar-content js-simplebar">
+	<div class="wrapper" style="background-color: #4e73df;">
+		<nav id="sidebar" class="sidebar js-sidebar" style="background-color: #4e73df">
+			<div class="sidebar-content js-simplebar" style="background-color: #4e73df;">
 				<a class="sidebar-brand" href="{{ URL::to('dnviews') }}">
           <span class="align-middle">Trang đánh giá</span>
         </a>
@@ -31,20 +31,20 @@
 						Pages
 					</li>
 
-					<li class="sidebar-item active">
+					<li class="sidebar-item active"style="background-color: #4e73df;">
 						<a class="sidebar-link" href="{{ URL::to('dnviews') }}">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
+					<li class="sidebar-item" >
+						<a class="sidebar-link" href="" style="background-color: #4e73df;">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{ URL::to('phieudanhgia1') }}">
+						<a class="sidebar-link" href="{{ URL::to('phieudanhgia1') }}" style="background-color: #4e73df;">
               <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Đánh Giá</span>
             </a>
 					</li>
@@ -231,8 +231,10 @@
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="file-text"></i>
+														<div class="stat text-primary"><a href="{{ URL::to('phieudanhgia1') }}" class="">
+                                                            <i class="align-middle" data-feather="file-text"  ></i>
+                                                        </a>
+
 														</div>
 													</div>
 												</div>

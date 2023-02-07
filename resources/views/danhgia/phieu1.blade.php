@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
     .card{
-
 width: 350px;
 border: none;
 box-shadow: 5px 6px 6px 2px #e9ecef;
@@ -127,24 +126,26 @@ color: #fff;
 td{
     text-align: center;
     }
+.noidung{font-weight:400;}
+
 </style>
 @endsection
 @section('content')
-<div class="card-body" align="center" background="black">
+<div class="card-body" align="center" background="black" >
 @php
     $i=0;
     $j=0;
     $y=0;
 @endphp
-<table class="table table-bordered border-primary">
-    <tr style="font-weight:bold;" class="table-primary">
+<table class="table table-bordered border-primary" >
+    <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude">
         <td class="col-1">STT</td>
         <td class="col-3">Trụ cột/ Thành phần/ Tiêu chí</td>
         <td class="col-5">Câu hỏi/Kê khai số liệu</td>
         <td class="col-3">Thang điểm tối đa</td>
         <td class="col-2">Đánh giá</td>
       </tr>
-      <tbody>
+      <tbody style="text-align:center;font-weight:400;">
         @csrf
 @foreach($Cauhoi as $key => $ctCauhoi)
 @if ($ctCauhoi->Cap==1)
@@ -152,11 +153,11 @@ td{
     $i++;
     $j=0;
 @endphp
-<tr class="" >
-    <th class="stt" style="text-align:center;">{{ $i }}</th>
+<tr class=""style="text-align:center;font-weight:400;">
+    <th class="stt" >{{ $i }}</th>
     <th class="">{{ $ctCauhoi->NoiDung }}</th>
     <th class=""> </th>
-    <th class="" style="text-align:center;">{{ $ctCauhoi->DiemToiDa }}</th>
+    <th class=""  style="text-align:center;">{{ $ctCauhoi->DiemToiDa }}</th>
     <th class=""> </th>
 </tr>
 @else
@@ -165,7 +166,7 @@ td{
     $j++;
     $y=0;
 @endphp
-<tr class="">
+<tr class="" style="text-align:center;font-weight:400;">
     <th class="stt" style="text-align:center;">{{ $i.".".$j }}</th>
     <th class="">{{ $ctCauhoi->NoiDung }}</th>
     <th class=""> </th>
@@ -175,9 +176,9 @@ td{
 @else
 @if ($ctCauhoi->Cap==0)
 
-<tr class="">
+<tr class="" style="text-align:center;font-weight:400;">
     <th class="stt" > </th>
-    <th class="" >{{ $ctCauhoi->NoiDung }}</th>
+    <th class="" style="text-align:center;">{{ $ctCauhoi->NoiDung }}</th>
     <th class=""> </th>
     <th class=""> </th>
     <th class=""> </th></tr>
@@ -185,10 +186,10 @@ td{
 @php
     $y++;
 @endphp
-<tr class="">
+<tr class="" style="text-align:center;font-weight:400;">
     <th rowspan="2" style="text-align:center;">{{ $i.".".$j.".".$y}}</th>
     <th rowspan="2" >{{ $ctCauhoi->NoiDung }}</th>
-    <th rowspan="1"> {{ $ctCauhoi->TenCauHoi }}   </th>
+    <th rowspan="1"class="noidung"> {{ $ctCauhoi->TenCauHoi }}   </th>
 
     <th rowspan="2"> </th>
     {{-- <th rowspan="2"> </th> --}}
@@ -201,7 +202,7 @@ td{
         <input type="radio" name="rating{{ $y }}" value="1" id="1{{ $ctCauhoi->idcauhoi }}"><label for="1{{ $ctCauhoi->idcauhoi }}" name="1{{ $y }}">☆</label>
     </div> </th>
 </tr>
-<tr class="" > <th rowspan="1">{{ $ctCauhoi->MoTa }}</th></tr>
+<tr class="" > <th rowspan="1" class="noidung">{{ $ctCauhoi->MoTa }}</th></tr>
 @endif
 @endif
 @endif
