@@ -22,7 +22,7 @@
 <!-- hoverable dropdown -->
 <style>
 
-
+.card-body{font-weight:400;}
 
 .dropdown-content {
   display: none;
@@ -47,10 +47,10 @@
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
     </style>
 </head>
-<body>
+
 <body style="background-color:white;">
-<div class="container">
-<div class="row" >
+<div class="container" style="font-weight:400;">
+<div class="row" style="font-weight:400;">
 
 @yield('content')
 </div>
