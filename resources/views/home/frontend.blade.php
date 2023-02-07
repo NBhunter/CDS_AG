@@ -75,7 +75,7 @@
         </li>
 
   <li class="nav-item">
-          <a class="nav-link active" style="color:#0000ff"href="#">ĐÁNH GIÁ</a>
+          <a class="nav-link active" style="color:#0000ff"href="{{ URL::to('phieudanhgia1') }}">ĐÁNH GIÁ</a>
         </li>
 <!-- </div> -->
         </li>
