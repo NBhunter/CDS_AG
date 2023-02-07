@@ -26,6 +26,11 @@ Route::get('/dnviews', function () {
 
 Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
 
+<<<<<<< HEAD
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+=======
+Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+>>>>>>> 0de1fa54e9f0d80e3a63397ca2a020fcfc6c6ed5
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
