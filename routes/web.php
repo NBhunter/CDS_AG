@@ -27,9 +27,4 @@ Route::get('/dnviews', function () {
 Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-<<<<<<< HEAD
-=======
 
->>>>>>> ca08382c9c3416d11923d067e3d249e3c41e5595
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
