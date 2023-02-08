@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="shortcut icon" href="{{asset('img/logo_ag.ico')}}" />
@@ -48,7 +49,22 @@
               <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle" style="font-family:Roboto;">Đánh Giá</span>
             </a>
 					</li>
-				</ul>
+
+                <li class="sidebar-item">
+
+                    {{-- <a class="sidebar-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" style="background-color: #4e73df;">
+          <i class="align-middle" data-feather="toggle-right"></i> <span class="align-middle">Log out</span>
+        </a> --}}
+        <form method="POST" action="{{ route('logout') }}" x-data>
+            @csrf
+
+            <x-jet-dropdown-link href="{{ route('logout') }}"
+                     @click.prevent="$root.submit();">
+                {{ __('Log Out') }}
+            </x-jet-dropdown-link>
+        </form>
+                </li>
+            </ul>
 		</nav>
 
 		<div class="main">
@@ -206,7 +222,12 @@
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Đổi mật khẩu</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Trợ giúp</a>
 								<div class="dropdown-divider"></div>
+<<<<<<< HEAD
 								<a class="dropdown-item" href="#">Thoát</a>
+=======
+								<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Log out</a>
+
+>>>>>>> d89dd6793e517c3daec5128260533d0417362b7f
 							</div>
 						</li>
 					</ul>
