@@ -14,18 +14,40 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+Route::get('/', function () {
+    return view('home.home');
+});
 Route::get('/home', function () {
     return view('DoanhNghiep.Dashboard');
 });
 Route::get('/trangchu', function () {
     return view('home.home');
 });
+
+// Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
 Route::get('/dnviews', function () {
     return view('DoanhNghiep.Dashboard');
 });
 
 Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
 
+<<<<<<< HEAD
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+=======
+});
+
+>>>>>>> d89dd6793e517c3daec5128260533d0417362b7f
