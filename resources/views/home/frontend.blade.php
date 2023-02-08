@@ -56,7 +56,7 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" style="color:#0000ff" href="#">TRANG CHỦ</a>
+          <a class="nav-link active" aria-current="page" style="color:black" href="#">TRANG CHỦ</a>
         </li>
         <li class="nav-item dropdown ">
         <!-- <div class="nav-item "> -->
@@ -152,7 +152,7 @@
 
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: blue;">
+  <div class="text-center p-3" style="background-color:#4e73df;;">
   <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
   </div>
   <!-- Copyright -->

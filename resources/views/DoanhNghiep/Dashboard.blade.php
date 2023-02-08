@@ -22,30 +22,30 @@
 	<div class="wrapper" style="background-color: #4e73df;">
 		<nav id="sidebar" class="sidebar js-sidebar" style="background-color: #4e73df">
 			<div class="sidebar-content js-simplebar" style="background-color: #4e73df;">
-				<a class="sidebar-brand" href="{{ URL::to('dnviews') }}">
-          <span class="align-middle">Trang đánh giá</span>
+				<a class="sidebar-brand" href="{{ URL::to('dnviews') }}" style="font-weight:bold;font-family:Roboto;">
+				<i class="align-middle" data-feather="check-square"></i>
+				<span class="align-middle" >TRANG ĐÁNH GIÁ</span>
         </a>
-
+		<hr class="sidebar-divider" style="color:white;">
 				<ul class="sidebar-nav">
-					<li class="sidebar-header">
-						Pages
-					</li>
-
+			
 					<li class="sidebar-item active"style="background-color: #4e73df;">
 						<a class="sidebar-link" href="{{ URL::to('dnviews') }}">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+              <i class="align-middle" data-feather="home"></i> <span class="align-middle" style="font-family:Roboto;">Trang điều khiển</span>
             </a>
 					</li>
-
+					<hr class="sidebar-divider" style="color:white;">
+                <!-- Heading -->
+                
 					<li class="sidebar-item" >
 						<a class="sidebar-link" href="" style="background-color: #4e73df;">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle" style="font-family:Roboto;">Hồ sơ cá nhân</span>
             </a>
 					</li>
-
+					<hr class="sidebar-divider" style="color:white;">
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{ URL::to('phieudanhgia1') }}" style="background-color: #4e73df;">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Đánh Giá</span>
+              <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle" style="font-family:Roboto;">Đánh Giá</span>
             </a>
 					</li>
 				</ul>
@@ -68,7 +68,7 @@
 							</a>
 							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
 								<div class="dropdown-menu-header">
-									4 New Notifications
+									Thông báo
 								</div>
 								<div class="list-group">
 									<a href="#" class="list-group-item">
@@ -120,7 +120,7 @@
 									</a>
 								</div>
 								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">Show all notifications</a>
+									<a href="#" class="text-muted">Hiển thị tất cả thông báo</a>
 								</div>
 							</div>
 						</li>
@@ -133,7 +133,7 @@
 							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
 								<div class="dropdown-menu-header">
 									<div class="position-relative">
-										4 New Messages
+										Tin nhắn
 									</div>
 								</div>
 								<div class="list-group">
@@ -187,7 +187,7 @@
 									</a>
 								</div>
 								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">Show all messages</a>
+									<a href="#" class="text-muted">Hiển thị tất cả tin nhắn</a>
 								</div>
 							</div>
 						</li>
@@ -200,13 +200,13 @@
                 <img src="{{asset('dasdboard/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Doanh nghiệp A - Nguyễn Văn B</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Thông tin</a>
+		
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Đổi mật khẩu</a>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Trợ giúp</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<a class="dropdown-item" href="#">Thoát</a>
 							</div>
 						</li>
 					</ul>
@@ -216,7 +216,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3"><strong>Phiếu</strong> Đánh giá</h1>
+					<h1 class="h3 mb-3" style="font-weight:bold;font-family:Roboto;color:#4e73df;">PHIẾU ĐÁNH GIÁ</h1>
 
 					<div class="row">
 						<div class="col-xl-6 col-xxl-5 d-flex">
@@ -227,42 +227,43 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Phiếu số 1</h5>
+														<div class=""><a href="{{ URL::to('phieudanhgia1') }}" class="">
+                                                            <i class="align-middle" data-feather="file-text" style="" ></i>
+															<span class="align-middle" style="font-family:Roboto;" >PHIẾU SỐ 1</span>
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary"><a href="{{ URL::to('phieudanhgia1') }}" class="">
-                                                            <i class="align-middle" data-feather="file-text"  ></i>
+														
                                                         </a>
 
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">Nâng cao </h1>
-                                                <h2 class="mt-1 mb-3">198 điểm </h2>
-												<div class="mb-0">
-													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> +3.65% </span>
-													<span class="text-muted">Since last Month</span>
-												</div>
+												<hr class="sidebar-divider" style="color: #4e73df;">
+												<h4 style="font-size:14px;font-family:Roboto;">Chỉ số đánh giá mức độ chuyển đổi số </h4>
+												<hr class="sidebar-divider" style="color: #4e73df;">
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">320 điểm </h3>
+												
 											</div>
 										</div>
 										<div class="card">
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Phiếu số 3</h5>
+													<i class="align-middle" data-feather="file-text" style="" ></i>
+															<span class="align-middle" style="font-family:Roboto;" >PHIẾU SỐ 3</span>
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="alert-circle"></i>
+														<div class="">
+														
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">Chưa đánh giá</h1>
-												<div class="mb-0">
-													<span class="text-muted">click để đánh giá</span>
-												</div>
+												<hr class="sidebar-divider" style="color: #4e73df;">
+												<h4 style="font-size:14px;font-family:Roboto;">Rào cản chuyển đổi số trong doanh nghiệp  </h4>
+												<hr class="sidebar-divider" style="color: #4e73df;">
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">xxx điểm </h3>
 											</div>
 										</div>
 									</div>
@@ -271,20 +272,24 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Phiếu số 2</h5>
+													<i class="align-middle" data-feather="file-text" style="" ></i>
+															<span class="align-middle" style="font-family:Roboto;" >PHIẾU SỐ 2</span>
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="check-circle"></i>
+														<div class="">
+															
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">Đã đánh giá</h1>
-                                                <h2 class="mt-1 mb-3">136 điểm </h2>
+												<hr class="sidebar-divider" style="color: #4e73df;">
+												<h4 style="font-size:14px;font-family:Roboto;">Chuyển đổi số của doanh nghiệp vừa và nhỏ </h4>
+												<hr class="sidebar-divider" style="color: #4e73df;">
+											
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">xxx điểm </h3>
 												<div class="mb-0">
 
-													<span class="text-muted">click để đánh giá lại</span>
+													
 												</div>
 											</div>
 										</div>
@@ -292,18 +297,23 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Phiếu số 4</h5>
+													<i class="align-middle" data-feather="file-text" style="" ></i>
+															<span class="align-middle" style="font-family:Roboto;" >PHIẾU SỐ 4</span>
 													</div>
 
 													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="mail"></i>
+														<div class="">
+															
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">Đã Nhận Phiếu</h1>
+												<hr class="sidebar-divider" style="color: #4e73df;">
+												<h4 style="font-size:14px;font-family:Roboto;">Ý kiến của doanh nghiệp về chuyển đổi số</h4>
+												<hr class="sidebar-divider" style="color: #4e73df;">
+			
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">Trạng thái </h3>
 												<div class="mb-0">
-													<span class="text-muted">click để gửi phiếu mới</span>
+													
 												</div>
 											</div>
 										</div>
@@ -327,194 +337,16 @@
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
+					
 
-									<h5 class="card-title mb-0">Browser Usage</h5>
-								</div>
-								<div class="card-body d-flex">
-									<div class="align-self-center w-100">
-										<div class="py-3">
-											<div class="chart chart-xs">
-												<canvas id="chartjs-dashboard-pie"></canvas>
-											</div>
-										</div>
-
-										<table class="table mb-0">
-											<tbody>
-												<tr>
-													<td>Chrome</td>
-													<td class="text-end">4306</td>
-												</tr>
-												<tr>
-													<td>Firefox</td>
-													<td class="text-end">3801</td>
-												</tr>
-												<tr>
-													<td>IE</td>
-													<td class="text-end">1689</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Real-Time</h5>
-								</div>
-								<div class="card-body px-4">
-									<div id="world_map" style="height:350px;"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
-							<div class="card flex-fill">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Calendar</h5>
-								</div>
-								<div class="card-body d-flex">
-									<div class="align-self-center w-100">
-										<div class="chart">
-											<div id="datetimepicker-dashboard"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-12 col-lg-8 col-xxl-9 d-flex">
-							<div class="card flex-fill">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Latest Projects</h5>
-								</div>
-								<table class="table table-hover my-0">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th class="d-none d-xl-table-cell">Start Date</th>
-											<th class="d-none d-xl-table-cell">End Date</th>
-											<th>Status</th>
-											<th class="d-none d-md-table-cell">Assignee</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Project Apollo</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>Project Fireball</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-danger">Cancelled</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>Project Hades</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
-										<tr>
-											<td>Project Nitro</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>Project Phoenix</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>Project X</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
-										<tr>
-											<td>Project Romeo</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Christina Mason</td>
-										</tr>
-										<tr>
-											<td>Project Wombat</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="col-12 col-lg-4 col-xxl-3 d-flex">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Monthly Sales</h5>
-								</div>
-								<div class="card-body d-flex w-100">
-									<div class="align-self-center chart chart-lg">
-										<canvas id="chartjs-dashboard-bar"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</main>
-
-			<footer class="footer">
-				<div class="container-fluid">
-					<div class="row text-muted">
-						<div class="col-6 text-start">
-							<p class="mb-0">
-								<a class="text-muted" href="{{  url::to('trangchu') }}" target="_blank"><strong>CHUYỂN ĐỔI SỐ TỈNH AN GIANG</strong></a> - <a class="text-muted" href="https://fit.agu.edu.vn/" target="_blank"><strong>Tk và Xây dựng bởi FIT - TRƯỜNG ĐH AN GIANG</strong></a>								&copy;
-							</p>
-						</div>
-						<div class="col-6 text-end">
-							<ul class="list-inline">
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://fit.agu.edu.vn/" target="_blank">Support</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://fit.agu.edu.vn/" target="_blank">Help Center</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://fit.agu.edu.vn/" target="_blank">Privacy</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://fit.agu.edu.vn/" target="_blank">Terms</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</div>
-	</div>
+					<footer class="sticky-footer bg-grey ">
+               
+                    <div class="copyright text-center my-auto">
+					<p style="background: none;text-align: center; color: black; font-size: 14px; margin:5px;font-family:Roboto;">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
+                            </div>
+                    </div>
+                </div>
+            </footer>
 
 	<script src="js/app.js"></script>
 
