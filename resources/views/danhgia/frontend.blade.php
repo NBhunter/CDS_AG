@@ -61,7 +61,7 @@
 
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: blue;">
+  <div class="text-center p-3" style="background-color: #4e73df;;">
   <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
   </div>
 </footer>
