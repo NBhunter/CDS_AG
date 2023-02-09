@@ -20,9 +20,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <!-- hoverable dropdown -->
 <style>
-
-
-
+.nav-item:hover .item:hover{
+  color:blue;
+}
+.nav-item .item{
+  color: black;
+  
+}
+.nav-link{
+  color: black;
+}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -31,7 +38,12 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-
+.item {
+  color: black;
+  padding: 12px 16px;
+  text-decoration:unset;
+  display: block;
+}
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -39,7 +51,7 @@
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: #ddd;  color:blue;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
@@ -47,7 +59,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light"style="font-family:Arial; font-weight:bold; font-size: auto;">
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light"style="font-family:Roboto; font-weight:bold; font-size: auto;">
   <div class="container-fluid">
     <a class="navbar-brand" style="width: 5%;" href="#"><img src="{{asset('img/logo_ag.png')}}" alt="" width="100%" height="auto"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,26 +68,26 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" style="color:black" href="#">TRANG CHỦ</a>
+          <a class="item " aria-current="page"  href="#">TRANG CHỦ</a>
         </li>
         <li class="nav-item dropdown ">
         <!-- <div class="nav-item "> -->
-  <a class="nav-link dropdown active"style="color:#0000ff">DANH MỤC</a>
+  <a class="item dropdown " s>DANH MỤC</a>
   <div class="dropdown-content">
     <a href="#">Nông Nghiệp</a>
     <a href="#">Công Nghiệp</a>
     <a href="#">Dịch Vụ</a>
   </div>
         <li class="nav-item">
-          <a class="nav-link active" style="color:#0000ff"href="#">TIN TỨC</a>
+          <a class="item " href="#">TIN TỨC</a>
         </li>
 
-  <li class="nav-item">
-          <a class="nav-link active"style="color:#0000ff" href="#">THƯ VIỆN ĐIỆN TỬ</a>
-        </li>
+  <div class="nav-item">
+          <a class="item " href="#">THƯ VIỆN ĐIỆN TỬ</a>
+</div>
 
   <li class="nav-item">
-          <a class="nav-link active" style="color:#0000ff"href="{{ URL::to('dnviews') }}">ĐÁNH GIÁ</a>
+          <a class="item " href="{{ URL::to('dnviews') }}">ĐÁNH GIÁ</a>
         </li>
 <!-- </div> -->
         </li>
@@ -152,7 +164,7 @@
 
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color:#4e73df;;">
+  <div class="text-center p-3" style="background-color:#0038b0;">
   <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
   </div>
   <!-- Copyright -->

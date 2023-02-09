@@ -9,8 +9,8 @@
   <!-- link root -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
-    <br>
-    <h2 style="color:black; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 1</h2>
+    
+    
     <!-- boottrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
@@ -48,8 +48,11 @@
     </style>
 </head>
 
-<body style="background-color:white;">
-<div class="container" style="font-weight:400;">
+<body style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: no-repeat;   background-position: center;  background-size:100%;;">
+<div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
+<h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 1</h2>
+</div>
+<div class="container" style="font-weight:400;margin_top: 0px ;">
 <div class="row" style="font-weight:400;">
 
 @yield('content')
@@ -61,7 +64,7 @@
 
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: #4e73df;;">
+  <div class="text-center p-3" style="background-color: #0038b0;">
   <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
   </div>
 </footer>
