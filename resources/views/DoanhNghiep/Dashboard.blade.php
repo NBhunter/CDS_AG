@@ -53,16 +53,9 @@
                 <li class="sidebar-item">
 
                     {{-- <a class="sidebar-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" style="background-color: #4e73df;">
-          <i class="align-middle" data-feather="toggle-right"></i> <span class="align-middle">Log out</span>
+          <i class="align-middle" data-feather="log-out"></i> <span class="align-middle" style="font-family:Roboto;">Log out</span>
         </a> --}}
-        <form method="POST" action="{{ route('logout') }}" x-data>
-            @csrf
-
-            <x-jet-dropdown-link href="{{ route('logout') }}"
-                     @click.prevent="$root.submit();">
-                {{ __('Log Out') }}
-            </x-jet-dropdown-link>
-        </form>
+        
                 </li>
             </ul>
 		</nav>
@@ -222,12 +215,15 @@
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Đổi mật khẩu</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Trợ giúp</a>
 								<div class="dropdown-divider"></div>
-<<<<<<< HEAD
-								<a class="dropdown-item" href="#">Thoát</a>
-=======
-								<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Log out</a>
+								<form method="POST" action="{{ route('logout') }}" x-data>
+            @csrf
 
->>>>>>> d89dd6793e517c3daec5128260533d0417362b7f
+            <x-jet-dropdown-link class="dropdown-item" style="font-family: Roboto;color:black;font-size:14px;" href="{{ route('logout') }}{{ route('logout') }}"
+                     @click.prevent="$root.submit();">
+               Thoát
+            </x-jet-dropdown-link>
+        </form>
+								<!-- <a  href="{{ route('logout') }}" onclick="$root.submit();">{{ __('Thoát') }}</a> -->
 							</div>
 						</li>
 					</ul>
