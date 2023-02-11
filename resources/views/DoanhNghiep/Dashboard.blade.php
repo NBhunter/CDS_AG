@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf8mb4">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,7 +29,7 @@
         </a>
 		<hr class="sidebar-divider" style="color:white;">
 				<ul class="sidebar-nav">
-			
+
 					<li class="sidebar-item active"style="background-color: #4e73df;">
 						<a class="sidebar-link" href="{{ URL::to('dnviews') }}">
               <i class="align-middle" data-feather="home"></i> <span class="align-middle" style="font-family:Roboto;">Trang điều khiển</span>
@@ -37,7 +37,7 @@
 					</li>
 					<hr class="sidebar-divider" style="color:white;">
                 <!-- Heading -->
-                
+
 					<li class="sidebar-item" >
 						<a class="sidebar-link" href="" style="background-color: #4e73df;">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle" style="font-family:Roboto;">Hồ sơ cá nhân</span>
@@ -55,7 +55,7 @@
                     {{-- <a class="sidebar-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" style="background-color: #4e73df;">
           <i class="align-middle" data-feather="log-out"></i> <span class="align-middle" style="font-family:Roboto;">Log out</span>
         </a> --}}
-        
+
                 </li>
             </ul>
 		</nav>
@@ -145,6 +145,7 @@
 										Tin nhắn
 									</div>
 								</div>
+
 								<div class="list-group">
 									<a href="#" class="list-group-item">
 										<div class="row g-0 align-items-center">
@@ -204,13 +205,13 @@
 							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
                 <i class="align-middle" data-feather="settings"></i>
               </a>
-
+              @foreach($DoanhNghiep as $key => $dn)
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="{{asset('dasdboard/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Doanh nghiệp A - Nguyễn Văn B</span>
+                <img src="{{asset('dasdboard/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{ $dn->TenDoanhNghiep }} - {{ $dn->name }}</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Thông tin</a>
-		
+
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Đổi mật khẩu</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Trợ giúp</a>
@@ -218,11 +219,12 @@
 								<form method="POST" action="{{ route('logout') }}" x-data>
             @csrf
 
-            <x-jet-dropdown-link class="dropdown-item" style="font-family: Roboto;color:black;font-size:14px;" href="{{ route('logout') }}{{ route('logout') }}"
+            <x-jet-dropdown-link class="dropdown-item" style="font-family: Roboto;color:black;font-size:14px;" href="{{ route('logout') }}"
                      @click.prevent="$root.submit();">
                Thoát
             </x-jet-dropdown-link>
         </form>
+        @endforeach
 								<!-- <a  href="{{ route('logout') }}" onclick="$root.submit();">{{ __('Thoát') }}</a> -->
 							</div>
 						</li>
@@ -250,7 +252,7 @@
 													</div>
 
 													<div class="col-auto">
-														
+
                                                         </a>
 
 														</div>
@@ -260,7 +262,7 @@
 												<h4 style="font-size:14px;font-family:Roboto;">Chỉ số đánh giá mức độ chuyển đổi số </h4>
 												<hr class="sidebar-divider" style="color: #4e73df;">
 												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">320 điểm </h3>
-												
+
 											</div>
 										</div>
 										<div class="card">
@@ -273,7 +275,7 @@
 
 													<div class="col-auto">
 														<div class="">
-														
+
 														</div>
 													</div>
 												</div>
@@ -295,18 +297,18 @@
 
 													<div class="col-auto">
 														<div class="">
-															
+
 														</div>
 													</div>
 												</div>
 												<hr class="sidebar-divider" style="color: #4e73df;">
 												<h4 style="font-size:14px;font-family:Roboto;">Chuyển đổi số của doanh nghiệp vừa và nhỏ </h4>
 												<hr class="sidebar-divider" style="color: #4e73df;">
-											
+
 												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">xxx điểm </h3>
 												<div class="mb-0">
 
-													
+
 												</div>
 											</div>
 										</div>
@@ -320,17 +322,17 @@
 
 													<div class="col-auto">
 														<div class="">
-															
+
 														</div>
 													</div>
 												</div>
 												<hr class="sidebar-divider" style="color: #4e73df;">
 												<h4 style="font-size:14px;font-family:Roboto;">Ý kiến của doanh nghiệp về chuyển đổi số</h4>
 												<hr class="sidebar-divider" style="color: #4e73df;">
-			
+
 												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">Trạng thái </h3>
 												<div class="mb-0">
-													
+
 												</div>
 											</div>
 										</div>
@@ -354,10 +356,10 @@
 						</div>
 					</div>
 
-					
+
 
 					<footer class="sticky-footer bg-grey ">
-               
+
                     <div class="copyright text-center my-auto">
 					<p style="background: none;text-align: center; color: black; font-size: 14px; margin:5px;font-family:Roboto;">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
                             </div>

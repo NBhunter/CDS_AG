@@ -37,11 +37,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-Route::get('/dnviews', function () {
-    return view('DoanhNghiep.Dashboard');
-});
 
-Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
+    Route::get('/dnviews','App\Http\Controllers\DoanhNghiepController@getdanhnghiep' );
+    Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
+    Route::get('/admin/main','App\Http\Controllers\AdminController@getdashboard' );
+
+    Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia1Controller@getidCauHoi' );
+    Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
 });
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
