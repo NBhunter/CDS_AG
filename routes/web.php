@@ -44,6 +44,7 @@ Route::middleware([
 
     Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia1Controller@getidCauHoi' );
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
+    Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
 });
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
