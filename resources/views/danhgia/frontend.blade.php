@@ -9,8 +9,8 @@
   <!-- link root -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
-    
-    
+
+
     <!-- boottrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
@@ -48,7 +48,7 @@
     </style>
 </head>
 
-<body style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: no-repeat;   background-position: center;  background-size:100%;;">
+<body style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: round;    background-size:100%;">
 <div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
 <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 1</h2>
 </div>
