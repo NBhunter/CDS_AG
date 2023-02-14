@@ -24,4 +24,5 @@ class DoanhNghiepController extends Controller
             return view('DoanhNghiep.Dashboard')->with('DoanhNghiep',$DoanhNghiep);
 
     }
+
 }
