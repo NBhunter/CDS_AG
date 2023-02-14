@@ -40,11 +40,18 @@ Route::middleware([
 
     Route::get('/dnviews','App\Http\Controllers\DoanhNghiepController@getdanhnghiep' );
     Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
+    //phần chức năng trang admin
     Route::get('/admin/main','App\Http\Controllers\AdminController@getdashboard' );
-
+    //form thêm phiếu
     Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia1Controller@getidCauHoi' );
-    Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
+    //lưu phiếu
     Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
+    //lấy user
+    Route::get('/admin/user','App\Http\Controllers\AdminController@getuser');
+
+    Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
+
+
 });
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 

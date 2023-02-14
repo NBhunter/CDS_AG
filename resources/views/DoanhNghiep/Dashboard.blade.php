@@ -207,7 +207,8 @@
               </a>
               @foreach($DoanhNghiep as $key => $dn)
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="{{asset('dasdboard/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{ $dn->TenDoanhNghiep }} - {{ $dn->name }}</span>
+                <img src="{{asset('dasdboard/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" />
+                <span class="text-dark"> @if($dn->TenDoanhNghiep== null)<span class="badge bg-danger">Chưa xác thực Doanh Nghiệp</span> - {{ $dn->name }} @else{{ $dn->TenDoanhNghiep }} - {{ $dn->name }}@endif</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Thông tin</a>
