@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading" style="font-weight:bold;text-align:center;font-size:22px;color:#4e73df;font-style:Roboto;">
+                <header class="panel-heading" style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">
                    THÊM CÂU HỎI
                 </header>
                  <?php
@@ -87,7 +87,7 @@
 
                 </div>
             </section>
-
+                </div>
     </div>
     <script>
 function changerID(obj){

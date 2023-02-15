@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ URL::to('admin/main') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ URL::to('admin/main') }}" >
                 <div class="sidebar-brand-icon ">
                 <i class='fas fa-home'></i>
                 </div>
@@ -173,54 +173,36 @@
                         
                     </div>
                 </div>
+                  <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
             </li>
-<<<<<<< HEAD
-            {{-- xem ngừoi dùng --}}
+            <div class="sidebar-heading">
+                 Người dùng
+            </div>
             <li class="nav-item">
                 <a class="nav-link" href="{{ URL::to('admin/user') }}">
-                    <i class="fas fa-fw fa-id-card"></i>
-                    <span>Người dùng</span></a>
+                    <i class="fas fa-address-book"></i>
+                    <span>Thông tin người dùng</span></a>
             </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-            <!-- Nav Item - Tables -->
-
-=======
-            <!-- Nav Item - Charts -->
            
->>>>>>> 41846ecede884a474b323626109d110fb603194d
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <div class="text-center d-none d-md-inline" >
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-<<<<<<< HEAD
-
-
-=======
           
->>>>>>> 41846ecede884a474b323626109d110fb603194d
         </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column" style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: round;    background-size:100%;" >
 
             <!-- Main Content -->
-            <div id="content">
+            <div id="content" >
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -231,35 +213,19 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                 
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
+                       
                          
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@php
+                                <span class="mr-2 d-none d-lg-inline" style="font-size:14px;font-weight:bold; color:#4e73df;">@php
                                     $name = Session::get('name') ." - ".Session::get('role');
 					if($name){
 						echo $name;
@@ -301,22 +267,15 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
+                                    <!-- Page Heading -->
                     @yield('content')
-                    </div>
-					</div>
-                  
-					
+                
+                </div>
+                </div>
+                
             <!-- Footer -->
-            <footer class="sticky-footer bg-grey ">
-
-<div class="copyright text-center my-auto">
-<p style="background: none;text-align: center; color: black; font-size: 14px; margin:5px;font-family:Roboto;">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
-        </div>
-</div>
-</div>
-</footer>
+            <div class="text-center p-3" style="background-color: #0038b0;">
+  <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
 
             <!-- End of Footer -->
 
