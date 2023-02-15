@@ -1,7 +1,9 @@
 @extends('admin.admindashboard')
 @section('content')
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> --}}
-<div id="content-wrapper" class="d-flex flex-column">
+{{--
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> --}}
+
 
     <!-- Main Content -->
 
@@ -10,18 +12,16 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Danh sách người dùng</h1>
-            <p class="mb-4"> <a target="_blank"
-                    href="https://datatables.net">official DataTables documentation</a>.</p>
-
+            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN NGƯỜI DÙNG</h1>
+           
             <!-- DataTales Example -->
-            <div class="card shadow mb-4">
+            <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable"style="text-align:center;">
                             <thead>
                                 <tr>
                                     <th>STT</th>
@@ -32,16 +32,7 @@
                                     <th>Xử Lý</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên</th>
-                                    <th>Email</th>
-                                    <th>Doanh nghiệp</th>
-                                    <th>Phân Quyền</th>
-                                    <th>Xử Lý</th>
-                                </tr>
-                            </tfoot>
+                         
                             <tbody>
                                 @php
                                     $i = 0;
@@ -93,6 +84,7 @@
                 </div>
             </div>
 
+           
         </div>
         <!-- /.container-fluid -->
 
@@ -103,14 +95,15 @@
 
 </div>
 <!-- End of Content Wrapper -->
-
+                                    
 </div>
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
-<i class="fas fa-angle-up"></i>
-</a>
+        <i class="fas fa-angle-up"></i>
+    </a>
+
 
 
 {{-- <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script> --}}
