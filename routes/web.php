@@ -42,6 +42,7 @@ Route::middleware([
     Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
     Route::get('/phieudanhgia2','App\Http\Controllers\DanhGia2Controller@getCauHoi' );
     Route::get('/phieudanhgia3','App\Http\Controllers\DanhGia3Controller@getCauHoi' );
+    Route::get('/phieudanhgia4','App\Http\Controllers\DanhGia4Controller@getCauHoi' );
     //phần chức năng trang admin
     Route::get('/admin/main','App\Http\Controllers\AdminController@getdashboard' );
     //form thêm phiếu
@@ -53,6 +54,12 @@ Route::middleware([
     Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
     Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia2Controller@saveCauHoi');
     Route::post('/save-cauhoi_p3','App\Http\Controllers\DanhGia3Controller@saveCauHoi');
+    Route::post('/save-cauhoi_p4','App\Http\Controllers\DanhGia4Controller@saveCauHoi');
+
+    //trả lời phiếu số 4
+    Route::post('/request-cauhoi_p4','App\Http\Controllers\DanhGia4Controller@requestCauHoi');
+    //xem các phiếu số 4 đã gửi
+    Route::get('/admin/xemphieuso4','App\Http\Controllers\DanhGia4Controller@getCauHoi' );
     //lấy user
     Route::get('/admin/user','App\Http\Controllers\AdminController@getuser');
 

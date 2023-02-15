@@ -157,8 +157,8 @@ td{
 @endsection
 @section('content')
 <div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 3 @php
-        $name = Session::get('name') ;
+    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 4 @php
+        $name = Session::get('DoanhNghiep_id') ." - ".Session::get('User_id')." - ".Session::get('lienket_id');
 					if($name){
 						echo $name;
 
@@ -168,50 +168,23 @@ td{
     <div class="container" style="font-weight:400;margin_top: 0px ;">
     <div class="row" style="font-weight:400;">
 <div class="card-body" align="center" background="black" >
-@php
 
-    $j=0;
+<div class="position-center">
+    <form role="form" action="{{URL::to('/save-cauhoi_p4')}}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
 
-@endphp
-<table class="table table-bordered border-primary" >
-    <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude">
-        <td class="col-1" rowspan="4">STT</td>
-        <td class="col-5" rowspan="4">Nội Dung</td>
-        <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
-    </tr>
-    <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude2">
-        <td class="col-1" rowspan="2">1- hoàn toàn không đồng ý</td>
-        <td class="col-1" rowspan="2">2- phần lớn không đồng ý</td>
-        <td class="col-1" rowspan="2">3- phân vân</td>
-        <td class="col-1" rowspan="2">4- phần lớn không đồng ý</td>
-        <td class="col-1" rowspan="2">5- hoàn toàn đồng ý</td>
-      </tr>
-      <tbody style="text-align:center;font-weight:400;">
-        @csrf
-@foreach($Cauhoi as $key => $ctCauhoi)
-
-@php
-    $j++;
-
-@endphp
-<tr class="" style="text-align:center;font-weight:400;">
-    <th class="stt" style="text-align:center;">{{ $j }}</th>
-    <th class="">{{ $ctCauhoi->TenCauHoi}}</th>
-    <th class=""><div class="rating1" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="1" id="1{{ $ctCauhoi->Id }}"><label for="1{{ $ctCauhoi->Id }}" name="1{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating2" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="2" id="2{{ $ctCauhoi->Id }}"><label for="2{{ $ctCauhoi->Id }}" name="2{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating3" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="3" id="3{{ $ctCauhoi->Id }}"><label for="3{{ $ctCauhoi->Id }}" name="3{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating4" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="4" id="4{{ $ctCauhoi->Id }}"><label for="4{{ $ctCauhoi->Id }}" name="4{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating5" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="5" id="5{{ $ctCauhoi->Id }}"><label for="5{{ $ctCauhoi->Id }}" name="5{{ $j }}">☆</label></div></th>
-</tr>
-@endforeach
-
-</tbody>
-    </table>
-
-        <div class="form-group" id="cauhoi3" >
-        <label>Rào Cản (nếu có)</label>
-        <textarea name="RaoCan" id="RaoCan" cols="30" rows="10"></textarea>
+        <div class="form-group" id="cauhoi1" >
+            <label style="font-weight:bold;"for="exampleInputPassword1">Nhu cầu về dịch vụ Công nghệ thông tin/Chuyển đổi số</label>
+            <textarea style="resize: none"  rows="8" class="form-control" name="NhuCau" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
         </div>
+        <div class="form-group" id="cauhoi2" >
+            <label style="font-weight:bold;"for="exampleInputPassword1">Hỏi/ đáp hoặc đề xuất</label>
+            <textarea style="resize: none"  rows="8" class="form-control" name="Hoi_Dap" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
+        </div>
+
+    <button type="submit" name="add_product" id="btn" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm</button>
+    </form>
+</div>
 </div>
 </div>
   <!-- Copyright -->
