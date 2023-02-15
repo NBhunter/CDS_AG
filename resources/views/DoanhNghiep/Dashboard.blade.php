@@ -269,10 +269,11 @@
 										<div class="card">
 											<div class="card-body">
 												<div class="row">
-													<div class="col mt-0">
+													<div class="col mt-0"><a href="{{ URL::to('phieudanhgia3') }}" class="">
 													<i class="align-middle" data-feather="file-text" style="" ></i>
 															<span class="align-middle" style="font-family:Roboto;" >PHIẾU SỐ 3</span>
-													</div>
+                                                    </a>
+                                                        </div>
 
 													<div class="col-auto">
 														<div class="">
@@ -292,9 +293,11 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
+                                                        <a href="{{ URL::to('phieudanhgia2') }}" class="">
 													<i class="align-middle" data-feather="file-text" style="" ></i>
 															<span class="align-middle" style="font-family:Roboto;" >PHIẾU SỐ 2</span>
-													</div>
+                                                        </a>
+                                                        </div>
 
 													<div class="col-auto">
 														<div class="">
