@@ -3,8 +3,8 @@
 <div class="row">
     <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading">
-                   Thêm thành phần phiếu số 1
+                <header class="panel-heading" style="font-weight:bold;text-align:center;font-size:22px;color:#4e73df;font-style:Roboto;">
+                   THÊM CÂU HỎI
                 </header>
                  <?php
                     $message = Session::get('message');
@@ -21,28 +21,28 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Cấp</label>
                                   <select name="Cap" class="form-control input-sm m-bot15" onchange="changerID(this)">
-                                     <option value="0">tag (0)</option>
-                                        <option value="1" selected>Trụ Cột (1)</option>
+                                     <option value="0">Tiêu đề (0)</option>
+                                        <option value="1" selected>Trụ cột (1)</option>
                                         <option value="2">Tiêu chí (2)</option>
-                                        <option value="3">câu hỏi (3)</option>
+                                        <option value="3">Câu hỏi (3)</option>
                                 </select>
                             </div>
                             <div class="form-group" id="tieuchi">
                                 <label for="exampleInputEmail1">Tiêu chí</label>
-                                <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Làm ơn điền ít nhất 10 ký tự" name="NoiDung" class="form-control " id="NoiDung" placeholder="Trụ cột/ Thành phần/ Tiêu chí">
+                                <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền ít nhất 10 ký tự" name="NoiDung" class="form-control " id="NoiDung" placeholder="Nhập tiêu chí">
                             </div>
                             <div class="form-group" id="cauhoi" hidden>
                                 <label for="exampleInputPassword1">Câu hỏi</label>
-                                <textarea style="resize: none"  rows="8" class="form-control" name="TenCauHoi" id="ckeditor1" placeholder="Câu hỏi"></textarea>
+                                <textarea style="resize: none"  rows="8" class="form-control" name="TenCauHoi" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
                             </div>
                             <div class="form-group"id="mota" hidden>
                                 <label for="exampleInputPassword1">Mô tả </label>
-                                <textarea style="resize: none"  rows="8" class="form-control" name="MoTa" id="ckeditor1" placeholder="Mô tả về câu hỏi"></textarea>
+                                <textarea style="resize: none"  rows="8" class="form-control" name="MoTa" id="ckeditor1" placeholder="Nhập mô tả về câu hỏi"></textarea>
                             </div>
 
                         <div class="form-group" id="diem" >
                             <label for="exampleInputEmail1">Điểm tối đa</label>
-                            <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Làm ơn điền số điểm tối đa" name="DiemToiDa" class="form-control " id="DiemToiDa" placeholder="Trụ cột/ Thành phần/ Tiêu chí">
+                            <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền số điểm tối đa" name="DiemToiDa" class="form-control " id="DiemToiDa" placeholder=" Nhập điểm">
                         </div>
                         <div class="form-group" id="trucot"  hidden>
                             <label for="exampleInputPassword1">Trụ cột</label>
@@ -81,7 +81,7 @@
 
                             </select>
                         </div>
-                        <button type="submit" name="add_product" class="btn btn-info">Thêm sản phẩm</button>
+                        <button type="submit" name="add_product" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm</button>
                         </form>
                     </div>
 
