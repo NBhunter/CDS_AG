@@ -86,7 +86,7 @@
                         <h6 class="collapse-header">Quản lý bình luận:</h6>
                         <a class="collapse-item" href="">Thêm bình luận</a>
                         <a class="collapse-item" href="">Sửa bình luận</a>
-                        
+
                     </div>
                 </div>
             </li>
@@ -103,7 +103,7 @@
                         <h6 class="collapse-header">Quản lý thư viện:</h6>
                         <a class="collapse-item" href="">Thêm thư viện</a>
                         <a class="collapse-item" href="">Sửa thư viện</a>
-                        
+
                     </div>
                 </div>
             </li>
@@ -126,9 +126,9 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
-                        
+
                         <a class="collapse-item" href="login.html">Danh sách câu hỏi</a>
-                   
+
                         <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso1') }}">Thêm câu hỏi</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">KẾT QUẢ ĐÁNH GIÁ:</h6>
@@ -147,12 +147,12 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
-                        
+
                         <a class="collapse-item" href="login.html">Danh sách câu hỏi</a>
-                   
-                        <a class="collapse-item" href="">Thêm câu hỏi</a>
+
+                        <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso2') }}">Thêm câu hỏi</a>
                         <div class="collapse-divider"></div>
-                        
+
                     </div>
                 </div>
             </li>
@@ -165,39 +165,24 @@
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
-                        
+
                         <a class="collapse-item" href="login.html">Danh sách câu hỏi</a>
-                   
-                        <a class="collapse-item" href="">Thêm câu hỏi</a>
+
+                        <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso3') }}">Thêm câu hỏi</a>
                         <div class="collapse-divider"></div>
-                        
+
                     </div>
                 </div>
             </li>
-<<<<<<< HEAD
+
             {{-- xem ngừoi dùng --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ URL::to('admin/user') }}">
                     <i class="fas fa-fw fa-id-card"></i>
                     <span>Người dùng</span></a>
             </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-            <!-- Nav Item - Tables -->
 
-=======
-            <!-- Nav Item - Charts -->
-           
->>>>>>> 41846ecede884a474b323626109d110fb603194d
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -207,12 +192,12 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-<<<<<<< HEAD
 
 
-=======
-          
->>>>>>> 41846ecede884a474b323626109d110fb603194d
+
+        </ul>
+        <!-- End of Sidebar -->
+
         </ul>
         <!-- End of Sidebar -->
 
@@ -253,7 +238,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                         
+                        <li class="nav-item dropdown no-arrow">
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -267,7 +252,7 @@
 					}
 
                                 @endphp</span>
-                               
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -280,7 +265,7 @@
                                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
                                   Đổi mật khẩu
                                 </a>
-                                
+                                <form method="POST" action="{{ route('logout') }}" x-data>
                                 <div class="dropdown-divider"></div>
 
                                 <form method="POST" action="{{ route('logout') }}" x-data>
@@ -306,8 +291,8 @@
                     @yield('content')
                     </div>
 					</div>
-                  
-					
+            <footer class="sticky-footer bg-grey ">
+
             <!-- Footer -->
             <footer class="sticky-footer bg-grey ">
 

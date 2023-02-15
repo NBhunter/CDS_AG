@@ -131,6 +131,12 @@ td{
 </style>
 @endsection
 @section('content')
+<div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
+    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 1</h2>
+    </div>
+    <div class="container" style="font-weight:400;margin_top: 0px ;">
+    <div class="row" style="font-weight:400;">
+
 <div class="card-body" align="center" background="black" >
 @php
     $i=0;

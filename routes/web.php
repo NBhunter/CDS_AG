@@ -40,12 +40,19 @@ Route::middleware([
 
     Route::get('/dnviews','App\Http\Controllers\DoanhNghiepController@getdanhnghiep' );
     Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
+    Route::get('/phieudanhgia2','App\Http\Controllers\DanhGia2Controller@getCauHoi' );
+    Route::get('/phieudanhgia3','App\Http\Controllers\DanhGia3Controller@getCauHoi' );
     //phần chức năng trang admin
     Route::get('/admin/main','App\Http\Controllers\AdminController@getdashboard' );
     //form thêm phiếu
     Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia1Controller@getidCauHoi' );
+    Route::get('/admin/themcauhoiso2','App\Http\Controllers\DanhGia2Controller@getidCauHoi' );
+    Route::get('/admin/themcauhoiso3','App\Http\Controllers\DanhGia3Controller@getidCauHoi' );
+
     //lưu phiếu
     Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
+    Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia2Controller@saveCauHoi');
+    Route::post('/save-cauhoi_p3','App\Http\Controllers\DanhGia3Controller@saveCauHoi');
     //lấy user
     Route::get('/admin/user','App\Http\Controllers\AdminController@getuser');
 
