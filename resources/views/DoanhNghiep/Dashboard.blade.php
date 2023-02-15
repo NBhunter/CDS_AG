@@ -233,7 +233,7 @@
 				</div>
 			</nav>
 
-			<main class="content">
+			<main class="content" style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: round;    background-size:100%;" >
 				<div class="container-fluid p-0">
 
 					<h1 class="h3 mb-3" style="font-weight:bold;font-family:Roboto;color:#4e73df;">PHIẾU ĐÁNH GIÁ</h1>
