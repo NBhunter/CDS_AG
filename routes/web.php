@@ -49,6 +49,10 @@ Route::middleware([
     //lấy user
     Route::get('/admin/user','App\Http\Controllers\AdminController@getuser');
 
+    //sử lý user
+
+    Route::get('/role/{user_id}','App\Http\Controllers\AdminController@getdetail');
+
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
 
 

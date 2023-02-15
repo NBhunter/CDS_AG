@@ -17,7 +17,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <!-- Custom styles for this template-->
 
 	<link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
@@ -121,20 +121,25 @@
                     </div>
                 </div>
             </li>
-
+            {{-- xem ngừoi dùng --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ URL::to('admin/user') }}">
+                    <i class="fas fa-fw fa-id-card"></i>
+                    <span>Người dùng</span></a>
+            </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
-
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
+            <!-- Nav Item - Tables -->
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -144,12 +149,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+
 
         </ul>
         <!-- End of Sidebar -->
