@@ -320,8 +320,10 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
+                                                        <a href="{{ URL::to('phieudanhgia4') }}" class="">
 													<i class="align-middle" data-feather="file-text" style="" ></i>
 															<span class="align-middle" style="font-family:Roboto;" >PHIẾU SỐ 4</span>
+                                                        </a>
 													</div>
 
 													<div class="col-auto">
