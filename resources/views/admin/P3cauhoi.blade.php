@@ -3,8 +3,8 @@
 <div class="row">
     <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading" style="font-weight:bold;text-align:center;font-size:22px;color:#4e73df;font-style:Roboto;">
-                   THÊM CÂU HỎI PHIẾU 3
+            <header class="panel-heading" style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">
+                   THÊM CÂU HỎI
                 </header>
                  <?php
                     $message = Session::get('message');
@@ -24,12 +24,13 @@
                                 <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền ít nhất 10 ký tự" name="Ten" class="form-control " id="NoiDung" placeholder="Nhập tiêu chí">
                             </div>
 
-                        <button type="submit" name="add_product" id="btn" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm</button>
+                        <button type="submit" name="add_product" id="btn" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm câu hỏi</button>
                         </form>
                     </div>
 
                 </div>
             </section>
+                </div>
 
     </div>
     <script>

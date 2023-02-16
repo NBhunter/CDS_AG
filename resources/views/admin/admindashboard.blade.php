@@ -176,27 +176,16 @@
                   <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             </li>
-<<<<<<< HEAD
 
             {{-- xem ngừoi dùng --}}
-=======
-            <div class="sidebar-heading">
-                 Người dùng
-            </div>
->>>>>>> 538c27cd7029b7433092a742d616a6f12e6a2625
             <li class="nav-item">
                 <a class="nav-link" href="{{ URL::to('admin/user') }}">
                     <i class="fas fa-address-book"></i>
                     <span>Thông tin người dùng</span></a>
             </li>
-<<<<<<< HEAD
 
 
 
-=======
-           
-            
->>>>>>> 538c27cd7029b7433092a742d616a6f12e6a2625
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -205,21 +194,18 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-<<<<<<< HEAD
 
 
 
         </ul>
         <!-- End of Sidebar -->
 
-=======
-          
->>>>>>> 538c27cd7029b7433092a742d616a6f12e6a2625
         </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column" style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: round;    background-size:100%;" >
+        <div id="content-wrapper" class="d-flex flex-column" >
+        <!-- style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: round;    background-size:100%; -->
 
             <!-- Main Content -->
             <div id="content" >
@@ -238,7 +224,6 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-<<<<<<< HEAD
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -246,10 +231,6 @@
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                         <li class="nav-item dropdown no-arrow">
-=======
-                       
-                         
->>>>>>> 538c27cd7029b7433092a742d616a6f12e6a2625
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -299,17 +280,9 @@
                 <div class="container-fluid">
                                     <!-- Page Heading -->
                     @yield('content')
-<<<<<<< HEAD
                     </div>
 					</div>
-            <footer class="sticky-footer bg-grey ">
-
-=======
-                
-                </div>
-                </div>
-                
->>>>>>> 538c27cd7029b7433092a742d616a6f12e6a2625
+        
             <!-- Footer -->
             <div class="text-center p-3" style="background-color: #0038b0;">
   <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>

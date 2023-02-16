@@ -3,8 +3,8 @@
 <div class="row">
     <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading" style="font-weight:bold;text-align:center;font-size:22px;color:#4e73df;font-style:Roboto;">
-                   THÊM CÂU HỎI PHIẾU 2
+            <header class="panel-heading" style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">
+                   THÊM CÂU HỎI
                 </header>
                  <?php
                     $message = Session::get('message');
@@ -14,28 +14,30 @@
                     }
                     ?>
                 <div class="panel-body">
-
+                <button type="submit" name="add_product" id="btn" class="btn btn-info" disabled><i class='fas fa-plus'></i>  Thêm câu hỏi</button>
+                <br>
+                <br>
                     <div class="position-center">
                         <form role="form" action="{{URL::to('/save-cauhoi_p2')}}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <label for="exampleInputPassword1">số lượng câu hỏi</label>
+                                <label for="exampleInputPassword1">Số lượng câu hỏi</label>
                                   <select name="Cap" class="form-control input-sm m-bot15" onchange="changerID(this)">
-                                     <option value="1">(1)</option>
-                                        <option value="2">(2)</option>
-                                        <option value="3">(3)</option>
-                                        <option value="4">(4)</option>
-                                        <option value="5">(5)</option>
-                                        <option value="0" selected>(0)</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="0" selected>0</option>
                                 </select>
                             </div>
                             <div class="form-group" id="tieuchi">
                                 <label for="exampleInputEmail1">Danh mục</label>
-                                <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền ít nhất 10 ký tự" name="Ten" class="form-control " id="NoiDung" placeholder="Nhập tiêu chí">
+                                <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền ít nhất 10 ký tự" name="Ten" class="form-control " id="NoiDung" placeholder="Nhập tên danh mục">
                             </div>
                             <div class="form-group" id="tieuchi">
                                 <label for="exampleInputEmail1">Mô tả</label>
-                                <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền ít nhất 10 ký tự" name="TenCauHoi" class="form-control " id="TenCauHoi" placeholder="Nhập Mô Tả">
+                                <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền ít nhất 10 ký tự" name="TenCauHoi" class="form-control " id="TenCauHoi" placeholder="Nhập mô tả">
                             </div>
                             <div class="form-group" id="cauhoi1" hidden>
                                 <label for="exampleInputPassword1">Câu hỏi 1</label>
@@ -57,7 +59,7 @@
                                 <label for="exampleInputPassword1">Câu hỏi 5</label>
                                 <textarea style="resize: none"  rows="8" class="form-control" name="TenCauHoi5" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
                             </div>
-                        <button type="submit" name="add_product" id="btn" class="btn btn-info" disabled><i class='fas fa-plus'></i>  Thêm</button>
+                       
                         </form>
                     </div>
 
@@ -65,6 +67,10 @@
             </section>
 
     </div>
+                </div>
+                
+                
+
     <script>
 function changerID(obj){
     var value = obj.value;
