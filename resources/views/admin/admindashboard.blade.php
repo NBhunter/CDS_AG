@@ -219,7 +219,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                 
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -282,7 +282,12 @@
                     @yield('content')
                     </div>
 					</div>
+<<<<<<< HEAD
         
+=======
+            <footer class="sticky-footer bg-grey ">
+
+>>>>>>> 73516da0ae8029ce964ba6d82d8908a505378c44
             <!-- Footer -->
             <div class="text-center p-3" style="background-color: #0038b0;">
   <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
