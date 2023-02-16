@@ -43,7 +43,7 @@
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $nd->tennguoidung }}</td>
                                     <td>{{ $nd->email }}</td>
-                                    <td>@if($nd->TenDoanhNghiep == null)<span class="badge bg-danger" style="color: rgb(249, 249, 255);">Chưa xác thực Doanh Nghiệp</span>@else{{ $nd->TenDoanhNghiep }}@endif</td>
+                                    <td>@if($nd->TenDoanhNghiep == null)<span class="badge bg-danger" style="color: rgb(249, 249, 255);">Chưa xác thực doanh nghiệp</span>@else{{ $nd->TenDoanhNghiep }}@endif</td>
                                     <td>{{ $nd->name }}</td>
                                     <td>
 

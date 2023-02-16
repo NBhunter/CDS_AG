@@ -81,7 +81,7 @@
 
                             </select>
                         </div>
-                        <button type="submit" name="add_product" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm</button>
+                        <button type="submit" name="add_product" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm câu hỏi</button>
                         </form>
                     </div>
 
