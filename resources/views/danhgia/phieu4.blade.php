@@ -174,15 +174,19 @@ td{
         {{ csrf_field() }}
 
         <div class="form-group" id="cauhoi1" >
-            <label style="font-weight:bold;"for="exampleInputPassword1">Nhu cầu về dịch vụ Công nghệ thông tin/Chuyển đổi số</label>
+            <label style="font-weight:bold;"for="exampleInputPassword1">Nhu cầu về dịch vụ công nghệ thông tin / Chuyển đổi số</label>
+            <br><br>
             <textarea style="resize: none"  rows="8" class="form-control" name="NhuCau" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
         </div>
+        <br>
         <div class="form-group" id="cauhoi2" >
-            <label style="font-weight:bold;"for="exampleInputPassword1">Hỏi/ đáp hoặc đề xuất</label>
+            <label style="font-weight:bold;"for="exampleInputPassword1">Hỏi / đáp hoặc đề xuất</label>
+            <br><br>
             <textarea style="resize: none"  rows="8" class="form-control" name="Hoi_Dap" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
         </div>
-
-    <button type="submit" name="add_product" id="btn" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm</button>
+<br>
+<br>
+    <button type="submit" name="add_product" id="btn" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm câu hỏi</button>
     </form>
 </div>
 </div>
