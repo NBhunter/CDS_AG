@@ -172,11 +172,11 @@ td{
         <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
     </tr>
     <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude2">
-        <td class="col-1" rowspan="2">1- hoàn toàn không đồng ý</td>
-        <td class="col-1" rowspan="2">2- phần lớn không đồng ý</td>
-        <td class="col-1" rowspan="2">3- phân vân</td>
-        <td class="col-1" rowspan="2">4- phần lớn không đồng ý</td>
-        <td class="col-1" rowspan="2">5- hoàn toàn đồng ý</td>
+        <td class="col-1" rowspan="2">1- Hoàn toàn không đồng ý</td>
+        <td class="col-1" rowspan="2">2- Phần lớn không đồng ý</td>
+        <td class="col-1" rowspan="2">3- Phân vân</td>
+        <td class="col-1" rowspan="2">4- Phần lớn không đồng ý</td>
+        <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
       </tr>
       <tbody style="text-align:center;font-weight:400;">
         @csrf
@@ -198,8 +198,8 @@ td{
     $y=0;
 @endphp
 <tr class="" style="text-align:center;font-weight:400;">
-    <th class="stt" style="text-align:center;">{{ $i.".".$j }}</th>
-    <th class="">{{ $ctCauhoi->TenCauHoi}}</th>
+    <th class="stt" style="text-align:center; ">{{ $i.".".$j }}</th>
+    <th class="" style="font-weight:400;">{{ $ctCauhoi->TenCauHoi}}</th>
     <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="rating{{ $j }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}"><label for="1{{ $ctCauhoi->NoiDung_id }}" name="1{{ $j }}">☆</label></div></th>
     <th class=""><div class="rating2" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="rating{{ $j }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}"><label for="2{{ $ctCauhoi->NoiDung_id }}" name="2{{ $j }}">☆</label></div></th>
     <th class=""><div class="rating3" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="rating{{ $j }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}"><label for="3{{ $ctCauhoi->NoiDung_id }}" name="3{{ $j }}">☆</label></div></th>

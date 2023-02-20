@@ -68,9 +68,10 @@ Route::middleware([
     Route::get('/role/{user_id}','App\Http\Controllers\AdminController@getdetail');
 
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
-
-
+    Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
+    
 });
+
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -180,11 +180,11 @@ td{
         <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
     </tr>
     <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude2">
-        <td class="col-1" rowspan="2">1- hoàn toàn không đồng ý</td>
-        <td class="col-1" rowspan="2">2- phần lớn không đồng ý</td>
-        <td class="col-1" rowspan="2">3- phân vân</td>
-        <td class="col-1" rowspan="2">4- phần lớn không đồng ý</td>
-        <td class="col-1" rowspan="2">5- hoàn toàn đồng ý</td>
+    <td class="col-1" rowspan="2">1- Hoàn toàn không đồng ý</td>
+        <td class="col-1" rowspan="2">2- Phần lớn không đồng ý</td>
+        <td class="col-1" rowspan="2">3- Phân vân</td>
+        <td class="col-1" rowspan="2">4- Phần lớn không đồng ý</td>
+        <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
       </tr>
       <tbody style="text-align:center;font-weight:400;">
         @csrf
@@ -209,8 +209,8 @@ td{
     </table>
 
         <div class="form-group" id="cauhoi3" >
-        <label>Rào Cản (nếu có)</label>
-        <textarea name="RaoCan" id="RaoCan" cols="30" rows="10"></textarea>
+        <label style="font-weight:bold; color:red;">Rào cản (nếu có)</label>
+        <textarea name="RaoCan" id="RaoCan" cols="140" rows="5"></textarea>
         </div>
 </div>
 </div>
