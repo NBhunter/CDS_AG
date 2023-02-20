@@ -19,19 +19,27 @@
                 <x-jet-label for="name" class="form-label" value="{{ __('Tên') }}" />
                 </div>
                 <div class="form-outline mb-4">
-                    <x-jet-input id="email" class="form-control form-control-lg block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                    <x-jet-input id="email" class="form-control form-control-lg block mt-1 w-full" type="email" name="email" :value="old('email')" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required autofocus />
                     <x-jet-label for="email" class="form-label" value="{{ __('Email') }}" />
 
                 </div>
+                {{-- <div class="form-outline mb-4">
+                    <x-jet-label for="username" value="{{ __('Username') }}" />
+                    <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required />
+                </div> --}}
+                <div class="form-outline mb-4">
+                    <x-jet-input id="phone" maxlength="10"  class="form-control form-control-lg block mt-1 w-full" type="text" name="phone" :value="old('phone')" required pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" />
+                    <x-jet-label for="phone" class="form-label" value="{{ __('phone') }}" />
+                </div>
 
                 <!-- Password input -->
-                <div class="mt-4">
+                <div class="form-outline mb-4">
 
                     <x-jet-input id="password" class="block mt-1 w-full form-control form-control-lg" type="password" name="password" required autocomplete="new-password" />
                     <x-jet-label for="password" class="form-label" value="{{ __('Mật khẩu') }}" />
                 </div>
 
-                <div class="mt-4">
+                <div class="form-outline mb-4">
                     <x-jet-input id="password_confirmation" class="block mt-1 w-full form-control form-control-lg" type="password" name="password_confirmation" required autocomplete="new-password" />
                     <x-jet-label for="password_confirmation" class="form-label" value="{{ __('Nhập lại mật khẩu') }}" />
                 </div>

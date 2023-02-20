@@ -26,10 +26,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
+        'phone',
         'email',
         'password',
-
-    ];
+        ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -69,10 +70,10 @@ public function authorizeRoles($roles)
 
   if (is_array($roles)) {
       return $this->hasAnyRole($roles) ||
-             abort(401, 'Bạn Chưa được cấp quyền.');
+      abort( response('Bạn Chưa được cấp quyền.', 401) );
   }
   return $this->hasRole($roles) ||
-         abort(401, 'Bạn Chưa được cấp quyền.');
+         abort(404, 'Bạn Chưa được cấp quyền.');
 
 }
 /**
