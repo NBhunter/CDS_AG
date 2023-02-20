@@ -241,9 +241,7 @@
 					if($name){
 						echo $name;
 
-					}
-
-                                @endphp</span>
+					}                  @endphp</span>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -282,7 +280,7 @@
                     @yield('content')
                     </div>
 					</div>
-        
+
             <!-- Footer -->
             <div class="text-center p-3" style="background-color: #0038b0;">
   <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>

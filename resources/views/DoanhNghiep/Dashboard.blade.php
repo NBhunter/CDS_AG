@@ -150,7 +150,7 @@
 									<a href="#" class="list-group-item">
 										<div class="row g-0 align-items-center">
 											<div class="col-2">
-												<img src="{{asset('dasdboard/img/avatars/avatar-5.jpg')}}" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
+												<img src="{{asset('dasdboard/img/avatars/nguyenbang.jpg')}}" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
 											</div>
 											<div class="col-10 ps-2">
 												<div class="text-dark">Vanessa Tucker</div>
@@ -207,7 +207,7 @@
               </a>
               @foreach($DoanhNghiep as $key => $dn)
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="{{asset('dasdboard/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" />
+                <img src="{{asset('dasdboard/img/avatars/nguyenbang.jpg')}}" class="avatar img-fluid rounded me-1" alt="Charles Hall" />
                 <span class="text-dark"> @if($dn->TenDoanhNghiep== null)<span class="badge bg-danger">Chưa xác thực Doanh Nghiệp</span> - {{ $dn->name }} @else{{ $dn->TenDoanhNghiep }} - {{ $dn->name }}@endif</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
@@ -233,7 +233,7 @@
 				</div>
 			</nav>
 			@yield('content')
-			
+
 
 					<footer class="sticky-footer bg-grey ">
 

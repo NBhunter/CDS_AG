@@ -5,7 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" href="{{asset('img/logo_ag.ico')}}" />
-        <title>đăng nhập</title>
+        <title>@if (request()->is('login'))
+            Đăng nhập
+          @endif
+          @if (request()->is('register'))
+            Đăng ký
+          @endif - CDS An Giang</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

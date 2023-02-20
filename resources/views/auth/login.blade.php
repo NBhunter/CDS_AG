@@ -34,8 +34,8 @@
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div> --}}
             <div class="form-outline mb-4">
-                <x-jet-input id="email" class="form-control form-control-lg block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                <x-jet-label for="email" class="form-label" value="{{ __('Email') }}" />
+                <x-jet-input id="auth" class="form-control form-control-lg block mt-1 w-full" type="text" name="auth" :value="old('auth')" required autofocus />
+                <x-jet-label for="auth" class="form-label" value="{{ __('Email/Số điện thoại') }}" />
                 {{-- <input type="email" id="email" class="form-control form-control-lg"
                 placeholder="Enter a valid email address" type="email" name="email" :value="old('email')" required autofocus  />
               <label class="form-label" for="form3Example3">Email address</label> --}}
