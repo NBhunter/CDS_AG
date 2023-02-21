@@ -35,9 +35,13 @@ class DoanhNghiepController extends Controller
         Session::put('email',$user->email);
         $DoanhNghiep = DB::table('users')->leftjoin('dn_user','dn_user.User_id','=','users.id')
         ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')->where('email',Session::get('email'))->select('dn_user.id As lienket_id','users.*','dn_user.*','doanhnghiep.*')->get();
-        $User = DB::table('users')->leftjoin('role_user','role_user.User_id','=','users.id')->leftjoin('roles','roles.id','=','role_user.Role_id')
-        ->leftjoin('dn_user','dn_user.User_id','=','users.id')->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
-        ->select('users.name As tennguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*')->where('users.email',$user->email)->get();
+        $User = DB::table('users')->leftjoin('role_user','role_user.User_id','=','users.id')
+        ->leftjoin('roles','roles.id','=','role_user.Role_id')
+        ->leftjoin('dn_user','dn_user.User_id','=','users.id')
+        ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
+        ->leftjoin('linhvuc','linhvuc.Id','=','doanhnghiep.LinhVuc_id')
+        ->leftjoin('nguoidung','nguoidung.DoanhNghiep_id','=','doanhnghiep.id')
+        ->select('nguoidung.Ten As tennguoidung','nguoidung.email As emaildoanhnghiep','nguoidung.DiaChi As diachinguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*')->where('users.email',$user->email)->first();
         Session::put('name',$user->name);
         Session::put('lienket_id',$DoanhNghiep[0]->lienket_id);
         Session::put('DoanhNghiep_id',$DoanhNghiep[0]->DoanhNghiep_id);
