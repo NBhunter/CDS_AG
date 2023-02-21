@@ -59,7 +59,7 @@
 </div>
 <div class="col-md-6">
 <label class="small mb-1" for="inputPhone" style="font-weight:bold;font-size:14px;">Số điện thoại</label>
-<input class="form-control" id="inputPhone" type="text" placeholder="" value="">
+<input class="form-control" id="inputPhone" type="text" placeholder="" value="{{ $us->phone }}">
 
 </div>
 </div>
@@ -68,17 +68,17 @@
 
 <div class="col-md-6">
 <label class="small mb-1" for="inputOrgName" style="font-weight:bold;font-size:14px;">Tên doanh nghiệp</label>
-<input class="form-control" id="inputOrgName" type="text" placeholder="" value="">
+<input class="form-control" id="inputOrgName" type="text" placeholder="" value="{{ $us->TenDoanhNghiep }}">
 
 </div>
 <div class="col-md-6">
     <label class="small mb-1" for="inputEmailAddress"style="font-weight:bold;font-size:14px;">Email</label>
-    <input class="form-control" id="inputEmailAddress"type="email" placeholder="" value="">
+    <input class="form-control" id="inputEmailAddress"type="email" placeholder="" value="{{ $us->email }}">
     </div>
 	<div class="mb-3">
 	<br>
     <label class="small mb-1"  for="inputLocation" style="font-weight:bold;font-size:14px;">Địa chỉ</label>
-    <input class="form-control" id="inputLocation"  type="text" placeholder="" value="">
+    <input class="form-control" id="inputLocation"  type="text" placeholder="" value="{{ $us->DiaChiTruSo }}">
     </div>
     </div>
 </div>

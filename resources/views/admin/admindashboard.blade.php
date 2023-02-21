@@ -67,12 +67,39 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý tin tức:</h6>
-                        <a class="collapse-item" href="">Thêm tin tức</a>
-                        <a class="collapse-item" href="">Sửa tin tức</a>
+                        <a class="collapse-item" href="{{ URL::to('admin/themtintuc') }}">Thêm tin tức</a>
+                        <a class="collapse-item" href="">Xem danh sách tin</a>
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
+                    aria-expanded="true" aria-controls="collapseFive">
+                    <i class="fas fa-barcode"></i>
+                    <span>Loại tin</span>
+                </a>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Quản lý loại tin:</h6>
 
+                        <a class="collapse-item" href="">Xem danh sách loại tin</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
+                    aria-expanded="true" aria-controls="collapseSix">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Lĩnh vực</span>
+                </a>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Quản lý lĩnh vực:</h6>
+
+                        <a class="collapse-item" href="">Xem danh sách lĩnh vực</a>
+                    </div>
+                </div>
+            </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -90,6 +117,7 @@
                     </div>
                 </div>
             </li>
+
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
@@ -107,7 +135,20 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven"
+                    aria-expanded="true" aria-controls="collapseSeven">
+                    <i class="fas fa-book-open"></i>
+                    <span>Slide</span>
+                </a>
+                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Quản lý các slide:</h6>
 
+                        <a class="collapse-item" href="">Xem danh sách </a>
+                    </div>
+                </div>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -225,11 +266,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
+
                         <li class="nav-item dropdown no-arrow">
 
                         <!-- Nav Item - User Information -->
@@ -242,8 +279,7 @@
 						echo $name;
 
 					}                  @endphp</span>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in">
-                            </a>
+
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -284,10 +320,11 @@
             <!-- Footer -->
             <div class="text-center p-3" style="background-color: #0038b0;">
   <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
+            </div>
 
             <!-- End of Footer -->
+            </div>
 
-        </div>
         <!-- End of Content Wrapper -->
 
     </div>

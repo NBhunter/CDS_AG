@@ -49,6 +49,8 @@ Route::middleware([
     Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia1Controller@getidCauHoi' );
     Route::get('/admin/themcauhoiso2','App\Http\Controllers\DanhGia2Controller@getidCauHoi' );
     Route::get('/admin/themcauhoiso3','App\Http\Controllers\DanhGia3Controller@getidCauHoi' );
+    //thêm tin tức
+    Route::get('/admin/themtintuc','App\Http\Controllers\ThemTinController@getidThemTin' );
 
     //lưu phiếu
     Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
@@ -69,7 +71,7 @@ Route::middleware([
 
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
-    
+
 });
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');

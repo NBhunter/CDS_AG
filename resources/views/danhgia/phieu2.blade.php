@@ -155,7 +155,13 @@ td{
 @endsection
 @section('content')
 <div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2</h2>
+    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2: @php
+        $name = Session::get('name') ;
+					if($name){
+						echo $name;
+
+					}
+    @endphp</h2>
     </div>
     <div class="container" style="font-weight:400;margin_top: 0px ;">
     <div class="row" style="font-weight:400;">
