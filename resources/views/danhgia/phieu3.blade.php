@@ -157,7 +157,7 @@ td{
 @endsection
 @section('content')
 <div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 3 @php
+    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 3: @php
         $name = Session::get('name') ;
 					if($name){
 						echo $name;
@@ -210,7 +210,7 @@ td{
 
         <div class="form-group" id="cauhoi3" >
         <label style="font-weight:bold; color:red;">Rào cản (nếu có)</label>
-        <textarea name="RaoCan" id="RaoCan" cols="140" rows="5"></textarea>
+        <textarea class="form-control"name="RaoCan" id="RaoCan" ></textarea>
         </div>
 </div>
 </div>

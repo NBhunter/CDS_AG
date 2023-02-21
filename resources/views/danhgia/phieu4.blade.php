@@ -157,8 +157,8 @@ td{
 @endsection
 @section('content')
 <div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 4 @php
-        $name = Session::get('DoanhNghiep_id') ." - ".Session::get('User_id')." - ".Session::get('lienket_id');
+    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 4: @php
+        $name = Session::get('name') ;
 					if($name){
 						echo $name;
 
@@ -174,13 +174,13 @@ td{
         {{ csrf_field() }}
 
         <div class="form-group" id="cauhoi1" >
-            <label style="font-weight:bold;"for="exampleInputPassword1">Nhu cầu về dịch vụ công nghệ thông tin / Chuyển đổi số</label>
+            <label style="font-weight:bold;"for="exampleInputPassword1">NHU CẦU VỀ DỊCH VỤ CÔNG NGHỆ THÔNG TIN / CHUYỂN ĐỔI SỐ</label>
             <br><br>
             <textarea style="resize: none"  rows="8" class="form-control" name="NhuCau" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
         </div>
         <br>
         <div class="form-group" id="cauhoi2" >
-            <label style="font-weight:bold;"for="exampleInputPassword1">Hỏi / đáp hoặc đề xuất</label>
+            <label style="font-weight:bold;"for="exampleInputPassword1">HỎI / ĐÁP HOẶC ĐỀ XUẤT</label>
             <br><br>
             <textarea style="resize: none"  rows="8" class="form-control" name="Hoi_Dap" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
         </div>
