@@ -14,9 +14,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('home.home');
-});
+Route::get('/','App\Http\Controllers\homeController@index' );
 Route::get('/home', function () {
     return view('DoanhNghiep.Dashboard');
 });
@@ -68,6 +66,16 @@ Route::middleware([
     //sử lý user
 
     Route::get('/role/{user_id}','App\Http\Controllers\AdminController@getdetail');
+    Route::post('/update_user','App\Http\Controllers\AdminController@saveUser');
+
+    //xử lý lĩnh vực
+    Route::get('/admin/xem_linh_vuc','App\Http\Controllers\TrangTinController@getLinhVuc');
+    Route::get('/edit_LV/{linhvuc_id}','App\Http\Controllers\TrangTinController@getLinhVucchitiet');
+
+    // quản lý slide
+    Route::get('/admin/new_slide','App\Http\Controllers\TrangTinController@getaddslide');
+    Route::get('/admin/slide_list','App\Http\Controllers\TrangTinController@getslides');
+    Route::post('/save_slide','App\Http\Controllers\TrangTinController@saveslide');
 
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );

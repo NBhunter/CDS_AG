@@ -32,7 +32,7 @@ class AdminController extends Controller
         Session::put('role',"Admin");
         $user = DB::table('users')->leftjoin('role_user','role_user.User_id','=','users.id')->leftjoin('roles','roles.id','=','role_user.Role_id')
         ->leftjoin('dn_user','dn_user.User_id','=','users.id')->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
-        ->select('users.name As tennguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*')->get();
+        ->select('users.name As tennguoidung','users.id As idnguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*')->get();
             return view('admin.User')->with('User',$user);
 
     }
@@ -44,15 +44,16 @@ class AdminController extends Controller
         Session::put('role',"Admin");
         $user = DB::table('users')->leftjoin('role_user','role_user.User_id','=','users.id')->leftjoin('roles','roles.id','=','role_user.Role_id')
         ->leftjoin('dn_user','dn_user.User_id','=','users.id')->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
-        ->select('users.name As tennguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*')->where('users.id',$user_id)->get();
+        ->select('users.name As tennguoidung','users.id As idnguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*')->where('users.id',$user_id)->first();
         $roles =DB::table('roles')->get();
-            return view('admin.User_detail')->with('User',$user)->with('Roles',$roles);
+            return view('admin.User_detail')->with('user',$user)->with('Roles',$roles);
 
     }
-    public function saveUser(Request $request,$user_id){
-        $request->user()->authorizeRoles(['Admin']);
+    public function saveUser(Request $request){
+        // $request->user()->authorizeRoles(['Admin']);
         $data = array();
         $data['Role_id'] = $request->role;
+        $user_id = $request->id;
         DB::table('role_user')->where('User_id',$user_id)->update($data);
         return Redirect::to('admin/user');
     }

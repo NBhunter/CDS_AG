@@ -96,7 +96,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý lĩnh vực:</h6>
 
-                        <a class="collapse-item" href="">Xem danh sách lĩnh vực</a>
+                        <a class="collapse-item" href="{{  url::to('admin/xem_linh_vuc') }}">Xem danh sách lĩnh vực</a>
                     </div>
                 </div>
             </li>
@@ -145,7 +145,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý các slide:</h6>
 
-                        <a class="collapse-item" href="">Xem danh sách </a>
+                        <a class="collapse-item" href="{{  url::to('/admin/new_slide') }}">Thêm Slide mới </a>
+                        <a class="collapse-item" href="{{  url::to('/admin/slide_list') }}">Xem danh sách </a>
                     </div>
                 </div>
             </li>
