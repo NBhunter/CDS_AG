@@ -12,12 +12,12 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN NGƯỜI DÙNG</h1>
+            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN LĨNH VỰC</h1>
 
             <!-- DataTales Example -->
             <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh sách lĩnh vực</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -26,9 +26,9 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên</th>
-                                    <th>Email</th>
-                                    <th>Doanh nghiệp</th>
-                                    <th>Phân Quyền</th>
+                                    <th>Mô tả</th>
+                                    {{-- <th>Doanh nghiệp</th>
+                                    <th>Phân Quyền</th> --}}
                                     <th>Xử Lý</th>
                                 </tr>
                             </thead>
@@ -37,18 +37,16 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ( $User as $id => $nd )
+                                @foreach ( $LinhVuc as $id => $lv )
                                 <tr>
                                     @csrf
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $nd->tennguoidung }}</td>
-                                    <td>{{ $nd->email }}</td>
-                                    <td>@if($nd->TenDoanhNghiep == null)<span class="badge bg-danger" style="color: rgb(249, 249, 255);">Chưa xác thực doanh nghiệp</span>@else{{ $nd->TenDoanhNghiep }}@endif</td>
-                                    <td>{{ $nd->name }}</td>
+                                    <td>{{ $lv->TenLinhVuc }}</td>
+                                    <td>{{ $lv->MoTa }}</td>
                                     <td>
 
-                                    <a class="btn btn-primary " href="{{ URL::to('/role/'.$nd->idnguoidung) }}">
-                                        Thông tin
+                                    <a class="btn btn-primary " href="{{ URL::to('/edit_LV/'.$lv->Id) }}">
+                                        Sửa thông tin
                                     </a>
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">

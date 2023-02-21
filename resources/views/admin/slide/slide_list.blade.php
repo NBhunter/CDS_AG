@@ -1,5 +1,23 @@
 @extends('admin.admindashboard')
 @section('content')
+<style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .zoom {
+      transition: transform .2s;
+      width: 200px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .zoom:hover {
+      -ms-transform: scale(5); /* IE 9 */
+      -webkit-transform: scale(5); /* Safari 3-8 */
+      transform: scale(4);
+    }
+    </style>
 {{--
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> --}}
@@ -12,12 +30,12 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN NGƯỜI DÙNG</h1>
+            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN BANNER</h1>
 
             <!-- DataTales Example -->
             <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh sách banner</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -26,8 +44,8 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên</th>
-                                    <th>Email</th>
-                                    <th>Doanh nghiệp</th>
+                                    <th>hình ảnh mẫu</th>
+                                    {{-- <th>Doanh nghiệp</th> --}}
                                     <th>Phân Quyền</th>
                                     <th>Xử Lý</th>
                                 </tr>
@@ -37,18 +55,16 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ( $User as $id => $nd )
+                                @foreach ( $slides as $id => $slides )
                                 <tr>
                                     @csrf
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $nd->tennguoidung }}</td>
-                                    <td>{{ $nd->email }}</td>
-                                    <td>@if($nd->TenDoanhNghiep == null)<span class="badge bg-danger" style="color: rgb(249, 249, 255);">Chưa xác thực doanh nghiệp</span>@else{{ $nd->TenDoanhNghiep }}@endif</td>
-                                    <td>{{ $nd->name }}</td>
+                                    <td>{{ $slides->TenBanner }}</td>
+                                    <td><img class="zoom" src="{{ asset('slide/'.$slides->Link)}}" alt="" width="40%" ></td>
                                     <td>
 
-                                    <a class="btn btn-primary " href="{{ URL::to('/role/'.$nd->idnguoidung) }}">
-                                        Thông tin
+                                    <a class="btn btn-primary " href="{{ URL::to('/edit_slide/'.$slides->id) }}">
+                                        Sửa thông tin
                                     </a>
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">
@@ -70,7 +86,7 @@
                                         <form id="DNND{{ $nd->User_id }}" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}">
                                             @csrf
                                             <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="4"></form>
+                                            <input type="t  ext" name="role" id="" value="4"></form>
                                         <a class="dropdown-item" onclick="document.getElementById('DNND'.{{ $nd->User_id }}).submit();">DoanhNghiệp - Người dùng</a> --}}
                                     </td>
                                 </tr>
