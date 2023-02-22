@@ -46,4 +46,10 @@ class TinTucController extends Controller
         $data->save();
         return Redirect::to('admin/main');
     }
+    public function getXemTinDetail($id){
+        // $request->user()->authorizeRoles(['Admin']);
+        $TinTuc = DB::table('tintucs')->where('tintucs.id',$id)->first();
+
+        return view('home.post')->with('TinTuc',$TinTuc);
+    }
 }
