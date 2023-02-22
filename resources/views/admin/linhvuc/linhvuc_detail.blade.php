@@ -3,14 +3,14 @@
 
 
 
-    <div  style="font-weight:bold;text-align:center;font-size:22px;color:#4e73df;font-style:Roboto;">THÔNG TIN LĨNH VỰC</div>
+    <div  style="font-weight:bold;text-align:center;font-size:22px;color:#4e73df;font-style:Roboto;">THÔNG TIN CÁC LĨNH VỰC</div>
     <div class="card-body">
     <form role="form" action="{{URL::to('/update_user')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
 
     <div class="mb-3">
-    <label class="small mb-1" for="inputUsername">Tên Lĩnh Vực</label>
+    <label class="small mb-1" for="inputUsername">Tên lĩnh vực</label>
     <input class="form-control" id="Username" name="Username" type="text" placeholder="Enter user username" value="{{ $LinhVuc->TenLinhVuc }}">
     <input class="form-control" id="id" name="id" type="text" placeholder="Enter user username" value="{{ $LinhVuc->Id }}" hidden>
     </div>
