@@ -4,17 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-<<<<<<< HEAD
-use App\Models\slide;
+use App\Models\tintuc;
 use Illuminate\Support\Facades\Redirect;
 
 class TinTucController extends Controller
 {
-    //
-    public function getidThemTin(){
 
-        return view('admin.themtin');
-    }
 
     public function getXemTin(Request $request){
         $request->user()->authorizeRoles(['Admin']);
@@ -22,13 +17,7 @@ class TinTucController extends Controller
         $TinTuc = DB::table('tintucs')->leftjoin('linhvuc','tintucs.LinhVuc_id','=','linhvuc.Id')
         ->leftjoin('loaitin','tintucs.LoaiTin_id','=','loaitin.Id')->get();
         return view('admin.tintuc.xemtin')->with("TinTuc",$TinTuc);
-=======
-use App\Models\tintuc;
-use Illuminate\Support\Facades\Redirect;
-
-
-class TinTucController extends Controller
-{
+    }
     //
     public function getidThemTin(Request $request){
         $request->user()->authorizeRoles(['Admin']);
@@ -56,6 +45,5 @@ class TinTucController extends Controller
         }
         $data->save();
         return Redirect::to('admin/main');
->>>>>>> 097661aadc4777eee5805ee3e53a0d97a5a121bf
     }
 }
