@@ -68,7 +68,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý tin tức:</h6>
                         <a class="collapse-item" href="{{ URL::to('admin/themtintuc') }}">Thêm tin tức</a>
-                        <a class="collapse-item" href="">Xem danh sách tin</a>
+                        <a class="collapse-item" href="{{ URL::to('admin/xemtin') }}">Xem danh sách tin</a>
                     </div>
                 </div>
             </li>
@@ -82,7 +82,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý loại tin:</h6>
 
-                        <a class="collapse-item" href="{{  url::to('admin/xemtin') }}">Xem danh sách loại tin</a>
+                        <a class="collapse-item" href="">Xem danh sách loại tin</a>
                     </div>
                 </div>
             </li>
