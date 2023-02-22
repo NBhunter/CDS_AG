@@ -1,4 +1,7 @@
 @extends( 'home.frontend')
+@section('title')
+Chuyển đổi số tỉnh An Giang
+@endsection
 @section('link')
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 

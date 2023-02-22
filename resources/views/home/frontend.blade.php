@@ -9,7 +9,7 @@
   <!-- link root -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
-    <title>Chuyển đổi số tỉnh An Giang </title>
+    <title>@yield('title') </title>
     <!-- boottrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
@@ -25,7 +25,7 @@
 }
 .nav-item .item{
   color: black;
-  
+
 }
 .nav-link{
   color: black;
