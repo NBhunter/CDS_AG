@@ -15,8 +15,8 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/','App\Http\Controllers\homeController@index' );
-Route::get('/home', function () {
-    return view('DoanhNghiep.Dashboard');
+Route::get('/post1', function () {
+    return view('home.post');
 });
 Route::get('/trangchu', function () {
     return view('home.home');
@@ -49,8 +49,12 @@ Route::middleware([
     Route::get('/admin/themcauhoiso3','App\Http\Controllers\DanhGia3Controller@getidCauHoi' );
     //thêm tin tức
     Route::get('/admin/themtintuc','App\Http\Controllers\TinTucController@getidThemTin' );
+<<<<<<< HEAD
     Route::get('/admin/binhluan','App\Http\Controllers\BinhLuanController@getidBinhLuan' );
     Route::get('/admin/xemtin','App\Http\Controllers\TinTucController@getXemTin' );
+=======
+    Route::post('/save_Tin','App\Http\Controllers\TinTucController@saveTin');
+>>>>>>> 097661aadc4777eee5805ee3e53a0d97a5a121bf
     //lưu phiếu
     Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
     Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia2Controller@saveCauHoi');
