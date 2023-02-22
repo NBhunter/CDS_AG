@@ -1,8 +1,12 @@
 @extends( 'home.frontend')
+@section('title')
+{{ $TinTuc->TieuDe }}
+@endsection
 @section('link')
 <link rel="stylesheet" href="{{ asset('post\css\style.css') }}">
 
 @endsection
+
 @section('content')
 
     <!-- ##### Breadcrumb Area Start ##### -->
