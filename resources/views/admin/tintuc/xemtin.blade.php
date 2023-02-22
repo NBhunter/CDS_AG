@@ -1,23 +1,6 @@
 @extends('admin.admindashboard')
 @section('content')
-<style>
-    * {
-      box-sizing: border-box;
-    }
 
-    .zoom {
-      transition: transform .2s;
-      width: 200px;
-      height: auto;
-      margin: 0 auto;
-    }
-
-    .zoom:hover {
-      -ms-transform: scale(5); /* IE 9 */
-      -webkit-transform: scale(5); /* Safari 3-8 */
-      transform: scale(4);
-    }
-    </style>
 {{--
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> --}}
@@ -30,24 +13,29 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN BANNER</h1>
+            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">TIN TỨC</h1>
 
             <!-- DataTales Example -->
             <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh sách banner</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh sách các tin</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable"style="text-align:center;">
+                        <table class="table-bordered" width="1100px" style="text-align:center;font-weight:300;font-size:14px;">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tên</th>
-                                    <th>hình ảnh mẫu</th>
-                                    {{-- <th>Doanh nghiệp</th> --}}
+                                    <th width="5%">STT</th>
+                                    <th width="10%">Lĩnh vực</th>
+                                    <th width="10%">Loại tin</th>
+                                    <th width="10%">Link Webiste</th>
+                                    <th width="30%">Tiêu đề</th>
 
-                                    <th>Xử Lý</th>
+                                    <th width="10%">Tóm tắt</th>
+                                    <th width="10%">Hình ảnh</th>
+                                    <th width="5%">Lượt xem</th>
+                                    <th width="5%">Sửa</th>
+                                    <th width="5%">Xóa </th>
                                 </tr>
                             </thead>
 
@@ -55,17 +43,22 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ( $slides as $id => $slides )
+                                @foreach ( $TinTuc as $id => $tt )
                                 <tr>
                                     @csrf
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $slides->TenBanner }}</td>
-                                    <td><img class="zoom" src="{{ asset('slide/'.$slides->Link)}}" alt="" width="40%" ></td>
-                                    <td>
+                                    <td>{{ $tt->TenLinhVuc }}</td>
+                                    <td>{{ $tt->LoaiTin_id }}</td>
+                                    <td><a href="{{ asset($tt->Website) }}" target="_blank">Xem nguồn</a></td>
+                                    <td >{{ $tt->TieuDe }}</td>
+                                    <td>{{ $tt->TomTat }}</td>
+                                    <td><a href="{{ asset('img/AnhTinTuc/'.$tt->HinhAnh)}}" target="_blank">Xem ảnh</a></td>
+                                    <td>{{ $tt->LuotXem }}</td>
 
-                                    <a class="btn btn-primary " href="{{ URL::to('/edit_slide/'.$slides->id) }}">
-                                        Sửa thông tin
-                                    </a>
+    <td><a class="btn btn-warning" href=""><i class='fas fa-edit'></i></a>
+		<td><a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
+</tr>
+
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">
                                         <form id="admin" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>

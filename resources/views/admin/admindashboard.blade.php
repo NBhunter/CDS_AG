@@ -82,7 +82,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý loại tin:</h6>
 
-                        <a class="collapse-item" href="">Xem danh sách loại tin</a>
+                        <a class="collapse-item" href="{{  url::to('admin/xemtin') }}">Xem danh sách loại tin</a>
                     </div>
                 </div>
             </li>
@@ -111,8 +111,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý bình luận:</h6>
-                        <a class="collapse-item" href="">Thêm bình luận</a>
-                        <a class="collapse-item" href="">Sửa bình luận</a>
+                        <a class="collapse-item" href="{{ URL::to('admin/binhluan') }}">Xem danh sách bình luận</a>
 
                     </div>
                 </div>
