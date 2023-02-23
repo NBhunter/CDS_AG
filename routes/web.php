@@ -15,12 +15,11 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/','App\Http\Controllers\homeController@index' );
+Route::get('/trangchu','App\Http\Controllers\homeController@index' );
 Route::get('/post1', function () {
     return view('home.post');
 });
-Route::get('/trangchu', function () {
-    return view('home.home');
-});
+
 Route::get('/watch/{idTin}','App\Http\Controllers\TinTucController@getXemTinDetail' );
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
@@ -82,6 +81,8 @@ Route::middleware([
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
 
+    // Phần Chuyên gIA
+    Route::get('/chuyengia/home', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
 });
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
