@@ -15,12 +15,11 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/','App\Http\Controllers\homeController@index' );
+Route::get('/trangchu','App\Http\Controllers\homeController@index' );
 Route::get('/post1', function () {
     return view('home.post');
 });
-Route::get('/trangchu', function () {
-    return view('home.home');
-});
+
 Route::get('/watch/{idTin}','App\Http\Controllers\TinTucController@getXemTinDetail' );
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
@@ -51,10 +50,7 @@ Route::middleware([
     Route::get('/admin/themtintuc','App\Http\Controllers\TinTucController@getidThemTin' );
     Route::get('/admin/binhluan','App\Http\Controllers\BinhLuanController@getidBinhLuan' );
     Route::get('/admin/xemtin','App\Http\Controllers\TinTucController@getXemTin' );
-<<<<<<< HEAD
-=======
     Route::post('/save_Tin','App\Http\Controllers\TinTucController@saveTin');
->>>>>>> 8259b3351a5fad6042e7725aa84b7deea273eb51
     //lưu phiếu
     Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
     Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia2Controller@saveCauHoi');
@@ -85,6 +81,8 @@ Route::middleware([
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
 
+    // Phần Chuyên gIA
+    Route::get('/chuyengia/home', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
 });
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
