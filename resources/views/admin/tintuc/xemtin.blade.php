@@ -26,13 +26,13 @@
                             <thead>
                                 <tr>
                                     <th width="5%">STT</th>
-                                    <th width="10%">Lĩnh vực</th>
+                                    <th width="8%">Lĩnh vực</th>
                                     <th width="10%">Loại tin</th>
                                     <th width="10%">Link Webiste</th>
-                                    <th width="30%">Tiêu đề</th>
+                                    <th width="34%">Tiêu đề</th>
 
                                     <th width="10%">Tóm tắt</th>
-                                    <th width="10%">Hình ảnh</th>
+                                    <th width="8%">Hình ảnh</th>
                                     <th width="5%">Lượt xem</th>
                                     <th width="5%">Sửa</th>
                                     <th width="5%">Xóa </th>
@@ -49,7 +49,7 @@
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $tt->TenLinhVuc }}</td>
                                     <td>{{ $tt->LoaiTin_id }}</td>
-                                    <td><a href="{{ asset($tt->Website) }}" target="_blank">Xem nguồn</a></td>
+                                    <td><a href="{{ asset($tt->Website) }}" target="_blank">Xem chi tiết</a></td>
                                     <td >{{ $tt->TieuDe }}</td>
                                     <td>{{ $tt->TomTat }}</td>
                                     <td><a href="{{ asset('img/AnhTinTuc/'.$tt->HinhAnh)}}" target="_blank">Xem ảnh</a></td>
