@@ -40,7 +40,7 @@
 
 					<li class="sidebar-item" >
 						<a class="sidebar-link" href="{{ URL::to('profile') }}" style="background-color: #4e73df;">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle" style="font-family:Roboto;">Hồ sơ cá nhân</span>
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle" style="font-family:Roboto;">Hồ sơ doanh nghiệp</span>
             </a>
 					</li>
 					<hr class="sidebar-divider" style="color:white;">
