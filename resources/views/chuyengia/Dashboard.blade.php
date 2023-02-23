@@ -237,7 +237,7 @@
             <!-- Mobile Menu start -->
 
             <!-- Mobile Menu end -->
-            <div class="breadcome-area">
+
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -251,21 +251,25 @@
                                             <li><span class="bread-blod">Dashboard V.1</span>
                                             </li>
                                         </ul>
+                                    </div>
 
+                            </div>
             </div>
         </div>
-        <div class="footer-copyright-area" style="">
-            <div class="container-fluid">
+        <br>
+        <br>
+        <br><br><br><br><br>    <br><br><br><br><br>    <br><br><br><br><br>    <br><br><br>
+        <div class="footer-copyright-area">
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
-                            <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
+                            <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #0038b0; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
                         </div>
-                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- jquery
 		============================================ -->
