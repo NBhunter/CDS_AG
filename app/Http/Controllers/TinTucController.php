@@ -32,6 +32,9 @@ class TinTucController extends Controller
             $file= $request->file('filehinhanh');
             $filename= date('YmdHis').$file->getClientOriginalName();
             $file->move(public_path('img/AnhTinhTuc'), $filename);
+            $data['HinhAnh'] = $filename;
+
+        }
         $data['Id'] =date('YmdHis');
         $data['TieuDe'] = $request->TieuDe;
         $data['LinhVuc_id'] =$request->LinhVuc;
@@ -39,10 +42,9 @@ class TinTucController extends Controller
         $data['Website']=$request->Link;
         $data['NoiDung'] = $request->NoiDung;
         $data['TomTat'] = $request->MoTa;
-        $data['HinhAnh'] = $filename;
+
         $data['Status'] ="0";
         $data['LuotXem'] = "0";
-        }
         $data->save();
         return Redirect::to('admin/main');
     }
