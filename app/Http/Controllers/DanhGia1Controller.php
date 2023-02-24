@@ -52,4 +52,5 @@ class DanhGia1Controller extends Controller
         }
     	return Redirect::to('admin/main');
     }
+
 }

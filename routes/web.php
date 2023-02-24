@@ -83,6 +83,9 @@ Route::middleware([
 
     // Phần Chuyên gIA
     Route::get('/chuyengia/home', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
+    Route::get('/chuyengia/P1_DGM', 'App\Http\Controllers\ChuyenGiaController@getidDGMoi_P1' );
+    Route::get('/chuyengia/P1_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P1' );
+    Route::get('/chuyengia/P1_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P1' );
 });
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
