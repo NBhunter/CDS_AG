@@ -9,19 +9,21 @@ use Session;
 class DanhGia1Controller extends Controller
 {
 
-    public function getCauHoi(){
+    public function getCauHoi(Request $request){
+        $request->user()->authorizeRoles(['DoanhNghiep','Admin']);
         $Cauhoi = DB::table('chitiet')
         ->leftjoin('chitiet_cauhoi','chitiet_cauhoi.ChiTiet_id','=','chitiet.id')
-        ->leftjoin('cauhoi','cauhoi.id','=','chitiet_cauhoi.CauHoi_id')->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*');
+        ->leftjoin('cauhoi','cauhoi.id','=','chitiet_cauhoi.CauHoi_id')->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*')->orderBy('idcauhoi');
         $Cauhoi = $Cauhoi->get();
         return view('danhgia.phieu1')->with('Cauhoi',$Cauhoi);
     }
-    public function getidCauHoi(){
+    public function getidCauHoi(Request $request){
+        $request->user()->authorizeRoles(['Admin']);
         $Cauhoi = DB::table('chitiet')
         ->leftjoin('chitiet_cauhoi','chitiet_cauhoi.ChiTiet_id','=','chitiet.id')
         ->leftjoin('cauhoi','cauhoi.id','=','chitiet_cauhoi.CauHoi_id')->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*');
         $Cauhoi = $Cauhoi->get();
-        return view('admin.P1cauhoi')->with('Cauhoi',$Cauhoi);
+        return view('admin.phieu1.P1cauhoi')->with('Cauhoi',$Cauhoi);
     }
     public function saveCauHoi(Request $request){
         $request->user()->authorizeRoles(['Admin']);
@@ -50,7 +52,15 @@ class DanhGia1Controller extends Controller
             $ctch['MoTa'] = $request->MoTa;
             DB::table('chitiet_cauhoi')->insert($ctch);
         }
-    	return Redirect::to('admin/main');
+    	return Redirect::to('admin/themcauhoiso1');
     }
-
+    public function getquestlist(Request $request)
+    {
+        $request->user()->authorizeRoles(['Admin']);
+        $Cauhoi = DB::table('chitiet')
+        ->leftjoin('chitiet_cauhoi','chitiet_cauhoi.ChiTiet_id','=','chitiet.id')
+        ->leftjoin('cauhoi','cauhoi.id','=','chitiet_cauhoi.CauHoi_id')->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*')->orderBy('idcauhoi');
+        $Cauhoi = $Cauhoi->get();
+        return view('admin.phieu1.cauhoi_1_list')->with('Cauhoi',$Cauhoi);
+    }
 }
