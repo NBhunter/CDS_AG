@@ -1,337 +1,352 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>CDS tỉnh An Giang - Kênh chuyên gia</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon"  href="{{ asset('img/logo_ag.ico') }}">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/bootstrap.min.css') }}">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/font-awesome.min.css') }}">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/owl.theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/owl.transitions.css') }}">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/animate.css') }}">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/normalize.css') }}">
-    <!-- meanmenu icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/meanmenu.min.css') }}">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/main.css') }}">
-    <!-- educate icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/educate-custon-icon.css') }}">
-    <!-- morrisjs CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/morrisjs/morris.css') }}">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
-    <!-- metisMenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/metisMenu/metisMenu.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/metisMenu/metisMenu-vertical.css') }}">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/calendar/fullcalendar.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/calendar/fullcalendar.print.min.css') }}">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/style.css') }}">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('chuyengia/css/responsive.css') }}">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/vendor/modernizr-2.8.3.min.js') }}"></script>
-</head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<body>
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-    <!-- Start Left menu area -->
-    <div class="left-sidebar-pro">
-        <nav id="sidebar" class="">
-            <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-                <strong><a href="index.html"><img src="img/logo/logosn.png" alt="" /></a></strong>
-            </div>
-            <div class="left-custom-menu-adp-wrap comment-scrollbar">
-                <nav class="sidebar-nav left-sidebar-menu-pro">
-                    <ul class="metismenu" id="menu1">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="{{asset('img/logo_ag.ico')}}" />
 
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
+	<title>Chuyển đổi số tỉnh An Giang - Trang chuyên gia</title>
+    <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <!-- Custom styles for this template-->
 
+	<link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
+    </head>
+    <body id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
-                        <li>
-                            <a class="has-arrow" href="" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap"></span> <span class="mini-click-non">Phiếu số 1</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a  href=""><span class="mini-sub-pro">Đánh giá mới</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Tất cả đánh giá</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Doanh nghiệp đã đánh giá</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Doanh nghiệp chưa đánh giá</span></a></li>
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="" aria-expanded="false"><span class="educate-icon educate-form icon-wrap"></span> <span class="mini-click-non">Phiếu số 2</span></a>
-                            <ul class="submenu-angle " aria-expanded="false">
-                                <li><a  href=""><span class="mini-sub-pro">Đánh giá mới</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Tất cả đánh giá</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Doanh nghiệp đã đánh giá</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Doanh nghiệp chưa đánh giá</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap"></span> <span class="mini-click-non">Phiếu số 3</span></a>
-                            <ul class="submenu-angle " aria-expanded="false">
-                                <li><a  href=""><span class="mini-sub-pro">Đánh giá mới</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Tất cả đánh giá</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Doanh nghiệp đã đánh giá</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Doanh nghiệp chưa đánh giá</span></a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow" href="" aria-expanded="false"><span class="educate-icon educate-form icon-wrap"></span> <span class="mini-click-non">Phiếu số 4</span></a>
-                            <ul class="submenu-angle " aria-expanded="false">
-                                <li><a  href=""><span class="mini-sub-pro">Đánh giá mới</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Tất cả đánh giá</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Doanh nghiệp đã đánh giá</span></a></li>
-                                <li><a  href=""><span class="mini-sub-pro">Doanh nghiệp chưa đánh giá</span></a></li>
-                            </ul>
-                        </li>
-                        <li id="removable">
-                            <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-pages icon-wrap"></span> <span class="mini-click-non">Thoát</span></a>
-                            <ul class="submenu-angle page-mini-nb-dp" aria-expanded="false">
-                                <li><a title="Login" href="login.html"><span class="mini-sub-pro">Login</span></a></li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </nav>
-    </div>
-    <!-- End Left menu area -->
-    <!-- Start Welcome area -->
-    <div class="all-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="logo-pro">
-                        <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ URL::to('chuyengia/home') }}" >
+                    <div class="sidebar-brand-icon ">
+                    <i class='	fas fa-book-reader'></i>
                     </div>
+                    <div class="sidebar-brand-text mx-3">CHUYÊN GIA</div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ URL::to('chuyengia/home') }}">
+                        <i class="fas fa-home"></i>
+                        <span>Trang chủ</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+
+
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="	fas fa-calendar-check"></i>
+                        <span>Phiếu số 1</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded" style="width:200px; font-size:12px">
+                            <h6 class="collapse-header">Quản lý phiếu số 1:</h6>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P1_DGM') }}" >Đánh giá mới</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P1_Tatca') }}">Tất cả đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P1_DaDG') }}">Doanh nghiệp đã đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P1_ChuaDG') }}" >Doanh nghiệp chưa đánh giá</a>
+                        </div>
+                    </div>
+                </li>
+                <hr class="sidebar-divider">
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
+                        aria-expanded="true" aria-controls="collapseFive">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Phiếu số 2</span>
+                    </a>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"  style="width:200px;font-size:12px">
+                            <h6 class="collapse-header">Quản lý phiếu số 2:</h6>
+
+                            <a class="collapse-item" href="">Đánh giá mới</a>
+                            <a class="collapse-item" href="">Tất cả đánh giá</a>
+                            <a class="collapse-item" href="">Doanh nghiệp đã đánh giá</a>
+                            <a class="collapse-item" href="">Doanh nghiệp chưa đánh giá</a>
+                        </div>
+                    </div>
+                </li>
+                <hr class="sidebar-divider">
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
+                        aria-expanded="true" aria-controls="collapseSix">
+                        <i class="	fas fa-calendar-minus"></i>
+                        <span>Phiếu số 3</span>
+                    </a>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"  style="width:200px;font-size:12px">
+                            <h6 class="collapse-header">Quản lý phiếu số 3:</h6>
+
+                            <a class="collapse-item" href="">Đánh giá mới</a>
+                            <a class="collapse-item" href="">Tất cả đánh giá</a>
+                            <a class="collapse-item" href="">Doanh nghiệp đã đánh giá</a>
+                            <a class="collapse-item" href="">Doanh nghiệp chưa đánh giá</a>
+                        </div>
+                    </div>
+                </li>
+                <hr class="sidebar-divider">
+
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                        aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class='fas fa-calendar-week'></i>
+                        <span>Phiếu số 4</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"  style="width:200px;font-size:12px">
+                            <h6 class="collapse-header">Quản lý phiếu số 4:</h6>
+                            <a class="collapse-item" href="">Đánh giá mới</a>
+                            <a class="collapse-item" href="">Tất cả đánh giá</a>
+                            <a class="collapse-item" href="">Doanh nghiệp đã đánh giá</a>
+                            <a class="collapse-item" href="">Doanh nghiệp chưa đánh giá</a>
+
+                        </div>
+                    </div>
+                </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+
+                <!-- Divider -->
+
+
+                <!-- Sidebar Toggler (Sidebar) -->
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
-            </div>
-        </div>
-        <div class="header-advance-area">
-            <div class="header-top-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="header-top-wraper">
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="educate-icon educate-nav"></i>
-												</button>
+            </ul>
+            <!-- End of Sidebar -->
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
+                <div id="content">
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                        </button>
+
+                        <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Tìm kiếm..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary"type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                        <div class="header-top-menu tabl-d-n">
-                                            <ul class="nav navbar-nav mai-top-nav">
-                                                <li class="nav-item"><a href="#" class="nav-link">Home</a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                        <div class="header-right-info">
-                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
-
-                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-bell" aria-hidden="true"></i><span class="indicator-nt"></span></a>
-                                                    <div role="menu" class="notification-author dropdown-menu animated zoomIn">
-                                                        <div class="notification-single-top">
-                                                            <h1>Notifications</h1>
-                                                        </div>
-                                                        <ul class="notification-menu">
-
-
-                                                            <li>
-                                                                <a href="#">
-                                                                    <div class="notification-icon">
-                                                                        <i class="fa fa-eraser edu-shield" aria-hidden="true"></i>
-                                                                    </div>
-                                                                    <div class="notification-content">
-                                                                        <span class="notification-date">16 Sept</span>
-                                                                        <h2>Victor Jara</h2>
-                                                                        <p>Please done this project as soon possible.</p>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">
-                                                                    <div class="notification-icon">
-                                                                        <i class="fa fa-line-chart edu-analytics-arrow" aria-hidden="true"></i>
-                                                                    </div>
-                                                                    <div class="notification-content">
-                                                                        <span class="notification-date">16 Sept</span>
-                                                                        <h2>Victor Jara</h2>
-                                                                        <p>Please done this project as soon possible.</p>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="notification-view">
-                                                            <a href="#">View All Notification</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															<img src="img/product/pro4.jpg" alt="" />
-															<span class="admin-name">Chuyên gia - </span>
-															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
-														</a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-
-                                                        <li><a href="#"><span class="edu-icon edu-user-rounded author-log-ic"></span>Hồ sơ cá nhân</a>
-                                                        </li>
-
-                                                        <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Đổi mật khẩu</a>
-                                                        </li>
-                                                        <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Thoát</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
+                                </form>
+                            </div>
+                        </li>
+                                <!-- Nav Item - Alerts -->
+                                <li class="nav-item dropdown no-arrow mx-1">
+                                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-bell fa-fw"></i>
+                                        <!-- Counter - Alerts -->
+                                        <span class="badge badge-danger badge-counter">1+</span>
+                                    </a>
+                                    <!-- Dropdown - Alerts -->
+                                    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                        aria-labelledby="alertsDropdown">
+                                        <h6 class="dropdown-header">
+                                            Thông báo
+                                        </h6>
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="mr-3">
+                                                <div class="icon-circle bg-primary">
+                                                    <i class="far fa-bell"></i>
+                                                </div>
                                             </div>
-                                    </div>
-                                </div>
-                            </div>
+                                            <div>
+
+                                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-size: 14px;"> Thông báo
+                                     <span class="caret"></span>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="messagesDropdown">
+                                    <h6 class="dropdown-header">
+                                       Tất cả sản phẩm
+                                    </h6>
+                                    <li class="nav-item dropdown no-arrow">
+                                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="mr-2 d-none d-lg-inline" style="font-size:14px;font-weight:bold; color:#4e73df;">@php
+                                                $name = Session::get('name') ." - ".Session::get('role');
+                                if($name){
+                                    echo $name;
+
+                                }                  @endphp</span>
+                                        </a>
+                                        <!-- Dropdown - User Information -->
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                            aria-labelledby="userDropdown">
+                                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#fcapnhatthongtin">
+                                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Hồ sơ cá nhân
+                                            </a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#fdoimatkhau">
+                                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Đổi mật khẩu
+                                            </a>
+
+
+
+
+                                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                                <div class="dropdown-divider"></div>
+
+                                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                                    @csrf
+
+                                                    <x-jet-responsive-nav-link href="/"
+                                                                   @click.prevent="$root.submit();">
+                                                        {{ __('Thoát') }}
+                                                    </x-jet-responsive-nav-link>
+                                                </form>
+
+
+
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+
+
                         </div>
+
+                                                </li>
+                                            </ul>
+                                        </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+                                        <!-- Page Heading -->
+                        @yield('content')
+                        </div>
+                        </div>
+
+                <!-- Footer -->
+                <div class="text-center p-3" style="background-color: #0038b0;">
+      <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
+                </div>
+
+                <!-- End of Footer -->
+                </div>
+
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
                     </div>
                 </div>
             </div>
-            <!-- Mobile Menu start -->
-
-            <!-- Mobile Menu end -->
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
-                                <div class="row">
-
-
-                                        <ul class="breadcome-menu">
-                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
-                                            </li>
-                                            <li><span class="bread-blod">Dashboard V.1</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                            </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        <br><br><br><br><br>    <br><br><br><br><br>    <br><br><br><br><br>    <br><br><br>
-        <div class="footer-copyright-area">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p style="background: none;text-align: center; color: white; font-size: 14px; margin:5px">© 2023 CHUYỂN ĐỔI SỐ TỈNH AN GIANG<span style="padding: 0 15px;">|</span> Thiết kế và Xây dựng bởi <a href="https://fit.agu.edu.vn/" style="color: #0038b0; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a></p>
-                        </div>
-
-                </div>
-            </div>
         </div>
 
-    <!-- jquery
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/vendor/jquery-1.12.4.min.js') }}"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/bootstrap.min.js') }}"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/wow.min.js') }}"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/jquery-price-slider.js') }}"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/jquery.meanmenu.js') }}"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/owl.carousel.min.js') }}"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/jquery.sticky.js') }}"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/jquery.scrollUp.min.js') }}"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/counterup/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/counterup/waypoints.min.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/counterup/counterup-active.js') }}"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/metisMenu/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/metisMenu/metisMenu-active.js') }}"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/morrisjs/raphael-min.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/morrisjs/morris.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/morrisjs/morris-active.js') }}"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/sparkline/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/sparkline/jquery.charts-sparkline.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/sparkline/sparkline-active.js') }}"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/calendar/moment.min.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/calendar/fullcalendar.min.js') }}"></script>
-    <script src="{{ asset('chuyengia/js/calendar/fullcalendar-active.js') }}"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/plugins.js') }}"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="{{ asset('chuyengia/js/main.js') }}"></script>
-    <!-- tawk chat JS
-		============================================ -->
-    {{-- <script src="{{ asset('chuyengia/js/tawk-chat.js') }}"></script> --}}
-</body>
+        <!-- Bootstrap core JavaScript-->
+        <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-</html>
+        <!-- Core plugin JavaScript-->
+        <script src="{{asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+
+        <!-- Page level plugins -->
+        <script src="{{asset('admin/vendor/chart.js/Chart.min.js')}}"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="{{asset('admin/js/demo/chart-area-demo.js')}}"></script>
+        <script src="{{asset('admin/js/demo/chart-pie-demo.js')}}"></script>
+
+
+    <script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>
+
+    </body>
+
+    </html>

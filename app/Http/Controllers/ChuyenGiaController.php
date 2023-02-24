@@ -19,4 +19,16 @@ class ChuyenGiaController extends Controller
             return view('chuyengia.Dashboard');
 
     }
+    public function getidDGMoi_P1(){
+
+        return view('chuyengia.P1_DanhGiaMoi');
+    }
+    public function getTatCa_P1(){
+
+        return view('chuyengia.P1_TatCa');
+    }
+    public function getChuaDanhGia_P1(){
+
+        return view('chuyengia.P1_ChuaDanhGia');
+    }
 }
