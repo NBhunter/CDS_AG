@@ -15,23 +15,44 @@
                             <th>Tên doanh nghiệp</th>
                             <th>Thời gian đánh giá </th>
                             <th> Số điểm đánh giá </th>
-                            <th> Trạng thái </th>
+                            <th> Đánh giá tổng thể</th>
                             <th>Xử lý</th>
                         </tr>
 
                     </thead>
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
-</tr>
+                    @php
+                        $i =1;
+                    @endphp
+                    @foreach ($Phieu1New as $key => $PNew )
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $PNew->TenDoanhNghiep }}</td>
+                        <td>{{ $PNew->ThoigianTao }}</td>
+                        <td>{{ $PNew->TongDiem }}</td>
+                        <td>
+                            @if ($PNew->TongDiem <= 20 )
+                            <span class="badge bg-danger text-light" >Chưa khởi động</span>
+                            @endif
+                            @if ($PNew->TongDiem > 20 && $PNew->TongDiem <= 64)
+                            <span class="badge bg-danger text-light" >Khởi động</span>
+                            @endif
+                            @if ($PNew->TongDiem <= 128 && $PNew->TongDiem > 64 )
+                            <span class="badge bg-danger text-light">Bắt đầu</span>
+                            @endif
+                            @if ($PNew->TongDiem <= 192 && $PNew->TongDiem > 128 )
+                            <span class="badge bg-primary text-light">Bắt đầu</span>
+                            @endif
+                            @if ($PNew->TongDiem <= 256 && $PNew->TongDiem > 192 )
+                            <span class="badge bg-primary text-light">Bắt đầu</span>
+                            @endif
+                            @if ( $PNew->TongDiem > 256 )
+                            <span class="badge bg-primary text-light">Bắt đầu</span>
+                            @endif
+                        </td>
+                        <td><a class="btn btn-success" href="{{ URL::to('/chitiet_P1/'.$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
+                    </tr>
+                    @endforeach
 
-
-                            </td>
-                        </tr>
 
 
 

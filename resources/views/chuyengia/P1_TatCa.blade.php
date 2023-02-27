@@ -20,15 +20,19 @@
                         </tr>
 
                     </thead>
-<tr>
+                    @php
+                    $i =1;
+                @endphp
+                    @foreach ($Phieu1New as $key => $PNew )
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $PNew->TenDoanhNghiep }}</td>
+                        <td>{{ $PNew->ThoigianTao }}</td>
+                        <td>{{ $PNew->TongDiem }}</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
+    <td><a class="btn btn-success" href="{{ url::to('/chitiet_P1/'.$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
 </tr>
-
+@endforeach
 
                             </td>
                         </tr>
