@@ -166,6 +166,7 @@ class DanhGia1Controller extends Controller
        }
        $thongtinphieu['TongDiem'] = $TongDiem;
        $thongtinphieu['created_at'] = now();
+       $thongtinphieu['status'] = 0;
        DB::table('phieuso1')->insert($thongtinphieu);
        return Redirect::to('dnviews');
 
