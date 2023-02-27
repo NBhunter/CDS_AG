@@ -16,35 +16,59 @@
                 <div class="panel-body">
 
                     <div class="position-center">
-                        <form role="form" action="{{URL::to('/save-cauhoi')}}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{URL::to('/update-cauhoi/'.$phieu1->idcauhoi)}}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Cấp</label>
                                   <select name="Cap" class="form-control input-sm m-bot15" onchange="changerID(this)">
-                                     <option value="0">Tiêu đề (0)</option>
-                                        <option value="1" selected>Trụ cột (1)</option>
+                                    @if ($phieu1->Cap == 0)
+                                    <option value="0" selected>Tiêu đề (0)</option>
+                                    <option value="1">Trụ cột (1)</option>
                                         <option value="2">Tiêu chí (2)</option>
                                         <option value="3">Câu hỏi (3)</option>
+                                    @else
+                                    @if ($phieu1->Cap == 1)
+                                    <option value="0" >Tiêu đề (0)</option>
+                                    <option value="1"selected>Trụ cột (1)</option>
+                                        <option value="2">Tiêu chí (2)</option>
+                                        <option value="3">Câu hỏi (3)</option>
+                                    @else
+                                    @if ($phieu1->Cap == 2)
+                                    <option value="0" >Tiêu đề (0)</option>
+                                    <option value="1">Trụ cột (1)</option>
+                                        <option value="2" selected>Tiêu chí (2)</option>
+                                        <option value="3">Câu hỏi (3)</option>
+                                    @else
+                                    @if ($phieu1->Cap == 3)
+                                    <option value="0" >Tiêu đề (0)</option>
+                                    <option value="1">Trụ cột (1)</option>
+                                        <option value="2">Tiêu chí (2)</option>
+                                        <option value="3" selected>Câu hỏi (3)</option>
+                                    @endif
+                                    @endif
+                                    @endif
+                                    @endif
+
                                 </select>
                             </div>
                             <div class="form-group" id="tieuchi">
                                 <label for="exampleInputEmail1">Tiêu chí</label>
-                                <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền ít nhất 10 ký tự" name="NoiDung" class="form-control " id="NoiDung" placeholder="Nhập tiêu chí">
+                                <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền ít nhất 10 ký tự" name="NoiDung" class="form-control " id="NoiDung" placeholder="Nhập tiêu chí" value="{{ $phieu1->NoiDung }}">
                             </div>
                             <div class="form-group" id="cauhoi" hidden>
                                 <label for="exampleInputPassword1">Câu hỏi</label>
-                                <textarea style="resize: none"  rows="8" class="form-control" name="TenCauHoi" id="ckeditor1" placeholder="Nhập câu hỏi"></textarea>
+                                <textarea style="resize: none"  rows="8" class="form-control" name="TenCauHoi" id="" placeholder="Nhập câu hỏi">{{ $phieu1->TenCauHoi }}</textarea>
                             </div>
                             <div class="form-group"id="mota" hidden>
                                 <label for="exampleInputPassword1">Mô tả </label>
-                                <textarea style="resize: none"  rows="8" class="form-control" name="MoTa" id="ckeditor2" placeholder="Nhập mô tả về câu hỏi"></textarea>
+                                <textarea style="resize: none"  rows="8" class="form-control" name="MoTa" id="" placeholder="Nhập mô tả về câu hỏi">{{ $phieu1->MoTa }}</textarea>
                             </div>
 
                         <div class="form-group" id="diem" >
                             <label for="exampleInputEmail1">Điểm tối đa</label>
-                            <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền số điểm tối đa" name="DiemToiDa" class="form-control " id="DiemToiDa" placeholder=" Nhập điểm">
+                            <input type="text" data-validation="length" data-validation-length="min10" data-validation-error-msg="Điền số điểm tối đa" name="DiemToiDa" class="form-control " id="DiemToiDa" placeholder=" Nhập điểm" value="{{ $phieu1->DiemToiDa }}">
                         </div>
-                        <div class="form-group" id="trucot"  hidden>
+                        {{-- <div class="form-group" id="trucot"  hidden>
                             <label for="exampleInputPassword1">Trụ cột</label>
                               <select name="idcha1" class="form-control input-sm m-bot15">
                                 @php($i=0)
@@ -105,7 +129,7 @@
                                 @endforeach
 
                             </select>
-                        </div>
+                        </div> --}}
                         <button type="submit" name="add_product" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm câu hỏi</button>
                         </form>
                     </div>

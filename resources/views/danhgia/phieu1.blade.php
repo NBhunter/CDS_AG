@@ -1,4 +1,7 @@
 @extends( 'danhgia.frontend')
+@section('title')
+Phiếu câu hỏi số 1
+@endsection
 @section('link')
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
@@ -132,13 +135,8 @@ td{
 @endsection
 @section('content')
 <div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 1: @php
-        $name = Session::get('name') ;
-					if($name){
-						echo $name;
+    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 1 - Mã Phiếu: {{ $time }}</h2>
 
-					}
-    @endphp</h2>
     </div>
     <div class="container" style="font-weight:400;margin_top: 0px ;">
     <div class="row" style="font-weight:400;">
@@ -158,7 +156,9 @@ td{
         <td class="col-2">Đánh giá</td>
       </tr>
       <tbody style="text-align:center;font-weight:400;">
+        <form role="form" action="{{URL::to('/request_cauhoi_p1')}}" method="post" enctype="multipart/form-data">
         @csrf
+        <input type="text" name="maphieu" value="{{ $time }}" hidden>
 @foreach($Cauhoi as $key => $ctCauhoi)
 @if ($ctCauhoi->Cap==1)
 @php
@@ -206,32 +206,41 @@ td{
     <th rowspan="2"> </th>
     {{-- <th rowspan="2"> </th> --}}
     <th rowspan="2">
-        <div class="rating" name="{{ $ctCauhoi->idcauhoi }}">
-        <input type="radio" name="rating{{ $y }}" value="5" id="5{{ $ctCauhoi->idcauhoi }}"><label for="5{{ $ctCauhoi->idcauhoi }}" name="1{{ $y }}">☆</label>
-        <input type="radio" name="rating{{ $y }}" value="4" id="4{{ $ctCauhoi->idcauhoi }}"><label for="4{{ $ctCauhoi->idcauhoi }}" name="1{{ $y }}">☆</label>
-        <input type="radio" name="rating{{ $y }}" value="3" id="3{{ $ctCauhoi->idcauhoi }}"><label for="3{{ $ctCauhoi->idcauhoi }}" name="1{{ $y }}">☆</label>
-        <input type="radio" name="rating{{ $y }}" value="2" id="2{{ $ctCauhoi->idcauhoi }}"><label for="2{{ $ctCauhoi->idcauhoi }}" name="1{{ $y }}">☆</label>
-        <input type="radio" name="rating{{ $y }}" value="1" id="1{{ $ctCauhoi->idcauhoi }}"><label for="1{{ $ctCauhoi->idcauhoi }}" name="1{{ $y }}">☆</label>
-    </div> </th>
+        @if ($i == 2)
+        <div class="rating" name="Diem_{{ $ctCauhoi->idcauhoi }}">
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="25" id="5{{ $ctCauhoi->idcauhoi }}"><label for="5{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="20" id="4{{ $ctCauhoi->idcauhoi }}"><label for="4{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="15" id="3{{ $ctCauhoi->idcauhoi }}"><label for="3{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="10" id="2{{ $ctCauhoi->idcauhoi }}"><label for="2{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="5" id="1{{ $ctCauhoi->idcauhoi }}"><label for="1{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="0" hidden checked>
+        </div>
+        @else
+        <div class="rating" name="Diem_{{ $ctCauhoi->idcauhoi }}">
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="5" id="5{{ $ctCauhoi->idcauhoi }}"><label for="5{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="4" id="4{{ $ctCauhoi->idcauhoi }}"><label for="4{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="3" id="3{{ $ctCauhoi->idcauhoi }}"><label for="3{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="2" id="2{{ $ctCauhoi->idcauhoi }}"><label for="2{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="1" id="1{{ $ctCauhoi->idcauhoi }}"><label for="1{{ $ctCauhoi->idcauhoi }}" name="{{ $ctCauhoi->idcauhoi }}">☆</label>
+            <input type="radio" name="{{ $ctCauhoi->idcauhoi }}" value="0" hidden checked>
+        </div>
+        @endif
+        </th>
 </tr>
 <tr class="" > <th rowspan="1" class="noidung">{{ $ctCauhoi->MoTa }}</th></tr>
 @endif
 @endif
 @endif
 
-
-
-
-
-
-
-
-
-
-
-
   @endforeach
+
 </tbody>
+<tfoot>
+    <tr>
+        <td colspan="5"><button type="submit" name="guiphieu" class="btn btn-info" value=""><i class='fas fa-plus'></i>  Hoàn Thành</button></td>
+    </tr>
+</form>
+</tfoot>
     </table>
 </div>
 </div>

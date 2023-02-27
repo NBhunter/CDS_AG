@@ -18,13 +18,14 @@ class DoanhNghiepController extends Controller
 
         Session::put('email',$user->email);
         $DoanhNghiep = DB::table('users')->leftjoin('dn_user','dn_user.User_id','=','users.id')
-        ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')->where('email',Session::get('email'))->select('dn_user.id As lienket_id','users.*','dn_user.*','doanhnghiep.*')->get();
-
+        ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')->where('email',Session::get('email'))
+        ->select('dn_user.id As lienket_id','users.*','dn_user.*','doanhnghiep.*')->first();
+        $DanhGia1 = DB::table('phieuso1')->where('DoanhNghiep_Id',$DoanhNghiep->DoanhNghiep_id)->orderByDesc('created_at')->first();
         Session::put('name',$user->name);
-        Session::put('lienket_id',$DoanhNghiep[0]->lienket_id);
-        Session::put('DoanhNghiep_id',$DoanhNghiep[0]->DoanhNghiep_id);
-        Session::put('User_id',$DoanhNghiep[0]->User_id);
-            return view('DoanhNghiep.home')->with('DoanhNghiep',$DoanhNghiep);
+        Session::put('lienket_id',$DoanhNghiep->lienket_id);
+        Session::put('DoanhNghiep_id',$DoanhNghiep->DoanhNghiep_id);
+        Session::put('User_id',$DoanhNghiep->User_id);
+            return view('DoanhNghiep.home')->with('DoanhNghiep',$DoanhNghiep)->with('DanhGia1',$DanhGia1);
 
     }
 

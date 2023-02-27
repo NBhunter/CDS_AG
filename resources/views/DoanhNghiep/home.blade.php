@@ -32,7 +32,7 @@
 												<hr class="sidebar-divider" style="color: #4e73df;">
 												<h4 style="font-size:14px;font-family:Roboto;">Chỉ số đánh giá mức độ chuyển đổi số </h4>
 												<hr class="sidebar-divider" style="color: #4e73df;">
-												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">320 điểm </h3>
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">{{ $DanhGia1->TongDiem }} điểm</h3>
 
 											</div>
 										</div>
