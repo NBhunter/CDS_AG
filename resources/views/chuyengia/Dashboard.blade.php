@@ -84,10 +84,10 @@
                         <div class="bg-white py-2 collapse-inner rounded"  style="width:200px;font-size:12px">
                             <h6 class="collapse-header">Quản lý phiếu số 2:</h6>
 
-                            <a class="collapse-item" href="">Đánh giá mới</a>
-                            <a class="collapse-item" href="">Tất cả đánh giá</a>
-                            <a class="collapse-item" href="">Doanh nghiệp đã đánh giá</a>
-                            <a class="collapse-item" href="">Doanh nghiệp chưa đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P2_DGMoi') }}">Đánh giá mới</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P2_Tatca') }}">Tất cả đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P2_DaDG') }}">Doanh nghiệp đã đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P2_ChuaDG') }}">Doanh nghiệp chưa đánh giá</a>
                         </div>
                     </div>
                 </li>
