@@ -92,6 +92,11 @@ Route::middleware([
     Route::get('/chuyengia/P1_DGM', 'App\Http\Controllers\ChuyenGiaController@getidDGMoi_P1' );
     Route::get('/chuyengia/P1_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P1' );
     Route::get('/chuyengia/P1_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P1' );
+    Route::get('/chuyengia/P1_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P1' );
+    Route::get('/chuyengia/P2_DGMoi', 'App\Http\Controllers\ChuyenGiaController@getDGMoi_P2' );
+    Route::get('/chuyengia/P2_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P2' );
+    Route::get('/chuyengia/P2_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P2' );
+    Route::get('/chuyengia/P2_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P2' );
 });
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
