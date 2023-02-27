@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group" id="thanhphan0"  hidden>
                             <label for="exampleInputPassword1">Thành phần </label>
-                              <select name="idcha1" class="form-control input-sm m-bot15">
+                              <select name="idcha2" class="form-control input-sm m-bot15">
                                 @php($j=0)
                                 @php($i=0)
                                 @foreach ( $Cauhoi as $key => $c )
@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group" id="thanhphan" hidden>
                             <label for="exampleInputPassword1">Thành phần</label>
-                              <select name="idcha2" class="form-control input-sm m-bot15">
+                              <select name="idcha3" class="form-control input-sm m-bot15">
                                 @php($j=0)
                                 @php($i=0)
                                 @foreach ( $Cauhoi as $key => $c )
@@ -152,9 +152,9 @@ function changerID(obj){
     }
 }
     </script>
-     <script src="//cdn.ckeditor.com/4.16.2/full-all/ckeditor.js"></script>
+     {{-- <script src="//cdn.ckeditor.com/4.16.2/full-all/ckeditor.js"></script>
      <script>
      CKEDITOR.replace( 'ckeditor1' );
      CKEDITOR.replace( 'ckeditor2' );
-     </script>
+     </script> --}}
 @endsection

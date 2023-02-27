@@ -86,7 +86,7 @@
                                     <th rowspan="2"> </th>
                                     {{-- <th rowspan="2"> </th> --}}
                                     <th rowspan="2">
-                                        <a class="btn btn-success" href="{{ URL::to('/admin/edit/'.$ctCauhoi->idcauhoi) }}"><i class='fas fa-edit'></i></a> </th>
+                                        <a class="btn btn-success" href="{{ URL::to('/admin/phieu1-edit/'.$ctCauhoi->idcauhoi) }}"><i class='fas fa-edit'></i></a> </th>
                                 </tr>
                                 <tr class="" > <th rowspan="1" class="noidung">{{ $ctCauhoi->MoTa }}</th></tr>
 

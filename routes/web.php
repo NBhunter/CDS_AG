@@ -53,6 +53,12 @@ Route::middleware([
     Route::post('/save_Tin','App\Http\Controllers\TinTucController@saveTin');
     //lưu phiếu
     Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
+    Route::get('/admin/list-phieu1','App\Http\Controllers\DanhGia1Controller@getquestlist');
+    Route::get('/admin/phieu1-edit/{idcauhoi}','App\Http\Controllers\DanhGia1Controller@getquestdetail');
+    Route::post('/update-cauhoi/{idcauhoi}','App\Http\Controllers\DanhGia1Controller@updateCauHoi');
+    // câu trả lời phiếu 1
+    Route::post('/request_cauhoi_p1','App\Http\Controllers\DanhGia1Controller@DanhGia');
+
     Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia2Controller@saveCauHoi');
     Route::post('/save-cauhoi_p3','App\Http\Controllers\DanhGia3Controller@saveCauHoi');
     Route::post('/save-cauhoi_p4','App\Http\Controllers\DanhGia4Controller@saveCauHoi');
