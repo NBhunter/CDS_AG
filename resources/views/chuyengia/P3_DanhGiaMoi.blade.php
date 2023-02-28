@@ -1,10 +1,10 @@
 @extends('chuyengia.Dashboard')
 @section('content')
 <div class="container-fluid">
-    <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN TẤT CẢ ĐÁNH GIÁ </h1>
+    <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN CÁC ĐÁNH GIÁ MỚI NHẤT </h1>
     <div class="card mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Danh sách tất cả đánh giá</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách các đánh giá mới</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -15,7 +15,7 @@
                             <th>Tên doanh nghiệp</th>
                             <th>Thời gian đánh giá </th>
                             <th> Số điểm đánh giá </th>
-                            <th> Trạng thái </th>
+                            <th> Đánh giá tổng thể</th>
                             <th>Xử lý</th>
                         </tr>
 
@@ -26,13 +26,13 @@
                         <td></td>
                         <td></td>
                         <td></td>
-    <td></td>
-    <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
-</tr>
+                        <td>
+
+                        </td>
+                        <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
+                    </tr>
 
 
-                            </td>
-                        </tr>
 
 
 

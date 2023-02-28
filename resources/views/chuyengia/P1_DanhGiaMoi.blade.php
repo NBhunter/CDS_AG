@@ -49,7 +49,7 @@
                             <span class="badge bg-primary text-light">Bắt đầu</span>
                             @endif
                         </td>
-                        <td><a class="btn btn-success" href="{{ URL::to('/chitiet_P1/'.$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
+                        <td><a class="btn btn-success" href="{{ URL::to('chuyengia/P1_Chitiet' .$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
                     </tr>
                     @endforeach
 
