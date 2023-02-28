@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\phieu1_diem;
+use App\Models\phieuso1;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -116,7 +118,8 @@ class DanhGia1Controller extends Controller
         $request->user()->authorizeRoles(['DoanhNghie','Admin']);
        $DoanhNghiep_id = Session::get('DoanhNghiep_id');
        $User_id = Session::get('User_id');
-       $thongtinphieu = array();
+       $thongtinphieu = new phieuso1();
+
         $Cauhoi = DB::table('chitiet')->get();
         $thongtinphieu['Id'] = $request->maphieu;
         $thongtinphieu['User_id'] = $User_id;
@@ -130,11 +133,12 @@ class DanhGia1Controller extends Controller
         if($Ch->Cap ==1)
         {
             if($ID_C1_Truoc != 0){
-                $chitietcauhoiC1 = array();
+                $chitietcauhoiC1 = new phieu1_diem();
         $chitietcauhoiC1['Phieu_id'] = $request->maphieu;
         $chitietcauhoiC1['ChiTiet_id'] = $Ch->Id;
         $chitietcauhoiC1['Diem'] =$DiemC1;
-        DB::table('phieu1_diem')->insert($chitietcauhoiC1);
+        // DB::table('phieu1_diem')->insert($chitietcauhoiC1);
+                $chitietcauhoiC1->save();
             }
             $ID_C1_Truoc = $Ch->Id;
             $DiemC1 = 0;
@@ -143,31 +147,34 @@ class DanhGia1Controller extends Controller
         if($Ch->Cap ==2)
         {
             if($ID_C2_Truoc != 0){
-                $chitietcauhoiC2 = array();
+                $chitietcauhoiC2 = new phieu1_diem();
         $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
         $chitietcauhoiC2['ChiTiet_id'] = $Ch->Id;
         $chitietcauhoiC2['Diem'] =$DiemC2;
-        DB::table('phieu1_diem')->insert($chitietcauhoiC2);
-            }
+        // DB::table('phieu1_diem')->insert($chitietcauhoiC2);
+                $chitietcauhoiC2->save();
+    }
             $ID_C2_Truoc = $Ch->Id;
             $DiemC2 = 0;
 
         }
         if($Ch->Cap ==3){
-        $chitietcauhoi = array();
+        $chitietcauhoi = new phieu1_diem();
         $chitietcauhoi['Phieu_id'] = $request->maphieu;
         $chitietcauhoi['ChiTiet_id'] = $Ch->Id;
         $chitietcauhoi['Diem'] =$request[$Ch->Id];
         $TongDiem+=$request[$Ch->Id];
         $DiemC1+=$request[$Ch->Id];
         $DiemC2+=$request[$Ch->Id];
-        DB::table('phieu1_diem')->insert($chitietcauhoi);
+        // DB::table('phieu1_diem')->insert($chitietcauhoi);
+        $chitietcauhoi->save();
         }
        }
        $thongtinphieu['TongDiem'] = $TongDiem;
        $thongtinphieu['created_at'] = now();
        $thongtinphieu['status'] = 0;
-       DB::table('phieuso1')->insert($thongtinphieu);
+    //    DB::table('phieuso1')->insert($thongtinphieu);
+       $thongtinphieu->save();
        return Redirect::to('dnviews');
 
     }

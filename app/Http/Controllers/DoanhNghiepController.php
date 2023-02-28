@@ -21,11 +21,12 @@ class DoanhNghiepController extends Controller
         ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')->where('email',Session::get('email'))
         ->select('dn_user.id As lienket_id','users.*','dn_user.*','doanhnghiep.*')->first();
         $DanhGia1 = DB::table('phieuso1')->where('DoanhNghiep_Id',$DoanhNghiep->DoanhNghiep_id)->orderByDesc('created_at')->first();
+        $BanDanhGia = DB::table('phieuso1')->where('DoanhNghiep_Id',$DoanhNghiep->DoanhNghiep_id)->get();
         Session::put('name',$user->name);
         Session::put('lienket_id',$DoanhNghiep->lienket_id);
         Session::put('DoanhNghiep_id',$DoanhNghiep->DoanhNghiep_id);
         Session::put('User_id',$DoanhNghiep->User_id);
-            return view('DoanhNghiep.home')->with('DoanhNghiep',$DoanhNghiep)->with('DanhGia1',$DanhGia1);
+            return view('DoanhNghiep.home')->with('DoanhNghiep',$DoanhNghiep)->with('DanhGia1',$DanhGia1)->with('BanDanhGia',$BanDanhGia);
 
     }
 
@@ -43,6 +44,8 @@ class DoanhNghiepController extends Controller
         ->leftjoin('linhvuc','linhvuc.Id','=','doanhnghiep.LinhVuc_id')
         ->leftjoin('nguoidung','nguoidung.DoanhNghiep_id','=','doanhnghiep.id')
         ->select('nguoidung.Ten As tennguoidung','nguoidung.email As emaildoanhnghiep','nguoidung.DiaChi As diachinguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*')->where('users.email',$user->email)->first();
+
+        // lấy bản số
         Session::put('name',$user->name);
         Session::put('lienket_id',$DoanhNghiep[0]->lienket_id);
         Session::put('DoanhNghiep_id',$DoanhNghiep[0]->DoanhNghiep_id);

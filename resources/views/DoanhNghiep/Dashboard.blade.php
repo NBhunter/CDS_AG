@@ -257,25 +257,24 @@
 			new Chart(document.getElementById("chartjs-dashboard-line"), {
 				type: "line",
 				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					labels: [
+                @php
+                    $i =1;
+                @endphp
+                    @foreach ($BanDanhGia as $DG)
+"{{ $i++ }}",
+                    @endforeach
+                    ],
 					datasets: [{
 						label: "Mức độ (đ)",
 						fill: true,
 						backgroundColor: gradient,
 						borderColor: window.theme.primary,
 						data: [
-							60,
-							78,
-							130,
-							130,
-							130,
-							130,
-							150,
-							150,
-							180,
-							180,
-							193,
-							198
+                            @foreach ($BanDanhGia as $DG)
+{{ $DG->TongDiem}},
+                    @endforeach
+
 						]
 					}]
 				},
