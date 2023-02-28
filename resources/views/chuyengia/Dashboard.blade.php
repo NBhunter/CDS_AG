@@ -103,10 +103,10 @@
                         <div class="bg-white py-2 collapse-inner rounded"  style="width:200px;font-size:12px">
                             <h6 class="collapse-header">Quản lý phiếu số 3:</h6>
 
-                            <a class="collapse-item" href="">Đánh giá mới</a>
-                            <a class="collapse-item" href="">Tất cả đánh giá</a>
-                            <a class="collapse-item" href="">Doanh nghiệp đã đánh giá</a>
-                            <a class="collapse-item" href="">Doanh nghiệp chưa đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P3_DGMoi') }}">Đánh giá mới</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P3_Tatca') }}">Tất cả đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P3_DaDG') }}">Doanh nghiệp đã đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P3_ChuaDG') }}">Doanh nghiệp chưa đánh giá</a>
                         </div>
                     </div>
                 </li>
@@ -123,10 +123,10 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"  style="width:200px;font-size:12px">
                             <h6 class="collapse-header">Quản lý phiếu số 4:</h6>
-                            <a class="collapse-item" href="">Đánh giá mới</a>
-                            <a class="collapse-item" href="">Tất cả đánh giá</a>
-                            <a class="collapse-item" href="">Doanh nghiệp đã đánh giá</a>
-                            <a class="collapse-item" href="">Doanh nghiệp chưa đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P4_DGMoi') }}">Đánh giá mới</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P4_Tatca') }}">Tất cả đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P4_DaDG') }}">Doanh nghiệp đã đánh giá</a>
+                            <a class="collapse-item" href="{{ URL::to('chuyengia/P4_ChuaDG') }}">Doanh nghiệp chưa đánh giá</a>
 
                         </div>
                     </div>
