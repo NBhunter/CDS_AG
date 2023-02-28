@@ -30,7 +30,7 @@
                         <td>{{ $PNew->ThoigianTao }}</td>
                         <td>{{ $PNew->TongDiem }}</td>
     <td></td>
-    <td><a class="btn btn-success" href="{{ url::to('/chitiet_P1/'.$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
+    <td><a class="btn btn-success" href="{{ URL::to('/chitiet_P1/'.$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
 </tr>
 @endforeach
 

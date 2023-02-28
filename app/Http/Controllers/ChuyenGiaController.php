@@ -36,6 +36,10 @@ class ChuyenGiaController extends Controller
         ->select('phieuso1.created_at as ThoigianTao','phieuso1.id as IDphieu','phieuso1.*','doanhnghiep.*','users.*')->get();
         return view('chuyengia.P1_TatCa')->with('Phieu1New',$Phieu1New);
     }
+    public function getChiTiet_P1(){
+
+        return view('chuyengia.P1_ChiTiet');
+    }
     public function getChuaDanhGia_P1(){
 
         return view('chuyengia.P1_ChuaDanhGia');
@@ -59,6 +63,38 @@ class ChuyenGiaController extends Controller
     public function getChuaDanhGia_P2(){
 
         return view('chuyengia.P2_ChuaDanhGia');
+    }
+    public function getDGMoi_P3(){
+
+        return view('chuyengia.P3_DanhGiaMoi');
+    }
+    public function getTatCa_P3(){
+
+        return view('chuyengia.P3_TatCa');
+    }
+    public function getDaDanhGia_P3(){
+
+        return view('chuyengia.P3_DaDanhGia');
+    }
+    public function getChuaDanhGia_P3(){
+
+        return view('chuyengia.P3_ChuaDanhGia');
+    }
+    public function getDGMoi_P4(){
+
+        return view('chuyengia.P4_DanhGiaMoi');
+    }
+    public function getTatCa_P4(){
+
+        return view('chuyengia.P4_TatCa');
+    }
+    public function getDaDanhGia_P4(){
+
+        return view('chuyengia.P4_DaDanhGia');
+    }
+    public function getChuaDanhGia_P4(){
+
+        return view('chuyengia.P4_ChuaDanhGia');
     }
 }
 

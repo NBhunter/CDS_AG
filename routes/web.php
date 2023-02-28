@@ -98,6 +98,17 @@ Route::middleware([
     Route::get('/chuyengia/P2_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P2' );
     Route::get('/chuyengia/P2_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P2' );
     Route::get('/chuyengia/P2_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P2' );
+    Route::get('/chuyengia/P3_DGMoi', 'App\Http\Controllers\ChuyenGiaController@getDGMoi_P3' );
+    Route::get('/chuyengia/P3_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P3' );
+    Route::get('/chuyengia/P3_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P3' );
+    Route::get('/chuyengia/P3_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P3' );
+    Route::get('/chuyengia/P4_DGMoi', 'App\Http\Controllers\ChuyenGiaController@getDGMoi_P4' );
+    Route::get('/chuyengia/P4_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P4' );
+    Route::get('/chuyengia/P4_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P4' );
+    Route::get('/chuyengia/P4_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P4' );
+// chi tiết
+Route::get('/chuyengia/P1_Chitiet', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P1' );
+
 });
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
