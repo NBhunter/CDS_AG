@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\DanhGia;
 
+use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -13,8 +14,8 @@ class DanhGia2Controller extends Controller
     public function getCauHoi(){
         $Cauhoi = DB::table('danhmuc_noidung_p2')
         ->leftjoin('cauhoi_p2','danhmuc_noidung_p2.NoiDung_id','=','cauhoi_p2.Id')->get();
-        // $Cauhoi = $Cauhoi->get();
-        return view('danhgia.phieu2')->with('Cauhoi',$Cauhoi);
+        $time = "DG2-".date('ymdHis');
+        return view('danhgia.phieu2')->with('Cauhoi',$Cauhoi)->with('time',$time);
     }
     public function getidCauHoi(){
         $Cauhoi = DB::table('chitiet')
@@ -91,8 +92,6 @@ $ch5 = array();
         $nd5['NoiDung_id'] =$ch5id;
         DB::table('danhmuc_noidung_p2')->insert($nd5);
 }
-
-
 
     	return Redirect::to('admin/main');
     }

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\DanhGia;
 
+use App\Http\Controllers\Controller;
 use App\Models\phieu1_diem;
 use App\Models\phieuso1;
 use DB;
@@ -135,7 +136,7 @@ class DanhGia1Controller extends Controller
             if($ID_C1_Truoc != 0){
                 $chitietcauhoiC1 = new phieu1_diem();
         $chitietcauhoiC1['Phieu_id'] = $request->maphieu;
-        $chitietcauhoiC1['ChiTiet_id'] = $Ch->Id;
+        $chitietcauhoiC1['ChiTiet_id'] = $ID_C1_Truoc;
         $chitietcauhoiC1['Diem'] =$DiemC1;
         // DB::table('phieu1_diem')->insert($chitietcauhoiC1);
                 $chitietcauhoiC1->save();
@@ -149,7 +150,7 @@ class DanhGia1Controller extends Controller
             if($ID_C2_Truoc != 0){
                 $chitietcauhoiC2 = new phieu1_diem();
         $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
-        $chitietcauhoiC2['ChiTiet_id'] = $Ch->Id;
+        $chitietcauhoiC2['ChiTiet_id'] = $ID_C2_Truoc;
         $chitietcauhoiC2['Diem'] =$DiemC2;
         // DB::table('phieu1_diem')->insert($chitietcauhoiC2);
                 $chitietcauhoiC2->save();
@@ -173,6 +174,18 @@ class DanhGia1Controller extends Controller
        $thongtinphieu['TongDiem'] = $TongDiem;
        $thongtinphieu['created_at'] = now();
        $thongtinphieu['status'] = 0;
+    //    Lưu trụ cột cuối cùng
+       $chitietcauhoiC1 = new phieu1_diem();
+        $chitietcauhoiC1['Phieu_id'] = $request->maphieu;
+        $chitietcauhoiC1['ChiTiet_id'] = $ID_C1_Truoc;
+        $chitietcauhoiC1['Diem'] =$DiemC1;
+       $chitietcauhoiC1->save();
+    //    Lưu đề mục cuối cùng
+       $chitietcauhoiC2 = new phieu1_diem();
+       $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
+       $chitietcauhoiC2['ChiTiet_id'] = $ID_C2_Truoc;
+       $chitietcauhoiC2['Diem'] =$DiemC2;
+       $chitietcauhoiC2->save();
     //    DB::table('phieuso1')->insert($thongtinphieu);
        $thongtinphieu->save();
        return Redirect::to('dnviews');

@@ -155,13 +155,7 @@ td{
 @endsection
 @section('content')
 <div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2: @php
-        $name = Session::get('name') ;
-					if($name){
-						echo $name;
-
-					}
-    @endphp</h2>
+    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2:- Mã Phiếu: {{ $time }}</h2>
     </div>
     <div class="container" style="font-weight:400;margin_top: 0px ;">
     <div class="row" style="font-weight:400;">
@@ -185,7 +179,9 @@ td{
         <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
       </tr>
       <tbody style="text-align:center;font-weight:400;">
-        @csrf
+        <form role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <input type="text" name="maphieu" value="{{ $time }}" hidden>
 @foreach($Cauhoi as $key => $ctCauhoi)
 @if ($ctCauhoi->Cap==1)
 @php
@@ -216,6 +212,12 @@ td{
 @endif
 @endforeach
 </tbody>
+<tfoot>
+    <tr>
+        <td colspan="5"><button type="submit" name="guiphieu" class="btn btn-info" value=""><i class='fas fa-plus'></i>  Hoàn Thành</button></td>
+    </tr>
+</form>
+</tfoot>
     </table>
 </div>
 </div>

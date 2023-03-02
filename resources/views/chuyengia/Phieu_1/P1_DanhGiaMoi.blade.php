@@ -1,10 +1,10 @@
 @extends('chuyengia.Dashboard')
 @section('content')
 <div class="container-fluid">
-    <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN TẤT CẢ ĐÁNH GIÁ </h1>
+    <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN CÁC ĐÁNH GIÁ MỚI NHẤT </h1>
     <div class="card mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Danh sách tất cả đánh giá</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách các đánh giá mới</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -15,27 +15,44 @@
                             <th>Tên doanh nghiệp</th>
                             <th>Thời gian đánh giá </th>
                             <th> Số điểm đánh giá </th>
-                            <th> Trạng thái </th>
+                            <th> Đánh giá tổng thể</th>
                             <th>Xử lý</th>
                         </tr>
 
                     </thead>
                     @php
-                    $i =1;
-                @endphp
+                        $i =1;
+                    @endphp
                     @foreach ($Phieu1New as $key => $PNew )
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{ $PNew->TenDoanhNghiep }}</td>
                         <td>{{ $PNew->ThoigianTao }}</td>
                         <td>{{ $PNew->TongDiem }}</td>
-    <td></td>
-    <td><a class="btn btn-success" href="{{ URL::to('/chitiet_P1/'.$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
-</tr>
-@endforeach
+                        <td>
+                            @if ($PNew->TongDiem <= 20 )
+                            <span class="badge bg-danger text-light" >Chưa khởi động</span>
+                            @endif
+                            @if ($PNew->TongDiem > 20 && $PNew->TongDiem <= 64)
+                            <span class="badge bg-danger text-light" >Khởi động</span>
+                            @endif
+                            @if ($PNew->TongDiem <= 128 && $PNew->TongDiem > 64 )
+                            <span class="badge bg-danger text-light">Bắt đầu</span>
+                            @endif
+                            @if ($PNew->TongDiem <= 192 && $PNew->TongDiem > 128 )
+                            <span class="badge bg-primary text-light">Bắt đầu</span>
+                            @endif
+                            @if ($PNew->TongDiem <= 256 && $PNew->TongDiem > 192 )
+                            <span class="badge bg-primary text-light">Bắt đầu</span>
+                            @endif
+                            @if ( $PNew->TongDiem > 256 )
+                            <span class="badge bg-primary text-light">Bắt đầu</span>
+                            @endif
+                        </td>
+                        <td><a class="btn btn-success" href="{{ URL::to('chuyengia/P1_Chitiet/' .$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
+                    </tr>
+                    @endforeach
 
-                            </td>
-                        </tr>
 
 
 
