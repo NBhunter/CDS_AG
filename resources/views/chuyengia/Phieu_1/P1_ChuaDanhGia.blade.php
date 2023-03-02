@@ -18,13 +18,19 @@
                         </tr>
 
                     </thead>
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
+                    @php
+                        $i=1;
+                    @endphp
+                    @foreach ( $CDG as $key => $DnCDG )
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $DnCDG->TenDoanhNghiep }}</td>
+                        <td></td>
 
-    <td><a class="btn btn-warning" href=""><i class='fas fa-bell'></i></a></td>
-</tr>
+                        <td><a class="btn btn-warning" href=""><i class='fas fa-bell'></i></a></td>
+                    </tr>
+                    @endforeach
+
 
 
                             </td>

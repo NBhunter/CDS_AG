@@ -36,37 +36,37 @@ Route::middleware([
 
 
     Route::get('/dnviews','App\Http\Controllers\DoanhNghiepController@getdanhnghiep' );
-    Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia1Controller@getCauHoi' );
-    Route::get('/phieudanhgia2','App\Http\Controllers\DanhGia2Controller@getCauHoi' );
-    Route::get('/phieudanhgia3','App\Http\Controllers\DanhGia3Controller@getCauHoi' );
-    Route::get('/phieudanhgia4','App\Http\Controllers\DanhGia4Controller@getCauHoi' );
+    Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia\DanhGia1Controller@getCauHoi' );
+    Route::get('/phieudanhgia2','App\Http\Controllers\DanhGia\DanhGia2Controller@getCauHoi' );
+    Route::get('/phieudanhgia3','App\Http\Controllers\DanhGia\DanhGia3Controller@getCauHoi' );
+    Route::get('/phieudanhgia4','App\Http\Controllers\DanhGia\DanhGia4Controller@getCauHoi' );
     //phần chức năng trang admin
     Route::get('/admin/main','App\Http\Controllers\AdminController@getdashboard' );
     //form thêm phiếu
-    Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia1Controller@getidCauHoi' );
-    Route::get('/admin/themcauhoiso2','App\Http\Controllers\DanhGia2Controller@getidCauHoi' );
-    Route::get('/admin/themcauhoiso3','App\Http\Controllers\DanhGia3Controller@getidCauHoi' );
+    Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia\DanhGia1Controller@getidCauHoi' );
+    Route::get('/admin/themcauhoiso2','App\Http\Controllers\DanhGia\DanhGia2Controller@getidCauHoi' );
+    Route::get('/admin/themcauhoiso3','App\Http\Controllers\DanhGia\DanhGia3Controller@getidCauHoi' );
     //thêm tin tức
     Route::get('/admin/themtintuc','App\Http\Controllers\TinTucController@getidThemTin' );
     Route::get('/admin/binhluan','App\Http\Controllers\BinhLuanController@getidBinhLuan' );
     Route::get('/admin/xemtin','App\Http\Controllers\TinTucController@getXemTin' );
     Route::post('/save_Tin','App\Http\Controllers\TinTucController@saveTin');
     //lưu phiếu
-    Route::post('/save-cauhoi','App\Http\Controllers\DanhGia1Controller@saveCauHoi');
-    Route::get('/admin/list-phieu1','App\Http\Controllers\DanhGia1Controller@getquestlist');
-    Route::get('/admin/phieu1-edit/{idcauhoi}','App\Http\Controllers\DanhGia1Controller@getquestdetail');
-    Route::post('/update-cauhoi/{idcauhoi}','App\Http\Controllers\DanhGia1Controller@updateCauHoi');
+    Route::post('/save-cauhoi','App\Http\Controllers\DanhGia\DanhGia1Controller@saveCauHoi');
+    Route::get('/admin/list-phieu1','App\Http\Controllers\DanhGia\DanhGia1Controller@getquestlist');
+    Route::get('/admin/phieu1-edit/{idcauhoi}','App\Http\Controllers\DanhGia\DanhGia1Controller@getquestdetail');
+    Route::post('/update-cauhoi/{idcauhoi}','App\Http\Controllers\DanhGia\DanhGia1Controller@updateCauHoi');
     // câu trả lời phiếu 1
-    Route::post('/request_cauhoi_p1','App\Http\Controllers\DanhGia1Controller@DanhGia');
+    Route::post('/request_cauhoi_p1','App\Http\Controllers\DanhGia\DanhGia1Controller@DanhGia');
 
-    Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia2Controller@saveCauHoi');
-    Route::post('/save-cauhoi_p3','App\Http\Controllers\DanhGia3Controller@saveCauHoi');
-    Route::post('/save-cauhoi_p4','App\Http\Controllers\DanhGia4Controller@saveCauHoi');
+    Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia\DanhGia2Controller@saveCauHoi');
+    Route::post('/save-cauhoi_p3','App\Http\Controllers\DanhGia\DanhGia3Controller@saveCauHoi');
+    Route::post('/save-cauhoi_p4','App\Http\Controllers\DanhGia\DanhGia4Controller@saveCauHoi');
 
     //trả lời phiếu số 4
-    Route::post('/request-cauhoi_p4','App\Http\Controllers\DanhGia4Controller@requestCauHoi');
+    Route::post('/request-cauhoi_p4','App\Http\Controllers\DanhGia\DanhGia4Controller@requestCauHoi');
     //xem các phiếu số 4 đã gửi
-    Route::get('/admin/xemphieuso4','App\Http\Controllers\DanhGia4Controller@getCauHoi' );
+    Route::get('/admin/xemphieuso4','App\Http\Controllers\DanhGia\DanhGia4Controller@getCauHoi' );
     //lấy user
     Route::get('/admin/user','App\Http\Controllers\AdminController@getuser');
 
@@ -88,7 +88,7 @@ Route::middleware([
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
 
     // Phần Chuyên gIA
-    Route::get('/chitiet_P1/{{}}', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
+    // Route::get('/chitiet_P1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
     Route::get('/chuyengia/home', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
     Route::get('/chuyengia/P1_DGM', 'App\Http\Controllers\ChuyenGiaController@getidDGMoi_P1' );
     Route::get('/chuyengia/P1_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P1' );
@@ -107,7 +107,8 @@ Route::middleware([
     Route::get('/chuyengia/P4_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P4' );
     Route::get('/chuyengia/P4_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P4' );
 // chi tiết
-Route::get('/chuyengia/P1_Chitiet', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P1' );
+Route::get('/chuyengia/P1_Chitiet/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P1' );
+Route::get('/chuyengia/kqphieu1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getkqPhieu1' );
 
 });
 
