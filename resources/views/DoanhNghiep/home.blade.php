@@ -3,7 +3,7 @@
 
 @endsection -->
 @section('content')
-<main class="content" style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: round;    background-size:100%;" >
+<main class="content" style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: repeat;    background-size:100%;" >
 				<div class="container-fluid p-0">
 
 					<h1 class="h3 mb-3" style="font-weight:bold;font-family:Roboto;color:#4e73df;">THÔNG TIN DOANH NGHIỆP</h1>
@@ -32,7 +32,14 @@
 												<hr class="sidebar-divider" style="color: #4e73df;">
 												<h4 style="font-size:14px;font-family:Roboto;">Chỉ số đánh giá mức độ chuyển đổi số </h4>
 												<hr class="sidebar-divider" style="color: #4e73df;">
-												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">{{ $DanhGia1->TongDiem }} điểm</h3>
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">@php
+                                                    if($DanhGia1 != null){
+                                                        echo $DanhGia1->TongDiem." điểm";
+                                                    }
+                                                    else {
+                                                        echo "chưa đánh giá";
+                                                    }
+                                                @endphp</h3>
 
 											</div>
 										</div>
@@ -54,7 +61,14 @@
 												<hr class="sidebar-divider" style="color: #4e73df;">
 												<h4 style="font-size:14px;font-family:Roboto;">Rào cản chuyển đổi số trong doanh nghiệp  </h4>
 												<hr class="sidebar-divider" style="color: #4e73df;">
-												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">xxx điểm </h3>
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">@php
+                                                    if($DanhGia3 != null){
+                                                        echo "đã đánh giá";
+                                                    }
+                                                    else {
+                                                        echo "chưa đánh giá";
+                                                    }
+                                                @endphp </h3>
 											</div>
 										</div>
 									</div>
@@ -79,7 +93,14 @@
 												<h4 style="font-size:14px;font-family:Roboto;">Chuyển đổi số của doanh nghiệp vừa và nhỏ </h4>
 												<hr class="sidebar-divider" style="color: #4e73df;">
 
-												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">xxx điểm </h3>
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">@php
+                                                    if($DanhGia2 != null){
+                                                        echo "đã đánh giá";
+                                                    }
+                                                    else {
+                                                        echo "chưa đánh giá";
+                                                    }
+                                                @endphp</h3>
 												<div class="mb-0">
 
 
@@ -106,7 +127,14 @@
 												<h4 style="font-size:14px;font-family:Roboto;">Ý kiến của doanh nghiệp về chuyển đổi số</h4>
 												<hr class="sidebar-divider" style="color: #4e73df;">
 
-												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">Trạng thái </h3>
+												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">@php
+                                                    if($DanhGia4 != null){
+                                                        echo "đã đánh giá";
+                                                    }
+                                                    else {
+                                                        echo "chưa đánh giá";
+                                                    }
+                                                @endphp</h3>
 												<div class="mb-0">
 
 												</div>
