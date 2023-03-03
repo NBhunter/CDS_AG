@@ -58,6 +58,9 @@ Route::middleware([
     Route::post('/update-cauhoi/{idcauhoi}','App\Http\Controllers\DanhGia\DanhGia1Controller@updateCauHoi');
     // câu trả lời phiếu 1
     Route::post('/request_cauhoi_p1','App\Http\Controllers\DanhGia\DanhGia1Controller@DanhGia');
+    // câu trả lời phiếu 2
+    Route::post('/request_cauhoi_p2','App\Http\Controllers\DanhGia\DanhGia2Controller@DanhGia');
+
 
     Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia\DanhGia2Controller@saveCauHoi');
     Route::post('/save-cauhoi_p3','App\Http\Controllers\DanhGia\DanhGia3Controller@saveCauHoi');

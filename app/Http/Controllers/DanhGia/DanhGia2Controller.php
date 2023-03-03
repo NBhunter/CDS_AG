@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\DanhGia;
 
 use App\Http\Controllers\Controller;
+use App\Models\phieuso2;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\phieu2_diem;
 use Session;
 class DanhGia2Controller extends Controller
 {
@@ -95,4 +97,30 @@ $ch5 = array();
 
     	return Redirect::to('admin/main');
     }
+    public function DanhGia(Request $request)
+    {
+        $request->user()->authorizeRoles(['DoanhNghie','Admin']);
+        $Cauhoi = DB::table('cauhoi_p2')->get();
+        $DoanhNghiep_id = Session::get('DoanhNghiep_id');
+        $User_id = Session::get('User_id');
+        $Phieuso2= new phieuso2();
+        $Phieuso2['Id'] = $request->maphieu;
+        $Phieuso2['User_id'] = $User_id;
+        $Phieuso2['DoanhNghiep_id'] =$DoanhNghiep_id;
+        Foreach($Cauhoi as $Ch){
+            if($Ch->Cap ==2){
+                $chitietcauhoi = new phieu2_diem();
+                $chitietcauhoi['Phieu_id'] = $request->maphieu;
+                $chitietcauhoi['CauHoi_id'] = $Ch->Id;
+                $chitietcauhoi['DanhGia'] =$request[$Ch->Id];
+                $chitietcauhoi->save();
+                }
+        }
+        $Phieuso2['created_at'] = now();
+        $Phieuso2['status'] = 0;
+        $Phieuso2->save();
+        return Redirect::to('dnviews');
+
+    }
 }
+?>

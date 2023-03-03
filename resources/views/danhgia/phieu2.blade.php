@@ -201,12 +201,13 @@ td{
 @endphp
 <tr class="" style="text-align:center;font-weight:400;">
     <th class="stt" style="text-align:center; ">{{ $i.".".$j }}</th>
-    <th class="" style="font-weight:400;">{{ $ctCauhoi->TenCauHoi}}</th>
-    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="rating{{ $j }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}"><label for="1{{ $ctCauhoi->NoiDung_id }}" name="1{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating2" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="rating{{ $j }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}"><label for="2{{ $ctCauhoi->NoiDung_id }}" name="2{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating3" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="rating{{ $j }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}"><label for="3{{ $ctCauhoi->NoiDung_id }}" name="3{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating4" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="rating{{ $j }}" value="4" id="4{{ $ctCauhoi->NoiDung_id }}"><label for="4{{ $ctCauhoi->NoiDung_id }}" name="4{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating5" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="rating{{ $j }}" value="5" id="5{{ $ctCauhoi->NoiDung_id }}"><label for="5{{ $ctCauhoi->NoiDung_id }}" name="5{{ $j }}">☆</label></div></th>
+    <th class="" style="font-weight:400;">{{ $ctCauhoi->TenCauHoi}} - {{ $ctCauhoi->NoiDung_id }}</th>
+    <input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="0" hidden checked>
+    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}"><label for="1{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
+    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}"><label for="2{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
+    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}"><label for="3{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
+    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="4" id="4{{ $ctCauhoi->NoiDung_id }}"><label for="4{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
+    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="5" id="5{{ $ctCauhoi->NoiDung_id }}"><label for="5{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
 </tr>
 @endif
 @endif
