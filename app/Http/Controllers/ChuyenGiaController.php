@@ -153,13 +153,23 @@ class ChuyenGiaController extends Controller
     public function thongbaodanhgia(Request $request)
     {
         // $id= Input::get('id');
+        $input = $request->collect();
         $request->user()->authorizeRoles(['Admin','Chuyên Gia','Hiệp Hội']);
         $TB = array();
         $TB['ChuyenGia_id'] = Session::get('user_id');
-        $TB['DoanhNghiep_id'] =$request->input('id');
+        $TB['DoanhNghiep_id'] =$input['id'];
+        $TB['TieuDe'] = $input['TieuDe'];
         $TB['Loai'] = 2;
-        DB::table('tinnhan')->insert($TB);
-        return Redirect::to('chuyengia/P1_ChuaDG');
+        $TB['status'] = $input['status'];
+        $idtinnhan = DB::table('tinnhan')->insertGetId($TB);
+        //lưu các nội dung
+        $detail = array();
+        $detail['TinNhan_id'] = $idtinnhan;
+        $detail['NoiDung_TinNhan'] = $input['NoiDung'];
+        $detail['created_at'] = now();
+        DB::table('chitiet_tinnhan')->insert($detail);
+
+        // return Redirect::to('chuyengia/home');
     }
     public function getDaDanhGia_P1(){
 
