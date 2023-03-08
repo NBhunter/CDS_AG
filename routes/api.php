@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use app\Models\User;
 use app\Http\Controllers\AdminController;
+use app\Http\Controllers\ChuyenGiaController;
 
 /*
 |--------------------------------------------------------------------------

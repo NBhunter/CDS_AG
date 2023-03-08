@@ -8,6 +8,7 @@ use Session;
 use DB;
 
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\Console\Input\Input;
 
 class ChuyenGiaController extends Controller
 {
@@ -15,6 +16,7 @@ class ChuyenGiaController extends Controller
         $request->user()->authorizeRoles(['Chuyên Gia','Hiệp Hội']);
         $user = $request->user();
         Session::put('name',$user->name);
+        Session::put('user_id',$user->id);
         $role = DB::table('role_user')->leftjoin('roles','roles.id','=','role_user.Role_id')->where('role_user.User_id',$user->id)->first();
         Session::put('role',$role->name);
 
@@ -138,7 +140,26 @@ class ChuyenGiaController extends Controller
         }
         $CDG = DB::table('doanhnghiep')->select('doanhnghiep.*')
         ->whereNotIn('doanhnghiep.Id',$DN)->get();
+        foreach($CDG as $DN){
+            $thongbao =DB::table('tinnhan')->select(DB::raw('COUNT(Id) as slthongbao'))->where('DoanhNghiep_id',$DN->Id)->where('Loai',2)->get();
+           if($thongbao[0]->slthongbao >0)
+           {$DN->ThongBao = $thongbao;}
+           else{
+            $DN->ThongBao = "";
+           }
+        }
         return view('chuyengia.Phieu_1.P1_ChuaDanhGia')->with('CDG',$CDG);
+    }
+    public function thongbaodanhgia(Request $request)
+    {
+        // $id= Input::get('id');
+        $request->user()->authorizeRoles(['Admin','Chuyên Gia','Hiệp Hội']);
+        $TB = array();
+        $TB['ChuyenGia_id'] = Session::get('user_id');
+        $TB['DoanhNghiep_id'] =$request->input('id');
+        $TB['Loai'] = 2;
+        DB::table('tinnhan')->insert($TB);
+        return Redirect::to('chuyengia/P1_ChuaDG');
     }
     public function getDaDanhGia_P1(){
 
