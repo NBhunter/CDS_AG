@@ -76,14 +76,14 @@
 <script>
 
     $(".thongbao").click(function(){
-        // var status = confirm("thông báo cho doanh nghiệp");
-//  if(status == true){
-    var id = $(this).data('id');
 
+    var idDN = $(this).data('id');
     $.post("{{ URL::to('/thongbao') }}", {
-                                            '_token': $('meta[name=csrf-token]').attr('content'),
-                                            id: '2',
-
+                                            _token: $('meta[name=csrf-token]').attr('content'),
+                                            id: idDN,
+                                            NoiDung: "Doanh nghiệp chưa đánh giá trong quý này",
+                                            status: "1",
+                                            TieuDe: "Thông Báo Đánh Giá"
                                             });
 //         var id = $(this).data('id');
 //         var loai = 2;
@@ -100,7 +100,9 @@
 });
 
 
-$('table').dataTable();
+$('table').dataTable({
+        order: [[2, 'asc']],
+    });
  </script>
 
 {{-- <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script> --}}
