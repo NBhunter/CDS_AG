@@ -128,8 +128,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý thư viện:</h6>
-                        <a class="collapse-item" href="">Thêm thư viện</a>
-                        <a class="collapse-item" href="">Sửa thư viện</a>
+                        <a class="collapse-item" href="">Xem danh sách thư viện</a>
+
 
                     </div>
                 </div>

@@ -47,7 +47,7 @@
                                     <th>hình ảnh mẫu</th>
                                     {{-- <th>Doanh nghiệp</th> --}}
 
-                                    <th>Xử Lý</th>
+                                    <th>Sửa</th>
                                 </tr>
                             </thead>
 
@@ -55,7 +55,7 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ( $slides as $id => $slides )
+                                @foreach ( $slides as $Id => $slides )
                                 <tr>
                                     @csrf
                                     <td>{{ ++$i }}</td>
@@ -63,9 +63,11 @@
                                     <td><img class="zoom" src="{{ asset('slide/'.$slides->Link)}}" alt="" width="40%" ></td>
                                     <td>
 
-                                    <a class="btn btn-primary " href="{{ URL::to('/edit_slide/'.$slides->id) }}">
-                                        Sửa thông tin
-                                    </a>
+                                    <a class="btn btn-warning " href="{{ URL::to('/edit_slide/'.$slides->Id) }}"><i class='fas fa-edit'></i></a></td>
+
+
+                                    <td>   <a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
+
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">
                                         <form id="admin" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
