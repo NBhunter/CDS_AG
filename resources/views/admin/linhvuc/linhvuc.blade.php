@@ -29,7 +29,8 @@
                                     <th>Mô tả</th>
                                     {{-- <th>Doanh nghiệp</th>
                                     <th>Phân Quyền</th> --}}
-                                    <th>Xử Lý</th>
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
                                 </tr>
                             </thead>
 
@@ -45,9 +46,10 @@
                                     <td>{{ $lv->MoTa }}</td>
                                     <td>
 
-                                    <a class="btn btn-primary " href="{{ URL::to('/edit_LV/'.$lv->Id) }}">
-                                        Sửa thông tin
-                                    </a>
+                                    <a class="btn btn-warning " href="{{ URL::to('/edit_LV/'.$lv->Id) }}"><i class='fas fa-edit'></i></a></td>
+
+
+                                 <td>   <a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">
                                         <form id="admin" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
@@ -78,10 +80,12 @@
 
                             </tbody>
                         </table>
+
                     </div>
                 </div>
-            </div>
 
+            </div>
+            <a href="" class="btn btn-info"><i class='fas fa-plus'></i> Thêm lĩnh vực</a>
 
         </div>
         <!-- /.container-fluid -->
