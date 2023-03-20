@@ -3,24 +3,43 @@
 namespace App\Http\Controllers\DanhGia;
 
 use App\Http\Controllers\Controller;
-use App\Models\phieu1_diem;
-use App\Models\phieuso1;
-use DB;
+use App\Models\Phieu1\chitiet_P1;
+use App\Models\Phieu1\MoTa_P1;
+use App\Models\Phieu1\phieu1_diem ;
+use App\Models\Phieu1\phieuso1;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Expr\AssignOp\Mod;
 use PhpParser\Node\Stmt\Foreach_;
 use Session;
 class DanhGia1Controller extends Controller
 {
 
     public function getCauHoi(Request $request){
-        $request->user()->authorizeRoles(['DoanhNghiep','Admin']);
-        $Cauhoi = DB::table('chitiet')
-        ->leftjoin('chitiet_cauhoi','chitiet_cauhoi.ChiTiet_id','=','chitiet.id')
-        ->leftjoin('cauhoi','cauhoi.id','=','chitiet_cauhoi.CauHoi_id')->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*')->orderBy('idcauhoi');
-        $Cauhoi = $Cauhoi->get();
+        $request->user()->authorizeRoles(['DoanhNghiep-BGD','DoanhNghiep-NV','Admin']);
+        // kiểm tra đã đánh giá chưa
+        $kiemtra = DB::table('phieuso1')->where('DoanhNghiep_Id',Session::get('DoanhNghiep_id'))->orderBy('created_at','DESC')->first();
+        if($kiemtra != null){
+
+            $updated = new Carbon($kiemtra->updated_at);
+        }else{
+            $updated = new Carbon(0);
+        }
+        $now = Carbon::now();
+
+        if($updated->diffInMonths($now) > 3){
+            $Cauhoi = chitiet_P1::leftjoin('chitiet_cauhoi','chitiet_cauhoi.ChiTiet_id','=','chitiet.id')
+            ->leftjoin('cauhoi','cauhoi.id','=','chitiet_cauhoi.CauHoi_id')
+            ->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*')
+            ->orderBy('idcauhoi','ASC')->get();
         $time = "DG1-".date('ymdHis');
         return view('danhgia.phieu1')->with('Cauhoi',$Cauhoi)->with('time',$time);
+        }else{
+            // alert("Bạn Đã đánh giá trong quí này");
+            return Redirect()->back()->with('alert', 'Bạn Đã đánh giá trong quí này!!');
+        }
     }
     public function getidCauHoi(Request $request){
         $request->user()->authorizeRoles(['Admin']);
@@ -111,12 +130,37 @@ class DanhGia1Controller extends Controller
         }
     	return Redirect::to('admin/list-phieu1');
     }
+    // xử lý mô hình
+    public function Chonmohinh($idPhieu)
+    {
+        $Phieu1 = phieuso1::where('Id',$idPhieu)->first();
+        $TruCot = phieu1_diem::where('Phieu_id',$idPhieu)
+        ->join('chitiet','chitiet.id','=','phieu1_diem.ChiTiet_id')->get();
+        $min = -1;
+        foreach($TruCot as $TC)
+        {
+            if( $TC->Cap == 1 )
+            {
+                if($min == -1 )
+                {
+                    $min = $TC->Diem;
+                }
+                if($min != -1 && $min > $TC->Diem)
+                {
+                    $min = $TC->Diem;
+                }
+            }
 
+        }
+
+
+
+    }
     // thực hiện đánh giá
     public function DanhGia(Request $request)
     {
 
-        $request->user()->authorizeRoles(['DoanhNghie','Admin']);
+        $request->user()->authorizeRoles(['DoanhNghiep-BGD','DoanhNghiep-NV','Admin']);
        $DoanhNghiep_id = Session::get('DoanhNghiep_id');
        $User_id = Session::get('User_id');
        $thongtinphieu = new phieuso1();
@@ -181,13 +225,24 @@ class DanhGia1Controller extends Controller
         $chitietcauhoiC1['Diem'] =$DiemC1;
        $chitietcauhoiC1->save();
     //    Lưu đề mục cuối cùng
-       $chitietcauhoiC2 = new phieu1_diem();
+       $chitietcauhoiC2 = new Phieu1_diem();
        $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
        $chitietcauhoiC2['ChiTiet_id'] = $ID_C2_Truoc;
        $chitietcauhoiC2['Diem'] =$DiemC2;
        $chitietcauhoiC2->save();
     //    DB::table('phieuso1')->insert($thongtinphieu);
        $thongtinphieu->save();
+
+    // xử lý đề xuất mô hình cho chuyên gia
+    $ThongBaoDeXuat = array();
+    $ThongBaoDeXuat['DoanhNghiep_id'] = session::get('DoanhNghiep_id');
+    $ThongBaoDeXuat['Loai'] = 3;
+    $ThongBaoDeXuat['TieuDe'] = 'Có doanh nghiệp vừa đánh giá';
+    $ThongBaoDeXuat['Status'] = 1;
+    $ThongBaoDeXuat['Link'] = '/chuyengia/P1_DGM';
+    $idtinnhan = DB::table('tinnhan')->insertGetId($ThongBaoDeXuat);
+    // lưu nội dung
+
        return Redirect::to('dnviews');
 
     }
