@@ -126,6 +126,9 @@ Route::get('/chuyengia/kqphieu1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaCont
 
 Route::post('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');
 
+// Hiệp hội
+Route::get('/HLH/home', 'App\Http\Controllers\HiepHoiController@gethome' );
+
 });
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
