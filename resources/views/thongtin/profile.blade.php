@@ -7,8 +7,8 @@
 @section('content')
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-<style>
-    /* @import url(https://fonts.googleapis.com/css?family=Sanchez);
+{{-- <style>
+     @import url(https://fonts.googleapis.com/css?family=Sanchez);
     @import url(https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css);
 *,
 *::before,
@@ -113,8 +113,8 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
   top: calc(95% - 25px);
   left: calc(22.5% - 2.5px);
   background: rgba(73,168,68,1);
-} */
-    </style>
+}
+    </style> --}}
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -427,9 +427,9 @@ $(function() {
            var DN_id = $(this).data('id');
            $.ajax({
 
-               type: "GET",
+               type: "post",
                dataType: "json",
-               url: '/congkhaidoanhnghiep',
+               url: '{{ URL::to('/congkhaidoanhnghiep') }}',
                data: {'status': status, 'DN_id': DN_id},
                success: function(data){
                console.log(data.success)
