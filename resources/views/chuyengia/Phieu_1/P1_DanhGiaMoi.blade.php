@@ -7,7 +7,12 @@
             <h6 class="m-0 font-weight-bold text-primary">Danh sách các đánh giá mới</h6>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+
+                @if ($Phieu1New->count() == null)
+                <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">HIỆN KHÔNG CÓ PHIẾU ĐÁNH GIÁ MỚI </h1>
+
+                @else
+                <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable"style="text-align:center;">
                     <thead>
                         <tr>
@@ -59,6 +64,9 @@
 
                 </table>
             </div>
+                @endif
+
+
         </div>
     </div>
 

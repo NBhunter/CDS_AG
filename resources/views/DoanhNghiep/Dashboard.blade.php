@@ -72,7 +72,11 @@
 							<a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
 								<div class="position-relative">
 									<i class="align-middle" data-feather="bell"></i>
-									<span class="indicator">{{ $thongbao->count() }}</span>
+									<span class="indicator"> @if (empty($thongbao))
+                                        0
+                                    @else
+                                    {{ $thongbao->count() }}
+                                    @endif</span>
 								</div>
 							</a>
 							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
@@ -80,8 +84,10 @@
 									Thông báo
 								</div>
 								<div class="list-group">
+                                    @if (!empty($thongbao))
                                     @foreach ($thongbao as $tb )
-                                    <a href="#" class="list-group-item">
+                                    @if ($tb->Loai ==2 && now()->diffInMonths($tb->created_at) <1)
+                                    <a href="{{ URL::to($tb->Link) }}" class="list-group-item">
 										<div class="row g-0 align-items-center">
 											<div class="col-2">
 												<i class="text-danger" data-feather="alert-circle"></i>
@@ -96,8 +102,11 @@
 											</div>
 										</div>
 									</a>
+                                    @endif
                                     @endforeach
-
+                                    @else
+                                    <div class="text-dark" style="text-align: center;"> <a href="#" class="text-muted" >Hiện không có thông báo mới </a></div>
+                                    @endif
 
 								</div>
 								<div class="dropdown-menu-footer">
@@ -184,75 +193,7 @@
 
 	<script src="js/app.js"></script>
 
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-			gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-			gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-			// Line chart
-			new Chart(document.getElementById("chartjs-dashboard-line"), {
-				type: "line",
-				data: {
-					labels: [
-                @php
-                    $i =1;
-                @endphp
-                    @foreach ($BanDanhGia as $DG)
-"{{ $i++ }}",
-                    @endforeach
-                    ],
-					datasets: [{
-						label: "Mức độ (đ)",
-						fill: true,
-						backgroundColor: gradient,
-						borderColor: window.theme.primary,
-						data: [
-                            @foreach ($BanDanhGia as $DG)
-{{ $DG->TongDiem}},
-                    @endforeach
-
-						]
-					}]
-				},
-				options: {
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					tooltips: {
-						intersect: false
-					},
-					hover: {
-						intersect: true
-					},
-					plugins: {
-						filler: {
-							propagate: false
-						}
-					},
-					scales: {
-						xAxes: [{
-							reverse: true,
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}],
-						yAxes: [{
-							ticks: {
-								stepSize: 10
-							},
-							display: true,
-							borderDash: [10, 10],
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}]
-					}
-				}
-			});
-		});
-	</script>
+	@yield('script')
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			// Pie chart
@@ -404,7 +345,14 @@
 			});
 		});
 	</script>
+<script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
 
+    }
+  </script>
 </body>
 
 </html>

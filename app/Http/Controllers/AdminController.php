@@ -57,4 +57,33 @@ class AdminController extends Controller
         DB::table('role_user')->where('User_id',$user_id)->update($data);
         return Redirect::to('admin/user');
     }
+    public function viewnganhnghe(Type $var = null)
+    {
+        $NganhNghe = DB::table('nganhnghe')->leftjoin('linhvuc','linhvuc.id','=','nganhnghe.LinhVuc_id')->get();
+        return view('admin.loaihinhkinhdoanh.ThemNganhNghe')->with('NganhNghe',$NganhNghe);
+    }
+    public function viewloaihinh(Type $var = null)
+    {
+        $LoaiHinh = DB::table('loaihinhdoanhnghiep')->get();
+        return view('admin.loaihinhkinhdoanh.ThemLoaiHinh')->with('LoaiHinh',$LoaiHinh);
+    }
+    public function savenganhnghe(Request $request){
+        $request->user()->authorizeRoles(['Admin']);
+        //thêm chi tiết
+        $ct = array();
+        $ct['TenNganhNghe'] = $request->Ten;
+        $ct['LinhVuc_id'] = $request->linhvuc;
+        DB::table('nganhnghe')->insert($ct);
+
+    	return Redirect::to('admin/themnganhnghe');
+    }
+    public function saveloaihinh(Request $request){
+        $request->user()->authorizeRoles(['Admin']);
+        //thêm chi tiết
+        $ct = array();
+        $ct['TenLoaiHinh'] = $request->Ten;
+        DB::table('loaihinhdoanhnghiep')->insert($ct);
+
+    	return Redirect::to('admin/themloaihinh');
+    }
 }
