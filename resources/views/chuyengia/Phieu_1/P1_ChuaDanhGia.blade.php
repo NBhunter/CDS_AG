@@ -31,7 +31,7 @@
                             @if ($DnCDG->ThongBao == null)
                             <span class="badge bg-danger text-light">Chưa thông báo</span>
                             @else
-                            <span class="badge bg-primary text-light">Đã thông báo</span>
+                            <span class="badge bg-success text-light">Đã thông báo</span>
                             @endif
 
                         </td>
