@@ -2,6 +2,35 @@
 <!-- @section('link')
 
 @endsection -->
+@section('nvar')
+<li class="sidebar-item active"style="background-color: #4e73df;">
+    <a class="sidebar-link" href="{{ URL::to('dnviews') }}">
+<i class="align-middle" data-feather="home"></i> <span class="align-middle" style="font-family:Roboto;">Trang điều khiển</span>
+</a>
+</li>
+<hr class="sidebar-divider" style="color:white;">
+<!-- Heading -->
+
+<li class="sidebar-item" >
+    <a class="sidebar-link" href="{{ URL::to('profile') }}" style="background-color: #4e73df;">
+<i class="align-middle" data-feather="user"></i> <span class="align-middle" style="font-family:Roboto;">Hồ sơ doanh nghiệp</span>
+</a>
+</li>
+<hr class="sidebar-divider" style="color:white;">
+<li class="sidebar-item">
+    <a class="sidebar-link" href="{{ URL::to('phieudanhgia1') }}" style="background-color: #4e73df;">
+<i class="align-middle" data-feather="check-circle"></i> <span class="align-middle" style="font-family:Roboto;">Đánh Giá</span>
+</a>
+</li>
+
+<li class="sidebar-item">
+
+{{-- <a class="sidebar-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" style="background-color: #4e73df;">
+<i class="align-middle" data-feather="log-out"></i> <span class="align-middle" style="font-family:Roboto;">Log out</span>
+</a> --}}
+
+</li>
+@endsection
 @section('content')
 <main class="content" style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: repeat;    background-size:100%;" >
 				<div class="container-fluid p-0">
