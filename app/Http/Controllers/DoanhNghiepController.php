@@ -38,6 +38,7 @@ class DoanhNghiepController extends Controller
      return $thongbao;
     }
    }
+//    @updateprofile
     public function getdanhnghiep(Request $request){
         $request->user()->authorizeRoles(['DoanhNghiep-NV','DoanhNghiep-BGD','Admin']);
         $user = $request->user();
@@ -78,21 +79,37 @@ class DoanhNghiepController extends Controller
         Session::put('email',$user->email);
         $DoanhNghiep = DB::table('users')->leftjoin('dn_user','dn_user.User_id','=','users.id')
         ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')->where('users.email',Session::get('email'))->select('dn_user.id As lienket_id','users.*','dn_user.*','doanhnghiep.*')->first();
-        $User = DB::table('users')->leftjoin('role_user','role_user.User_id','=','users.id')
+        $DN = DB::table('users')->leftjoin('role_user','role_user.User_id','=','users.id')
         ->leftjoin('roles','roles.id','=','role_user.Role_id')
         ->leftjoin('dn_user','dn_user.User_id','=','users.id')
         ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
         ->leftjoin('linhvuc','linhvuc.Id','=','doanhnghiep.LinhVuc_id')
-        ->leftjoin('nguoidung','nguoidung.DoanhNghiep_id','=','doanhnghiep.id')->where('users.email',$user->email)
-        ->select('nguoidung.TenNguoiDung','doanhnghiep.email As emaildoanhnghiep','doanhnghiep.DiaChiTruSo','users.name as Tenuser','users.email as emailNguoiDung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*')->first();
+        ->leftjoin('nguoidung','nguoidung.DoanhNghiep_id','=','doanhnghiep.id')
+        ->leftjoin('chitiet_doanhnghiep','chitiet_doanhnghiep.DoanhNghiep_id','=','doanhnghiep.id')->where('users.email',$user->email)
+        ->select('nguoidung.TenNguoiDung','doanhnghiep.email As emaildoanhnghiep','doanhnghiep.DiaChiTruSo','users.name as Tenuser','users.email as emailNguoiDung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*','chitiet_doanhnghiep.*')->first();
+        // lấy lĩnh vực
+        $LinhVuc = DB::table('linhvuc')->get();
+        $LoaiHinh = DB::table('nganhnghe')->get();
         // lấy thông báo
+
         $thongbao = $this->laythongbao();
         // lấy bản số
-        // Session::put('name',$user->name);
-        // Session::put('lienket_id',$DoanhNghiep->lienket_id);
-        // Session::put('DoanhNghiep_id',$DoanhNghiep[0]->DoanhNghiep_id);
-        // Session::put('User_id',$DoanhNghiep[0]->User_id);
-            return view('thongtin.profile')->with('DoanhNghiep',$DoanhNghiep)->with('User',$User)->with('thongbao',$thongbao);
+            return view('thongtin.profile')->with('DoanhNghiep',$DoanhNghiep)->with('DN',$DN)->with('thongbao',$thongbao)
+            ->with('LinhVuc',$LinhVuc)->with('LoaiHinh',$LoaiHinh);
+
+    }
+    public function updateprofile(Request $request){
+        $request->user()->authorizeRoles(['DoanhNghiep-NV','DoanhNghiep-BGD','Admin']);
+        $user = $request->user();
+
+
+        $CTDN = array();
+        $CTDN['DoanhNghiep_id']=Session::get('DoanhNghiep_id');
+        $CTDN['MaSoThue']=$request->MST;
+        $CTDN['NgayHoatDong']=$request->NHD;
+        $CTDN['MaSoThue']=$request->MST;
+        // lấy bản số
+            return view('thongtin.profile');
 
     }
     public function thaydoitranthai(Request $request)

@@ -34,8 +34,15 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-
+// doanh nghiep
     Route::get('/dnviews','App\Http\Controllers\DoanhNghiepController@getdanhnghiep' );
+
+    // phần thông tin doanh nghiệp
+    Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
+    Route::post('/update_profile', 'App\Http\Controllers\DoanhNghiepController@updateprofile' );
+    Route::post('/change_password', 'App\Http\Controllers\DoanhNghiepController@updatepassword' );
+    Route::get('/congkhaidoanhnghiep', 'App\Http\Controllers\DoanhNghiepController@thaydoitranthai');
+
     Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia\DanhGia1Controller@getCauHoi' );
     Route::get('/phieudanhgia2','App\Http\Controllers\DanhGia\DanhGia2Controller@getCauHoi' );
     Route::get('/phieudanhgia3','App\Http\Controllers\DanhGia\DanhGia3Controller@getCauHoi' );
@@ -95,9 +102,6 @@ Route::middleware([
     Route::post('/save_slide','App\Http\Controllers\TrangTinController@saveslide');
 
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
-    // phần thông tin doanh nghiệp
-    Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
-    Route::get('/congkhaidoanhnghiep', 'App\Http\Controllers\DoanhNghiepController@thaydoitranthai');
 
     // Phần Chuyên gIA
     // Route::get('/chitiet_P1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
