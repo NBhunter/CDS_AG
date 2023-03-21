@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Phieu1;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class phieuso1 extends Model
 {
@@ -18,8 +19,8 @@ class phieuso1 extends Model
         'crated_at',
         'status',
     ];
-    // protected $guarded = ['TongDiem',
-    // 'User_id',
-    // 'DoanhNghiep_id',
-    // 'crated_at',];
+    public function Id(): HasMany
+    {
+        return $this->hasMany(Id::class);
+    }
 }

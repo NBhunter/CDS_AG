@@ -83,37 +83,22 @@
                                             id: idDN,
                                             NoiDung: "Doanh nghiệp chưa đánh giá trong quý này",
                                             status: "1",
-                                            TieuDe: "Thông Báo Đánh Giá"
+                                            TieuDe: "Thông Báo Đánh Giá",
+                                            Link: "phieudanhgia1"
                                             });
-//         var id = $(this).data('id');
-//         var loai = 2;
-//         $.ajax({
-//   url: "{{ URL::to('/thongbao') }}",
-//   method: 'POST',
-//   dataType: 'json',
-//   data: {id: id}
-// });
-
-// }
-
 
 });
 
-
-$('table').dataTable({
+$('.table').dataTable({
         order: [[2, 'asc']],
     });
  </script>
 
-{{-- <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script> --}}
 <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-<!-- Core plugin JavaScript-->
 <script src="{{asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
-<!-- Custom scripts for all pages-->
 <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
-<!-- Bootstrap core JavaScript-->
 
 
 @endsection
