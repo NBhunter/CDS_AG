@@ -214,6 +214,23 @@
 
                     </div>
                 </div>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne1"
+                        aria-expanded="true" aria-controls="collapseOne1">
+                        <i class='fab fa-google-drive'></i>
+                        <span>Quản lý ngành nghề</span>
+                    </a>
+                    <div id="collapseOne1" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Ngành nghề:</h6>
+                            <a class="collapse-item" href="{{ URL::to('admin/themnganhnghe') }}">thêm ngành nghề</a>
+                            <h6 class="collapse-header">Loại hình:</h6>
+                            <a class="collapse-item" href="{{ URL::to('admin/themloaihinh') }}">thêm loại hình</a>
+
+                        </div>
+                    </div>
+                </li>
                   <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             </li>

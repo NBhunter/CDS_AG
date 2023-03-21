@@ -42,6 +42,13 @@ Route::middleware([
     Route::get('/phieudanhgia4','App\Http\Controllers\DanhGia\DanhGia4Controller@getCauHoi' );
     //phần chức năng trang admin
     Route::get('/admin/main','App\Http\Controllers\AdminController@getdashboard' );
+    // thêm ngành nghề
+
+    Route::get('/admin/themnganhnghe','App\Http\Controllers\AdminController@viewnganhnghe');
+    Route::get('/admin/themloaihinh','App\Http\Controllers\AdminController@viewloaihinh');
+    Route::post('/save-nganhnghe','App\Http\Controllers\AdminController@savenganhnghe');
+    Route::post('/save-loaihinh','App\Http\Controllers\AdminController@saveloaihinh');
+
     //form thêm phiếu
     Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia\DanhGia1Controller@getidCauHoi' );
     Route::get('/admin/themcauhoiso2','App\Http\Controllers\DanhGia\DanhGia2Controller@getidCauHoi' );
@@ -88,15 +95,19 @@ Route::middleware([
     Route::post('/save_slide','App\Http\Controllers\TrangTinController@saveslide');
 
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
+    // phần thông tin doanh nghiệp
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
+    Route::get('/congkhaidoanhnghiep', 'App\Http\Controllers\DoanhNghiepController@thaydoitranthai');
 
     // Phần Chuyên gIA
     // Route::get('/chitiet_P1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
+    // lấy phiếu 1
     Route::get('/chuyengia/home', 'App\Http\Controllers\ChuyenGiaController@getdashboard' );
     Route::get('/chuyengia/P1_DGM', 'App\Http\Controllers\ChuyenGiaController@getidDGMoi_P1' );
     Route::get('/chuyengia/P1_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P1' );
     Route::get('/chuyengia/P1_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P1' );
     Route::get('/chuyengia/P1_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P1' );
+    // Phiếu 2
     Route::get('/chuyengia/P2_DGMoi', 'App\Http\Controllers\ChuyenGiaController@getDGMoi_P2' );
     Route::get('/chuyengia/P2_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P2' );
     Route::get('/chuyengia/P2_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P2' );
@@ -114,6 +125,9 @@ Route::get('/chuyengia/P1_Chitiet/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaCo
 Route::get('/chuyengia/kqphieu1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getkqPhieu1' );
 
 Route::post('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');
+
+// Hiệp hội
+Route::get('/HLH/home', 'App\Http\Controllers\HiepHoiController@gethome' );
 
 });
 

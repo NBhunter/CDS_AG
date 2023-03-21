@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\phieuso1;
+use App\Models\phieu1\phieuso1;
 use Illuminate\Http\Request;
 use Session;
 use DB;
@@ -13,7 +13,7 @@ use Symfony\Component\Console\Input\Input;
 class ChuyenGiaController extends Controller
 {
     public function getdashboard(Request $request){
-        $request->user()->authorizeRoles(['Chuyên Gia','Hiệp Hội']);
+        $request->user()->authorizeRoles(['Chuyên Gia','Hiệp Hội','Admin']);
         $user = $request->user();
         Session::put('name',$user->name);
         Session::put('user_id',$user->id);
@@ -154,13 +154,14 @@ class ChuyenGiaController extends Controller
     {
         // $id= Input::get('id');
         $input = $request->collect();
-        $request->user()->authorizeRoles(['Admin','Chuyên Gia','Hiệp Hội']);
+        $request->user()->authorizeRoles(['Admin','ChuyênGia','Hiệp Hội']);
         $TB = array();
         $TB['ChuyenGia_id'] = Session::get('user_id');
         $TB['DoanhNghiep_id'] =$input['id'];
         $TB['TieuDe'] = $input['TieuDe'];
         $TB['Loai'] = 2;
         $TB['status'] = $input['status'];
+        $TB['Link'] = $input['Link'];
         $idtinnhan = DB::table('tinnhan')->insertGetId($TB);
         //lưu các nội dung
         $detail = array();
