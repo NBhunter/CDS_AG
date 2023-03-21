@@ -75,7 +75,7 @@ class DoanhNghiepController extends Controller
         ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
         ->leftjoin('linhvuc','linhvuc.Id','=','doanhnghiep.LinhVuc_id')
         ->leftjoin('nguoidung','nguoidung.DoanhNghiep_id','=','doanhnghiep.id')
-        ->select('nguoidung.Ten As tennguoidung','nguoidung.email As emaildoanhnghiep','nguoidung.DiaChi As diachinguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*')->where('users.email',$user->email)->first();
+        ->select('nguoidung.TenNguoiDung As tennguoidung','users.email As emaildoanhnghiep','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*')->where('users.email',$user->email)->first();
 
         // lấy bản số
         Session::put('name',$user->name);

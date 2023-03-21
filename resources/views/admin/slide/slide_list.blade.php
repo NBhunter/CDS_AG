@@ -55,7 +55,7 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ( $slides as $Id => $slides )
+                                @foreach ( $slides as $id => $slides )
                                 <tr>
                                     @csrf
                                     <td>{{ ++$i }}</td>
@@ -63,7 +63,7 @@
                                     <td><img class="zoom" src="{{ asset('slide/'.$slides->Link)}}" alt="" width="40%" ></td>
                                     <td>
 
-                                    <a class="btn btn-warning " href="{{ URL::to('/edit_slide/'.$slides->Id) }}"><i class='fas fa-edit'></i></a></td>
+                                    <a class="btn btn-warning " href="{{ URL::to('/edit_slide/'.$slides->id) }}"><i class='fas fa-edit'></i></a></td>
 
 
                                     <td>   <a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
