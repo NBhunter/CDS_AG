@@ -229,6 +229,7 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                     @csrf
                                     <div class="row">
                                         <div class="mb-3 ">
+                                            <input type="text" name="idCT" value="{{ $DN->idCT}}" hidden>
                                             <label class="form-label" for="inputDNName">Tên Doanh Nghiệp</label>
                                             <input type="text" class="form-control" id="inputDNName" name="TenDN" placeholder="Tên Doanh Nghiệp" value="{{ $DN->TenDoanhNghiep }}">
                                         </div>
@@ -260,9 +261,14 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                             <label class="form-label" for="inputTSChinh">Lĩnh Vực</label>
                                             <select class="form-control form-select" id="linhvuc" name="LinhVuc" aria-label=".form-select-sm">
                                                @foreach ( $LinhVuc as $LV )
+                                               @if ( $LV->Id == $DN->LinhVuc_id)
+                                               <option value="{{ $LV->Id }}" selected>{{ $LV->TenLinhVuc }}</option>
+                                               @else
                                                <option value="{{ $LV->Id }}" >{{ $LV->TenLinhVuc }}</option>
+                                               @endif
+
                                                @endforeach
-                                                <option value="" selected>Chọn lĩnh vực</option>
+
                                                 </select>
                                         </div>
                                         <div class="mb-3 col-md-6">
@@ -273,7 +279,11 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputmst">Quy mô nhân sự</label>
-                                            <input type="text" class="form-control" id="inputmst" name="QuyMo" placeholder="sl Nhân sựz" value="{{ $DN->MaSoThue }}">
+                                            <input type="text" class="form-control" id="inputQM" name="QuyMo" placeholder="sl Nhân sự" value="{{ $DN->MaSoThue }}">
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label" for="inputmst">Vốn điều lệ</label>
+                                            <input type="text" class="form-control" id="inputVon" name="VonDieuLe" placeholder="Vốn điều lệ" value="{{ $DN->MaSoThue }}">
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputmst">Mã số thuế</label>
@@ -319,24 +329,24 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label" for="inputZip">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip" name="Zip" value="{{ $DN->MaSoThue }}">
+                                        <input type="text" class="form-control" id="inputZip" name="Zip" value="{{ $DN->Zipcode }}">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="inputAddress">Địa chỉ chi tiết</label>
-                                        <input type="text" class="form-control" id="inputAddress" name="DC" placeholder="1234 Main St">
+                                        <input type="text" class="form-control" id="inputAddress" name="DC" placeholder="1234 Main St" value="{{ $DN->DC_SoNha }}">
                                     </div>
                                     <div class="mb-3 col-md-6">
                                       <label class="form-label" for="inputSDT">Số điện thoại</label>
-                                      <input class="form-control input-validation-error" name="SDT" data-val="true" data-val-regex="Vui lòng nhập số điện thoại hợp lệ" data-val-regex-pattern="^(\+?)[0-9]{6,}$" id="DienThoai" name="DienThoai" type="text" value="">
+                                      <input class="form-control input-validation-error" name="SDT" data-val="true" data-val-regex="Vui lòng nhập số điện thoại hợp lệ" data-val-regex-pattern="^(\+?)[0-9]{6,}$" id="DienThoai" name="DienThoai" type="text" value="{{ $DN->SDT }}">
                                       {{-- <input type="text" class="form-control input-validation-error" id="inputSDT" data-val-regex="Vui lòng nhập số điện thoại hợp lệ"  data-val-regex-pattern="^(\+?)[0-9]{6,}$" value="{{ $DN->MaSoThue }}"> --}}
                                   </div>
                                   <div class="mb-3 col-md-6">
                                     <label class="form-label" for="inputFax">Fax</label>
-                                    <input type="text" class="form-control" id="inputFax" name="Fax" value="{{ $DN->MaSoThue }}">
+                                    <input type="text" class="form-control" id="inputFax" name="Fax" value="{{ $DN->FAX }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                   <label class="form-label" for="inputWeb">Website</label>
-                                  <input type="text" class="form-control" id="inputWeb" name="Web" value="{{ $DN->MaSoThue }}">
+                                  <input type="text" class="form-control" id="inputWeb" name="Web" value="{{ $DN->Website }}">
                               </div>
                                 </div>
 
@@ -424,9 +434,22 @@ $(function() {
 var LinhVuc =document.getElementById("linhvuc");
 var LoaiHinh = document.getElementById("loaihinh");
 var Data = {!! json_encode($LoaiHinh->toArray()) !!} ;
-LinhVuc.onchange =function () { LoaiHinh.length = 1;x for( const a of Data){
+window.onload = function(){
+    LoaiHinh.length = 1; for( const a of Data){
     if(a.LinhVuc_id == LinhVuc.value)
+    if(a.Id == {{ $DN->LoaiHinhDN }})
+    LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id,false,true);
+    else
     LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id);
+}
+}
+LinhVuc.onchange =function () { LoaiHinh.length = 1; for( const a of Data){
+    if(a.LinhVuc_id == LinhVuc.value)
+    if(a.Id == {{ $DN->LoaiHinhDN }})
+    LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id,false,true);
+    else
+    LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id);
+
 }}
 </script>
    <script>
@@ -461,6 +484,43 @@ function renderCity(data) {
         citis[citis.options.length] = new Option(x.Name, x.Id);
     }
 
+    // thông tin địa chỉ
+    @if($DN->DC_ThanhPho != null)
+    if(x.Id == {{ $DN->DC_ThanhPho }} ){
+        citis2[citis2.options.length] = new Option(x.Name, x.Id, false,true);
+        const result = data.filter(n => n.Id === citis2.value);
+        @if($DN->DC_Huyen != null)
+        districts2.length = 1;
+      for (const k of result[0].Districts) {
+        if(k.Id == {{ $DN->DC_Huyen }}){
+            districts2.options[districts2.options.length] = new Option(k.Name, k.Id, false, true);
+
+            wards2.length = 1;
+
+      const dataWards = result[0].Districts.filter(n => n.Id === districts2.value)[0].Wards;
+
+      for (const w of dataWards) {
+        if(w.Id == {{ $DN->DC_Phuong }}){
+        wards2.options[wards2.options.length] = new Option(w.Name, w.Id,false,true);
+        }
+        else{
+        wards2.options[wards2.options.length] = new Option(w.Name, w.Id);
+        }
+      }
+
+    }
+        else{
+        districts2.options[districts2.options.length] = new Option(k.Name, k.Id);
+        }
+      }
+      @endif
+    }
+    else{
+        citis2[citis2.options.length] = new Option(x.Name, x.Id);
+    }
+    @endif
+    citis2[citis2.options.length] = new Option(x.Name, x.Id);
+
   }
   citis.onchange = function () {
     district.length = 1;
@@ -484,60 +544,6 @@ function renderCity(data) {
       }
     }
   };
-}
-$(function () {
-  $(".city").select2();
-});
-
-	</script>
-
-<script>
-	var citis2 = document.getElementById("citys");
-var districts2 = document.getElementById("districts");
-var wards2 = document.getElementById("wards");
-var Parameter = {
-  url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
-  method: "GET",
-  responseType: "application/json",
-};
-var promise = axios(Parameter);
-promise.then(function (result) {
-  renderCity(result.data);
-});
-
-function renderCity(data) {
-  for (const x of data) {
-    if(x.Id == {{ $DN->DC_ThanhPho }}){
-        citis[citis.options.length] = new Option(x.Name, x.Id, false,true);
-        const result = data.filter(n => n.Id === citis.value);
-      for (const k of result[0].Districts) {
-        if(k.Id == {{ $DN->DC_Huyen }}){
-            district.options[district.options.length] = new Option(k.Name, k.Id, false, true);
-            wards2.length = 1;
-    const dataCity = data.filter((n) => n.Id === citis2.value);
-    if (this.value != "") {
-      const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
-
-      for (const w of dataWards) {
-        if(k.Id == {{ $DN->DC_Phuong }}){
-        wards2.options[wards2.options.length] = new Option(w.Name, w.Id,false, true);
-        }
-        else
-        {
-            wards2.options[wards2.options.length] = new Option(w.Name, w.Id);
-        }
-      }
-    }
-    }
-        else{
-        district.options[district.options.length] = new Option(k.Name, k.Id);
-        }
-      }
-    }
-    else{
-        citis[citis.options.length] = new Option(x.Name, x.Id);
-    }
-  }
   citis2.onchange = function () {
     districts2.length = 1;
     wards2.length = 1;
@@ -561,6 +567,25 @@ function renderCity(data) {
     }
   };
 }
+var citis2 = document.getElementById("citys");
+var districts2 = document.getElementById("districts");
+var wards2 = document.getElementById("wards");
+var promise = axios(Parameter);
+promise.then(function (result) {
+  renderCity(result.data);
+});
+
+
+
+
+$(function () {
+  $(".city").select2();
+});
+
+	</script>
+
+<script>
+
 	</script>
 
 @endsection

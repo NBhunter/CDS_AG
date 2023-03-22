@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Session;
 use DB;
+use Illuminate\Support\Facades\Redirect;
+
 class DoanhNghiepController extends Controller
 {
     public function __construct()
@@ -86,7 +88,7 @@ class DoanhNghiepController extends Controller
         ->leftjoin('linhvuc','linhvuc.Id','=','doanhnghiep.LinhVuc_id')
         ->leftjoin('nguoidung','nguoidung.DoanhNghiep_id','=','doanhnghiep.id')
         ->leftjoin('chitiet_doanhnghiep','chitiet_doanhnghiep.DoanhNghiep_id','=','doanhnghiep.id')->where('users.email',$user->email)
-        ->select('nguoidung.TenNguoiDung','doanhnghiep.email As emaildoanhnghiep','doanhnghiep.DiaChiTruSo','users.name as Tenuser','users.email as emailNguoiDung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*','chitiet_doanhnghiep.*')->first();
+        ->select('nguoidung.TenNguoiDung','doanhnghiep.email As emaildoanhnghiep','chitiet_doanhnghiep.id as idCT','doanhnghiep.DiaChiTruSo','users.name as Tenuser','users.email as emailNguoiDung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*','chitiet_doanhnghiep.*')->first();
         // lấy lĩnh vực
         $LinhVuc = DB::table('linhvuc')->get();
         $LoaiHinh = DB::table('nganhnghe')->get();
@@ -104,12 +106,32 @@ class DoanhNghiepController extends Controller
 
 
         $CTDN = array();
+        $id = $request->idCT;
         $CTDN['DoanhNghiep_id']=Session::get('DoanhNghiep_id');
         $CTDN['MaSoThue']=$request->MST;
         $CTDN['NgayHoatDong']=$request->NHD;
-        $CTDN['MaSoThue']=$request->MST;
+        $CTDN['LoaiHinhDN']=$request->LoaiHinh;
+        $CTDN['TenVietTat'] = $request->TenVT;
+        $CTDN['TenTiengAnh'] = $request->TenTA;
+        $CTDN['VonDieuLe'] =$request->VonDieuLe;
+        $CTDN['QuyMoNhanSu'] = $request->QuyMo;
+        $CTDN['DC_ThanhPho'] = $request->DC_ThanhPho;
+        $CTDN['DC_Huyen'] = $request->DC_Huyen;
+        $CTDN['DC_Phuong'] = $request->DC_Phuong;
+        $CTDN['DC_SoNha'] = $request->DC;
+        $CTDN['SDT'] = $request->SDT;
+        $CTDN['FAX'] = $request->Fax;
+        $CTDN['Website'] = $request->Web;
+        $CTDN['Zipcode'] =$request->Zip;
+        if($id == NULL){
+            $CTDN['created_at'] = Carbon::now();
+            DB::table('chitiet_doanhnghiep')->insert($CTDN);
+        }else{
+            $CTDN['updated_at'] = Carbon::now();
+            DB::table('chitiet_doanhnghiep')->update($CTDN);
+        }
         // lấy bản số
-            return view('thongtin.profile');
+            return Redirect::to('profile')->withSuccess('IT WORKS!');;
 
     }
     public function thaydoitranthai(Request $request)
