@@ -33,7 +33,7 @@
 @section('content')
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-{{-- <style>
+ <style>
      @import url(https://fonts.googleapis.com/css?family=Sanchez);
     @import url(https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css);
 *,
@@ -48,10 +48,6 @@
 input[type="checkbox"] {
   display: none;
 }
-/*
-a{ color: rgba(43,43,43,1); text-decoration: none; padding: 10px; border-bottom: 2px solid rgba(43,43,43,1); }
-
-a:hover{ background: rgba(43,43,43,1); color: rgba(255,255,255,1); } */
 
 
 /*Button is :CHECKED*/
@@ -140,7 +136,7 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
   left: calc(22.5% - 2.5px);
   background: rgba(73,168,68,1);
 }
-    </style> --}}
+    </style>
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -202,12 +198,8 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
 
                                     <div class="row">
                                         <div class="col-md-8">
+                                            <input data-id="{{ Session::get("DoanhNghiep_id") }}" class="toggle-class" id="toggle" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $DN->TrangThai_HienThi ? 'checked' : '' }}>
 
-
-                                            {{-- @if ($User->TrangThai_HienThi== 1) --}}
-                                            <input data-id="{{ Session::get("DoanhNghiep_id") }}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $DN->TrangThai_HienThi ? 'checked' : '' }}>
-                                            {{-- <input type="checkbox" id="toggle" data-id="{{ Session::get("DoanhNghiep_id") }}" onchange="doitrangthai()" checked>
-                                            <input type="hidden" id="status" value="0"> --}}
                                             <div id="togglediv">
                                                 <label id="toggleview"  for="toggle"></label>
                                               </div>
@@ -279,11 +271,11 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputmst">Quy mô nhân sự</label>
-                                            <input type="text" class="form-control" id="inputQM" name="QuyMo" placeholder="sl Nhân sự" value="{{ $DN->MaSoThue }}">
+                                            <input type="text" class="form-control" id="inputQM" name="QuyMo" placeholder="sl Nhân sự" value="{{ $DN->QuyMoNhanSu }}">
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputmst">Vốn điều lệ</label>
-                                            <input type="text" class="form-control" id="inputVon" name="VonDieuLe" placeholder="Vốn điều lệ" value="{{ $DN->MaSoThue }}">
+                                            <input type="text" class="form-control" id="inputVon" name="VonDieuLe" placeholder="Vốn điều lệ" value="{{ $DN->VonDieuLe }}">
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputmst">Mã số thuế</label>
@@ -411,19 +403,15 @@ $(document).click(function() {
 $('.dropdown-el').removeClass('expanded');
 });
 $(function() {
-           $('.toggle-class').change(function() {
+           $('.toggle-class').click(function() {
            var status = $(this).prop('checked') == true ? 1 : 0;
            var DN_id = $(this).data('id');
-           $.ajax({
+    $.post("{{ URL::to('/congkhaidoanhnghiep') }}", {
+                                            _token: $('meta[name=csrf-token]').attr('content'),
+                                            status: status,
+                                            DN_id: DN_id
+                                            });
 
-               type: "post",
-               dataType: "json",
-               url: '{{ URL::to('/congkhaidoanhnghiep') }}',
-               data: {'status': status, 'DN_id': DN_id},
-               success: function(data){
-               console.log(data.success)
-            }
-         });
       })
    });
 

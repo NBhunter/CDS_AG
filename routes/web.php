@@ -41,7 +41,7 @@ Route::middleware([
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
     Route::post('/update_profile', 'App\Http\Controllers\DoanhNghiepController@updateprofile' );
     Route::post('/change_password', 'App\Http\Controllers\DoanhNghiepController@updatepassword' );
-    Route::get('/congkhaidoanhnghiep', 'App\Http\Controllers\DoanhNghiepController@thaydoitranthai');
+    Route::post('/congkhaidoanhnghiep', 'App\Http\Controllers\DoanhNghiepController@thaydoitranthai');
 
     Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia\DanhGia1Controller@getCauHoi' );
     Route::get('/phieudanhgia2','App\Http\Controllers\DanhGia\DanhGia2Controller@getCauHoi' );
@@ -128,7 +128,7 @@ Route::middleware([
 Route::get('/chuyengia/P1_Chitiet/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P1' );
 Route::get('/chuyengia/kqphieu1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getkqPhieu1' );
 
-Route::post('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');
+Route::get('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');
 
 // Hiệp hội
 Route::get('/HLH/home', 'App\Http\Controllers\HiepHoiController@gethome' );
