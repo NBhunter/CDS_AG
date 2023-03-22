@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NoficationMail;
 use App\Models\phieu1\phieuso1;
 use Illuminate\Http\Request;
 use Session;
 use DB;
-
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\Console\Input\Input;
 
@@ -153,24 +154,26 @@ class ChuyenGiaController extends Controller
     public function thongbaodanhgia(Request $request)
     {
         // $id= Input::get('id');
-        $input = $request->collect();
-        $request->user()->authorizeRoles(['Admin','ChuyênGia','Hiệp Hội']);
-        $TB = array();
-        $TB['ChuyenGia_id'] = Session::get('user_id');
-        $TB['DoanhNghiep_id'] =$input['id'];
-        $TB['TieuDe'] = $input['TieuDe'];
-        $TB['Loai'] = 2;
-        $TB['status'] = $input['status'];
-        $TB['Link'] = $input['Link'];
-        $idtinnhan = DB::table('tinnhan')->insertGetId($TB);
-        //lưu các nội dung
-        $detail = array();
-        $detail['TinNhan_id'] = $idtinnhan;
-        $detail['NoiDung_TinNhan'] = $input['NoiDung'];
-        $detail['created_at'] = now();
-        DB::table('chitiet_tinnhan')->insert($detail);
-
-        // return Redirect::to('chuyengia/home');
+        // $input = $request->collect();
+        // $request->user()->authorizeRoles(['Admin','ChuyênGia','Hiệp Hội']);
+        // $TB = array();
+        // $TB['ChuyenGia_id'] = Session::get('user_id');
+        // $TB['DoanhNghiep_id'] =$input['id'];
+        // $TB['TieuDe'] = $input['TieuDe'];
+        // $TB['Loai'] = 2;
+        // $TB['status'] = $input['status'];
+        // $TB['Link'] = $input['Link'];
+        // $idtinnhan = DB::table('tinnhan')->insertGetId($TB);
+        // //lưu các nội dung
+        // $detail = array();
+        // $detail['TinNhan_id'] = $idtinnhan;
+        // $detail['NoiDung_TinNhan'] = $input['NoiDung'];
+        // $detail['created_at'] = now();
+        // DB::table('chitiet_tinnhan')->insert($detail);
+        // $DN = DB::table('doanhnghiep')->where('id',$input['id'])->first();
+        Mail::to('bangnguyen01072001@gmail.com')->send(new NoficationMail());
+        // session()->flash('alert-info', 'Đã xong');
+        // return redirect()->back();
     }
     public function getDaDanhGia_P1(){
 
