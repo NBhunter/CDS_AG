@@ -1,5 +1,7 @@
 @extends('DoanhNghiep.dashboard')
 @section('link')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 @section('nvar')
 <li class="sidebar-item ">
@@ -137,6 +139,15 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
   background: rgba(73,168,68,1);
 }
     </style>
+    <div class="container mt-3">
+          @if(session('alert'))    <div class="alert alert-danger alert-dismissible" role="alert">
+
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                {{session('alert')}}
+              </div>
+        @endif  
+    </div>
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -355,6 +366,7 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                             <div class="card-body">
                                 <h5 class="card-title">Password</h5>
 
+
                                 <form role="form" action="{{URL::to('/change_password')}}" method="post" enctype="multipart/form-data">
                                   @csrf
                                     <div class="mb-3">
@@ -422,21 +434,26 @@ $(function() {
 var LinhVuc =document.getElementById("linhvuc");
 var LoaiHinh = document.getElementById("loaihinh");
 var Data = {!! json_encode($LoaiHinh->toArray()) !!} ;
-window.onload = function(){
-    LoaiHinh.length = 1; for( const a of Data){
-    if(a.LinhVuc_id == LinhVuc.value)
-    if(a.Id == {{ $DN->LoaiHinhDN }})
-    LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id,false,true);
-    else
-    LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id);
-}
-}
+// window.onload = function(){
+//     LoaiHinh.length = 1; for( const a of Data){
+//     if(a.LinhVuc_id == LinhVuc.value)
+//     if(a.Id == {{ $DN->LoaiHinhDN }})
+//     LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id,false,true);
+//     else
+//     LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id);
+// }
+// }
 LinhVuc.onchange =function () { LoaiHinh.length = 1; for( const a of Data){
     if(a.LinhVuc_id == LinhVuc.value)
+    @if ($DN->LoaiHinhDN != null)
     if(a.Id == {{ $DN->LoaiHinhDN }})
     LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id,false,true);
     else
     LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id);
+    @else
+    LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id);
+    @endif
+
 
 }}
 </script>
@@ -456,6 +473,7 @@ promise.then(function (result) {
 
 function renderCity(data) {
   for (const x of data) {
+    @if($DN->DiaChiTruSo != null)
     if(x.Id == {{ $DN->DiaChiTruSo }}){
         citis[citis.options.length] = new Option(x.Name, x.Id, false,true);
         const result = data.filter(n => n.Id === citis.value);
@@ -471,7 +489,9 @@ function renderCity(data) {
     else{
         citis[citis.options.length] = new Option(x.Name, x.Id);
     }
-
+    @else
+    citis[citis.options.length] = new Option(x.Name, x.Id);
+    @endif
     // thông tin địa chỉ
     @if($DN->DC_ThanhPho != null)
     if(x.Id == {{ $DN->DC_ThanhPho }} ){
@@ -555,15 +575,6 @@ function renderCity(data) {
     }
   };
 }
-var citis2 = document.getElementById("citys");
-var districts2 = document.getElementById("districts");
-var wards2 = document.getElementById("wards");
-var promise = axios(Parameter);
-promise.then(function (result) {
-  renderCity(result.data);
-});
-
-
 
 
 $(function () {

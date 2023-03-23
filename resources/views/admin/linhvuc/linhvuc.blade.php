@@ -6,6 +6,20 @@
 
 
     <!-- Main Content -->
+    <div class="container mt-3">
+          @if(session('alert'))   
+
+            <div class="alert alert-danger ">
+                {{session('alert')}}
+              </div>
+        @endif  
+          @if(session('Success'))   
+
+            <div class="alert alert-success ">
+                {{session('Success')}}
+              </div>
+        @endif  
+    </div>
 
 
         <!-- Begin Page Content -->
@@ -49,7 +63,7 @@
                                     <a class="btn btn-warning " href="{{ URL::to('/edit_LV/'.$lv->Id) }}"><i class='fas fa-edit'></i></a></td>
 
 
-                                 <td>   <a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
+                                 <td>   <a class="btn btn-danger" id="delete" data-id="{{ $lv->Id }}"><i class='fas fa-trash-alt'></i></a>
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">
                                         <form id="admin" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
@@ -85,7 +99,7 @@
                 </div>
 
             </div>
-            <a href="" class="btn btn-info"><i class='fas fa-plus'></i> Thêm lĩnh vực</a>
+            <a href="{{ URL::to('/new_LV') }}" class="btn btn-info"><i class='fas fa-plus'></i> Thêm lĩnh vực</a>
 
         </div>
         <!-- /.container-fluid -->
@@ -118,19 +132,22 @@
     <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
 <!-- Bootstrap core JavaScript-->
 <script>
-function change($a) {
-    $.post(
-    {
-      name: "Donald Duck",
-      city: "Duckburg"
-    },
-    function(data,status){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
-}
-$("admin").click(function(){
-    alert("Data: ");
-  });
+
+$(function() {
+           $('#delete').click(function() {
+           var id = $(this).data('id');
+           const response = confirm("Are you sure you want to do that?");
+            if(response){
+                $.post("{{ URL::to('/delete_LV') }}", {
+                                            _token: $('meta[name=csrf-token]').attr('content'),
+                                            id:id
+                                            }).done(window.location.reload());
+            }else {
+                    alert("Cancel was pressed");
+                }
+      })
+   });
+
 </script>
 
 @endsection
