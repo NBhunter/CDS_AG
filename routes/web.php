@@ -40,7 +40,7 @@ Route::middleware([
     // phần thông tin doanh nghiệp
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile' );
     Route::post('/update_profile', 'App\Http\Controllers\DoanhNghiepController@updateprofile' );
-    Route::post('/change_password', 'App\Http\Controllers\DoanhNghiepController@updatepassword' );
+    Route::post('/change_password', 'App\Http\Controllers\DoanhNghiepController@ChangePassword' );
     Route::post('/congkhaidoanhnghiep', 'App\Http\Controllers\DoanhNghiepController@thaydoitranthai');
 
     Route::get('/phieudanhgia1','App\Http\Controllers\DanhGia\DanhGia1Controller@getCauHoi' );
@@ -93,9 +93,13 @@ Route::middleware([
     Route::get('/role/{user_id}','App\Http\Controllers\AdminController@getdetail');
     Route::post('/update_user','App\Http\Controllers\AdminController@saveUser');
 
+
+    Route::post('/update_LinhVuc','App\Http\Controllers\TrangTinController@UpdateLinhVuc');
     //xử lý lĩnh vực
     Route::get('/admin/xem_linh_vuc','App\Http\Controllers\TrangTinController@getLinhVuc');
     Route::get('/edit_LV/{linhvuc_id}','App\Http\Controllers\TrangTinController@getLinhVucchitiet');
+    Route::post('/delete_LV','App\Http\Controllers\TrangTinController@DeleteLinhVuc');
+    Route::get('/new_LV','App\Http\Controllers\TrangTinController@getLinhVucnew');
 
     // quản lý slide
     Route::get('/admin/new_slide','App\Http\Controllers\TrangTinController@getaddslide');

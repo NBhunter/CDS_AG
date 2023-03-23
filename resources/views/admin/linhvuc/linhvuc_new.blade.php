@@ -11,8 +11,8 @@
 
     <div class="mb-3">
     <label class="small mb-1" for="inputUsername">Tên lĩnh vực</label>
-    <input class="form-control" id="Username" name="TenLinhVuc" type="text" placeholder="Enter user username" value="{{ $LinhVuc->TenLinhVuc }}">
-    <input class="form-control" id="id" name="id" type="text" placeholder="Enter user username" value="{{ $LinhVuc->Id }}" hidden>
+    <input class="form-control" id="Username" name="TenLinhVuc" type="text" placeholder="Enter user username" value="">
+    <input class="form-control" id="id" name="id" type="text" placeholder="Enter user username" value="" hidden>
     </div>
 
 
@@ -20,12 +20,12 @@
 
     <div class="mb-3">
     <label class="small mb-1" for="inputOrgName">Mô Tả</label>
-    <textarea class="form-control" id="inputOrgName" rows="3" placeholder="" value="">{{ $LinhVuc->MoTa  }}</textarea>
+    <textarea class="form-control" id="inputOrgName" rows="3" placeholder="" value=""></textarea>
     </div>
 
 
     <div class="mb-3" style="margin-top: 1%">
-    <button type="submit" name="MoTa" class="btn btn-info" ><i class='fas fa-save'></i> Lưu thay đổi</button>
+    <button type="submit" name="MoTa" class="btn btn-info" ><i class='fas fa-save'></i> Thêm</button>
 </div>
     </form>
     </div>
