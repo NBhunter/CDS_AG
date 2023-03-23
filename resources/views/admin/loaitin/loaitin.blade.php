@@ -12,12 +12,12 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN NGƯỜI DÙNG</h1>
+            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN LĨNH VỰC</h1>
 
             <!-- DataTales Example -->
             <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh sách các loại tin</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -26,10 +26,10 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên</th>
-                                    <th>Email</th>
-                                    <th>Doanh nghiệp</th>
-                                    <th>Phân Quyền</th>
-                                    <th>Xử Lý</th>
+
+
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
                                 </tr>
                             </thead>
 
@@ -37,18 +37,18 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ( $User as $id => $nd )
+                                @foreach ( $LoaiTin as $id => $lt )
                                 <tr>
                                     @csrf
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $nd->tennguoidung }}</td>
-                                    <td>{{ $nd->email }}</td>
-                                    <td>@if($nd->TenDoanhNghiep == null)<span class="badge bg-danger" style="color: rgb(249, 249, 255);">Chưa xác thực doanh nghiệp</span>@else{{ $nd->TenDoanhNghiep }}@endif</td>
-                                    <td>{{ $nd->name }}</td>
+                                    <td>{{ $lt->TenLoai }}</td>
+
                                     <td>
 
-                                    <a class="btn btn-success " href="{{ URL::to('/role/'.$nd->idnguoidung) }}" style="font-size:13px;">Thông tin
-                                    </a>
+                                    <a class="btn btn-warning " href=""><i class='fas fa-edit'></i></a></td>
+
+
+                                 <td>   <a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">
                                         <form id="admin" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
@@ -79,10 +79,12 @@
 
                             </tbody>
                         </table>
+
                     </div>
                 </div>
+
             </div>
-            <a href="" class="btn btn-info"><i class='fas fa-plus'></i> Thêm người dùng</a>
+            <a href="" class="btn btn-info"><i class='fas fa-plus'></i> Thêm loại tin</a>
 
         </div>
         <!-- /.container-fluid -->
