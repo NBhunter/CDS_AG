@@ -86,4 +86,11 @@ class AdminController extends Controller
 
     	return Redirect::to('admin/themloaihinh');
     }
+    public function getLoaiTin(Request $request){
+        $request->user()->authorizeRoles(['Admin']);
+        $user = $request->user();
+        $LoaiTin = DB::table('loaitin')->get();
+        return view('admin.loaitin.loaitin')->with("LoaiTin",$LoaiTin);
+    }
+
 }
