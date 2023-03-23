@@ -16,9 +16,11 @@ class NoficationMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $DN,$AD;
+    public function __construct($DN,$ad)
     {
-        //
+        $this->DN = $DN;
+        $this->AD = $ad;
     }
 
     /**
