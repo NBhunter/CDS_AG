@@ -1,6 +1,6 @@
 
 @component('mail::message')
-Xin Chào Doanh Nghiệp!!
+Xin Chào {{  $DN->TenDoanhNghiep }}!!
 
 Bạn đã quên đánh giá phiếu số 1 trong quí này
 vui lòng thực hiện đánh giá bằng nút phía dưới.
@@ -10,5 +10,5 @@ vui lòng thực hiện đánh giá bằng nút phía dưới.
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+{{ $AD->name }}
 @endcomponent

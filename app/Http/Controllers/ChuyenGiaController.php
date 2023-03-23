@@ -9,7 +9,7 @@ use Session;
 use DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
-use Symfony\Component\Console\Input\Input;
+use Symfony\Component\Console\Input;
 
 class ChuyenGiaController extends Controller
 {
@@ -151,27 +151,33 @@ class ChuyenGiaController extends Controller
         }
         return view('chuyengia.Phieu_1.P1_ChuaDanhGia')->with('CDG',$CDG);
     }
+    // mail
+    public function sendmail($DN)
+    {
+        $ad = DB::table('users')->where('id',Session::get('user_id'))->first();
+        return Mail::to($DN->email)->send(new NoficationMail($DN,$ad));
+    }
     public function thongbaodanhgia(Request $request)
     {
         // $id= Input::get('id');
-        // $input = $request->collect();
-        // $request->user()->authorizeRoles(['Admin','ChuyênGia','Hiệp Hội']);
-        // $TB = array();
-        // $TB['ChuyenGia_id'] = Session::get('user_id');
-        // $TB['DoanhNghiep_id'] =$input['id'];
-        // $TB['TieuDe'] = $input['TieuDe'];
-        // $TB['Loai'] = 2;
-        // $TB['status'] = $input['status'];
-        // $TB['Link'] = $input['Link'];
-        // $idtinnhan = DB::table('tinnhan')->insertGetId($TB);
-        // //lưu các nội dung
-        // $detail = array();
-        // $detail['TinNhan_id'] = $idtinnhan;
-        // $detail['NoiDung_TinNhan'] = $input['NoiDung'];
-        // $detail['created_at'] = now();
-        // DB::table('chitiet_tinnhan')->insert($detail);
-        // $DN = DB::table('doanhnghiep')->where('id',$input['id'])->first();
-        Mail::to('bangnguyen01072001@gmail.com')->send(new NoficationMail());
+        $input = $request->collect();
+        $request->user()->authorizeRoles(['Admin','ChuyênGia','Hiệp Hội']);
+        $TB = array();
+        $TB['ChuyenGia_id'] = Session::get('user_id');
+        $TB['DoanhNghiep_id'] =$input['id'];
+        $TB['TieuDe'] = $input['TieuDe'];
+        $TB['Loai'] = 2;
+        $TB['status'] = $input['status'];
+        $TB['Link'] = $input['Link'];
+        $idtinnhan = DB::table('tinnhan')->insertGetId($TB);
+        //lưu các nội dung
+        $detail = array();
+        $detail['TinNhan_id'] = $idtinnhan;
+        $detail['NoiDung_TinNhan'] = $input['NoiDung'];
+        $detail['created_at'] = now();
+        DB::table('chitiet_tinnhan')->insert($detail);
+        $DN = DB::table('doanhnghiep')->where('id',$input['id'])->first();
+        $this->sendmail($DN);
         // session()->flash('alert-info', 'Đã xong');
         // return redirect()->back();
     }

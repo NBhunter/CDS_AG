@@ -128,7 +128,7 @@ Route::middleware([
 Route::get('/chuyengia/P1_Chitiet/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P1' );
 Route::get('/chuyengia/kqphieu1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getkqPhieu1' );
 
-Route::get('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');
+Route::post('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');
 
 // Hiệp hội
 Route::get('/HLH/home', 'App\Http\Controllers\HiepHoiController@gethome' );
