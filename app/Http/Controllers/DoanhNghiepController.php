@@ -86,15 +86,18 @@ class DoanhNghiepController extends Controller
         ->leftjoin('dn_user','dn_user.User_id','=','users.id')
         ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
         ->leftjoin('linhvuc','linhvuc.Id','=','doanhnghiep.LinhVuc_id')
+
         ->leftjoin('nguoidung','nguoidung.DoanhNghiep_id','=','doanhnghiep.id')
         ->leftjoin('chitiet_doanhnghiep','chitiet_doanhnghiep.DoanhNghiep_id','=','doanhnghiep.id')->where('users.email',$user->email)
         ->select('nguoidung.TenNguoiDung','doanhnghiep.email As emaildoanhnghiep','chitiet_doanhnghiep.id as idCT','doanhnghiep.DiaChiTruSo','users.name as Tenuser','users.email as emailNguoiDung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*','nguoidung.*','linhvuc.*','chitiet_doanhnghiep.*')->first();
         // lấy lĩnh vực
         $LinhVuc = DB::table('linhvuc')->get();
         $LoaiHinh = DB::table('nganhnghe')->get();
+
         // lấy thông báo
 
         $thongbao = $this->laythongbao();
+
         // lấy bản số
             return view('thongtin.profile')->with('DoanhNghiep',$DoanhNghiep)->with('DN',$DN)->with('thongbao',$thongbao)
             ->with('LinhVuc',$LinhVuc)->with('LoaiHinh',$LoaiHinh);
