@@ -126,12 +126,14 @@ class DoanhNghiepController extends Controller
         if($id == NULL){
             $CTDN['created_at'] = Carbon::now();
             DB::table('chitiet_doanhnghiep')->insert($CTDN);
+            $alert='Đã đăng ký thông tin doanh nghiệp';
         }else{
             $CTDN['updated_at'] = Carbon::now();
-            DB::table('chitiet_doanhnghiep')->update($CTDN);
+            DB::table('chitiet_doanhnghiep')->where('id',$id)->update($CTDN);
+            $alert='Đã cập nhập doanh nghiệp';
         }
         // lấy bản số
-            return Redirect::to('profile')->withSuccess('IT WORKS!');;
+           return redirect()->back()->with('alert',$alert);
 
     }
     public function thaydoitranthai(Request $request)
@@ -142,5 +144,24 @@ class DoanhNghiepController extends Controller
         $TT['TrangThai_HienThi'] = $input['status'];
         DB::table('doanhnghiep')->where('id',$input['DN_id'])->update($TT);
         return response()->json(['success'=>'Status change successfully.']);
+    }
+    public function ChangePassword(Request $request)
+    {
+        $request->user()->authorizeRoles(['DoanhNghiep-NV','DoanhNghiep-BGD','Admin']);
+        $user = $request->user();
+        $Us = DB::table('users')->where('id',$user->id)->first();
+        if($request->NewPassword == $request->re_Password){
+            if($Us->password == md5($request->oldPassword))
+{
+    return Redirect::to('profile')->withSuccess('IT WORKS!');
+} else{
+    $alert='Mật khẩu sai';
+    return redirect()->back()->with('alert',$alert);
+    }
+        }
+        else{
+            $alert='Mật khẩu không trùng khớp';
+            return redirect()->back()->with('alert',$alert);
+            }
     }
 }
