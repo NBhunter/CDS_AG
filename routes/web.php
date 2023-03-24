@@ -19,7 +19,9 @@ Route::get('/trangchu','App\Http\Controllers\homeController@index' );
 Route::get('/post1', function () {
     return view('home.post');
 });
-
+Route::get('/dashboard', function () {
+    return view('DoanhNghiep.DKDoanhNghiepMoi');
+})->name('dashboard');
 Route::get('/watch/{idTin}','App\Http\Controllers\TinTucController@getXemTinDetail' );
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
@@ -30,9 +32,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
 
 // doanh nghiep
     Route::get('/dnviews','App\Http\Controllers\DoanhNghiepController@getdanhnghiep' );
