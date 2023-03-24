@@ -64,6 +64,7 @@ Route::middleware([
     Route::get('/admin/themtintuc','App\Http\Controllers\TinTucController@getidThemTin' );
     Route::get('/admin/binhluan','App\Http\Controllers\BinhLuanController@getidBinhLuan' );
     Route::get('/admin/xemtin','App\Http\Controllers\TinTucController@getXemTin' );
+    Route::get('/admin/xemloaitin','App\Http\Controllers\AdminController@getLoaiTin' );
     Route::post('/save_Tin','App\Http\Controllers\TinTucController@saveTin');
     //lưu phiếu
     Route::post('/save-cauhoi','App\Http\Controllers\DanhGia\DanhGia1Controller@saveCauHoi');

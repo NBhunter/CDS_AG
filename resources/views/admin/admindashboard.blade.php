@@ -51,7 +51,20 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            <div class="sidebar-heading">
+                Người dùng
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ URL::to('admin/user') }}">
+                    <i class="fas fa-address-book"></i>
+                    <span>Thông tin người dùng</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="	fas fa-users"></i>
+                    <span> Nhóm người dùng</span></a>
+            </li>
+            <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
                 Cổng thông tin
@@ -67,8 +80,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý tin tức:</h6>
-                        <a class="collapse-item" href="{{ URL::to('admin/themtintuc') }}">Thêm tin tức</a>
-                        <a class="collapse-item" href="{{ URL::to('admin/xemtin') }}">Xem danh sách tin</a>
+                        <a class="collapse-item" href="{{ URL::to('admin/themtintuc') }}">Tin tức mới đăng</a>
+                        <a class="collapse-item" href="{{ URL::to('admin/xemtin') }}">Tin tức đã duyệt</a>
                     </div>
                 </div>
             </li>
@@ -82,7 +95,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý loại tin:</h6>
 
-                        <a class="collapse-item" href="">Xem danh sách loại tin</a>
+                        <a class="collapse-item" href="{{  url::to('admin/xemloaitin') }}">Xem danh sách loại tin</a>
                     </div>
                 </div>
             </li>
@@ -128,8 +141,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý thư viện:</h6>
-                        <a class="collapse-item" href="">Xem danh sách thư viện</a>
-
+                        <a class="collapse-item" href="">Thư viện mới đăng</a>
+                        <a class="collapse-item" href="">Thư viện đã duyệt</a>
 
                     </div>
                 </div>
@@ -217,29 +230,38 @@
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne1"
                         aria-expanded="true" aria-controls="collapseOne1">
-                        <i class='fab fa-google-drive'></i>
+                        <i class='fas fa-business-time'></i>
                         <span>Quản lý ngành nghề</span>
                     </a>
                     <div id="collapseOne1" class="collapse" aria-labelledby="headingOne"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Ngành nghề:</h6>
-                            <a class="collapse-item" href="{{ URL::to('admin/themnganhnghe') }}">thêm ngành nghề</a>
+                            <a class="collapse-item" href="{{ URL::to('admin/themnganhnghe') }}">Thêm ngành nghề</a>
                             <h6 class="collapse-header">Loại hình:</h6>
-                            <a class="collapse-item" href="{{ URL::to('admin/themloaihinh') }}">thêm loại hình</a>
+                            <a class="collapse-item" href="{{ URL::to('admin/themloaihinh') }}">Thêm loại hình</a>
 
                         </div>
                     </div>
                 </li>
                   <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-            </li>
 
             {{-- xem ngừoi dùng --}}
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+               Hệ thống
+            </div>
             <li class="nav-item">
-                <a class="nav-link" href="{{ URL::to('admin/user') }}">
-                    <i class="fas fa-address-book"></i>
-                    <span>Thông tin người dùng</span></a>
+                <a class="nav-link" href="">
+                    <i class="fas fa-cog"></i>
+                    <span>Cấu hình website</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="	fas fa-cogs"></i>
+                    <span>Bảo trì websitess</span></a>
             </li>
 
 
