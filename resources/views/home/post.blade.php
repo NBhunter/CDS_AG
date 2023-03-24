@@ -65,7 +65,7 @@
                                     <a href="#" class="pin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
                                 </div>
 
-                                <p>{!!$TinTuc->NoiDung!!}</p>
+                                {!!$TinTuc->NoiDung!!}
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <img class="mb-30" src="img/blog-img/4.jpg" alt="">
