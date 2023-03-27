@@ -16,13 +16,16 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/','App\Http\Controllers\homeController@index' );
 Route::get('/trangchu','App\Http\Controllers\homeController@index' );
-Route::get('/post1', function () {
-    return view('home.post');
+Route::get('/dangky', function () {
+    return view('home.dangkydoanhnghiep');
 });
 Route::get('/dashboard', function () {
     return view('DoanhNghiep.DKDoanhNghiepMoi');
 })->name('dashboard');
 Route::get('/watch/{idTin}','App\Http\Controllers\TinTucController@getXemTinDetail' );
+Route::get('/home', function () {
+    abort(500);
+});
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
