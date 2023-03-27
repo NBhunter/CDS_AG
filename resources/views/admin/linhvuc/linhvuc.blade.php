@@ -1,8 +1,9 @@
 @extends('admin.admindashboard')
 @section('content')
-{{--
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> --}}
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> --}}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> --}}
 
 
     <!-- Main Content -->
@@ -63,30 +64,8 @@
                                     <a class="btn btn-warning " href="{{ URL::to('/edit_LV/'.$lv->Id) }}"><i class='fas fa-edit'></i></a></td>
 
 
-                                 <td>   <a class="btn btn-danger" id="delete" data-id="{{ $lv->Id }}"><i class='fas fa-trash-alt'></i></a>
-                                    {{-- <div class="dropdown-menu animated--fade-in"
-                                        aria-labelledby="dropdownMenuButton">
-                                        <form id="admin" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="2"></form>
-                                        <a class="dropdown-item" id="admin" onclick="document.getElementById('admin').submit();">Admin</a>
-                                        <form id="QTV" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="3"></form>
-                                        <a class="dropdown-item" onclick="document.getElementById('QTV').submit();">QTV</a>
-                                        <form id="DNQL" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="1"></form>
-                                        <a class="dropdown-item" onclick="document.getElementById('DNQL').submit();">DoanhNghiệp - Quản Lý</a>
-                                        <form id="DNND{{ $nd->User_id }}" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}">
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="4"></form>
-                                        <a class="dropdown-item" onclick="document.getElementById('DNND'.{{ $nd->User_id }}).submit();">DoanhNghiệp - Người dùng</a> --}}
-                                    </td>
+                                 <td>   <button class="btn btn-danger" id="delete" name = "delete" data-id="{{ $lv->Id }}"><i class='fas fa-trash-alt'></i></button>
+                                   </td>
                                 </tr>
                                 @endforeach
 
@@ -122,7 +101,6 @@
 
 
 
-{{-- <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script> --}}
     <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
@@ -133,21 +111,27 @@
 <!-- Bootstrap core JavaScript-->
 <script>
 
-$(function() {
-           $('#delete').click(function() {
-           var id = $(this).data('id');
-           const response = confirm("Are you sure you want to do that?");
-            if(response){
-                $.post("{{ URL::to('/delete_LV') }}", {
-                                            _token: $('meta[name=csrf-token]').attr('content'),
-                                            id:id
-                                            }).done(window.location.reload());
-            }else {
-                    alert("Cancel was pressed");
-                }
-      })
-   });
+
+    $("button").click(function() {
+
+    var id = $(this).data('id');
+    if(this.id == 'delete'){
+    const response = confirm("Are you sure you want to do that?");
+     if(response){
+         $.post("{{ URL::to('/delete_LV') }}", {
+                                     _token: $('meta[name=csrf-token]').attr('content'),
+                                     id:id
+                                     }).done(window.location.reload());
+     }else {
+             alert("Cancel was pressed");
+         }
+}});
+
 
 </script>
+<script>
 
+        $('#dataTable').DataTable();
+
+</script>
 @endsection
