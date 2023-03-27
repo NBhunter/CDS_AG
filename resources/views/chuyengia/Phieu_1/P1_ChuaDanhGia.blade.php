@@ -74,7 +74,6 @@
 </a>
 
 <script>
-
     $(".thongbao").click(function(){
 
     var idDN = $(this).data('id');
@@ -85,7 +84,7 @@
                                             status: "1",
                                             TieuDe: "Thông Báo Đánh Giá",
                                             Link: "phieudanhgia1"
-                                            });
+                                            }).done(window.location.reload());
 
 });
 

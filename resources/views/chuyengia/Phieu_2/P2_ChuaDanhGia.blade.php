@@ -1,5 +1,11 @@
 @extends('chuyengia.Dashboard')
 @section('content')
+@if(session('Success'))   
+
+            <div class="alert alert-success ">
+                {{session('Success')}}
+              </div>
+        @endif  
 <div class="container-fluid">
     <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN DOANH NGHIỆP CHƯA ĐÁNH GIÁ</h1>
     <div class="card mb-4">
@@ -18,18 +24,35 @@
                         </tr>
 
                     </thead>
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-
-    <td><a class="btn btn-warning" href=""><i class='fas fa-bell'></i></a></td>
-</tr>
-
+                    <tbody>
+                        @php
+                            $i=1;
+                        @endphp
+                        @foreach ( $CDG as $key => $DnCDG )
+                        <tr>
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $DnCDG->TenDoanhNghiep }}</td>
+                            <td>
+                                @if ($DnCDG->ThongBao == null)
+                                <span class="badge bg-danger text-light">Chưa thông báo</span>
+                                @else
+                                <span class="badge bg-success text-light">Đã thông báo</span>
+                                @endif
 
                             </td>
-                        </tr>
 
+                            <td><button class="btn btn-warning thongbao" data-id="{{ $DnCDG->Id }}" id="thongbao" ><i class='fas fa-bell'></i></button></td>
+                        </tr>
+                        @endforeach
+
+
+
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
 
 
 
@@ -58,7 +81,25 @@
 <i class="fas fa-angle-up"></i>
 </a>
 
+<script>
+    $(".thongbao").click(function(){
 
+    var idDN = $(this).data('id');
+    $.post("{{ URL::to('/thongbao_P2') }}", {
+                                            _token: $('meta[name=csrf-token]').attr('content'),
+                                            id: idDN,
+                                            NoiDung: "Doanh nghiệp chưa đánh giá phiếu số 2  trong quý này",
+                                            status: "1",
+                                            TieuDe: "Thông Báo Đánh Giá",
+                                            Link: "phieudanhgia2"
+                                            }).done(window.location.reload());
+
+});
+
+$('.table').dataTable({
+        order: [[2, 'asc']],
+    });
+ </script>
 
 {{-- <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script> --}}
 <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

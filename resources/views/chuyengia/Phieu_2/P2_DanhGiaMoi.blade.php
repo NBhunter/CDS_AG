@@ -20,14 +20,24 @@
                         </tr>
 
                     </thead>
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
-</tr>
+                    @php
+                    $i =0;
+                @endphp
+                    @foreach ( $Phieu2New as $P2)
+                    <tr>
+                        <td>{{ $i++; }}</td>
+                        <td>{{ $P2->TenDoanhNghiep }}</td>
+                        <td>
+                            @if ($P2->status == 0)
+                            Chưa Xem
+                            @else
+                            Đã xem
+                            @endif
+                        </td>
+                        <td></td>
+                        <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
+                    </tr>
+                    @endforeach
 
 
                             </td>

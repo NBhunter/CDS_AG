@@ -71,7 +71,6 @@
                             <h6 class="collapse-header">Quản lý phiếu số 1:</h6>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P1_DGM') }}" >Đánh giá mới</a>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P1_Tatca') }}">Tất cả đánh giá</a>
-                            <a class="collapse-item" href="{{ URL::to('chuyengia/P1_DaDG') }}">Doanh nghiệp đã đánh giá</a>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P1_ChuaDG') }}" >Doanh nghiệp chưa đánh giá</a>
                         </div>
                     </div>
@@ -90,7 +89,6 @@
 
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P2_DGMoi') }}">Đánh giá mới</a>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P2_Tatca') }}">Tất cả đánh giá</a>
-                            <a class="collapse-item" href="{{ URL::to('chuyengia/P2_DaDG') }}">Doanh nghiệp đã đánh giá</a>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P2_ChuaDG') }}">Doanh nghiệp chưa đánh giá</a>
                         </div>
                     </div>
@@ -109,7 +107,6 @@
 
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P3_DGMoi') }}">Đánh giá mới</a>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P3_Tatca') }}">Tất cả đánh giá</a>
-                            <a class="collapse-item" href="{{ URL::to('chuyengia/P3_DaDG') }}">Doanh nghiệp đã đánh giá</a>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P3_ChuaDG') }}">Doanh nghiệp chưa đánh giá</a>
                         </div>
                     </div>
@@ -129,7 +126,6 @@
                             <h6 class="collapse-header">Quản lý phiếu số 4:</h6>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P4_DGMoi') }}">Đánh giá mới</a>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P4_Tatca') }}">Tất cả đánh giá</a>
-                            <a class="collapse-item" href="{{ URL::to('chuyengia/P4_DaDG') }}">Doanh nghiệp đã đánh giá</a>
                             <a class="collapse-item" href="{{ URL::to('chuyengia/P4_ChuaDG') }}">Doanh nghiệp chưa đánh giá</a>
 
                         </div>
