@@ -92,5 +92,51 @@ class AdminController extends Controller
         $LoaiTin = DB::table('loaitin')->get();
         return view('admin.loaitin.loaitin')->with("LoaiTin",$LoaiTin);
     }
+    public function getLoaiTinMoi(Request $request){
+        $request->user()->authorizeRoles(['Admin']);
+        $user = $request->user();
+
+        return view('admin.loaitin.loaitin_new');
+    }
+    public function getLoaiTinChiTiet(Request $request,$loaitin_id){
+        $request->user()->authorizeRoles(['Admin']);
+        $user = $request->user();
+        $LoaiTin = DB::table('loaitin')->where('id',$loaitin_id)->first();
+        return view('admin.loaitin.loaitin_detail')->with("LoaiTin",$LoaiTin);
+    }
+    public function UpdateLoaiTin(Request $request)
+    {
+
+        $request->user()->authorizeRoles(['Admin']);
+        $LoaiTin = array();
+        $LoaiTin['TenLoai'] = $request->TenLoai;
+        if($request->id == null)
+        {
+            try {
+                DB::table('loaitin')->insert($LoaiTin)  ;
+           } catch (\Illuminate\Database\QueryException $ex) {
+               $alert = "Thêm loại tin mới không thành công";
+               return Redirect::to('/admin/xemloaitin')->with('alert',$alert);
+           }
+
+
+           $Success = "Đã thêm vào loại tin mới";
+               return Redirect::to('/admin/xemloaitin')->with('Success',$Success);
+
+        }else{
+    // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
+        // try {
+             DB::table('loaitin')->where('id',$request->id)->update($LoaiTin)  ;
+        // } catch (\Illuminate\Database\QueryException $ex) {
+        //     $alert = "Thay đổi thông tin không thành công";
+        //     return Redirect::to('/admin/xemloaitin')->with('alert',$alert);
+        // }
+
+
+        $Success = "Đã thay đổi thông tin";
+            return Redirect::to('/admin/xemloaitin')->with('Success',$Success);
+        }
+
+    }
 
 }
