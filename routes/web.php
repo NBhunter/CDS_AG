@@ -100,7 +100,10 @@ Route::middleware([
     Route::get('/edit_LV/{linhvuc_id}','App\Http\Controllers\TrangTinController@getLinhVucchitiet');
     Route::post('/delete_LV','App\Http\Controllers\TrangTinController@DeleteLinhVuc');
     Route::get('/new_LV','App\Http\Controllers\TrangTinController@getLinhVucnew');
-
+    // xử lý loại tin
+    Route::post('/update_LoaiTin','App\Http\Controllers\AdminController@UpdateLoaiTin');
+    Route::get('/edit_LoaiTin/{loaitin_id}','App\Http\Controllers\AdminController@getLoaiTinChiTiet');
+    Route::get('/new_LoaiTin','App\Http\Controllers\AdminController@getLoaiTinMoi');
     // quản lý slide
     Route::get('/admin/new_slide','App\Http\Controllers\TrangTinController@getaddslide');
     Route::get('/admin/slide_list','App\Http\Controllers\TrangTinController@getslides');

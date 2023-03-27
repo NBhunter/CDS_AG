@@ -6,6 +6,20 @@
 
 
     <!-- Main Content -->
+    <div class="container mt-3">
+          @if(session('alert'))   
+
+            <div class="alert alert-danger ">
+                {{session('alert')}}
+              </div>
+        @endif  
+          @if(session('Success'))   
+
+            <div class="alert alert-success ">
+                {{session('Success')}}
+              </div>
+        @endif  
+    </div>
 
 
         <!-- Begin Page Content -->
@@ -45,7 +59,7 @@
 
                                     <td>
 
-                                    <a class="btn btn-warning " href=""><i class='fas fa-edit'></i></a></td>
+                                    <a class="btn btn-warning " href="{{ URL::to('/edit_LoaiTin/'.$lt->Id) }}"><i class='fas fa-edit'></i></a></td>
 
 
                                  <td>   <a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
@@ -84,7 +98,7 @@
                 </div>
 
             </div>
-            <a href="" class="btn btn-info"><i class='fas fa-plus'></i> Thêm loại tin</a>
+            <a href="{{ URL::to('/new_LoaiTin') }}" class="btn btn-info"><i class='fas fa-plus'></i> Thêm loại tin</a>
 
         </div>
         <!-- /.container-fluid -->

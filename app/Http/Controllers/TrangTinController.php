@@ -66,7 +66,7 @@ class TrangTinController extends Controller
             try {
                 DB::table('linhvuc')->insert($LinhVuc)  ;
            } catch (\Illuminate\Database\QueryException $ex) {
-               $alert = "thêm lĩnh vực không thành công";
+               $alert = "Thêm lĩnh vực không thành công";
                return Redirect::to('/admin/xem_linh_vuc')->with('alert',$alert);
            }
 
@@ -79,7 +79,7 @@ class TrangTinController extends Controller
         try {
              DB::table('linhvuc')->where('id',$request->id)->update($LinhVuc)  ;
         } catch (\Illuminate\Database\QueryException $ex) {
-            $alert = "thay đổi thông tin không thành công";
+            $alert = "Thay đổi thông tin không thành công";
             return Redirect::to('/admin/xem_linh_vuc')->with('alert',$alert);
         }
 
