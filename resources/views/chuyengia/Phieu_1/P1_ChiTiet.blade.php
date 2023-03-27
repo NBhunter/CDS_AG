@@ -37,7 +37,7 @@
         <label for="inputEmailAddress">Đánh giá tổng thể</label>
 
 
-        <input class="form-control" id="inputLocation" type="text" style="text-align: center; " placeholder="" value="{{  $MucDo }}" readonly>
+        <input class="form-control" id="inputLocation" type="text" style="text-align: center; " placeholder="" value="{{  $Phieu1detail->MucDo }}" readonly>
 <br>
 <br>
 <div class="card mb-4">

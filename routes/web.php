@@ -134,7 +134,7 @@ Route::get('/chuyengia/P1_Chitiet/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaCo
 Route::get('/chuyengia/kqphieu1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getkqPhieu1' );
 
 Route::post('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');
-
+Route::post('/thongbao_P2', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgiaP2');
 // Hiệp hội
 Route::get('/HLH/home', 'App\Http\Controllers\HiepHoiController@gethome' );
 
