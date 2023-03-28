@@ -138,5 +138,24 @@ class AdminController extends Controller
         }
 
     }
+    public function DeleteLoaiTin(Request $request)
+    {
+
+        $request->user()->authorizeRoles(['Admin']);
+
+        // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
+        try {
+             DB::table('loaitin')->where('id',$request->id)->delete();
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $alert = "Xóa không thành công";
+            return Redirect::to('/admin/xemloaitin')->with('alert',$alert);
+        }
+
+
+        $Success = "Đã xóa loại tin thành công";
+            return Redirect::to('/admin/xemloaitin')->with('Success',$Success);
+
+
+    }
 
 }

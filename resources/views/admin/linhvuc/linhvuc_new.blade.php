@@ -3,7 +3,7 @@
 
 
 
-    <div  style="font-weight:bold;text-align:center;font-size:22px;color:#4e73df;font-style:Roboto;">THÔNG TIN CÁC LĨNH VỰC</div>
+    <div  style="font-weight:bold;text-align:center;font-size:22px;color:#4e73df;font-style:Roboto;">THÔNG TIN CÁC LOẠI TIN</div>
     <div class="card-body">
     <form role="form" action="{{URL::to('/update_LinhVuc')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}

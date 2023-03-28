@@ -104,10 +104,12 @@ Route::middleware([
     Route::post('/update_LoaiTin','App\Http\Controllers\AdminController@UpdateLoaiTin');
     Route::get('/edit_LoaiTin/{loaitin_id}','App\Http\Controllers\AdminController@getLoaiTinChiTiet');
     Route::get('/new_LoaiTin','App\Http\Controllers\AdminController@getLoaiTinMoi');
+    Route::post('/delete_LoaiTin','App\Http\Controllers\AdminController@DeleteLoaiTin');
     // quản lý slide
     Route::get('/admin/new_slide','App\Http\Controllers\TrangTinController@getaddslide');
     Route::get('/admin/slide_list','App\Http\Controllers\TrangTinController@getslides');
     Route::post('/save_slide','App\Http\Controllers\TrangTinController@saveslide');
+    Route::post('/delete_slide','App\Http\Controllers\TrangTinController@DeleteSlide');
 
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
 

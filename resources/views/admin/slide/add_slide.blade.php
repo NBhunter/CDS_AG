@@ -11,7 +11,7 @@
 
     <div class="mb-3">
     <label class="small mb-1" for="inputUsername">Tên Banner</label>
-    <input class="form-control" id="Username" name="name" type="text" placeholder="Enter banner" >
+    <input class="form-control" id="Username" name="name" type="text" placeholder="Nhập vào tên banner" >
     {{-- <input class="form-control" id="id" name="id" type="text" placeholder="Enter user username" value="{{ $LinhVuc->Id }}" hidden> --}}
     </div>
 

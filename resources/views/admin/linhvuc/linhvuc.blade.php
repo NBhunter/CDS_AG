@@ -116,7 +116,7 @@
 
     var id = $(this).data('id');
     if(this.id == 'delete'){
-    const response = confirm("Are you sure you want to do that?");
+    const response = confirm(" Bạn có muốn xóa ?");
      if(response){
          $.post("{{ URL::to('/delete_LV') }}", {
                                      _token: $('meta[name=csrf-token]').attr('content'),

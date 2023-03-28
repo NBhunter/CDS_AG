@@ -156,7 +156,7 @@ td{
 </style>
 @endsection
 @section('content')
-<div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
+<div style="background-color: #0038b0; padding: 13px 0 0 0 ;height:70px;">
     <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 3: @php
         $name = Session::get('name') ;
 					if($name){
@@ -175,18 +175,18 @@ td{
 @endphp
 <table class="table table-bordered border-primary" >
     <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude">
-        <td class="col-1" rowspan="4">STT</td>
-        <td class="col-5" rowspan="4">Nội Dung</td>
+        <td class="col-1" rowspan="4" style="padding: 60px 0 0 0;">STT</td>
+        <td class="col-5" rowspan="4" style="padding: 60px 0 0 0;">Nội Dung</td>
         <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
     </tr>
     <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude2">
     <td class="col-1" rowspan="2">1- Hoàn toàn không đồng ý</td>
-        <td class="col-1" rowspan="2">2- Phần lớn không đồng ý</td>
+        <td class="col-1" rowspan="2" >2- Phần lớn không đồng ý</td>
         <td class="col-1" rowspan="2">3- Phân vân</td>
         <td class="col-1" rowspan="2">4- Phần lớn không đồng ý</td>
         <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
       </tr>
-      <tbody style="text-align:center;font-weight:400;">
+      <tbody style="text-align:center;font-weight:400;background-color:rgba(255,255,255,0.8);">
         @csrf
 @foreach($Cauhoi as $key => $ctCauhoi)
 
@@ -195,13 +195,13 @@ td{
 
 @endphp
 <tr class="" style="text-align:center;font-weight:400;">
-    <th class="stt" style="text-align:center;">{{ $j }}</th>
-    <th class="">{{ $ctCauhoi->TenCauHoi}}</th>
-    <th class=""><div class="rating1" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="1" id="1{{ $ctCauhoi->Id }}"><label for="1{{ $ctCauhoi->Id }}" name="1{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating2" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="2" id="2{{ $ctCauhoi->Id }}"><label for="2{{ $ctCauhoi->Id }}" name="2{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating3" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="3" id="3{{ $ctCauhoi->Id }}"><label for="3{{ $ctCauhoi->Id }}" name="3{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating4" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="4" id="4{{ $ctCauhoi->Id }}"><label for="4{{ $ctCauhoi->Id }}" name="4{{ $j }}">☆</label></div></th>
-    <th class=""><div class="rating5" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="5" id="5{{ $ctCauhoi->Id }}"><label for="5{{ $ctCauhoi->Id }}" name="5{{ $j }}">☆</label></div></th>
+    <th class="stt" style="text-align:center;padding:20px 0 0 0 ;">{{ $j }}</th>
+    <th class="" style="padding:20px 0 0 0 ;">{{ $ctCauhoi->TenCauHoi}}</th>
+    <th class=""><div class="rating1" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="1" id="1{{ $ctCauhoi->Id }}"><label for="1{{ $ctCauhoi->Id }}" name="1{{ $j }}" style="scale:130%;color:#98c2f3;">☆</label></div></th>
+    <th class=""><div class="rating2" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="2" id="2{{ $ctCauhoi->Id }}"><label for="2{{ $ctCauhoi->Id }}" name="2{{ $j }}" style="scale:130%;color:#64B5F6;">☆</label></div></th>
+    <th class=""><div class="rating3" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="3" id="3{{ $ctCauhoi->Id }}"><label for="3{{ $ctCauhoi->Id }}" name="3{{ $j }}" style="scale:130%;color:#3F9EEC;">☆</label></div></th>
+    <th class=""><div class="rating4" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="4" id="4{{ $ctCauhoi->Id }}"><label for="4{{ $ctCauhoi->Id }}" name="4{{ $j }}" style="scale:130%;color:#197BD1;">☆</label></div></th>
+    <th class=""><div class="rating5" name="{{ $ctCauhoi->Id }}"><input type="radio" name="rating{{ $j }}" value="5" id="5{{ $ctCauhoi->Id }}"><label for="5{{ $ctCauhoi->Id }}" name="5{{ $j }}" style="scale:130%;color:#1565C0;">☆</label></div></th>
 </tr>
 @endforeach
 

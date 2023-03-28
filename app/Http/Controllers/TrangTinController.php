@@ -33,13 +33,32 @@ class TrangTinController extends Controller
             $data['Status'] = "1";
         }
         $data->save();
-        return Redirect::to('admin/main');
+        return Redirect::to('/admin/slide_list');
     }
     public function getslides(Request $request)
     {
         $request->user()->authorizeRoles(['Admin']);
         $slides = DB::table('slides')->get();
         return view('admin.slide.slide_list')->with('slides',$slides);
+    }
+    public function DeleteSlide(Request $request)
+    {
+
+        $request->user()->authorizeRoles(['Admin']);
+
+        // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
+        try {
+             DB::table('slides')->where('id',$request->id)->delete();
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $alert = "Xóa không thành công";
+            return Redirect::to('/admin/slide_list')->with('alert',$alert);
+        }
+
+
+        $Success = "Đã xóa thành công";
+            return Redirect::to('/admin/slide_list')->with('Success',$Success);
+
+
     }
 // lĩnh vực
     public function getLinhVucnew(Request $request){

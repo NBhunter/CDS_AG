@@ -1,5 +1,7 @@
 @extends('admin.admindashboard')
 @section('content')
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> --}}
 {{--
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> --}}
@@ -26,7 +28,7 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN LĨNH VỰC</h1>
+            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN LOẠI TIN</h1>
 
             <!-- DataTales Example -->
             <div class="card mb-4">
@@ -62,7 +64,7 @@
                                     <a class="btn btn-warning " href="{{ URL::to('/edit_LoaiTin/'.$lt->Id) }}"><i class='fas fa-edit'></i></a></td>
 
 
-                                 <td>   <a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
+                                 <td>   <button class="btn btn-danger" id="delete" name = "delete" data-id="{{ $lt->Id }}"><i class='fas fa-trash-alt'></i></button>
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">
                                         <form id="admin" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
@@ -131,19 +133,28 @@
     <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
 <!-- Bootstrap core JavaScript-->
 <script>
-function change($a) {
-    $.post(
-    {
-      name: "Donald Duck",
-      city: "Duckburg"
-    },
-    function(data,status){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
-}
-$("admin").click(function(){
-    alert("Data: ");
-  });
-</script>
 
+
+    $("button").click(function() {
+
+    var id = $(this).data('id');
+    if(this.id == 'delete'){
+    const response = confirm(" Bạn có muốn xóa ?");
+     if(response){
+         $.post("{{ URL::to('/delete_LoaiTin') }}", {
+                                     _token: $('meta[name=csrf-token]').attr('content'),
+                                     id:id
+                                     }).done(window.location.reload());
+     }else {
+             alert("Xóa không thành công");
+         }
+}});
+
+
+</script>
+<script>
+
+        $('#dataTable').DataTable();
+
+</script>
 @endsection
