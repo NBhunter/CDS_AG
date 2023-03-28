@@ -1,4 +1,5 @@
 @extends('admin.admindashboard')
+
 @section('content')
 <div class="container-fluid">
 

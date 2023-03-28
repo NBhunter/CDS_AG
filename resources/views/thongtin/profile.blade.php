@@ -139,7 +139,7 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
   background: rgba(73,168,68,1);
 }
     </style>
-    <div class="container mt-3">
+    {{-- <div class="container mt-3">
           @if(session('alert'))    <div class="alert alert-danger alert-dismissible" role="alert">
 
             <div class="alert alert-danger alert-dismissible fade show">
@@ -147,7 +147,7 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                 {{session('alert')}}
               </div>
         @endif  
-    </div>
+    </div> --}}
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -461,6 +461,9 @@ LinhVuc.onchange =function () { LoaiHinh.length = 1; for( const a of Data){
 	var citis = document.getElementById("city");
 var districts = document.getElementById("district");
 var wards = document.getElementById("ward");
+var citis2= document.getElementById("citys");
+var districts2 = document.getElementById("districts");
+var wards2 = document.getElementById("wards");
 var Parameter = {
   url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
   method: "GET",

@@ -1,8 +1,9 @@
 @extends('admin.admindashboard')
-@section('content')
-{{--
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> --}}
+@section('content')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
 
     <!-- Main Content -->
@@ -43,35 +44,35 @@
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $nd->tennguoidung }}</td>
                                     <td>{{ $nd->email }}</td>
-                                    <td>@if($nd->TenDoanhNghiep == null)<span class="badge bg-danger" style="color: rgb(249, 249, 255);">Chưa xác thực doanh nghiệp</span>@else{{ $nd->TenDoanhNghiep }}@endif</td>
-                                    <td>{{ $nd->name }}</td>
                                     <td>
-
-                                    <a class="btn btn-success " href="{{ URL::to('/role/'.$nd->idnguoidung) }}" style="font-size:13px;">Thông tin
-                                    </a>
-                                    {{-- <div class="dropdown-menu animated--fade-in"
-                                        aria-labelledby="dropdownMenuButton">
-                                        <form id="admin" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="2"></form>
-                                        <a class="dropdown-item" id="admin" onclick="document.getElementById('admin').submit();">Admin</a>
-                                        <form id="QTV" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="3"></form>
-                                        <a class="dropdown-item" onclick="document.getElementById('QTV').submit();">QTV</a>
-                                        <form id="DNQL" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}" hidden>
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="1"></form>
-                                        <a class="dropdown-item" onclick="document.getElementById('DNQL').submit();">DoanhNghiệp - Quản Lý</a>
-                                        <form id="DNND{{ $nd->User_id }}" method="post" action="{{ URL::to('/role/'.$nd->User_id) }}">
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $nd->User_id }}">
-                                            <input type="text" name="role" id="" value="4"></form>
-                                        <a class="dropdown-item" onclick="document.getElementById('DNND'.{{ $nd->User_id }}).submit();">DoanhNghiệp - Người dùng</a> --}}
+                                        @if ($nd->name == 'Admin' || $nd->name =='CTV')
+                                        Tài Khoản Quản Trị
+                                        @else
+                                        @if ($nd->name == 'Chuyên Gia' || $nd->name == 'Ban Chấp Hành' )
+                                        Tài Khoản chuyên gia
+                                        @else
+                                        @if ($nd->name == 'DoanhNghiep-BGD' || $nd->name =='DoanhNghiep-NV' )
+                                        @if($nd->TenDoanhNghiep == null)
+                                        <span class="badge bg-danger" style="color: rgb(249, 249, 255);">Chưa xác thực doanh nghiệp</span>
+                                        @else{{ $nd->TenDoanhNghiep }}@endif
+                                        @endif
+                                        @endif
+                                        @endif
                                     </td>
+                                        <td>{{ $nd->name }}</td>
+                                    <td>
+                                        @if (session::get('user_id') == $nd->idnguoidung)
+                                        Tải khoản của bạn
+                                        @else
+                                        @if ($nd->name == 'DoanhNghiep-BGD' || $nd->name =='DoanhNghiep-NV' )
+                                        Không thuộc thẩm quyền của bạn
+                                        @else
+                                        <a class="btn btn-success " href="{{ URL::to('/role/'.$nd->idnguoidung) }}" style="font-size:13px;">Thông tin
+                                        </a>
+                                        @endif
+                                        @endif
+
+                                  </td>
                                 </tr>
                                 @endforeach
 
@@ -82,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <a href="" class="btn btn-info"><i class='fas fa-plus'></i> Thêm người dùng</a>
+            <a href="{{ URL::to('/admin/new_user') }}" class="btn btn-info"><i class='fas fa-plus'></i> Thêm người dùng</a>
 
         </div>
         <!-- /.container-fluid -->
@@ -128,6 +129,7 @@ function change($a) {
 $("admin").click(function(){
     alert("Data: ");
   });
+  $('#dataTable').DataTable();
 </script>
 
 @endsection

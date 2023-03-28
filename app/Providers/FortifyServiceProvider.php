@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Validation\ValidationException;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
@@ -47,8 +47,13 @@ class FortifyServiceProvider extends ServiceProvider
 
             if ($user &&
                 Hash::check($request->password, $user->password)) {
-                return $user;
+                    if ($user->status == 1) {  // it will return if status == 1
+                        return $user;
+                   }
+                   throw abort(403,'TÀI KHOẢNG CỦA BẠN ĐANG BỊ KHÓA');
+
             }
+
         });
 
         RateLimiter::for('two-factor', function (Request $request) {
