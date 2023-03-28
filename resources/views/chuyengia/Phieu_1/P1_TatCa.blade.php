@@ -29,7 +29,7 @@
                         <td>{{ $PNew->TenDoanhNghiep }}</td>
                         <td>{{ $PNew->ThoigianTao }}</td>
                         <td>{{ $PNew->TongDiem }}</td>
-    <td></td>
+    <td>{{ $PNew->MucDo }}</td>
     <td><a class="btn btn-success" href="{{ URL::to('chuyengia/P1_Chitiet/'.$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
 </tr>
 @endforeach

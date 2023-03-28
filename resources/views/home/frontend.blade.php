@@ -68,7 +68,7 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="item " aria-current="page"  href="#">TRANG CHỦ</a>
+          <a class="item " aria-current="page"  href="{{ URL::to('trangchu') }}">TRANG CHỦ</a>
         </li>
         <li class="nav-item dropdown ">
         <!-- <div class="nav-item "> -->
@@ -87,8 +87,14 @@
 </div>
 
   <li class="nav-item">
-          <a class="item " href="{{ URL::to('dnviews') }}">ĐÁNH GIÁ</a>
+          <a class="item " href="{{ URL::to('dnviews') }}">TRANG ĐÁNH GIÁ</a>
         </li>
+        <li class="nav-item">
+            <a class="item " href="{{ URL::to('dangky') }}">ĐĂNG KÝ</a>
+          </li>
+          <li class="nav-item">
+            <a class="item " href="{{ URL::to('xemhoso') }}">HỒ SƠ DOANH NGHIỆP</a>
+          </li>
 <!-- </div> -->
         </li>
       </ul>

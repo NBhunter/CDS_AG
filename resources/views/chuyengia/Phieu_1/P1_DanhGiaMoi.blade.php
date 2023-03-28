@@ -35,24 +35,7 @@
                         <td>{{ $PNew->ThoigianTao }}</td>
                         <td>{{ $PNew->TongDiem }}</td>
                         <td>
-                            @if ($PNew->TongDiem <= 20 )
-                            <span class="badge bg-danger text-light" >Chưa khởi động</span>
-                            @endif
-                            @if ($PNew->TongDiem > 20 && $PNew->TongDiem <= 64)
-                            <span class="badge bg-danger text-light" >Khởi động</span>
-                            @endif
-                            @if ($PNew->TongDiem <= 128 && $PNew->TongDiem > 64 )
-                            <span class="badge bg-danger text-light">Bắt đầu</span>
-                            @endif
-                            @if ($PNew->TongDiem <= 192 && $PNew->TongDiem > 128 )
-                            <span class="badge bg-primary text-light">Bắt đầu</span>
-                            @endif
-                            @if ($PNew->TongDiem <= 256 && $PNew->TongDiem > 192 )
-                            <span class="badge bg-primary text-light">Bắt đầu</span>
-                            @endif
-                            @if ( $PNew->TongDiem > 256 )
-                            <span class="badge bg-primary text-light">Bắt đầu</span>
-                            @endif
+                            {{ $PNew->MucDo }}
                         </td>
                         <td><a class="btn btn-success" href="{{ URL::to('chuyengia/P1_Chitiet/' .$PNew->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
                     </tr>
