@@ -125,7 +125,7 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3" style="text-align: center;">ĐĂNG KÝ MỞ TÀI KHOẢNG MỚI</h1>
+        <h1 class="h3 mb-3" style="text-align: center;">ĐĂNG KÝ MỞ TÀI KHOẢN MỚI</h1>
 
         <div class="row">
             <div class="col-md-3 col-xl-2">
