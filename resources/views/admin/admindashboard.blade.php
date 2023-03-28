@@ -113,23 +113,6 @@
                     </div>
                 </div>
             </li>
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class='fas fa-comments'></i>
-                    <span>Bình luận</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Quản lý bình luận:</h6>
-                        <a class="collapse-item" href="{{ URL::to('admin/binhluan') }}">Xem danh sách bình luận</a>
-
-                    </div>
-                </div>
-            </li>
-
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
@@ -157,7 +140,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý các slide:</h6>
 
-                        <a class="collapse-item" href="{{  url::to('/admin/new_slide') }}">Thêm Slide mới </a>
+                        <a class="collapse-item" href="{{  url::to('/admin/new_slide') }}">Thêm slide mới </a>
                         <a class="collapse-item" href="{{  url::to('/admin/slide_list') }}">Xem danh sách </a>
                     </div>
                 </div>
@@ -181,13 +164,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
 
-                        <a class="collapse-item" href="login.html">Danh sách câu hỏi</a>
-
                         <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso1') }}">Thêm câu hỏi</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">KẾT QUẢ ĐÁNH GIÁ:</h6>
-                        <a class="collapse-item" href="404.html">Theo doanh nghiệp</a>
-                        <a class="collapse-item" href="blank.html">Theo quý</a>
+
                     </div>
                 </div>
             </li>
@@ -202,7 +180,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
 
-                        <a class="collapse-item" href="login.html">Danh sách câu hỏi</a>
+
 
                         <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso2') }}">Thêm câu hỏi</a>
                         <div class="collapse-divider"></div>
@@ -220,7 +198,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
 
-                        <a class="collapse-item" href="login.html">Danh sách câu hỏi</a>
 
                         <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso3') }}">Thêm câu hỏi</a>
                         <div class="collapse-divider"></div>

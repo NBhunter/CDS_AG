@@ -48,6 +48,7 @@
                                     {{-- <th>Doanh nghiệp</th> --}}
 
                                     <th>Sửa</th>
+                                    <th>Xóa </th>
                                 </tr>
                             </thead>
 
@@ -66,7 +67,7 @@
                                     <a class="btn btn-warning " href="{{ URL::to('/edit_slide/'.$slides->id) }}"><i class='fas fa-edit'></i></a></td>
 
 
-                                    <td>   <a class="btn btn-danger" href=""><i class='fas fa-trash-alt'></i></a>
+                                    <td><button class="btn btn-danger" id="delete" name = "delete" data-id="{{ $slides->id }}"><i class='fas fa-trash-alt'></i></button>
 
                                     {{-- <div class="dropdown-menu animated--fade-in"
                                         aria-labelledby="dropdownMenuButton">
@@ -134,19 +135,28 @@
     <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
 <!-- Bootstrap core JavaScript-->
 <script>
-function change($a) {
-    $.post(
-    {
-      name: "Donald Duck",
-      city: "Duckburg"
-    },
-    function(data,status){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
-}
-$("admin").click(function(){
-    alert("Data: ");
-  });
-</script>
 
+
+    $("button").click(function() {
+
+    var id = $(this).data('id');
+    if(this.id == 'delete'){
+    const response = confirm(" Bạn có muốn xóa ?");
+     if(response){
+         $.post("{{ URL::to('/delete_slide') }}", {
+                                     _token: $('meta[name=csrf-token]').attr('content'),
+                                     id:id
+                                     }).done(window.location.reload());
+     }else {
+             alert("Xóa không thành công");
+         }
+}});
+
+
+</script>
+<script>
+
+        $('#dataTable').DataTable();
+
+</script>
 @endsection
