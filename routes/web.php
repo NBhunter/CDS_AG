@@ -90,7 +90,9 @@ Route::middleware([
     Route::get('/admin/xemphieuso4','App\Http\Controllers\DanhGia\DanhGia4Controller@getCauHoi' );
     //lấy user
     Route::get('/admin/user','App\Http\Controllers\AdminController@getuser');
-
+    // tạo user
+    Route::get('/admin/new_user','App\Http\Controllers\AdminController@newuser');
+    Route::post('/admin/new_user','App\Http\Controllers\AdminController@createuser');
     //sử lý user
 
     Route::get('/role/{user_id}','App\Http\Controllers\AdminController@getdetail');

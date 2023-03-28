@@ -43,7 +43,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ URL::to('admin/main') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Trang chủ</span></a>
@@ -60,7 +60,7 @@
                     <span>Thông tin người dùng</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ URL::to('admin/groupuser') }}">
                     <i class="	fas fa-users"></i>
                     <span> Nhóm người dùng</span></a>
             </li>

@@ -152,6 +152,13 @@
 					</ul>
 				</div>
 			</nav>
+              @if(session('alert'))    <div class="alert alert-danger alert-dismissible" role="alert">
+
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    {{session('alert')}}
+                  </div>
+            @endif  
 			@yield('content')
 
 
