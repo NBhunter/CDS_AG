@@ -16,13 +16,16 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/','App\Http\Controllers\homeController@index' );
 Route::get('/trangchu','App\Http\Controllers\homeController@index' );
-Route::get('/post1', function () {
-    return view('home.post');
+Route::get('/dangky', function () {
+    return view('home.dangkydoanhnghiep');
 });
 Route::get('/dashboard', function () {
     return view('DoanhNghiep.DKDoanhNghiepMoi');
 })->name('dashboard');
 Route::get('/watch/{idTin}','App\Http\Controllers\TinTucController@getXemTinDetail' );
+Route::get('/home', function () {
+    abort(500);
+});
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -139,7 +142,7 @@ Route::get('/chuyengia/P1_Chitiet/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaCo
 Route::get('/chuyengia/kqphieu1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getkqPhieu1' );
 
 Route::post('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');
-
+Route::post('/thongbao_P2', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgiaP2');
 // Hiệp hội
 Route::get('/HLH/home', 'App\Http\Controllers\HiepHoiController@gethome' );
 
