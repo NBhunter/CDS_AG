@@ -17,7 +17,10 @@ class DanhGia2Controller extends Controller
         $Cauhoi = DB::table('danhmuc_noidung_p2')
         ->leftjoin('cauhoi_p2','danhmuc_noidung_p2.NoiDung_id','=','cauhoi_p2.Id')->get();
         $time = "DG2-".date('ymdHis');
-        return view('danhgia.phieu2')->with('Cauhoi',$Cauhoi)->with('time',$time);
+        $DanhMuc = DB::table('danhmuc_noidung_p2')
+        ->leftjoin('cauhoi_p2','danhmuc_noidung_p2.NoiDung_id','=','cauhoi_p2.Id')
+        ->select('danhmuc_noidung_p2.Ten','danhmuc_noidung_p2.NoiDung_id')->where('Cap','=','1')->get();
+        return view('danhgia.phieu2')->with('Cauhoi',$Cauhoi)->with('time',$time)->with('DanhMuc',$DanhMuc);
     }
     public function getidCauHoi(){
         $Cauhoi = DB::table('chitiet')
