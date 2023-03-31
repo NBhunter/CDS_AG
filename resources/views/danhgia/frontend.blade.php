@@ -48,7 +48,7 @@
     </style>
 </head>
 
-<body style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: repeat;    background-size:100%;">
+<body style="background-image:  ;background-repeat: repeat;    background-size:100%;">
 
 @yield('content')
 </div>
