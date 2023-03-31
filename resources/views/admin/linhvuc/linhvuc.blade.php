@@ -123,7 +123,7 @@
                                      id:id
                                      }).done(window.location.reload());
      }else {
-             alert("Cancel was pressed");
+             alert("Xóa không thành công");
          }
 }});
 
