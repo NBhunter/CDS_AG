@@ -66,7 +66,9 @@ color: red;
 border-bottom-right-radius: 12px;
 border-bottom-left-radius: 12px;
 }
-
+table.table-bordered th, table.table-bordered td{
+    border:2px solid black;
+}
 
 
 .rating1,.rating2,.rating3,.rating4,.rating5 {
@@ -156,15 +158,11 @@ td{
 </style>
 @endsection
 @section('content')
-<div style="background-color: #0038b0; padding: 13px 0 0 0 ;height:70px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 3: @php
-        $name = Session::get('name') ;
-					if($name){
-						echo $name;
-
-					}
-    @endphp</h2>
+<div style="background-color: #0038b0; padding-top: 15px ;height:70px;">
+    <h2 style="color:white; text-align:center;">PHIẾU ĐÁNH GIÁ SỐ 3:</h2>
     </div>
+    <div style="margin:30px">
+
     <div class="container" style="font-weight:400;margin_top: 0px ;">
     <div class="row" style="font-weight:400;">
 <div class="card-body" align="center" background="black" >
@@ -173,17 +171,17 @@ td{
     $j=0;
 
 @endphp
-<table class="table table-bordered border-primary" >
-    <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude">
+<table class="table table-bordered " style="margin:0;" >
+    <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude">
         <td class="col-1" rowspan="4" style="padding: 60px 0 0 0;">STT</td>
-        <td class="col-5" rowspan="4" style="padding: 60px 0 0 0;">Nội Dung</td>
+        <td class="col-5" rowspan="4" style="padding: 60px 0 0 0;">Nội dung</td>
         <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
     </tr>
-    <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude2">
+    <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude2">
     <td class="col-1" rowspan="2">1- Hoàn toàn không đồng ý</td>
-        <td class="col-1" rowspan="2" >2- Phần lớn không đồng ý</td>
+        <td class="col-1" rowspan="2">2- Phần lớn không đồng ý</td>
         <td class="col-1" rowspan="2">3- Phân vân</td>
-        <td class="col-1" rowspan="2">4- Phần lớn không đồng ý</td>
+        <td class="col-1" rowspan="2">4- Phần lớn đồng ý</td>
         <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
       </tr>
       <tbody style="text-align:center;font-weight:400;background-color:rgba(255,255,255,0.8);">
@@ -207,11 +205,13 @@ td{
 
 </tbody>
     </table>
-
+<br>
         <div class="form-group" id="cauhoi3" >
-        <label style="font-weight:bold; color:red;">Rào cản (nếu có)</label>
+        <label style="font-weight:bold; color:red;">RÀO CẢN (nếu có)</label>
         <textarea class="form-control"name="RaoCan" id="RaoCan" ></textarea>
         </div>
+        <br>
+        <button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:white;">HOÀN THÀNH</button>
 </div>
 </div>
   <!-- Copyright -->
