@@ -152,63 +152,87 @@ td{
 .noidung{font-weight:400;}
 
 
-.nav-link{
-    height:52px;
-    margin-top:11px;
 
-}
 
 table.table-bordered th, table.table-bordered td{
     border:2px solid black;
 }
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
 
+/* Style the buttons inside the tab */
+.tab button {
+
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.tablinks{
+    height:100%;
+}
 </style>
 @endsection
 @section('content')
-<html>
-    <html lang="en">
-						<head>
-						  <meta charset="utf-8">
-						  <meta name="viewport" content="width=device-width, initial-scale=1">
-						  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-						  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-						  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-						  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-						</head>
-						<body  >
+
                             <div style=" margin_top: 0px ;height:70px; padding: 13px 0 0 0 ;">
                                 <h2 style="color:black; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2 (Mã phiếu: {{ $time }})</h2>
                                 </div>
 						 <div style="margin:30px">
-							<ul class="nav nav-tabs" style="background:#64B5F6;height:65px;  border:2px solid black; border-bottom:none;">
-    <li class="nav-item">
-        <a href="" class="nav-link active" data-toggle="tab" style="padding:15px 15px 0 15px;color:black;font-weight:bold;">Quản trị</a>
-    </li>
-    <li class="nav-item">
-        <a href="" class="nav-link" data-toggle="tab" style="padding:15px 15px 0 15px;color:black;font-weight:bold;">Chiến lược</a>
-    </li>
-    <li class="nav-item">
-        <a href="" class="nav-link" data-toggle="tab" style="padding:15px 15px 0 15px;color:black;font-weight:bold;">Văn hóa</a>
-    </li>
-</ul>
-<div class="tab-content">
-    <div class="tab-pane fade show active" id="home">
-        @php
+
+                                <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; ">
+                                    <button class="tablinks" onclick="openCity(event, 'Quantri')"  style="color:black;font-weight:bold;">Quản trị</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Chienluoc')"style="color:black;font-weight:bold;">Chiến lược</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Vanhoa')"style="color:black;font-weight:bold;">Văn hóa</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Congnghe')"style="color:black;font-weight:bold;">Công nghệ và kết nối</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Ketnoi')"style="color:black;font-weight:bold;">Công nghệ và kết nối</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Nhanluc')"style="color:black;font-weight:bold;">Nhân lực</button>
+                                  </div>
+
+<div id="Quantri" class="tabcontent" style="padding:0;display:block;">
+
+    @php
         $i=0;
         $j=0;
         $y=0;
     @endphp
-    <table class="table table-bordered " >
+    <table class="table table-bordered " style="margin:0;" >
         <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude">
             <td class="col-1" rowspan="4">STT</td>
-            <td class="col-5" rowspan="4">Nội Dung</td>
+            <td class="col-5" rowspan="4">Nội dung</td>
             <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
         </tr>
         <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude2">
             <td class="col-1" rowspan="2">1- Hoàn toàn không đồng ý</td>
             <td class="col-1" rowspan="2">2- Phần lớn không đồng ý</td>
             <td class="col-1" rowspan="2">3- Phân vân</td>
-            <td class="col-1" rowspan="2">4- Phần lớn không đồng ý</td>
+            <td class="col-1" rowspan="2">4- Phần lớn đồng ý</td>
             <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
           </tr>
           <tbody style="text-align:center;font-weight:400;">
@@ -254,24 +278,45 @@ table.table-bordered th, table.table-bordered td{
     </tfoot>
         </table>
     </div>
-    </div>
-    </div>
-    <div class="tab-pane fade" id="profile">
-        <p>Profile tab content ...</p>
-    </div>
-    <div class="tab-pane fade" id="messages">
-        <p>Messages tab content ...</p>
 
-    </div>
-</div>
-						</div>
-
-
-    <div class="container" style="font-weight:400;margin_top: 0px ;">
-    <div class="row" style="font-weight:400;">
-<div class="card-body" align="center" background="black" >
-</div></div></div>
   <!-- Copyright -->
 @endsection
-</body>
-</html>
+  </div>
+
+  <div id="Chienluoc" class="tabcontent">
+    <h3>Paris</h3>
+    <p>Paris is the capital of France.</p>
+  </div>
+
+  <div id="Vanhoa" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+  <div id="Congnghe" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+  <div id="Ketnoi" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+  <div id="Nhanluc" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+  <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    </script>
+
