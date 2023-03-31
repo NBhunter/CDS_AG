@@ -151,76 +151,127 @@ td{
     }
 .noidung{font-weight:400;}
 
+
+.nav-link{
+    height:52px;
+    margin-top:11px;
+
+}
+
+table.table-bordered th, table.table-bordered td{
+    border:2px solid black;
+}
+
 </style>
 @endsection
 @section('content')
-<div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2:- Mã Phiếu: {{ $time }}</h2>
+<html>
+    <html lang="en">
+						<head>
+						  <meta charset="utf-8">
+						  <meta name="viewport" content="width=device-width, initial-scale=1">
+						  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+						  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+						  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+						  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+						</head>
+						<body  >
+                            <div style=" margin_top: 0px ;height:70px; padding: 13px 0 0 0 ;">
+                                <h2 style="color:black; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2 (Mã phiếu: {{ $time }})</h2>
+                                </div>
+						 <div style="margin:30px">
+							<ul class="nav nav-tabs" style="background:#64B5F6;height:65px;  border:2px solid black; border-bottom:none;">
+    <li class="nav-item">
+        <a href="" class="nav-link active" data-toggle="tab" style="padding:15px 15px 0 15px;color:black;font-weight:bold;">Quản trị</a>
+    </li>
+    <li class="nav-item">
+        <a href="" class="nav-link" data-toggle="tab" style="padding:15px 15px 0 15px;color:black;font-weight:bold;">Chiến lược</a>
+    </li>
+    <li class="nav-item">
+        <a href="" class="nav-link" data-toggle="tab" style="padding:15px 15px 0 15px;color:black;font-weight:bold;">Văn hóa</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="home">
+        @php
+        $i=0;
+        $j=0;
+        $y=0;
+    @endphp
+    <table class="table table-bordered " >
+        <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude">
+            <td class="col-1" rowspan="4">STT</td>
+            <td class="col-5" rowspan="4">Nội Dung</td>
+            <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
+        </tr>
+        <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude2">
+            <td class="col-1" rowspan="2">1- Hoàn toàn không đồng ý</td>
+            <td class="col-1" rowspan="2">2- Phần lớn không đồng ý</td>
+            <td class="col-1" rowspan="2">3- Phân vân</td>
+            <td class="col-1" rowspan="2">4- Phần lớn không đồng ý</td>
+            <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
+          </tr>
+          <tbody style="text-align:center;font-weight:400;">
+            <form role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <input type="text" name="maphieu" value="{{ $time }}" hidden>
+    @foreach($Cauhoi as $key => $ctCauhoi)
+    @if ($ctCauhoi->Cap==1)
+    @php
+        $i++;
+        $j=0;
+    @endphp
+    <tr class=""style="text-align:center;font-weight:400;background-color:#fbec88;">
+        <th class="stt" >{{ $i }}</th>
+        <th class=""colspan="6">{{ $ctCauhoi->Ten}}{{ $ctCauhoi->TenCauHoi}}</th>
+
+    </tr>
+    @else
+    @if ($ctCauhoi->Cap==2)
+    @php
+        $j++;
+        $y=0;
+    @endphp
+    <tr class="" style="text-align:center;font-weight:400;">
+        <th class="stt" style="text-align:center; ">{{ $i.".".$j }}</th>
+        <th class="" style="font-weight:400;">{{ $ctCauhoi->TenCauHoi}} - {{ $ctCauhoi->NoiDung_id }}</th>
+        <input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="0" hidden checked>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}"><label for="1{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}" style="scale:130%;color:#98c2f3;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}"><label for="2{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#64B5F6;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}"><label for="3{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#3F9EEC;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="4" id="4{{ $ctCauhoi->NoiDung_id }}"><label for="4{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#197BD1;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="5" id="5{{ $ctCauhoi->NoiDung_id }}"><label for="5{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#1565C0;">☆</label></div></th>
+    </tr>
+    @endif
+    @endif
+    @endforeach
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:black;">HOÀN THÀNH</button></td>
+        </tr>
+    </form>
+    </tfoot>
+        </table>
     </div>
+    </div>
+    </div>
+    <div class="tab-pane fade" id="profile">
+        <p>Profile tab content ...</p>
+    </div>
+    <div class="tab-pane fade" id="messages">
+        <p>Messages tab content ...</p>
+
+    </div>
+</div>
+						</div>
+
+
     <div class="container" style="font-weight:400;margin_top: 0px ;">
     <div class="row" style="font-weight:400;">
 <div class="card-body" align="center" background="black" >
-@php
-    $i=0;
-    $j=0;
-    $y=0;
-@endphp
-<table class="table table-bordered border-primary" >
-    <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude">
-        <td class="col-1" rowspan="4">STT</td>
-        <td class="col-5" rowspan="4">Nội Dung</td>
-        <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
-    </tr>
-    <tr style="font-weight:bold;" class="table-primary border-primary" name="trtieude2">
-        <td class="col-1" rowspan="2">1- Hoàn toàn không đồng ý</td>
-        <td class="col-1" rowspan="2">2- Phần lớn không đồng ý</td>
-        <td class="col-1" rowspan="2">3- Phân vân</td>
-        <td class="col-1" rowspan="2">4- Phần lớn không đồng ý</td>
-        <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
-      </tr>
-      <tbody style="text-align:center;font-weight:400;">
-        <form role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" enctype="multipart/form-data">
-            @csrf
-            <input type="text" name="maphieu" value="{{ $time }}" hidden>
-@foreach($Cauhoi as $key => $ctCauhoi)
-@if ($ctCauhoi->Cap==1)
-@php
-    $i++;
-    $j=0;
-@endphp
-<tr class=""style="text-align:center;font-weight:400;">
-    <th class="stt" >{{ $i }}</th>
-    <th class=""colspan="6">{{ $ctCauhoi->Ten}}{{ $ctCauhoi->TenCauHoi}}</th>
-
-</tr>
-@else
-@if ($ctCauhoi->Cap==2)
-@php
-    $j++;
-    $y=0;
-@endphp
-<tr class="" style="text-align:center;font-weight:400;">
-    <th class="stt" style="text-align:center; ">{{ $i.".".$j }}</th>
-    <th class="" style="font-weight:400;">{{ $ctCauhoi->TenCauHoi}} - {{ $ctCauhoi->NoiDung_id }}</th>
-    <input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="0" hidden checked>
-    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}"><label for="1{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
-    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}"><label for="2{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
-    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}"><label for="3{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
-    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="4" id="4{{ $ctCauhoi->NoiDung_id }}"><label for="4{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
-    <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="5" id="5{{ $ctCauhoi->NoiDung_id }}"><label for="5{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}">☆</label></div></th>
-</tr>
-@endif
-@endif
-@endforeach
-</tbody>
-<tfoot>
-    <tr>
-        <td colspan="5"><button type="submit" name="guiphieu" class="btn btn-info" value=""><i class='fas fa-plus'></i>  Hoàn Thành</button></td>
-    </tr>
-</form>
-</tfoot>
-    </table>
-</div>
-</div>
+</div></div></div>
   <!-- Copyright -->
 @endsection
+</body>
+</html>
