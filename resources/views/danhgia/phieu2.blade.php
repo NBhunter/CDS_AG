@@ -200,6 +200,12 @@ table.table-bordered th, table.table-bordered td{
 </style>
 @endsection
 @section('content')
+@if(session('alert'))   
+    <div class="alert alert-success" role="alert">
+        {{session('alert')}}
+      </div>
+
+@endif  
                             <div style=" margin_top: 0px ;height:70px; padding: 13px 0 0 0 ;">
                                 <h2 style="color:black; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2 (Mã phiếu: {{ $time }})</h2>
                                 </div>
@@ -208,14 +214,14 @@ table.table-bordered th, table.table-bordered td{
 
                             $d=1;
                         @endphp
-                          <form role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" enctype="multipart/form-data">
+                          <form id="form" role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" target="hidden-form" enctype="multipart/form-data">
                             @csrf
                                 <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; ">
                                     @foreach ( $DanhMuc as $DM )
                                     @if ($DM->NoiDung_id == 3)
-                                    <button class="tablinks active" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+                                    <button class="tablinks active" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
                                     @else
-                                    <button class="tablinks" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+                                    <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
 
                                     @endif
 
@@ -240,7 +246,7 @@ table.table-bordered th, table.table-bordered td{
 
     <tfoot>
         <tr>
-            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:black;">HOÀN THÀNH</button></td>
+            <td colspan="7"><button type="submit" name="guiphieu"  class="btn btn-success" onclick="openCity({{ $i }}, 'CT{{ $i }}')" style="color:black;">ĐẾN PHẦN SAU</button></td>
         </tr>
 
     </tfoot>
@@ -288,11 +294,11 @@ table.table-bordered th, table.table-bordered td{
     <tr class="" style="text-align:center;font-weight:400;">
         <th class="stt" style="text-align:center; ">{{ $i.".".$j }}</th>
         <th class="" style="font-weight:400;">{{ $ctCauhoi->TenCauHoi}} - {{ $ctCauhoi->NoiDung_id }}</th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}"><label for="1{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}" style="scale:130%;color:#98c2f3;">☆</label></div></th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}"><label for="2{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#64B5F6;">☆</label></div></th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}"><label for="3{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#3F9EEC;">☆</label></div></th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="4" id="4{{ $ctCauhoi->NoiDung_id }}"><label for="4{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#197BD1;">☆</label></div></th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="5" id="5{{ $ctCauhoi->NoiDung_id }}"><label for="5{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#1565C0;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}" ><label for="1{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}" style="scale:130%;color:#98c2f3;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}" ><label for="2{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#64B5F6;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}" ><label for="3{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#3F9EEC;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="4" id="4{{ $ctCauhoi->NoiDung_id }}" ><label for="4{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#197BD1;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio"  name="{{ $ctCauhoi->NoiDung_id }}" value="5" id="5{{ $ctCauhoi->NoiDung_id }}" ><label for="5{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#1565C0;">☆</label></div></th>
     </tr>
     @endif
     @endif
@@ -302,9 +308,15 @@ table.table-bordered th, table.table-bordered td{
 
     <tfoot>
         <tr>
-            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:black;">HOÀN THÀNH</button></td>
+            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
         </tr>
     </form>
+    <iframe style="display:none" name="hidden-form">@if(session('alert'))   
+        <div class="alert alert-success" role="alert">
+            {{session('alert')}}
+          </div>
+
+    @endif  </iframe>
     </tfoot>
         </table>
     </div>
@@ -326,7 +338,29 @@ table.table-bordered th, table.table-bordered td{
             tablinks[i].className = tablinks[i].className.replace(" active", "");
           }
           document.getElementById(cityName).style.display = "block";
+          if(Number.isInteger(evt)){
+            tablinks[evt -1].className += " active";
+            goto('-1');
+          }else{
           evt.currentTarget.className += " active";
+          }
+        }
+        function goto(status){
+            var inputs = document.getElementById("form").elements;
+    var count  = 0;
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == 'radio' && inputs[i].checked) {
+            count++;
+        }
+    }
+            if(count >= 29){
+                window.alert("đã đánh giá xong!! nhấn ok để trở về");
+            window.location.replace("{{ URL::to('dnviews') }}");
+            }if(status == 0 && count < 29)
+            {
+                window.alert("chưa đánh giá đủ. vui lòng đánh giá lại");
+            }
+
         }
         </script>
   <!-- Copyright -->

@@ -14,6 +14,7 @@ class DanhGia2Controller extends Controller
 {
 
     public function getCauHoi(){
+
         $Cauhoi = DB::table('danhmuc_noidung_p2')
         ->leftjoin('cauhoi_p2','danhmuc_noidung_p2.NoiDung_id','=','cauhoi_p2.Id')->get();
         $time = "DG2-".date('ymdHis');
@@ -106,18 +107,10 @@ $ch5 = array();
         $Cauhoi = DB::table('cauhoi_p2')->get();
         $DoanhNghiep_id = Session::get('DoanhNghiep_id');
         $User_id = Session::get('User_id');
-
-        Foreach($Cauhoi as $Ch){
-            if($Ch->Cap ==2 && $request->maphieu != null){
-                $chitietcauhoi = new phieu2_diem();
-                $chitietcauhoi['Phieu_id'] = $request->maphieu;
-                $chitietcauhoi['CauHoi_id'] = $Ch->Id;
-                $chitietcauhoi['DanhGia'] =$request[$Ch->Id];
-                $chitietcauhoi->save();
-                }
-        }
-
+        // session::push('temp','');
         if(phieuso2::find($request->maphieu) == null){
+            Session::forget('temp');
+        Session::push('temp','');
             $Phieuso2= new phieuso2();
         $Phieuso2['Id'] = $request->maphieu;
         $Phieuso2['User_id'] = $User_id;
@@ -125,8 +118,12 @@ $ch5 = array();
         $Phieuso2['created_at'] = now();
         $Phieuso2['status'] = 0;
         $Phieuso2->save();
+
+
         }else
         {
+
+
             $Phieuso2 = phieuso2::find($request->maphieu);
             $Phieuso2['User_id'] = $User_id;
             $Phieuso2['DoanhNghiep_id'] =$DoanhNghiep_id;
@@ -134,8 +131,26 @@ $ch5 = array();
             $Phieuso2['status'] = 0;
             $Phieuso2->save();
         }
+        Foreach($Cauhoi as $Ch){
 
-        // return Redirect::to('dnviews');
+            if($Ch->Cap ==2 && $request->maphieu != null && $request[$Ch->Id] != null && !in_array($Ch->Id,Session::get('temp'))){
+                Session::push('temp',$Ch->Id);
+                $chitietcauhoi = new phieu2_diem();
+                $chitietcauhoi['Phieu_id'] = $request->maphieu;
+                $chitietcauhoi['CauHoi_id'] = $Ch->Id;
+                $chitietcauhoi['DanhGia'] =$request[$Ch->Id];
+                $chitietcauhoi->save();
+                }
+                if($Ch->Cap ==2 && $request->maphieu != null && $request[$Ch->Id] != null && in_array($Ch->Id,Session::get('temp'))){
+                    $chitietcauhoi = phieu2_diem::where('CauHoi_id',$Ch->Id)->where('Phieu_id',$request->maphieu)->first();
+                    $chitietcauhoi['DanhGia'] =$request[$Ch->Id];
+                $chitietcauhoi->save();
+                }
+        }
+
+
+        $alert= "Đã lưu đánh giá";
+        return redirect()->back()->with('alert',$alert);
 
     }
 }

@@ -12,9 +12,11 @@ class DanhGia3Controller extends Controller
 {
 
     public function getCauHoi(){
+        $request->user()->authorizeRoles(['DoanhNghiep-BGD','DoanhNghiep-NV','Admin']);
         $Cauhoi = DB::table('cauhoi_p3')->get();
         // $Cauhoi = $Cauhoi->get();
-        return view('danhgia.phieu3')->with('Cauhoi',$Cauhoi);
+        $time = "DG3-".date('ymdHis');
+        return view('danhgia.phieu3')->with('Cauhoi',$Cauhoi)->with('time',$time);
     }
     public function getidCauHoi(){
 
@@ -29,9 +31,13 @@ class DanhGia3Controller extends Controller
         DB::table('cauhoi_p3')->insert($ch);
 
     }
-
-
-
     	return Redirect::to('admin/main');
     }
+public function DanhGia(Request $request)
+{
+    $Cauhoi = DB::table('cauhoi_p3s')->get();
+    $DoanhNghiep_id = Session::get('DoanhNghiep_id');
+    $User_id = Session::get('User_id');
+
+}
 }
