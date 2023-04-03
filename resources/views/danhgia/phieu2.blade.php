@@ -206,6 +206,7 @@ table.table-bordered th, table.table-bordered td{
 						 <div style="margin:30px">
                             @php
 
+<<<<<<< HEAD
                             $d=1;
                         @endphp
                           <form role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" enctype="multipart/form-data">
@@ -216,6 +217,16 @@ table.table-bordered th, table.table-bordered td{
                                     <button class="tablinks active" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
                                     @else
                                     <button class="tablinks" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+=======
+                                <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; padding-left:200px;">
+                                    <button class="tablinks" onclick="openCity(event, 'Quantri')"  style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:0px 0px 5px rgb(165, 165, 165);">Quản trị</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Chienluoc')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Chiến lược</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Vanhoa')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Văn hóa</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Congnghe')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Công nghệ và kết nối</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Ketnoi')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Công nghệ và kết nối</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Nhanluc')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Nhân lực</button>
+                                  </div>
+>>>>>>> 0b2d7e71bec150663f59d5980af26cbe367d33e0
 
                                     @endif
 
@@ -258,8 +269,8 @@ table.table-bordered th, table.table-bordered td{
 
     <table class="table table-bordered " style="margin:0;" >
         <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude">
-            <td class="col-1" rowspan="4">STT</td>
-            <td class="col-5" rowspan="4">Nội dung</td>
+            <td class="col-1" rowspan="4" style="padding: 60px 0 0 0;">STT</td>
+            <td class="col-5" rowspan="4" style="padding: 60px 0 0 0;">Nội dung</td>
             <td class="col-5" colspan="5">Mức độ quan trọng <br>(Đánh dấu X vào 1 trong 5 ô bên dưới)</td>
         </tr>
         <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude2">
@@ -302,7 +313,7 @@ table.table-bordered th, table.table-bordered td{
 
     <tfoot>
         <tr>
-            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:black;">HOÀN THÀNH</button></td>
+            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:white;">HOÀN THÀNH</button></td>
         </tr>
     </form>
     </tfoot>
