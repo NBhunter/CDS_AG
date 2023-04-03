@@ -156,14 +156,9 @@ td{
 </style>
 @endsection
 @section('content')
-<div style="background-color: #0038b0; margin_top: 0px ;height:50px;">
-    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 4: @php
-        $name = Session::get('name') ;
-					if($name){
-						echo $name;
-
-					}
-    @endphp</h2>
+<div style="background-color: #0038b0; padding-top: 15px ;height:70px;">
+    <h2 style="color:white; text-align:center;">PHIẾU ĐÁNH GIÁ SỐ 4:
+</h2>
     </div>
     <div class="container" style="font-weight:400;margin_top: 0px ;">
     <div class="row" style="font-weight:400;">
@@ -186,7 +181,7 @@ td{
         </div>
 <br>
 <br>
-    <button type="submit" name="add_product" id="btn" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm câu hỏi</button>
+    <button type="submit" name="add_product" id="btn" class="btn btn-info"> HOÀN THÀNH</button>
     </form>
 </div>
 </div>
