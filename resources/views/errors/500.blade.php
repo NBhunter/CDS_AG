@@ -58,9 +58,9 @@
                 Internal Server Error
                 </h3>
 
-                <p>phần xử lý hệ thống đã bị lỗi, đang trong quá trình khắc phục!</p>
+                <p>Phần xử lý hệ thống đã bị lỗi, đang trong quá trình khắc phục!</p>
 
-                <a href="{{ URL::to('trangchu') }}" class="link_404">trở về trang chính</a>
+                <a href="{{ URL::to('trangchu') }}" class="link_404" style="text-decoration:none;">Trở về trang chính</a>
             </div>
                 </div>
                 </div>

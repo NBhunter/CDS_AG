@@ -125,7 +125,7 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3" style="text-align: center;">ĐĂNG KÝ MỞ TÀI KHOẢN MỚI</h1>
+        <h1 class="h3 mb-3" style="text-align: center; font-weight:bold;">ĐĂNG KÝ MỞ TÀI KHOẢN MỚI</h1>
 
         <div class="row">
             <div class="col-md-3 col-xl-2">
@@ -144,7 +144,7 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                         <div class="card">
                             <div class="card-header">
 
-                                <h4 class="card-title mb-0">Thông tin doanh nghiệp</h4>
+                                <h4 class="card-title mb-0" style="color:#0038b0;font-weight:bold;">Thông tin doanh nghiệp</h4>
                             </div>
                             <div class="card-body">
                                 <form role="form" action="{{URL::to('/update_profile')}}" method="post" enctype="multipart/form-data">
@@ -152,35 +152,35 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                     <div class="row">
                                         <div class="mb-3 ">
                                             <input type="text" name="idCT" value="" hidden>
-                                            <label class="form-label" for="inputDNName">Tên Doanh Nghiệp</label>
-                                            <input type="text" class="form-control" id="inputDNName" name="TenDN" placeholder="Tên Doanh Nghiệp" value="">
+                                            <label class="form-label" for="inputDNName">Tên doanh nghiệp</label>
+                                            <input type="text" class="form-control" id="inputDNName" name="TenDN" placeholder="Nhập tên doanh nghiệp" value="">
                                         </div>
                                         <div class="mb-3 ">
-                                            <label class="form-label" for="inputDNName">Tên Tiếng Anh</label>
-                                            <input type="text" class="form-control" id="inputDNName" name="TenTA" placeholder="Tên Tiếng Anh" value="">
+                                            <label class="form-label" for="inputDNName">Tên tiếng anh</label>
+                                            <input type="text" class="form-control" id="inputDNName" name="TenTA" placeholder="Nhập tên tiếng anh" value="">
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputDNName">Tên Viết Tắt</label>
-                                            <input type="text" class="form-control" id="inputDNName" name="TenVT" placeholder="Tên Viết Tắt" value="">
+                                            <label class="form-label" for="inputDNName">Tên viết tắt</label>
+                                            <input type="text" class="form-control" id="inputDNName" name="TenVT" placeholder="Nhập tên viết tắt" value="">
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputngayhd">Ngày hoạt động</label>
                                             <input type="date" class="form-control" id="inputngayhd" name="NHD" placeholder="Ngày hoạt động" value="">
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputTSChinh">Trụ Sở Chính</label>
+                                            <label class="form-label" for="inputTSChinh">Trụ sở chính</label>
                                             <select class="form-control form-select " id="city" name="TruSo" aria-label=".form-select-sm" selec>
                                                 <option value="" >Chọn Tỉnh/Thành Phố</option>
                                                 </select>
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputTSChinh">Địa Phương(Huyện)</label>
+                                            <label class="form-label" for="inputTSChinh">Địa phương (Huyện)</label>
                                             <select class="form-control form-select" id="district" name="DiaPhuong" aria-label=".form-select-sm">
                                                 <option value="" selected>Chọn quận huyện</option>
                                                 </select>
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputTSChinh">Lĩnh Vực</label>
+                                            <label class="form-label" for="inputTSChinh">Lĩnh vực</label>
                                             <select class="form-control form-select" id="linhvuc" name="LinhVuc" aria-label=".form-select-sm">
                                                {{-- @foreach ( $LinhVuc as $LV )
                                                @if ( $LV->Id == $DN->LinhVuc_id)
@@ -196,12 +196,12 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputTSChinh">Loại hình kinh doanh chính</label>
                                             <select class="form-control form-select" id="loaihinh" name="LoaiHinh" aria-label=".form-select-sm">
-                                                <option value="" selected>Chọn loại hình kinh doanh</option>
+                                                <option value="" selected> Chọn loại hình kinh doanh</option>
                                                 </select>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputmst">Quy mô nhân sự</label>
-                                            <input type="text" class="form-control" id="inputQM" name="QuyMo" placeholder="sl Nhân sự" value="">
+                                            <input type="text" class="form-control" id="inputQM" name="QuyMo" placeholder="Số lượng Nhân sự" value="">
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label" for="inputmst">Vốn điều lệ</label>
@@ -211,25 +211,28 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                             <label class="form-label" for="inputmst">Mã số thuế</label>
                                             <input type="text" class="form-control" id="inputmst" name="MST" placeholder="Mã số thuế" value="">
                                         </div>
-
-
-                                    </div>
-                                    <div class="mb-3">
+                                    <div class="mb-3 col-md-6">
                                         <label class="form-label" for="inputEmail4">Email doanh nghiệp</label>
                                         <input type="email" class="form-control" id="inputEmail4" name="Email" placeholder="Email" value="">
                                     </div>
                                 </div>
                         </div>
+                    </div>
+                        <br>
+
                                     <div class="card">
                                         <div class="card-header">
-                                            <h3 class="card-title mb-0">Thông tin liên hệ doanh nghiệp</h3>
+                                            <h3 class="card-title mb-0" style="color:#0038b0;font-weight:bold;">Thông tin liên hệ doanh nghiệp</h3>
                                         </div>
+                                        <div class="card-body">
+
+                                        <br>
                                     <div class="row">
                                         <div class="mb-3">
                                             <p class="card-subtitle mb-0">Chọn theo thứ tự: Tỉnh -> Huyện -> Xã</p>
                                         </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label" for="inputTSChinh">Thành Phố</label>
+                                        <label class="form-label" for="inputTSChinh">Thành phố</label>
                                         <select class="form-control form-select" id="citys" name="DC_ThanhPho" aria-label=".form-select-sm">
                                             <option value="" selected>Chọn tỉnh thành</option>
                                             </select>
@@ -255,67 +258,68 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="inputAddress">Địa chỉ chi tiết</label>
-                                        <input type="text" class="form-control" id="inputAddress" name="DC" placeholder="1234 Main St" value="">
+                                        <input type="text" class="form-control" id="inputAddress" name="DC" placeholder="Nhập địa chỉ chi tiết" value="">
                                     </div>
                                     <div class="mb-3 col-md-6">
                                       <label class="form-label" for="inputSDT">Số điện thoại</label>
-                                      <input class="form-control input-validation-error" name="SDT" data-val="true" data-val-regex="Vui lòng nhập số điện thoại hợp lệ" data-val-regex-pattern="^(\+?)[0-9]{6,}$" id="DienThoai" name="DienThoai" type="text" value="">
+                                      <input class="form-control input-validation-error" name="SDT" data-val="true" data-val-regex="Vui lòng nhập số điện thoại hợp lệ" data-val-regex-pattern="^(\+?)[0-9]{6,}$" id="DienThoai" name="DienThoai" type="text" value="" placeholder="Nhập vào số điện thoại">
                                       {{-- <input type="text" class="form-control input-validation-error" id="inputSDT" data-val-regex="Vui lòng nhập số điện thoại hợp lệ"  data-val-regex-pattern="^(\+?)[0-9]{6,}$" value="{{ $DN->MaSoThue }}"> --}}
                                   </div>
                                   <div class="mb-3 col-md-6">
                                     <label class="form-label" for="inputFax">Fax</label>
                                     <input type="text" class="form-control" id="inputFax" name="Fax" value="">
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 ">
                                   <label class="form-label" for="inputWeb">Website</label>
                                   <input type="text" class="form-control" id="inputWeb" name="Web" value="">
-                              </div>
                                 </div>
-                                    </div>
-                                    </div>
+                            </div>
+                    </div>
+                </div>
+                    <br>
                                     <div class="card">
                                         <div class="card-header">
-                                            <h3 class="card-title mb-0">Thông tin người đại diện</h3>
+                                            <h3 class="card-title mb-0" style="color:#0038b0;font-weight:bold;">Thông tin người đại diện</h3>
                                         </div>
+                                        <div class="card-body">
                                     <div class="row">
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label class="control-label col-sm-4">
-                                                Họ tên&nbsp;<span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-sm-8">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">
+                                                Họ tên&nbsp;<span class="text-danger">*</span>  </label>
+                                                <input type="text" class="form-control" id="inputHoTen" name="Hoten" value="">
+                                        </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label class="form-label">
+                                                    Người đại diện &nbsp;<span class="text-danger">*</span>  </label>
                                                 <input class="form-control" data-val="true" data-val-requiredextend="Vui lòng nhập Người đại diện" data-val-stringlengthextend="Vui lòng nhập ít hơn 250 ký tự" data-val-stringlengthextend-maxlength="250" id="NguoiDaiDien" name="NguoiDaiDien" type="text" value="">
                                                 <span class="field-validation-valid text-danger" data-valmsg-for="NguoiDaiDien" data-valmsg-replace="true"></span>
                                             </div>
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
+
+                                        <div class="mb-3 col-md-6">
                                             <label class="control-label col-sm-4">
                                                 Chức vụ
                                             </label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" data-val="true" data-val-stringlengthextend="Vui lòng nhập ít hơn 100 ký tự" data-val-stringlengthextend-maxlength="100" id="ChucVuNguoiDaiDien" name="ChucVuNguoiDaiDien" type="text" value="">
-                                                <span class="field-validation-valid text-danger" data-valmsg-for="ChucVuNguoiDaiDien" data-valmsg-replace="true"></span>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="form-group col-md-6 col-sm-12">
+                                                <input class="form-control" data-val="true" data-val-stringlengthextend="Vui lòng nhập ít hơn 100 ký tự" data-val-stringlengthextend-maxlength="100" id="ChucVuNguoiDaiDien" name="ChucVuNguoiDaiDien" type="text" value="">
+
+                                            </div>
+                                        <div class="mb-3 col-md-3">
                                             <label class="control-label col-sm-4">
                                                 CMND
                                             </label>
-                                            <div class="col-sm-8">
                                                 <input class="form-control datepicker" id="CmndNguoiDaiDien" name="CmndNguoiDaiDien" type="text" value="">
                                                 <span class="field-validation-valid text-danger" data-valmsg-for="CmndNguoiDaiDien" data-valmsg-replace="true"></span>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group col-md-6 col-sm-12">
+
+                                        <div class="mb-3 col-md-3">
                                             <label class="control-label col-sm-4">
                                                 Nơi cấp
                                             </label>
-                                            <div class="col-sm-8">
-                                                <select class="form-control input-select2 select2-hidden-accessible" id="NoiCapCmndNguoiDaiDien" name="NoiCapCmndNguoiDaiDien" tabindex="-1" aria-hidden="true"><option value="">--Chọn Tỉnh/Thành phố--</option>
-        <option value="t1">Hà Nội</option>
+
+                                            <select class="form-control form-select" id="wards" name="NoiCap" aria-label=".form-select-sm">
+                                                <option value="" selected>Chọn Tỉnh / Thành phố</option>
+
         <option value="t2">Hà Giang</option>
         <option value="t3">Cao Bằng</option>
         <option value="t4">Bắc Kạn</option>
@@ -379,49 +383,38 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
         <option value="t62">Sóc Trăng</option>
         <option value="t63">Bạc Liêu</option>
         <option value="t64">Cà Mau</option>
-        </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-NoiCapCmndNguoiDaiDien-container"><span class="select2-selection__rendered" id="select2-NoiCapCmndNguoiDaiDien-container" title="--Chọn Tỉnh/Thành phố--">--Chọn Tỉnh/Thành phố--</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                                <span class="field-validation-valid text-danger" data-valmsg-for="NoiCapCmndNguoiDaiDien" data-valmsg-replace="true"></span>
-                                            </div>
+                                            </select>
                                         </div>
-                                    </div>
 
-
-                                    <div class="row">
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label class="control-label col-sm-4">
-                                                Địa chỉ email
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">
+                                                Địa chỉ Email
                                             </label>
-                                            <div class="col-sm-8">
                                                 <input class="form-control" data-val="true" data-val-regexcustom="Vui lòng nhập địa chỉ email hợp lệ" data-val-regexcustom-pattern="^[\w!#$%&amp;&#39;*+\-/=?\^_`{|}~]+(\.[\w!#$%&amp;&#39;*+\-/=?\^_`{|}~]+)*@((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))\z" data-val-stringlengthextend="Vui lòng nhập ít hơn 250 ký tự" data-val-stringlengthextend-maxlength="250" id="EmailNguoiDaiDien" name="EmailNguoiDaiDien" type="text" value="">
                                                 <span class="field-validation-valid text-danger" data-valmsg-for="EmailNguoiDaiDien" data-valmsg-replace="true"></span>
-                                            </div>
                                         </div>
 
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label class="control-label col-sm-4">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">
                                                 Điện thoại
                                             </label>
-                                            <div class="col-sm-8">
+
                                                 <input class="form-control" data-val="true" data-val-regex="Vui lòng nhập số điện thoại hợp lệ" data-val-regex-pattern="^(\+?)[0-9]{6,}$" id="DienThoaiNguoiDaiDien" name="DienThoaiNguoiDaiDien" type="text" value="">
                                                 <span class="field-validation-valid text-danger" data-valmsg-for="DienThoaiNguoiDaiDien" data-valmsg-replace="true"></span>
-                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
 
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label class="control-label col-sm-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">
                                                 Địa chỉ
                                             </label>
-                                            <div class="col-sm-8">
-                                                <textarea class="form-control" cols="20" data-val="true" data-val-stringlengthextend="Vui lòng nhập ít hơn 100 ký tự" data-val-stringlengthextend-maxlength="100" id="DiaChiNguoiDaiDien" name="DiaChiNguoiDaiDien" rows="2"></textarea>
+
+                                                <textarea class="form-control" data-val="true" data-val-stringlengthextend="Vui lòng nhập ít hơn 100 ký tự" data-val-stringlengthextend-maxlength="100" id="DiaChiNguoiDaiDien" name="DiaChiNguoiDaiDien" rows="2"></textarea>
                                                 <span class="field-validation-valid text-danger" data-valmsg-for="DiaChiNguoiDaiDien" data-valmsg-replace="true"></span>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
-                                    <div class="mb-3 ">
-                                        <button type="submit" class="btn btn-primary">Đăng ký</button>
+
+
 
                                     </div>
                                 </form>
@@ -430,7 +423,9 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                         </div>
 
                     </div>
-
+                    <br>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
                 </div>
             </div>
         </div>

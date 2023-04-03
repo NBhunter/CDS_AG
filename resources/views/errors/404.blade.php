@@ -58,9 +58,9 @@
                 CÓ VẺ KHÔNG TÌM THẤY TRANG
                 </h3>
 
-                <p>có thể trang đó không có hoặc chưa làm!</p>
+                <p>Có thể trang đó không có hoặc chưa làm!</p>
 
-                <a href="{{ URL::to('trangchu') }}" class="link_404">trở về trang chính</a>
+                <a href="{{ URL::to('trangchu') }}" class="link_404">Trở về trang chính</a>
             </div>
                 </div>
                 </div>
