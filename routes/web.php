@@ -19,6 +19,9 @@ Route::get('/trangchu','App\Http\Controllers\homeController@index' );
 Route::get('/dangky', function () {
     return view('home.dangkydoanhnghiep');
 });
+Route::get('/tintuc', function () {
+    return view('home.tin');
+});
 Route::get('/dashboard', function () {
     return view('DoanhNghiep.DKDoanhNghiepMoi');
 })->name('dashboard');

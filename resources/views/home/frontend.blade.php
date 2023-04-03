@@ -68,38 +68,33 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="item " aria-current="page"  href="{{ URL::to('trangchu') }}">TRANG CHỦ</a>
+          <a class="item " aria-current="page"  href="{{ URL::to('trangchu') }}" >TRANG CHỦ</a>
         </li>
         <li class="nav-item dropdown ">
-        <!-- <div class="nav-item "> -->
-  <a class="item dropdown " s>DANH MỤC</a>
-  <div class="dropdown-content">
-    <a href="#">Nông Nghiệp</a>
-    <a href="#">Công Nghiệp</a>
-    <a href="#">Dịch Vụ</a>
-  </div>
+
         <li class="nav-item">
-          <a class="item " href="#">TIN TỨC</a>
+          <a class="item " href="{{ URL::to('tintuc') }}">TIN TỨC</a>
         </li>
 
   <div class="nav-item">
-          <a class="item " href="#">THƯ VIỆN ĐIỆN TỬ</a>
+          <a class="item " href="#">THƯ VIỆN</a>
 </div>
 
   <li class="nav-item">
           <a class="item " href="{{ URL::to('dnviews') }}">TRANG ĐÁNH GIÁ</a>
         </li>
         <li class="nav-item">
-            <a class="item " href="{{ URL::to('dangky') }}">ĐĂNG KÝ</a>
-          </li>
-          <li class="nav-item">
             <a class="item " href="{{ URL::to('xemhoso') }}">HỒ SƠ DOANH NGHIỆP</a>
           </li>
+        <li class="nav-item">
+            <a class="item " href="{{ URL::to('dangky') }}">ĐĂNG KÝ</a>
+          </li>
+
 <!-- </div> -->
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Tìm kiếm thông tin" aria-label="Search" style="width:300px;">
         <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
     </div>

@@ -60,7 +60,7 @@
 
                 <p>vui lòng liên hệ quản trị viên để xử lý</p>
 
-                <a href="{{ URL::to('trangchu') }}" class="link_404">trở về trang chính</a>
+                <a href="{{ URL::to('trangchu') }}" class="link_404">Trở về trang chính</a>
             </div>
                 </div>
                 </div>
