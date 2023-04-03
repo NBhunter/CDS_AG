@@ -200,12 +200,33 @@ table.table-bordered th, table.table-bordered td{
 </style>
 @endsection
 @section('content')
+@if(session('alert'))   
+    <div class="alert alert-success" role="alert">
+        {{session('alert')}}
+      </div>
 
+@endif  
                             <div style=" margin_top: 0px ;height:70px; padding: 13px 0 0 0 ;">
                                 <h2 style="color:black; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2 (Mã phiếu: {{ $time }})</h2>
                                 </div>
 						 <div style="margin:30px">
+                            @php
 
+<<<<<<< HEAD
+                            $d=1;
+                        @endphp
+                          <form id="form" role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" target="hidden-form" enctype="multipart/form-data">
+                            @csrf
+                                <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; ">
+                                    @foreach ( $DanhMuc as $DM )
+                                    @if ($DM->NoiDung_id == 3)
+                                    <button class="tablinks active" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+                                    @else
+<<<<<<< HEAD
+                                    <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+=======
+                                    <button class="tablinks" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+=======
                                 <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; padding-left:200px;">
                                     <button class="tablinks" onclick="openCity(event, 'Quantri')"  style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:0px 0px 5px rgb(165, 165, 165);">Quản trị</button>
                                     <button class="tablinks" onclick="openCity(event, 'Chienluoc')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Chiến lược</button>
@@ -214,14 +235,48 @@ table.table-bordered th, table.table-bordered td{
                                     <button class="tablinks" onclick="openCity(event, 'Ketnoi')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Công nghệ và kết nối</button>
                                     <button class="tablinks" onclick="openCity(event, 'Nhanluc')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Nhân lực</button>
                                   </div>
+>>>>>>> 0b2d7e71bec150663f59d5980af26cbe367d33e0
+>>>>>>> c7532df5b76ba9d9054ebd2c0b2a7437d89e8318
 
-<div id="Quantri" class="tabcontent" style="padding:0;display:block;">
+                                    @endif
 
-    @php
+                                    @endforeach
+                                    </div>
+
+                                    @php
         $i=0;
         $j=0;
         $y=0;
     @endphp
+                                    @foreach($Cauhoi as $key => $ctCauhoi)
+                                    @if ($ctCauhoi->Cap==1)
+                                    @php
+                                    $i++;
+                                    $j=0;
+                                @endphp
+                                    @if ($j == 0 && $i >1)
+
+</tbody>
+</table>
+
+    <tfoot>
+        <tr>
+            <td colspan="7"><button type="submit" name="guiphieu"  class="btn btn-success" onclick="openCity({{ $i }}, 'CT{{ $i }}')" style="color:black;">ĐẾN PHẦN SAU</button></td>
+        </tr>
+
+    </tfoot>
+        </table>
+    </div>
+@php
+                                        $y = $i;
+                                    @endphp
+@endif
+@if ($ctCauhoi->NoiDung_id == 3)
+<div id="CT{{ $i }}" class="tabcontent" style="padding:0;display:block;" >
+@else
+<div id="CT{{ $i }}" class="tabcontent"  >
+@endif
+
     <table class="table table-bordered " style="margin:0;" >
         <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude">
             <td class="col-1" rowspan="4" style="padding: 60px 0 0 0;">STT</td>
@@ -236,15 +291,10 @@ table.table-bordered th, table.table-bordered td{
             <td class="col-1" rowspan="2">5- Hoàn toàn đồng ý</td>
           </tr>
           <tbody style="text-align:center;font-weight:400;">
-            <form role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" enctype="multipart/form-data">
-                @csrf
+
                 <input type="text" name="maphieu" value="{{ $time }}" hidden>
-    @foreach($Cauhoi as $key => $ctCauhoi)
-    @if ($ctCauhoi->Cap==1)
-    @php
-        $i++;
-        $j=0;
-    @endphp
+
+
     <tr class=""style="text-align:center;font-weight:400;background-color:#fbec88;">
         <th class="stt" >{{ $i }}</th>
         <th class=""colspan="6">{{ $ctCauhoi->Ten}}{{ $ctCauhoi->TenCauHoi}}</th>
@@ -259,64 +309,81 @@ table.table-bordered th, table.table-bordered td{
     <tr class="" style="text-align:center;font-weight:400;">
         <th class="stt" style="text-align:center; ">{{ $i.".".$j }}</th>
         <th class="" style="font-weight:400;">{{ $ctCauhoi->TenCauHoi}} - {{ $ctCauhoi->NoiDung_id }}</th>
-        <input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="0" hidden checked>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}"><label for="1{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}" style="scale:130%;color:#98c2f3;">☆</label></div></th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}"><label for="2{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#64B5F6;">☆</label></div></th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}"><label for="3{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#3F9EEC;">☆</label></div></th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="4" id="4{{ $ctCauhoi->NoiDung_id }}"><label for="4{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#197BD1;">☆</label></div></th>
-        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="5" id="5{{ $ctCauhoi->NoiDung_id }}"><label for="5{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#1565C0;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="1" id="1{{ $ctCauhoi->NoiDung_id }}" ><label for="1{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}" style="scale:130%;color:#98c2f3;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="2" id="2{{ $ctCauhoi->NoiDung_id }}" ><label for="2{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#64B5F6;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="3" id="3{{ $ctCauhoi->NoiDung_id }}" ><label for="3{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#3F9EEC;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio" name="{{ $ctCauhoi->NoiDung_id }}" value="4" id="4{{ $ctCauhoi->NoiDung_id }}" ><label for="4{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#197BD1;">☆</label></div></th>
+        <th class=""><div class="rating1" name="{{ $ctCauhoi->NoiDung_id }}"><input type="radio"  name="{{ $ctCauhoi->NoiDung_id }}" value="5" id="5{{ $ctCauhoi->NoiDung_id }}" ><label for="5{{ $ctCauhoi->NoiDung_id }}" name="{{ $ctCauhoi->NoiDung_id }}"style="scale:130%;color:#1565C0;">☆</label></div></th>
     </tr>
     @endif
     @endif
     @endforeach
-    </tbody>
+</tbody>
+</table>
+
     <tfoot>
         <tr>
+<<<<<<< HEAD
+            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
+=======
             <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:white;">HOÀN THÀNH</button></td>
+>>>>>>> c7532df5b76ba9d9054ebd2c0b2a7437d89e8318
         </tr>
     </form>
+    <iframe style="display:none" name="hidden-form">@if(session('alert'))   
+        <div class="alert alert-success" role="alert">
+            {{session('alert')}}
+          </div>
+
+    @endif  </iframe>
     </tfoot>
         </table>
     </div>
 
+
+
+
+
+    <script>
+
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          if(Number.isInteger(evt)){
+            tablinks[evt -1].className += " active";
+            goto('-1');
+          }else{
+          evt.currentTarget.className += " active";
+          }
+        }
+        function goto(status){
+            var inputs = document.getElementById("form").elements;
+    var count  = 0;
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == 'radio' && inputs[i].checked) {
+            count++;
+        }
+    }
+            if(count >= 29){
+                window.alert("đã đánh giá xong!! nhấn ok để trở về");
+            window.location.replace("{{ URL::to('dnviews') }}");
+            }if(status == 0 && count < 29)
+            {
+                window.alert("chưa đánh giá đủ. vui lòng đánh giá lại");
+            }
+
+        }
+        </script>
   <!-- Copyright -->
 @endsection
-  </div>
 
-  <div id="Chienluoc" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p>
-  </div>
 
-  <div id="Vanhoa" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
-  <div id="Congnghe" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
-  <div id="Ketnoi" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
-  <div id="Nhanluc" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
-  <script>
-    function openCity(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    </script>
 

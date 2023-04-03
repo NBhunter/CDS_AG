@@ -81,14 +81,16 @@ Route::middleware([
     Route::post('/request_cauhoi_p1','App\Http\Controllers\DanhGia\DanhGia1Controller@DanhGia');
     // câu trả lời phiếu 2
     Route::post('/request_cauhoi_p2','App\Http\Controllers\DanhGia\DanhGia2Controller@DanhGia');
+    // câu trả lời phiếu 3
+    Route::post('/request_cauhoi_p3','App\Http\Controllers\DanhGia\DanhGia3Controller@DanhGia');
+    //trả lời phiếu số 4
+    Route::post('/request-cauhoi_p4','App\Http\Controllers\DanhGia\DanhGia4Controller@requestCauHoi');
 
 
     Route::post('/save-cauhoi_p2','App\Http\Controllers\DanhGia\DanhGia2Controller@saveCauHoi');
     Route::post('/save-cauhoi_p3','App\Http\Controllers\DanhGia\DanhGia3Controller@saveCauHoi');
     Route::post('/save-cauhoi_p4','App\Http\Controllers\DanhGia\DanhGia4Controller@saveCauHoi');
 
-    //trả lời phiếu số 4
-    Route::post('/request-cauhoi_p4','App\Http\Controllers\DanhGia\DanhGia4Controller@requestCauHoi');
     //xem các phiếu số 4 đã gửi
     Route::get('/admin/xemphieuso4','App\Http\Controllers\DanhGia\DanhGia4Controller@getCauHoi' );
     //lấy user
