@@ -106,12 +106,9 @@ $ch5 = array();
         $Cauhoi = DB::table('cauhoi_p2')->get();
         $DoanhNghiep_id = Session::get('DoanhNghiep_id');
         $User_id = Session::get('User_id');
-        $Phieuso2= new phieuso2();
-        $Phieuso2['Id'] = $request->maphieu;
-        $Phieuso2['User_id'] = $User_id;
-        $Phieuso2['DoanhNghiep_id'] =$DoanhNghiep_id;
+
         Foreach($Cauhoi as $Ch){
-            if($Ch->Cap ==2){
+            if($Ch->Cap ==2 && $request->maphieu != null){
                 $chitietcauhoi = new phieu2_diem();
                 $chitietcauhoi['Phieu_id'] = $request->maphieu;
                 $chitietcauhoi['CauHoi_id'] = $Ch->Id;
@@ -119,10 +116,26 @@ $ch5 = array();
                 $chitietcauhoi->save();
                 }
         }
+
+        if(phieuso2::find($request->maphieu) == null){
+            $Phieuso2= new phieuso2();
+        $Phieuso2['Id'] = $request->maphieu;
+        $Phieuso2['User_id'] = $User_id;
+        $Phieuso2['DoanhNghiep_id'] =$DoanhNghiep_id;
         $Phieuso2['created_at'] = now();
         $Phieuso2['status'] = 0;
         $Phieuso2->save();
-        return Redirect::to('dnviews');
+        }else
+        {
+            $Phieuso2 = phieuso2::find($request->maphieu);
+            $Phieuso2['User_id'] = $User_id;
+            $Phieuso2['DoanhNghiep_id'] =$DoanhNghiep_id;
+            $Phieuso2['created_at'] = now();
+            $Phieuso2['status'] = 0;
+            $Phieuso2->save();
+        }
+
+        // return Redirect::to('dnviews');
 
     }
 }
