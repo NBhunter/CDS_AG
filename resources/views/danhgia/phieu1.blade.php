@@ -365,30 +365,35 @@
             <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
         </tr>
     </form>
-    {{-- <iframe style="display:none" name="hidden-form">@if(session('alert'))   
+    <iframe style="display:none" name="hidden-form">@if(session('alert'))   
         <div class="alert alert-success" role="alert">
             {{session('alert')}}
           </div>
 
-    @endif  </iframe> --}}
+    @endif  </iframe>
     </tfoot>
         </table>
     </div>
 
 <script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
+   function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          if(Number.isInteger(evt)){
+            tablinks[evt -1].className += " active";
+            goto('-1');
+          }else{
+          evt.currentTarget.className += " active";
+          }
         }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
     function goto(status){
             var inputs = document.getElementById("form").elements;
     var count  = 0;
