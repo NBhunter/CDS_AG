@@ -39,8 +39,9 @@ class ChuyenGiaController extends Controller
                 ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
                 // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Dẫn Dắt');
                 $Phieu1detail->MucDo =sprintf('Dẫn Dắt');
+                return  $Phieu1detail;
             }}
-        if(  $Phieu1detail->TongDiem  >192){
+        if(  $Phieu1detail->TongDiem  > 192){
             // lấy số cột đạt tiêu chuẩn
             $datmuc = DB::table('phieuso1')->leftjoin('phieu1_diem','phieu1_diem.Phieu_id','=','phieuso1.id')
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
@@ -52,6 +53,7 @@ class ChuyenGiaController extends Controller
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
             // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Nâng Cao');
             $Phieu1detail->MucDo =sprintf('Nâng Cao');
+            return  $Phieu1detail;
         }}
         if(  $Phieu1detail->TongDiem  > 128){
             $datmuc = DB::table('phieuso1')->leftjoin('phieu1_diem','phieu1_diem.Phieu_id','=','phieuso1.id')
@@ -64,6 +66,7 @@ class ChuyenGiaController extends Controller
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
             // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Hình thành');
             $Phieu1detail->MucDo =sprintf('Hình thành');
+            return  $Phieu1detail;
         }}
         if( $Phieu1detail->TongDiem  > 64){
             // lấy số cột đạt tiêu chuẩn
@@ -77,6 +80,7 @@ class ChuyenGiaController extends Controller
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
             // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Bắt đầu');
             $Phieu1detail->MucDo =sprintf('Bắt đầu');
+            return  $Phieu1detail;
         }}
         if( $Phieu1detail->TongDiem  > 20){
             // lấy số cột đạt tiêu chuẩn

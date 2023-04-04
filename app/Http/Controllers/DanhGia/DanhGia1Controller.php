@@ -34,8 +34,9 @@ class DanhGia1Controller extends Controller
             ->leftjoin('cauhoi','cauhoi.id','=','chitiet_cauhoi.CauHoi_id')
             ->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*')
             ->orderBy('idcauhoi','ASC')->get();
+            $DanhMuc = DB::table('chitiet')->where('Cap','=','1')->get();
         $time = "DG1-".date('ymdHis');
-        return view('danhgia.phieu1')->with('Cauhoi',$Cauhoi)->with('time',$time);
+        return view('danhgia.phieu1')->with('Cauhoi',$Cauhoi)->with('time',$time)->with('DanhMuc',$DanhMuc);
         }else{
             // alert("Bạn Đã đánh giá trong quí này");
             return Redirect()->back()->with('alert', 'Bạn Đã đánh giá trong quí này!!');
@@ -163,73 +164,101 @@ class DanhGia1Controller extends Controller
         $request->user()->authorizeRoles(['DoanhNghiep-BGD','DoanhNghiep-NV','Admin']);
        $DoanhNghiep_id = Session::get('DoanhNghiep_id');
        $User_id = Session::get('User_id');
-       $thongtinphieu = new phieuso1();
+       $Cauhoi = DB::table('chitiet')->get();
+       $TongDiem = 0;
+       $Cap1 = 0;
+       $Cap2 =0;
+       if(phieuso1::find($request->maphieu) == null){
+        Session::forget('ID_C1_Truoc');
+        Session::forget('ID_C2_Truoc');
+        Session::forget('DiemC1');
+        Session::forget('DiemC2');
 
-        $Cauhoi = DB::table('chitiet')->get();
+        Session::put('DiemC2','0');
+        Session::put('ID_C2_Truoc','0');
+
+        Session::forget('temp');
+        Session::push('temp','');
+        $thongtinphieu = new phieuso1();
         $thongtinphieu['Id'] = $request->maphieu;
         $thongtinphieu['User_id'] = $User_id;
         $thongtinphieu['DoanhNghiep_id'] =$DoanhNghiep_id;
-        $TongDiem = 0;
-        $DiemC1 = 0;
-        $DiemC2 = 0;
-        $ID_C1_Truoc= 0;
-        $ID_C2_Truoc= 0;
+
+       }else
+       {
+        $thongtinphieu = phieuso1::find($request->maphieu);
+        $thongtinphieu['Id'] = $request->maphieu;
+        $thongtinphieu['User_id'] = $User_id;
+        $thongtinphieu['DoanhNghiep_id'] =$DoanhNghiep_id;
+        $TongDiem = $thongtinphieu['TongDiem'];
+
+       }
+
+
+
        Foreach($Cauhoi as $Ch){
-        if($Ch->Cap ==1)
+        if($Ch->Cap ==1 && $request[$Ch->Id] != null && !in_array($Ch->Id,Session::get('temp'))&& $Cap1 == 0 )
         {
-            if($ID_C1_Truoc != 0){
+            if(Session::get('ID_C1_Truoc') != 0){
                 $chitietcauhoiC1 = new phieu1_diem();
         $chitietcauhoiC1['Phieu_id'] = $request->maphieu;
-        $chitietcauhoiC1['ChiTiet_id'] = $ID_C1_Truoc;
-        $chitietcauhoiC1['Diem'] =$DiemC1;
+        $chitietcauhoiC1['ChiTiet_id'] = Session::get('ID_C1_Truoc');
+        $chitietcauhoiC1['Diem'] =Session::get('DiemC1');
         // DB::table('phieu1_diem')->insert($chitietcauhoiC1);
                 $chitietcauhoiC1->save();
             }
-            $ID_C1_Truoc = $Ch->Id;
-            $DiemC1 = 0;
-
+            Session::put('DiemC1','0');
+        Session::put('ID_C1_Truoc',$Ch->Id);
+        Session::push('temp',$Ch->Id);
+            $Cap1++;
         }
-        if($Ch->Cap ==2)
+        if($Ch->Cap ==2  && $request[$Ch->Id] != null&& !in_array($Ch->Id,Session::get('temp')) && Session::get('DiemC2') > 0)
         {
-            if($ID_C2_Truoc != 0){
+            if(Session::get('ID_C2_Truoc') != 0){
                 $chitietcauhoiC2 = new phieu1_diem();
         $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
-        $chitietcauhoiC2['ChiTiet_id'] = $ID_C2_Truoc;
-        $chitietcauhoiC2['Diem'] =$DiemC2;
+        $chitietcauhoiC2['ChiTiet_id'] = Session::get('ID_C2_Truoc');
+        $chitietcauhoiC2['Diem'] =Session::get('DiemC2');
         // DB::table('phieu1_diem')->insert($chitietcauhoiC2);
                 $chitietcauhoiC2->save();
     }
-            $ID_C2_Truoc = $Ch->Id;
-            $DiemC2 = 0;
+    Session::put('DiemC2','0');
+        Session::put('ID_C2_Truoc',$Ch->Id);
+        Session::push('temp',$Ch->Id);
 
         }
-        if($Ch->Cap ==3){
+        if($Ch->Cap ==3 &&$request->maphieu != null && $request[$Ch->Id] != null && !in_array($Ch->Id,Session::get('temp'))){
         $chitietcauhoi = new phieu1_diem();
         $chitietcauhoi['Phieu_id'] = $request->maphieu;
         $chitietcauhoi['ChiTiet_id'] = $Ch->Id;
         $chitietcauhoi['Diem'] =$request[$Ch->Id];
         $TongDiem+=$request[$Ch->Id];
-        $DiemC1+=$request[$Ch->Id];
-        $DiemC2+=$request[$Ch->Id];
+        Session::put('DiemC1', Session::get('DiemC1')+$request[$Ch->Id]);
+        Session::put('DiemC2', Session::get('DiemC2')+$request[$Ch->Id]);
         // DB::table('phieu1_diem')->insert($chitietcauhoi);
         $chitietcauhoi->save();
+        Session::push('temp',$Ch->Id);
         }
        }
        $thongtinphieu['TongDiem'] = $TongDiem;
        $thongtinphieu['created_at'] = now();
        $thongtinphieu['status'] = 0;
+       Session::put('count',count(Session::get('temp')));
     //    Lưu trụ cột cuối cùng
-       $chitietcauhoiC1 = new phieu1_diem();
+    if(Session::get('count') >= '77'){
+        $chitietcauhoiC1 = new phieu1_diem();
         $chitietcauhoiC1['Phieu_id'] = $request->maphieu;
-        $chitietcauhoiC1['ChiTiet_id'] = $ID_C1_Truoc;
-        $chitietcauhoiC1['Diem'] =$DiemC1;
+        $chitietcauhoiC1['ChiTiet_id'] = Session::get('ID_C1_Truoc');
+        $chitietcauhoiC1['Diem'] =Session::get('DiemC1');
        $chitietcauhoiC1->save();
     //    Lưu đề mục cuối cùng
        $chitietcauhoiC2 = new Phieu1_diem();
        $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
-       $chitietcauhoiC2['ChiTiet_id'] = $ID_C2_Truoc;
-       $chitietcauhoiC2['Diem'] =$DiemC2;
+       $chitietcauhoiC2['ChiTiet_id'] = Session::get('ID_C2_Truoc');
+       $chitietcauhoiC2['Diem'] =Session::get('DiemC1');
        $chitietcauhoiC2->save();
+    }
+
     //    DB::table('phieuso1')->insert($thongtinphieu);
        $thongtinphieu->save();
 
@@ -240,10 +269,10 @@ class DanhGia1Controller extends Controller
     $ThongBaoDeXuat['TieuDe'] = 'Có doanh nghiệp vừa đánh giá';
     $ThongBaoDeXuat['Status'] = 1;
     $ThongBaoDeXuat['Link'] = '/chuyengia/P1_DGM';
-    $idtinnhan = DB::table('tinnhan')->insertGetId($ThongBaoDeXuat);
+    $idtinnhan = DB::table('tinnshan')->insertGetId($ThongBaoDeXuat);
     // lưu nội dung
 
-       return Redirect::to('dnviews');
+    //    return Redirect::to('dnviewas');
 
     }
 }

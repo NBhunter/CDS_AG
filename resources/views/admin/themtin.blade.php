@@ -57,8 +57,18 @@
                 </div>
                 </form>
                 <script src="//cdn.ckeditor.com/4.16.2/full-all/ckeditor.js"></script>
+                {{-- <script type="text/javascript" src="{{ asset('js/ckfinder/ckfinder.js') }}"></script>
+<script>CKFinder.config( { connectorPath: @json(route('ckfinder_connector')) } );</script> --}}
+@include('ckfinder::setup')
 <script>
-CKEDITOR.replace( 'summary-ckeditor' );
+CKEDITOR.replace( 'summary-ckeditor' ,{
+    filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+});
+</script>
+
+
+<script>
+	// CKFinder.start();
 </script>
                 @endsection
 
