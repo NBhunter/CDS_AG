@@ -316,11 +316,7 @@ table.table-bordered th, table.table-bordered td{
     <tfoot>
         <br>
         <tr>
-<<<<<<< HEAD
             <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
-=======
-            <td><button type="submit" name="guiphieu" class="btn btn-info" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
->>>>>>> cff02eaaf9110b2db3edbc19b960fc51c4146d59
         </tr>
     </form>
     <iframe style="display:none" name="hidden-form">@if(session('alert'))
