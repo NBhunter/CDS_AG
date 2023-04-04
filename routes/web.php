@@ -16,16 +16,18 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/','App\Http\Controllers\homeController@index' );
 Route::get('/trangchu','App\Http\Controllers\homeController@index' );
+Route::get('/tintuc','App\Http\Controllers\homeController@index' );
+Route::get('/tintuc/NongNghiep','App\Http\Controllers\homeController@index' );
+Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
+Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
 Route::get('/dangky', function () {
     return view('home.dangkydoanhnghiep');
 });
-Route::get('/tintuc', function () {
-    return view('home.tin');
-});
+
 Route::get('/dashboard', function () {
     return view('DoanhNghiep.DKDoanhNghiepMoi');
 })->name('dashboard');
-Route::get('/watch/{idTin}','App\Http\Controllers\TinTucController@getXemTinDetail' );
+Route::get('/tin/{idTin}','App\Http\Controllers\TinTucController@getXemTinDetail' );
 Route::get('/home', function () {
     abort(500);
 });
@@ -153,6 +155,11 @@ Route::post('/thongbao_P2', 'App\Http\Controllers\ChuyenGiaController@thongbaoda
 // Hiệp hội
 Route::get('/HLH/home', 'App\Http\Controllers\HiepHoiController@gethome' );
 
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser');
 });
 
 // Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');

@@ -10,21 +10,7 @@
 @section('content')
 
     <!-- ##### Breadcrumb Area Start ##### -->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Single Post</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{--  --}}
     <!-- ##### Breadcrumb Area End ##### -->
 
     <!-- ##### Blog Content Area Start ##### -->
@@ -43,15 +29,12 @@
                                 <h2 class="post-title">{{ $TinTuc->TieuDe }}</h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <a href="#"><span>by</span> demo</a>
+                                    <a href="#"><span>by</span> {{ $TinTuc->TacGia }}</a>
                                     {{-- <a href="#">03 <span>Comments</span></a> --}}
                                 </div>
                             </div>
 
-                            <!-- Post Thumbnail -->
-                            <div class="post-thumbnail mb-50">
-                                <img src="{{ asset('img/AnhTinhTuc/'.$TinTuc->HinhAnh) }}" alt="">
-                            </div>
+
 
                             <!-- Post Text -->
                             <div class="post-text">
