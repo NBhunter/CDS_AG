@@ -60,7 +60,7 @@ input[type="checkbox"]:checked ~ #togglediv {
 }
 
 input[type="checkbox"]:checked ~ #togglediv #toggleview {
-  left: 110px;
+  left: 50px;
   transform: rotate(360deg);
 }
 
@@ -89,32 +89,32 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview {
 }
 
 #toggleview {
-  height: 80px;
-  width: 80px;
+  height: 30px;
+  width: 30px;
   background: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 7px;
+  left: 8px;
   cursor: pointer;
 }
 
 #toggleview::before {
   content: '';
-  height: 60px;
-  width: 5px;
+  height: 35px;
+  width: 4px;
   position: absolute;
-  top: calc(50% - 30px);
-  left: calc(50% - 2.5px);
+  top: calc(100% - 32px);
+  left: calc(50% - 2px);
   transform: rotate(45deg);
 }
 
 #toggleview::after {
   content: '';
-  height: 5px;
-  width: 60px;
+  height: 4px;
+  width: 35px;
   position: absolute;
-  top: calc(50% - 2.5px);
-  left: calc(50% - 30px);
+  top: calc(50% - 2px);
+  left: calc(90% - 30px);
   transform: rotate(45deg);
 }
 
@@ -151,19 +151,19 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3">quản lý hồ sơ doanh nghiệp</h1>
+        <h1 class="h3 mb-3" style="font-weight:bold;color:#3b7ddd;">QUẢN LÝ HỒ SƠ DOANH NGHIỆP</h1>
 
         <div class="row">
-            <div class="col-md-3 col-xl-2">
+            <div class="col-md-3 col-xl-3">
 
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Thông Tin</h5>
+                        <h6 class="card-title mb-0">Doanh nghiệp</h6>
                     </div>
 
                     <div class="list-group list-group-flush" role="tablist">
                         <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#account" role="tab" aria-selected="true">
-                            Doanh nghiệp
+                          Thông tin
                         </a>
                         <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#password" role="tab" aria-selected="false" tabindex="-1">
                             Người dùng
@@ -195,24 +195,24 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                 </div>
             </div>
 
-            <div class="col-md-9 col-xl-10">
+            <div class="col-md-9 col-xl-9">
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="account" role="tabpanel">
 
                         <div class="card">
                             <div class="card-header">
 
-                                <h5 class="card-title mb-0">Public Status</h5>
+                                <h5 class="card-title mb-0">Trạng thái hiển thị</h5>
                             </div>
                             <div class="card-body">
 
-
+<p style="font-weight:bold; text-align:center;"> ( Nhấn tắt hoặc mở để công khai thông tin doanh nghiệp )</p>
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-12">
                                             <input data-id="{{ Session::get("DoanhNghiep_id") }}" class="toggle-class" id="toggle" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $DN->TrangThai_HienThi ? 'checked' : '' }}>
 
-                                            <div id="togglediv">
-                                                <label id="toggleview"  for="toggle"></label>
+                                            <div id="togglediv"  style="height:42px;width:92px;">
+                                                <label id="toggleview"  for="toggle"  style="height:30px;width:30px;"></label>
                                               </div>
 
                                         </div>

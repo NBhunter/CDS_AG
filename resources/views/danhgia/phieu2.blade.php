@@ -200,12 +200,12 @@ table.table-bordered th, table.table-bordered td{
 </style>
 @endsection
 @section('content')
-@if(session('alert'))   
+@if(session('alert'))
     <div class="alert alert-success" role="alert">
         {{session('alert')}}
       </div>
 
-@endif  
+@endif
                             <div style=" margin_top: 0px ;height:70px; padding: 13px 0 0 0 ;">
                                 <h2 style="color:black; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2 (Mã phiếu: {{ $time }})</h2>
                                 </div>
@@ -217,12 +217,16 @@ table.table-bordered th, table.table-bordered td{
                         @endphp
                           <form id="form" role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" target="hidden-form" enctype="multipart/form-data">
                             @csrf
-                                <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; ">
+                                <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none;">
                                     @foreach ( $DanhMuc as $DM )
                                     @if ($DM->NoiDung_id == 3)
-                                    <button class="tablinks active" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+                                    <button class="tablinks active" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->Ten }}</button>
                                     @else
+<<<<<<< HEAD
                                     <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+=======
+                                    <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->Ten }}</button>
+>>>>>>> cff02eaaf9110b2db3edbc19b960fc51c4146d59
 
 
                                     @endif
@@ -247,8 +251,9 @@ table.table-bordered th, table.table-bordered td{
 </table>
 
     <tfoot>
+        <br>
         <tr>
-            <td colspan="7"><button type="submit" name="guiphieu"  class="btn btn-success" onclick="openCity({{ $i }}, 'CT{{ $i }}')" style="color:black;">ĐẾN PHẦN SAU</button></td>
+            <td ><button type="submit" name="guiphieu"  class="btn btn-info" onclick="openCity({{ $i }}, 'CT{{ $i }}')" style="color:black;">ĐẾN PHẦN SAU</button></td>
         </tr>
 
     </tfoot>
@@ -261,7 +266,7 @@ table.table-bordered th, table.table-bordered td{
 @if ($ctCauhoi->NoiDung_id == 3)
 <div id="CT{{ $i }}" class="tabcontent" style="padding:0;display:block;" >
 @else
-<div id="CT{{ $i }}" class="tabcontent"  >
+<div id="CT{{ $i }}" class="tabcontent"style="padding:0;"   >
 @endif
 
     <table class="table table-bordered " style="margin:0;" >
@@ -309,16 +314,21 @@ table.table-bordered th, table.table-bordered td{
 </table>
 
     <tfoot>
+        <br>
         <tr>
+<<<<<<< HEAD
             <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
+=======
+            <td><button type="submit" name="guiphieu" class="btn btn-info" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
+>>>>>>> cff02eaaf9110b2db3edbc19b960fc51c4146d59
         </tr>
     </form>
-    <iframe style="display:none" name="hidden-form">@if(session('alert'))   
+    <iframe style="display:none" name="hidden-form">@if(session('alert'))
         <div class="alert alert-success" role="alert">
             {{session('alert')}}
           </div>
 
-    @endif  </iframe>
+    @endif  </iframe>
     </tfoot>
         </table>
     </div>
