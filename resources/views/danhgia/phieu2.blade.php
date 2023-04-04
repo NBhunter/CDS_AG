@@ -200,43 +200,30 @@ table.table-bordered th, table.table-bordered td{
 </style>
 @endsection
 @section('content')
-@if(session('alert'))   
+@if(session('alert'))
     <div class="alert alert-success" role="alert">
         {{session('alert')}}
       </div>
 
-@endif  
+@endif
                             <div style=" margin_top: 0px ;height:70px; padding: 13px 0 0 0 ;">
                                 <h2 style="color:black; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 2 (Mã phiếu: {{ $time }})</h2>
                                 </div>
 						 <div style="margin:30px">
                             @php
 
-<<<<<<< HEAD
+
                             $d=1;
                         @endphp
                           <form id="form" role="form" action="{{URL::to('/request_cauhoi_p2')}}" method="post" target="hidden-form" enctype="multipart/form-data">
                             @csrf
-                                <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; ">
+                                <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none;">
                                     @foreach ( $DanhMuc as $DM )
                                     @if ($DM->NoiDung_id == 3)
-                                    <button class="tablinks active" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
+                                    <button class="tablinks active" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->Ten }}</button>
                                     @else
-<<<<<<< HEAD
-                                    <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
-=======
-                                    <button class="tablinks" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
-=======
-                                <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; padding-left:200px;">
-                                    <button class="tablinks" onclick="openCity(event, 'Quantri')"  style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:0px 0px 5px rgb(165, 165, 165);">Quản trị</button>
-                                    <button class="tablinks" onclick="openCity(event, 'Chienluoc')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Chiến lược</button>
-                                    <button class="tablinks" onclick="openCity(event, 'Vanhoa')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Văn hóa</button>
-                                    <button class="tablinks" onclick="openCity(event, 'Congnghe')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Công nghệ và kết nối</button>
-                                    <button class="tablinks" onclick="openCity(event, 'Ketnoi')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Công nghệ và kết nối</button>
-                                    <button class="tablinks" onclick="openCity(event, 'Nhanluc')"style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">Nhân lực</button>
-                                  </div>
->>>>>>> 0b2d7e71bec150663f59d5980af26cbe367d33e0
->>>>>>> c7532df5b76ba9d9054ebd2c0b2a7437d89e8318
+                                    <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->Ten }}</button>
+
 
                                     @endif
 
@@ -260,8 +247,9 @@ table.table-bordered th, table.table-bordered td{
 </table>
 
     <tfoot>
+        <br>
         <tr>
-            <td colspan="7"><button type="submit" name="guiphieu"  class="btn btn-success" onclick="openCity({{ $i }}, 'CT{{ $i }}')" style="color:black;">ĐẾN PHẦN SAU</button></td>
+            <td ><button type="submit" name="guiphieu"  class="btn btn-info" onclick="openCity({{ $i }}, 'CT{{ $i }}')" style="color:black;">ĐẾN PHẦN SAU</button></td>
         </tr>
 
     </tfoot>
@@ -274,7 +262,7 @@ table.table-bordered th, table.table-bordered td{
 @if ($ctCauhoi->NoiDung_id == 3)
 <div id="CT{{ $i }}" class="tabcontent" style="padding:0;display:block;" >
 @else
-<div id="CT{{ $i }}" class="tabcontent"  >
+<div id="CT{{ $i }}" class="tabcontent"style="padding:0;"   >
 @endif
 
     <table class="table table-bordered " style="margin:0;" >
@@ -322,20 +310,17 @@ table.table-bordered th, table.table-bordered td{
 </table>
 
     <tfoot>
+        <br>
         <tr>
-<<<<<<< HEAD
-            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
-=======
-            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:white;">HOÀN THÀNH</button></td>
->>>>>>> c7532df5b76ba9d9054ebd2c0b2a7437d89e8318
+            <td><button type="submit" name="guiphieu" class="btn btn-info" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
         </tr>
     </form>
-    <iframe style="display:none" name="hidden-form">@if(session('alert'))   
+    <iframe style="display:none" name="hidden-form">@if(session('alert'))
         <div class="alert alert-success" role="alert">
             {{session('alert')}}
           </div>
 
-    @endif  </iframe>
+    @endif  </iframe>
     </tfoot>
         </table>
     </div>
@@ -384,6 +369,3 @@ table.table-bordered th, table.table-bordered td{
         </script>
   <!-- Copyright -->
 @endsection
-
-
-
