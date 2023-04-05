@@ -36,6 +36,10 @@
                     <input class="form-control" type="text" name="TieuDe" value="">
                 </div>
                 <div class="form-group">
+                    <label>Tác Giả</label>
+                    <input class="form-control" type="text" name="TacGia" value="">
+                </div>
+                <div class="form-group">
                     <label>Nội dung</label>
                     <textarea class="form-control"id="summary-ckeditor" name="NoiDung">
 
