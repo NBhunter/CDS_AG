@@ -232,7 +232,9 @@
                     </tfoot>
                     </table>
                     </div>
-                </div>
+
+
+
                     @php
                         $y = $i;
                     @endphp
