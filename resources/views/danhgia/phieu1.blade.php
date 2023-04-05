@@ -363,8 +363,9 @@
 </table>
 
     <tfoot>
+        <br>
         <tr>
-            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
+            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-info" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
         </tr>
     </form>
     <iframe style="display:none" name="hidden-form">@if(session('alert'))   
