@@ -25,7 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         $slides = DB::table('slides')->get();
-        $tinmoi = DB::table('tintucs')->leftjoin('linhvuc','linhvuc.Id','=','tintucs.LinhVuc_id')->select('tintucs.Id as IdTin','tintucs.*','linhvuc.*')->orderBy('updated_at', 'desc')->get();
+        $tinmoi = DB::table('tintucs')->leftjoin('linhvuc','linhvuc.Id','=','tintucs.LinhVuc_id')->select('tintucs.Id as IdTin','tintucs.*','linhvuc.*')->orderBy('updated_at', 'desc')->limit(5)->get();
+
         return view('home.home')->with('slides',$slides)->with('tinmoi',$tinmoi);
     }
     public function adminHome()

@@ -42,7 +42,7 @@ class TinTucController extends Controller
         $data['Website']=$request->Link;
         $data['NoiDung'] = $request->NoiDung;
         $data['TomTat'] = $request->MoTa;
-
+        $data['TacGia'] = $request->TacGia;
         $data['Status'] ="0";
         $data['LuotXem'] = "0";
         $data->save();
@@ -53,6 +53,7 @@ class TinTucController extends Controller
         $TinTuc = DB::table('tintucs')->where('tintucs.id',$id)->first();
         $luotxem = $TinTuc->LuotXem + 1;
         DB::table('tintucs')->where('tintucs.id',$id)->update(['LuotXem'=>$luotxem]);
-        return view('home.post')->with('TinTuc',$TinTuc);
+        $comments = DB::table('binhluan')->where('TinTuc_id',$TinTuc->Id)->get();
+        return view('home.post')->with('TinTuc',$TinTuc)->with('comments',$comments);
     }
 }
