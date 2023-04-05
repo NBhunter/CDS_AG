@@ -192,9 +192,11 @@
 
         $d = 1;
     @endphp
-    <form id="form" role="form" action="{{ URL::to('/request_cauhoi_p1') }}" method="post" target="hidden-form"
-        enctype="multipart/form-data">
-        @csrf
+<form id="form" role="form" action="{{ URL::to('/request_cauhoi_p1') }}" method="post" target="hidden-form"
+enctype="multipart/form-data">
+@csrf
+<input type="text" name="maphieu" value="{{ $time }}" hidden>
+
         <div class="tab" style="height:65px;  border:2px solid black; border-bottom:none; ">
             @foreach ($DanhMuc as $DM)
                 @if ($DM->Id == 35)
@@ -202,6 +204,8 @@
                         onclick="openCity(event, 'CT{{ $d++ }}')"
                         style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->NoiDung }}</button>
                 @else
+
+        {{-- <input type="text" name="maphieu" value="{{ $time }}" hidden> --}}
                     <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"
                         style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->NoiDung }}</button>
                 @endif
@@ -231,9 +235,15 @@
 
                     </tfoot>
                     </table>
-                    </div>
 
+                {{-- </form> --}}
+                {{-- <iframe style="display:none" name="hidden-form">@if(session('alert'))   
+                    <div class="alert alert-success" role="alert">
+                        {{session('alert')}}
+                      </div>
 
+                @endif  </iframe> --}}
+            </div>
 
                     @php
                         $y = $i;
@@ -244,6 +254,7 @@
                     @else
                         <div id="CT{{ $i }}" class="tabcontent" style="padding:0;" >
                 @endif
+
                 <table class="table table-bordered " style="margin:0;">
                     <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude">
                         <td class="col-1">STT</td>
@@ -254,7 +265,7 @@
                     </tr>
                     <tbody style="text-align:center;font-weight:400;">
 
-                        <input type="text" name="maphieu" value="{{ $time }}" hidden>
+
                         <tr style="font-weight:bold;background-color:#fbec88;" class="" name="trtieude2">
                             <th class="stt">{{ $i }}</th>
                             <th class="">{{ $ctCauhoi->NoiDung }}</th>
@@ -404,10 +415,10 @@
             count++;
         }
     }
-            if(count >= 29){
+            if(count >= 77){
                 window.alert("Đã đánh giá xong!! Nhấn ok để trở về");
             window.location.replace("{{ URL::to('dnviews') }}");
-            }if(status == 0 && count < 29)
+            }if(status == 0 && count < 77)
             {
                 window.alert("Chưa đánh giá đủ. Vui lòng đánh giá lại");
             }
