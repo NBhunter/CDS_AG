@@ -222,11 +222,7 @@ table.table-bordered th, table.table-bordered td{
                                     @if ($DM->NoiDung_id == 3)
                                     <button class="tablinks active" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->Ten }}</button>
                                     @else
-<<<<<<< HEAD
-                                    <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
-=======
                                     <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->Ten }}</button>
->>>>>>> 176c622a2a536ece56b1fbf8d37c08bedc7e3bb9
 
 
                                     @endif
@@ -258,7 +254,7 @@ table.table-bordered th, table.table-bordered td{
 
     </tfoot>
         </table>
-    </div>
+
 </div>
 @php
                                         $y = $i;
