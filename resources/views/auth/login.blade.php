@@ -1,29 +1,50 @@
+<style>
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 80%;
+
+    }
+    .container-fluid  {
+  position: fixed;
+  top:15%;
+  right: 25%;
+  margin: 20px;
+  width: 600px;
+  padding: 16px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 5px;
+}
+    </style>
 <x-guest-layout>
 <section class="vh-100">
+    <video autoplay muted loop id="myVideo">
+        <source src="{{asset('logout/img/bg.mp4')}}" type="video/mp4">
+      </video>
     <div class="container-fluid h-custom">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-            class="img-fluid" alt="Sample image">
-        </div>
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+
+
           <form method="POST" action="{{ route('login') }}">
             @csrf
-            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-              <p class="lead fw-normal mb-0 me-3">Đăng nhập với</p>
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start" ALIGN:CENTER;>
+              <p class="lead fw-normal mb-0 me-3">ĐĂNG NHẬP VỚI</p>
               <button type="button" class="btn btn-primary btn-floating mx-1">
                 <i class="fab fa-facebook-f"></i>
               </button>
 
-              <button type="button" class="btn btn-primary btn-floating mx-1">
+              <button type="button" class="btn  btn-floating mx-1">
                 <i class="fab fa-twitter"></i>
               </button>
 
-              <button type="button" class="btn btn-primary btn-floating mx-1">
+              <button type="button" class="btnbtn-floating mx-1">
                 <i class="fab fa-linkedin-in"></i>
               </button>
             </div>
-
+<br>
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0">Hoặc</p>
             </div>
@@ -68,43 +89,21 @@
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
-                <x-jet-button class="btn btn-primary btn-lg"
+                <x-jet-button class="btn btn-primary btn-md"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">
                     {{ __('Đăng nhập') }}
                 </x-jet-button>
               {{-- <button type="button" class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;"> {{ __('Log in') }}</button> --}}
-              <p class="small fw-bold mt-2 pt-1 mb-0">chưa có tài khoản? <a href="{{ route('register') }}"
-                  class="link-danger" >đăng ký</a></p>
+              <p class="small fw-bold mt-2 pt-1 mb-0" style="margin:10px;">Chưa có tài khoản ? <a href="{{ route('register') }}"
+                  class="link-danger" >Đăng ký</a></p>
             </div>
 
           </form>
         </div>
       </div>
     </div>
-    <div
-      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-      <!-- Copyright -->
-      <div class="text-white mb-3 mb-md-0">
-        Copyright © 2020. All rights reserved.
-      </div>
-      <!-- Copyright -->
 
-      <!-- Right -->
-      <div>
-        <a href="#!" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#!" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#!" class="text-white me-4">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="#!" class="text-white">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-      </div>
       <!-- Right -->
     </div>
   </section>

@@ -157,7 +157,7 @@ td{
 @endsection
 @section('content')
 <div style="background-color: #0038b0; padding-top: 15px ;height:70px;">
-    <h2 style="color:white; text-align:center;">PHIẾU ĐÁNH GIÁ SỐ 4:
+    <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 4
 </h2>
     </div>
     <div class="container" style="font-weight:400;margin_top: 0px ;">
