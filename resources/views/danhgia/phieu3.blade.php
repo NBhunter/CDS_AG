@@ -158,13 +158,8 @@ td{
 </style>
 @endsection
 @section('content')
-<<<<<<< HEAD
 <div style="background-color: #0038b0; padding: 13px 0 0 0 ;height:70px;">
     <h2 style="color:white; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 3 (Mã phiếu: {{ $time }})</h2>
-=======
-<div style="background-color: #0038b0; padding-top: 15px ;height:70px;">
-    <h2 style="color:white; text-align:center;">PHIẾU ĐÁNH GIÁ SỐ 3:</h2>
->>>>>>> c7532df5b76ba9d9054ebd2c0b2a7437d89e8318
     </div>
     <div style="margin:30px">
 
@@ -216,15 +211,10 @@ td{
         <label style="font-weight:bold; color:red;">RÀO CẢN (nếu có)</label>
         <textarea class="form-control"name="RaoCan" id="RaoCan" ></textarea>
         </div>
-<<<<<<< HEAD
         <tr>
             <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
         </tr>
     </form>
-=======
-        <br>
-        <button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:white;">HOÀN THÀNH</button>
->>>>>>> c7532df5b76ba9d9054ebd2c0b2a7437d89e8318
 </div>
 
 </div>

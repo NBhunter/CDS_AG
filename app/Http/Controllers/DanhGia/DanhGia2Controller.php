@@ -118,12 +118,8 @@ $ch5 = array();
         $Phieuso2['created_at'] = now();
         $Phieuso2['status'] = 0;
         $Phieuso2->save();
-
-
         }else
         {
-
-
             $Phieuso2 = phieuso2::find($request->maphieu);
             $Phieuso2['User_id'] = $User_id;
             $Phieuso2['DoanhNghiep_id'] =$DoanhNghiep_id;
