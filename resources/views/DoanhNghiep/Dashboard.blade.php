@@ -152,10 +152,10 @@
 					</ul>
 				</div>
 			</nav>
-              @if(session('alert'))    <div class="alert alert-danger alert-dismissible" role="alert">
+              @if(session('alert'))    <div class="alert alert-danger alert-dismissible" role="alert" >
 
-                <div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <div class="alert alert-danger alert-dismissible fade show" style="color:red;text-align:center;font-weight:bold;">
+                    <button type="btn btn-danger" class="btn-close" data-bs-dismiss="alert" ></button>
                     {{session('alert')}}
                   </div>
             @endif  
