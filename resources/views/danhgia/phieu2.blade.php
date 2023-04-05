@@ -222,11 +222,7 @@ table.table-bordered th, table.table-bordered td{
                                     @if ($DM->NoiDung_id == 3)
                                     <button class="tablinks active" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"  style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->Ten }}</button>
                                     @else
-<<<<<<< HEAD
-                                    <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold;">{{ $DM->Ten }}</button>
-=======
                                     <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"   style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->Ten }}</button>
->>>>>>> cff02eaaf9110b2db3edbc19b960fc51c4146d59
 
 
                                     @endif
@@ -259,6 +255,7 @@ table.table-bordered th, table.table-bordered td{
     </tfoot>
         </table>
     </div>
+</div>
 @php
                                         $y = $i;
                                     @endphp
@@ -316,7 +313,7 @@ table.table-bordered th, table.table-bordered td{
     <tfoot>
         <br>
         <tr>
-            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
+            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-info" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
         </tr>
     </form>
     <iframe style="display:none" name="hidden-form">@if(session('alert'))

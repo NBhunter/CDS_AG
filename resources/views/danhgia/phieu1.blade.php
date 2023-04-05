@@ -187,6 +187,7 @@
     <div style=" margin_top: 0px ;height:70px; padding: 13px 0 0 0 ;">
         <h2 style="color:black; text-align:center;font-weight:bold;">PHIẾU ĐÁNH GIÁ SỐ 1(Mã Phiếu: {{ $time }})</h2>
     </div>
+    <div style="margin:30px;margin-bottom:0;">
     @php
 
         $d = 1;
@@ -199,10 +200,10 @@
                 @if ($DM->Id == 35)
                     <button class="tablinks active" id="{{ $d }}"
                         onclick="openCity(event, 'CT{{ $d++ }}')"
-                        style="color:black;font-weight:bold;">{{ $DM->NoiDung }}</button>
+                        style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->NoiDung }}</button>
                 @else
                     <button class="tablinks" id="{{ $d }}" onclick="openCity(event, 'CT{{ $d++ }}')"
-                        style="color:black;font-weight:bold;">{{ $DM->NoiDung }}</button>
+                        style="color:black;font-weight:bold; padding:10px;margin-right:4px; box-shadow:1px 0 3px silver;">{{ $DM->NoiDung }}</button>
                 @endif
             @endforeach
         </div>
@@ -223,10 +224,9 @@
                     </table>
 
                     <tfoot>
+                        <br>
                         <tr>
-                            <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success"
-                                    onclick="openCity({{ $i }}, 'CT{{ $i }}')"
-                                    style="color:black;">ĐẾN PHẦN SAU</button></td>
+                            <td ><button type="submit" name="guiphieu"  class="btn btn-info" onclick="openCity({{ $i }}, 'CT{{ $i }}')" style="color:black;">ĐẾN PHẦN SAU</button></td>
                         </tr>
 
                     </tfoot>
@@ -240,7 +240,7 @@
                 @if ($ctCauhoi->idcauhoi == 35)
                     <div id="CT{{ $i }}" class="tabcontent" style="padding:0;display:block;">
                     @else
-                        <div id="CT{{ $i }}" class="tabcontent">
+                        <div id="CT{{ $i }}" class="tabcontent" style="padding:0;" >
                 @endif
                 <table class="table table-bordered " style="margin:0;">
                     <tr style="font-weight:bold;background-color:#aaba78;" class="" name="trtieude">
@@ -403,11 +403,11 @@
         }
     }
             if(count >= 29){
-                window.alert("đã đánh giá xong!! nhấn ok để trở về");
+                window.alert("Đã đánh giá xong!! Nhấn ok để trở về");
             window.location.replace("{{ URL::to('dnviews') }}");
             }if(status == 0 && count < 29)
             {
-                window.alert("chưa đánh giá đủ. vui lòng đánh giá lại");
+                window.alert("Chưa đánh giá đủ. Vui lòng đánh giá lại");
             }
 
         }
