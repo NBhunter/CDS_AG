@@ -11,7 +11,7 @@ use Session;
 class DanhGia3Controller extends Controller
 {
 
-    public function getCauHoi(){
+    public function getCauHoi(Request $request){
         $request->user()->authorizeRoles(['DoanhNghiep-BGD','DoanhNghiep-NV','Admin']);
         $Cauhoi = DB::table('cauhoi_p3')->get();
         // $Cauhoi = $Cauhoi->get();
