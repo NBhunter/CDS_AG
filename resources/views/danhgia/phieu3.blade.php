@@ -211,10 +211,15 @@ td{
         <label style="font-weight:bold; color:red;">RÀO CẢN (nếu có)</label>
         <textarea class="form-control"name="RaoCan" id="RaoCan" ></textarea>
         </div>
+<<<<<<< HEAD
         <tr>
             <td colspan="7"><button type="submit" name="guiphieu" class="btn btn-success" onclick="goto('0')" style="color:black;">HOÀN THÀNH</button></td>
         </tr>
     </form>
+=======
+        <br>
+        <button type="submit" name="guiphieu" class="btn btn-success" value="" style="color:white;">HOÀN THÀNH</button>
+>>>>>>> 176c622a2a536ece56b1fbf8d37c08bedc7e3bb9
 </div>
 
 </div>

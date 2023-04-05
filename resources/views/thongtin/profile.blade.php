@@ -89,21 +89,21 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview {
 }
 
 #toggleview {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   background: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 7px;
-  left: 8px;
+  top: 10px;
+  left: 10px;
   cursor: pointer;
 }
 
 #toggleview::before {
   content: '';
-  height: 35px;
+  height: 20px;
   width: 4px;
   position: absolute;
-  top: calc(100% - 32px);
+  top: calc(160% - 32px);
   left: calc(50% - 2px);
   transform: rotate(45deg);
 }
@@ -111,10 +111,10 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview {
 #toggleview::after {
   content: '';
   height: 4px;
-  width: 35px;
+  width: 22px;
   position: absolute;
-  top: calc(50% - 2px);
-  left: calc(90% - 30px);
+  top: calc(35% - 0px);
+  left: calc(138% - 30px);
   transform: rotate(45deg);
 }
 
@@ -133,9 +133,9 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::before{
   background: rgba(73,168,68,1);
 }
 input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
-  width: 20px;
-  top: calc(95% - 25px);
-  left: calc(22.5% - 2.5px);
+  width: 15px;
+  top: calc(196% - 34px);
+  left: calc(-2.5% - 1.5px);
   background: rgba(73,168,68,1);
 }
     </style>
@@ -170,26 +170,18 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                         </a>
 
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Quản Lý</h5>
+                        <h5 class="card-title mb-0">Quản lý</h5>
                     </div>
 
                         <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="https://demo.adminkit.io/pages-settings.html#" role="tab" aria-selected="false" tabindex="-1">
-                            Tài khoảng
+                            Tài khoản
                         </a>
                         <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="https://demo.adminkit.io/pages-settings.html#" role="tab" aria-selected="false" tabindex="-1">
-                            Email notifications
+                            Thông báo từ mail
                         </a>
+
                         <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="https://demo.adminkit.io/pages-settings.html#" role="tab" aria-selected="false" tabindex="-1">
-                            Web notifications
-                        </a>
-                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="https://demo.adminkit.io/pages-settings.html#" role="tab" aria-selected="false" tabindex="-1">
-                            Widgets
-                        </a>
-                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="https://demo.adminkit.io/pages-settings.html#" role="tab" aria-selected="false" tabindex="-1">
-                            Your data
-                        </a>
-                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="https://demo.adminkit.io/pages-settings.html#" role="tab" aria-selected="false" tabindex="-1">
-                            Delete account
+                            Xóa tài khoản
                         </a>
                     </div>
                 </div>
@@ -211,8 +203,8 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                         <div class="col-md-12">
                                             <input data-id="{{ Session::get("DoanhNghiep_id") }}" class="toggle-class" id="toggle" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $DN->TrangThai_HienThi ? 'checked' : '' }}>
 
-                                            <div id="togglediv"  style="height:42px;width:92px;">
-                                                <label id="toggleview"  for="toggle"  style="height:30px;width:30px;"></label>
+                                            <div id="togglediv"  style="height:40px;width:88px;">
+                                                <label id="toggleview"  for="toggle"  style="height:20px;width:20px;"></label>
                                               </div>
 
                                         </div>
@@ -230,18 +222,18 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                             <div class="card-body">
                                 <form role="form" action="{{URL::to('/update_profile')}}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="row">
+                                    <div class="row" >
                                         <div class="mb-3 ">
                                             <input type="text" name="idCT" value="{{ $DN->idCT}}" hidden>
-                                            <label class="form-label" for="inputDNName">Tên Doanh Nghiệp</label>
+                                            <label class="form-label" for="inputDNName">Tên doanh nghiệp</label>
                                             <input type="text" class="form-control" id="inputDNName" name="TenDN" placeholder="Tên Doanh Nghiệp" value="{{ $DN->TenDoanhNghiep }}">
                                         </div>
                                         <div class="mb-3 ">
-                                            <label class="form-label" for="inputDNName">Tên Tiếng Anh</label>
+                                            <label class="form-label" for="inputDNName">Tên tiếng Anh</label>
                                             <input type="text" class="form-control" id="inputDNName" name="TenTA" placeholder="Tên Tiếng Anh" value="{{ $DN->TenTiengAnh }}">
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputDNName">Tên Viết Tắt</label>
+                                            <label class="form-label" for="inputDNName">Tên viết tắt</label>
                                             <input type="text" class="form-control" id="inputDNName" name="TenVT" placeholder="Tên Viết Tắt" value="{{ $DN->TenVietTat }}">
                                         </div>
                                         <div class="mb-3 col-md-6">
@@ -249,19 +241,19 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                             <input type="date" class="form-control" id="inputngayhd" name="NHD" placeholder="Ngày hoạt động" value="{{ $DN->NgayHoatDong }}">
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputTSChinh">Trụ Sở Chính</label>
+                                            <label class="form-label" for="inputTSChinh">Trụ sở chính</label>
                                             <select class="form-control form-select " id="city" name="TruSo" aria-label=".form-select-sm" selec>
                                                 <option value="" {{ $DN->DiaChiTruSo ? '' : 'selected' }}>Chọn Tỉnh/Thành Phố</option>
                                                 </select>
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputTSChinh">Địa Phương(Huyện)</label>
+                                            <label class="form-label" for="inputTSChinh">Địa phương (Huyện) </label>
                                             <select class="form-control form-select" id="district" name="DiaPhuong" aria-label=".form-select-sm">
                                                 <option value="" selected>Chọn quận huyện</option>
                                                 </select>
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label" for="inputTSChinh">Lĩnh Vực</label>
+                                            <label class="form-label" for="inputTSChinh">Lĩnh vực</label>
                                             <select class="form-control form-select" id="linhvuc" name="LinhVuc" aria-label=".form-select-sm">
                                                @foreach ( $LinhVuc as $LV )
                                                @if ( $LV->Id == $DN->LinhVuc_id)
@@ -294,17 +286,18 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                         </div>
 
 
-                                    </div>
-                                    <div class="mb-3">
+                                    <div class="mb-3 col-md-6">
                                         <label class="form-label" for="inputEmail4">Email doanh nghiệp</label>
                                         <input type="email" class="form-control" id="inputEmail4" name="Email" placeholder="Email" value="{{ $DN->email }}">
                                     </div>
                                 </div>
                         </div>
+                        <br>
+                      </div>
                                     <div class="card">
                                         <div class="card-header">
                                             <h3 class="card-title">Thông tin liên hệ doanh nghiệp</h3>
-
+<br>
                                     <div class="row">
                                         <div class="mb-3">
                                             <p class="card-subtitle mb-0">Chọn theo thứ tự: Tỉnh -> Huyện -> Xã</p>
@@ -347,24 +340,26 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                     <label class="form-label" for="inputFax">Fax</label>
                                     <input type="text" class="form-control" id="inputFax" name="Fax" value="{{ $DN->FAX }}">
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3">
                                   <label class="form-label" for="inputWeb">Website</label>
                                   <input type="text" class="form-control" id="inputWeb" name="Web" value="{{ $DN->Website }}">
                               </div>
                                 </div>
 
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <br>
+                                  </div>
+                                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                                 </form>
 
                             </div>
                         </div>
 
-                    </div>
-                    <div class="tab-pane fade" id="password" role="tabpanel">
+
+                          <div class="tab-pane fade" id="password" role="tabpanel">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Password</h5>
+                                <h5 class="card-title">Quản lý mật khẩu</h5>
 
 
                                 <form role="form" action="{{URL::to('/change_password')}}" method="post" enctype="multipart/form-data">
@@ -372,34 +367,32 @@ input[type="checkbox"]:checked ~ #togglediv #toggleview::after{
                                     <div class="mb-3">
                                         <label class="form-label" for="inputPasswordCurrent">Mật khẩu cũ</label>
                                         <input type="password" class="form-control" name="oldPassword" id="inputPasswordCurrent">
-                                        <small><a href="https://demo.adminkit.io/pages-settings.html#">Forgot your password?</a></small>
+                                        <small><a href="https://demo.adminkit.io/pages-settings.html#"> Bạn quên mật khẩu ?</a></small>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="inputPasswordNew">Mật khẩu mới</label>
                                         <input type="password" class="form-control" name="NewPassword" id="inputPasswordNew">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="inputPasswordNew2">nhập lại mật khẩu mới</label>
+                                        <label class="form-label" for="inputPasswordNew2">Nhập lại mật khẩu mới</label>
                                         <input type="password" class="form-control" name="re_Password" id="inputPasswordNew2">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+
+
                                 </form>
 
+                              </div> </div>
+                              <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-    </div>
+
 </main>
 
 
 <!-- không sửa phía dưới -->
-                    </div>
-
-                </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.full.min.js"></script>

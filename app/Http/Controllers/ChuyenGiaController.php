@@ -38,7 +38,7 @@ class ChuyenGiaController extends Controller
                 ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
                 ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
                 // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Dẫn Dắt');
-                $Phieu1detail->MucDo =sprintf('Dẫn Dắt');
+                $Phieu1detail->MucDo =sprintf('Dẫn dắt');
                 return  $Phieu1detail;
             }}
         if(  $Phieu1detail->TongDiem  > 192){
@@ -52,7 +52,7 @@ class ChuyenGiaController extends Controller
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
             // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Nâng Cao');
-            $Phieu1detail->MucDo =sprintf('Nâng Cao');
+            $Phieu1detail->MucDo =sprintf('Nâng cao');
             return  $Phieu1detail;
         }}
         if(  $Phieu1detail->TongDiem  > 128){
@@ -266,7 +266,7 @@ foreach($Phieu1New as $P1 ){
         $DN = DB::table('doanhnghiep')->where('id',$input['id'])->first();
         $this->sendmail($DN);
         // session()->flash('alert-info', 'Đã xong');
-        $Success = "Đã Thông báo";
+        $Success = "Đã thông báo";
         return Redirect::to('/chuyengia/P2_ChuaDG')->with('Success',$Success);
     }
     // các function phiếu 3

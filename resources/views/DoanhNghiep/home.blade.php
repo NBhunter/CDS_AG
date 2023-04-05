@@ -35,7 +35,7 @@
 <main class="content" style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: repeat;    background-size:100%;" >
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3" style="font-weight:bold;font-family:Roboto;color:#4e73df;">THÔNG TIN DOANH NGHIỆP</h1>
+					<h1 class="h3 mb-3" style="font-weight:bold;font-family:Roboto;color:#4e73df;text-align:left;">THÔNG TIN DOANH NGHIỆP</h1>
 
 					<div class="row">
 						<div class="col-xl-6 col-xxl-5 d-flex">
@@ -63,10 +63,10 @@
 												<hr class="sidebar-divider" style="color: #4e73df;">
 												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">@php
                                                     if($DanhGia1 != null){
-                                                        echo $DanhGia1->TongDiem." điểm";
+                                                        echo $DanhGia1->TongDiem." Điểm";
                                                     }
                                                     else {
-                                                        echo "chưa đánh giá";
+                                                        echo "Chưa đánh giá";
                                                     }
                                                 @endphp</h3>
 
@@ -92,10 +92,10 @@
 												<hr class="sidebar-divider" style="color: #4e73df;">
 												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">@php
                                                     if($DanhGia3 != null){
-                                                        echo "đã đánh giá";
+                                                        echo "Đã đánh giá";
                                                     }
                                                     else {
-                                                        echo "chưa đánh giá";
+                                                        echo "Chưa đánh giá";
                                                     }
                                                 @endphp </h3>
 											</div>
@@ -124,10 +124,10 @@
 
 												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">@php
                                                     if($DanhGia2 != null){
-                                                        echo "đã đánh giá";
+                                                        echo "Đã đánh giá";
                                                     }
                                                     else {
-                                                        echo "chưa đánh giá";
+                                                        echo "Chưa đánh giá";
                                                     }
                                                 @endphp</h3>
 												<div class="mb-0">
@@ -158,10 +158,10 @@
 
 												<h3 class="mt-1 mb-3" style="font-weight:bold;color: #4e73df">@php
                                                     if($DanhGia4 != null){
-                                                        echo "đã đánh giá";
+                                                        echo "Đã đánh giá";
                                                     }
                                                     else {
-                                                        echo "chưa đánh giá";
+                                                        echo "Chưa đánh giá";
                                                     }
                                                 @endphp</h3>
 												<div class="mb-0">

@@ -39,7 +39,7 @@ class DanhGia1Controller extends Controller
         return view('danhgia.phieu1')->with('Cauhoi',$Cauhoi)->with('time',$time)->with('DanhMuc',$DanhMuc);
         }else{
             // alert("Bạn Đã đánh giá trong quí này");
-            return Redirect()->back()->with('alert', 'Bạn Đã đánh giá trong quí này!!');
+            return Redirect::to('dnviews')->with('alert', 'DOANH NGHIỆP ĐÃ ĐÁNH GIÁ TRONG QUÝ NÀY ! (Vui lòng nhấn X để thoát)');
         }
     }
     public function getidCauHoi(Request $request){
