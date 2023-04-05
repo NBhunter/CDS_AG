@@ -22,7 +22,7 @@
 <x-guest-layout>
 <section class="vh-100">
     <video autoplay muted loop id="myVideo">
-        <source src="{{asset('logout/img/bg.mp4')}}" type="video/mp4">
+        <source src="{{asset('logout_file/img/bg.mp4')}}" type="video/mp4">
       </video>
     <div class="container-fluid h-custom">
 
