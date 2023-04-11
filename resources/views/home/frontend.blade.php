@@ -9,7 +9,7 @@
   <!-- link root -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
-    <title>@if ($title != null)
+    <title>@if (isset($title))
         {{ $title ." - ". config('app.name')}}
     @else
     @yield('title')

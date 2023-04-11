@@ -20,9 +20,10 @@ Route::get('/tintuc','App\Http\Controllers\homeController@index' );
 Route::get('/tintuc/NongNghiep','App\Http\Controllers\homeController@NongNghiepIndex' );
 Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
 Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
-Route::get('/dangky', function () {
-    return view('home.dangkydoanhnghiep');
-});
+Route::get('/dangky','App\Http\Controllers\homeController@registerview' );
+// Route::get('/dangky', function () {
+//     return view('home.dangkydoanhnghiep');
+// });
 
 Route::get('/dashboard', function () {
     return view('DoanhNghiep.DKDoanhNghiepMoi');
