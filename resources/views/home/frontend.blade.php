@@ -9,7 +9,11 @@
   <!-- link root -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="icon" type="image/ico" href="{{asset('img/logo_ag.ico')}}"/>
-    <title>@yield('title') </title>
+    <title>@if ($title != null)
+        {{ $title ." - ". config('app.name')}}
+    @else
+    @yield('title')
+    @endif </title>
     <!-- boottrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
