@@ -1,7 +1,5 @@
 @extends('home.frontend')
-@section('title')
-    Chuyển đổi số tỉnh An Giang
-@endsection
+
 @section('link')
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
@@ -43,7 +41,7 @@
             padding: 0
         }
     </style>
-    @foreach ($slides as $id => $slide)
+    {{-- @foreach ($slides as $id => $slide)
     <div class="w3-content w3-display-container" style="max-width:100%">
             @if ($slide->Status == 1)
                 <img class="mySlides" src="{{ asset('slide/' . $slide->Link) }}" style="width:100%">
@@ -78,14 +76,14 @@
                 </div>
             </div>
         </div>
-    </div>
-    <section class="section" style="">
+    </div> --}}
+    <section class="section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                     <div class="page-wrapper">
                         <div class="blog-top clearfix">
-                            <h4 class="pull-left">Tin mới nhất <a href="#"><i class="fa fa-rss"></i></a>
+                            <h4 class="pull-left">{{ $title }} <a href="#"><i class="fa fa-rss"></i></a>
                             </h4>
                         </div><!-- end blog-top -->
                         @foreach ( $tinmoi as $news)
@@ -124,13 +122,144 @@
                         </div><!-- end blog-box -->
                         <hr class="invis">
                         @endforeach
+
                         <div class="blog-list clearfix">
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="tech-single.html" title="">
+                                            <img src="upload/tech_blog_01.jpg" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
+
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a href="tech-single.html" title="">Top 10 phone applications and
+                                            2017 mobile design awards</a></h4>
+                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et
+                                        pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim
+                                        nibh, maximus ac felis nec, maximus tempor odio.</p>
+                                    <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html"
+                                            title="">Gadgets</a></small>
+                                    <small><a href="tech-single.html" title="">21 July, 2017</a></small>
+                                    <small><a href="tech-author.html" title="">by Matilda</a></small>
+                                    <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i>
+                                            1114</a></small>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
 
 
+                            <hr class="invis">
 
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="tech-single.html" title="">
+                                            <img src="upload/tech_blog_04.jpg" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
 
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a href="tech-single.html" title="">Applications for taking photos
+                                            of nature in your mobile phones</a></h4>
+                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et
+                                        pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim
+                                        nibh, maximus ac felis nec, maximus tempor odio.</p>
+                                    <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html"
+                                            title="">Design</a></small>
+                                    <small><a href="tech-single.html" title="">19 July, 2017</a></small>
+                                    <small><a href="tech-author.html" title="">by Matilda</a></small>
+                                    <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i>
+                                            4441</a></small>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
 
-                            {{--   --}}
+                            <hr class="invis">
+
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="tech-single.html" title="">
+                                            <img src="upload/tech_blog_05.jpg" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
+
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a href="tech-single.html" title="">Say hello to colored strap
+                                            models in smart hours</a></h4>
+                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et
+                                        pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim
+                                        nibh, maximus ac felis nec, maximus tempor odio.</p>
+                                    <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html"
+                                            title="">Materials</a></small>
+                                    <small><a href="tech-single.html" title="">18 July, 2017</a></small>
+                                    <small><a href="tech-author.html" title="">by Matilda</a></small>
+                                    <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i>
+                                            33312</a></small>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
+
+                            <hr class="invis">
+
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="tech-single.html" title="">
+                                            <img src="upload/tech_blog_06.jpg" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
+
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a href="tech-single.html" title="">How about evaluating your old
+                                            mobile phones in different ways?</a></h4>
+                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et
+                                        pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim
+                                        nibh, maximus ac felis nec, maximus tempor odio.</p>
+                                    <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html"
+                                            title="">Gadgets</a></small>
+                                    <small><a href="tech-single.html" title="">17 July, 2017</a></small>
+                                    <small><a href="tech-author.html" title="">by Matilda</a></small>
+                                    <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i>
+                                            4440</a></small>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
+                            <hr class="invis">
+
+                            <div class="blog-box row">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a href="tech-single.html" title="">
+                                            <img src="upload/tech_blog_10.jpg" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
+
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a href="tech-single.html" title="">Google has developed a brand new
+                                            algorithm. Forget all your knowledge!</a></h4>
+                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et
+                                        pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim
+                                        nibh, maximus ac felis nec, maximus tempor odio.</p>
+                                    <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html"
+                                            title="">Gadgets</a></small>
+                                    <small><a href="tech-single.html" title="">13 July, 2017</a></small>
+                                    <small><a href="tech-author.html" title="">by Matilda</a></small>
+                                    <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i>
+                                            3331</a></small>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
+                        </div><!-- end blog-list -->
+                    </div><!-- end page-wrapper -->
+
+                    <hr class="invis">
 
                     <div class="row">
                         <div class="col-md-12">
@@ -244,30 +373,5 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </section>
-    <div> </div>
-    <div> </div>
-    <div> </div>
-    <script>
-        let slideIndex = 0;
-        showSlides();
 
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("demo");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
-    </script>
 @endsection

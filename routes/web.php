@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/','App\Http\Controllers\homeController@index' );
 Route::get('/trangchu','App\Http\Controllers\homeController@index' );
 Route::get('/tintuc','App\Http\Controllers\homeController@index' );
-Route::get('/tintuc/NongNghiep','App\Http\Controllers\homeController@index' );
+Route::get('/tintuc/NongNghiep','App\Http\Controllers\homeController@NongNghiepIndex' );
 Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
 Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
 Route::get('/dangky', function () {
