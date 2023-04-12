@@ -481,15 +481,15 @@
         var LinhVuc = document.getElementById("linhvuc");
         var LoaiHinh = document.getElementById("loaihinh");
         var Data = {!! json_encode($LoaiHinh->toArray()) !!};
-        // window.onload = function(){
-        //     LoaiHinh.length = 1; for( const a of Data){
-        //     if(a.LinhVuc_id == LinhVuc.value)
-        //     if(a.Id == {{ $DN->LoaiHinhDN }})
-        //     LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id,false,true);
-        //     else
-        //     LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id);
-        // }
-        // }
+        window.onload = function(){
+            LoaiHinh.length = 1; for( const a of Data){
+            if(a.LinhVuc_id == LinhVuc.value)
+            if(a.Id == {{ $DN->LoaiHinhDN }})
+            LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id,false,true);
+            else
+            LoaiHinh[LoaiHinh.options.length] =new Option(a.TenNganhNghe, a.Id);
+        }
+        }
         LinhVuc.onchange = function() {
             LoaiHinh.length = 1;
             for (const a of Data) {

@@ -16,11 +16,12 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/','App\Http\Controllers\homeController@index' );
 Route::get('/trangchu','App\Http\Controllers\homeController@index' );
-Route::get('/tintuc','App\Http\Controllers\homeController@index' );
+Route::get('/tintuc','App\Http\Controllers\homeController@indexAllnew' );
 Route::get('/tintuc/NongNghiep','App\Http\Controllers\homeController@NongNghiepIndex' );
 Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
 Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
 Route::get('/dangky','App\Http\Controllers\homeController@registerview' );
+Route::post('/BinhLuan','App\Http\Controllers\homeController@postcomment' );
 // Route::get('/dangky', function () {
 //     return view('home.dangkydoanhnghiep');
 // });

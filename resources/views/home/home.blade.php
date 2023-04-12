@@ -42,6 +42,11 @@
             width: 13px;
             padding: 0
         }
+        /* @media only screen and (max-width: 600px) {
+            .img-btn{
+                width: 35%;
+            }
+} */
     </style>
     @foreach ($slides as $id => $slide)
     <div class="w3-content w3-display-container" style="max-width:100%">
@@ -65,27 +70,27 @@
         <div class=" container">
             <div class="row">
                 <div class="col-sm" style="margin-left: 1%; ">
-                    <a href="{{ URL::to('/tintuc/NongNghiep') }}" target="_blank"><img
+                    <a href="{{ URL::to('/tintuc/NongNghiep') }}" target="_blank"><img class="img-btn 1"
                             src="{{ asset('img/NN.png') }}" width="90%"> </a>
                 </div>
                 <div class="col-sm" style="margin-left: 1%; ">
-                    <a href="https://chinhquyenso.hochiminhcity.gov.vn/" target="_blank"><img
+                    <a href="{{ URL::to('/tintuc/NongNghiep') }}" target="_blank"><img class="img-btn 2"
                             src="{{ asset('img/CN.png') }}" width="90%"> </a>
                 </div>
                 <div class="col-sm" style="margin-left: 1%; ">
-                    <a href="https://chinhquyenso.hochiminhcity.gov.vn/" target="_blank"><img
+                    <a href="{{ URL::to('/tintuc/NongNghiep') }}" target="_blank"><img class="img-btn 3"
                             src="{{ asset('img/DV.png') }}" width="90%"> </a>
                 </div>
             </div>
         </div>
     </div>
-    <section class="section" style="">
+    <section class="section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                     <div class="page-wrapper">
                         <div class="blog-top clearfix">
-                            <h4 class="pull-left">Tin mới nhất <a href="#"><i class="fa fa-rss"></i></a>
+                            <h4 class="pull-left">Tất cả tin tức <a href="#"><i class="fa fa-rss"></i></a>
                             </h4>
                         </div><!-- end blog-top -->
                         @foreach ( $tinmoi as $news)
@@ -124,24 +129,23 @@
                         </div><!-- end blog-box -->
                         <hr class="invis">
                         @endforeach
-                        <div class="blog-list clearfix">
 
+                        </div><!-- end blog-list -->
+                    </div><!-- end page-wrapper -->
 
-
-
-
-                            {{--   --}}
+                    <hr class="invis">
 
                     <div class="row">
                         <div class="col-md-12">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-start">
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    {{-- <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item">
                                         <a class="page-link" href="#">Trang kế</a>
-                                    </li>
+                                    </li> --}}
+                                    {{ $tinmoi->appends(Request::all())->links() }}123
                                 </ul>
                             </nav>
                         </div><!-- end col -->
@@ -244,6 +248,8 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </section>
+
+
     <div> </div>
     <div> </div>
     <div> </div>

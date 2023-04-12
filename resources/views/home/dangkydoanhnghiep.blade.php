@@ -308,7 +308,7 @@
                     </div>
                     <br>
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Đăng ký 1</button>
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
                     </div>
                     </form>
                 </div>
@@ -319,7 +319,7 @@
     <!-- không sửa phía dưới -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>

@@ -17,10 +17,14 @@
     <!-- ##### Blog Content Area Start ##### -->
     <section class="blog-content-area section-padding-0-100">
         <div class="container">
+
             <div class="row justify-content-center">
                 <!-- Blog Posts Area -->
                 <div class="col-12">
+                    {{-- @if(session('alert'))   
+                    {{session('alert')}}
 
+                @endif   --}}
                     <!-- Post Details Area -->
                     <div class="single-post-details-area">
                         <div class="post-content">
@@ -119,7 +123,7 @@
 
                                 <!-- Comment Area Start -->
                                 <div class="comment_area clearfix">
-                                    <h4 class="headline">12 Comments</h4>
+                                    <h4 class="headline">{{ $comments->count() }} Comments</h4>
                                     <ol>
 
                                             @foreach ( $comments as $cmt )
@@ -137,7 +141,31 @@
                                                     <h5>{{  $cmt->TenNguoiBL }}</h5>
                                                     <p>{{ $cmt->NoiDung }}</p>
                                                     <a href="#">Like</a>
-                                                    <a class="active" href="#">Reply</a>
+                                                    <a class="active replybtn" data-id="{{ $cmt->Id }}">Reply</a>
+                                                    <form action="{{ URL::to('/BinhLuan') }}" method="post" id="reply" style="display: none;" target="hidden-form" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="row">
+                                                            <div class="col-12 col-md-6">
+                                                                <div class="form-group">
+                                                                    <input type="hidden" class="form-control" name="IdNews" value="{{ $TinTuc->Id }}" id="contact-name" >
+                                                                    <input type="text" class="form-control" name="Name" id="contact-name" placeholder="Name">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6">
+                                                                <div class="form-group">
+                                                                    <input type="email" class="form-control" name="Email" id="contact-email" placeholder="Email">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <textarea class="form-control" name="message" id="message" cols="30" rows="2" placeholder="Comment"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <button type="submit" class="btn nikki-btn">Send Message</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                                     @foreach ( $comments as $chill)
@@ -156,7 +184,7 @@
                                                                     <h5>{{  $chill->TenNguoiBL }}</h5>
                                                                     <p>{{ $chill->NoiDung }}</p>
                                                                     <a href="#">Like</a>
-                                                                    <a class="active" href="#">Reply</a>
+                                                                    <a class="active replybtn" data-id="{{ $chill->IdCon }}">Reply</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -177,6 +205,7 @@
 
 
 
+
                                     </ol>
                                 </div>
                                 <!-- Leave A Comment -->
@@ -185,10 +214,12 @@
                                         <h4 class="headline">Bình Luận bài viết</h4>
 
                                         <!-- Comment Form -->
-                                        <form action="#" method="post">
+                                        <form action="{{ URL::to('/BinhLuan') }}" method="post" target="hidden-form" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
+                                                        <input type="hidden" class="form-control" name="IdNews" value="{{ $TinTuc->Id }}" id="contact-name" >
                                                         <input type="text" class="form-control" name="Name" id="contact-name" placeholder="Name">
                                                     </div>
                                                 </div>
@@ -207,6 +238,7 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <iframe style="display:none" name="hidden-form"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -217,5 +249,26 @@
             </div>
         </div>
     </section>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script>
+
+            @if(session('alert'))   
+            window.onload = function(){
+                alert('{{session('alert')}}');
+            }
+
+
+    @endif  
+            $('.replybtn').click(function(){
+                const form = document.getElementById('reply');
+                if (form.style.display === 'none') {
+    // 👇️ this SHOWS the form
+    form.style.display = 'block';
+  } else {
+    // 👇️ this HIDES the form
+    form.style.display = 'none';
+  }
+            });
+    </script>
     <!-- ##### Blog Content Area End ##### -->
 @endsection
