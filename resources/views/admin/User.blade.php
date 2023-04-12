@@ -64,10 +64,16 @@
                                         @if (session::get('user_id') == $nd->idnguoidung)
                                         Tải khoản của bạn
                                         @else
-                                        @if ($nd->name == 'DoanhNghiep-BGD' || $nd->name =='DoanhNghiep-NV' )
+                                        @if($nd->status ==1) @if ($nd->name == 'DoanhNghiep-BGD' || $nd->name =='DoanhNghiep-NV' )
                                         Không thuộc thẩm quyền của bạn
                                         @else
                                         <a class="btn btn-success " href="{{ URL::to('/role/'.$nd->idnguoidung) }}" style="font-size:13px;">Thông tin
+                                        </a>
+                                        @endif
+                                        @else
+                                        <a class="btn btn-success " href="{{ URL::to('/active/'.$nd->idnguoidung) }}" style="font-size:13px;">Xem hồ sơ
+                                        </a>
+                                        <a class="btn btn-success " href="{{ URL::to('/active/'.$nd->idnguoidung) }}" style="font-size:13px;">Kích Hoạt
                                         </a>
                                         @endif
                                         @endif

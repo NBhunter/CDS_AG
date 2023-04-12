@@ -348,6 +348,8 @@ var districts = document.getElementById("district");
 var citis2 = document.getElementById("citys");
 var districts2 = document.getElementById("districts");
 var wards2 = document.getElementById("wards");
+
+var citis3 = document.getElementById("city_NC");
 var Parameter = {
   url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
   method: "GET",
@@ -361,6 +363,7 @@ promise.then(function (result) {
 function renderCity(data) {
   for (const x of data) {
     citis.options[citis.options.length] = new Option(x.Name, x.Id);
+    citis3.options[citis3.options.length] = new Option(x.Name, x.Id);
   }
   citis.onchange = function () {
     district.length = 1;

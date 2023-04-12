@@ -22,6 +22,7 @@ Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
 Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
 Route::get('/dangky','App\Http\Controllers\homeController@registerview' );
 Route::post('/BinhLuan','App\Http\Controllers\homeController@postcomment' );
+Route::post('/crate_profile','App\Http\Controllers\DoanhNghiepController@crate_profile' );
 // Route::get('/dangky', function () {
 //     return view('home.dangkydoanhnghiep');
 // });

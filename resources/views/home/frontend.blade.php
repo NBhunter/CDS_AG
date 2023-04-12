@@ -104,6 +104,14 @@
     </div>
   </div>
 </nav>
+  @if(session('alert'))    <div class="alert alert-danger alert-dismissible" role="alert" >
+<div>
+    <div class="alert alert-success alert-dismissible fade show" style="color:rgb(81, 255, 0);text-align:center;font-weight:bold;">
+        <button type="btn btn-danger" class="btn-close" data-bs-dismiss="alert" ></button>
+        {{session('alert')}}
+      </div>
+</div>
+@endif  
 @yield('content')
 </body>
 
