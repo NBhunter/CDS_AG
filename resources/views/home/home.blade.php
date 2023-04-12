@@ -3,27 +3,25 @@
     Chuyển đổi số tỉnh An Giang
 @endsection
 @section('link')
-
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Bootstrap core CSS -->
-<link href="{{ asset('trangtin/tech-blog/tech-blog/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('trangtin/tech-blog/tech-blog/css/bootstrap.css') }}" rel="stylesheet">
 
-<!-- FontAwesome Icons core CSS -->
-<link href="{{ asset('trangtin/tech-blog/tech-blog/css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- FontAwesome Icons core CSS -->
+    <link href="{{ asset('trangtin/tech-blog/tech-blog/css/font-awesome.min.css') }}" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="{{ asset('trangtin/tech-blog/tech-blog/style.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('trangtin/tech-blog/tech-blog/style.css') }}" rel="stylesheet">
 
-<!-- Responsive styles for this template -->
-<link href="{{ asset('trangtin/tech-blog/tech-blog/css/responsive.css') }}" rel="stylesheet">
+    <!-- Responsive styles for this template -->
+    <link href="{{ asset('trangtin/tech-blog/tech-blog/css/responsive.css') }}" rel="stylesheet">
 
-<!-- Colors for this template -->
-<link href="{{ asset('trangtin/tech-blog/tech-blog/css/colors.css') }}" rel="stylesheet">
+    <!-- Colors for this template -->
+    <link href="{{ asset('trangtin/tech-blog/tech-blog/css/colors.css') }}" rel="stylesheet">
 
-<!-- Version Tech CSS for this template -->
-<link href="{{ asset('trangtin/tech-blog/tech-blog/css/version/tech.css') }}" rel="stylesheet">
-
+    <!-- Version Tech CSS for this template -->
+    <link href="{{ asset('trangtin/tech-blog/tech-blog/css/version/tech.css') }}" rel="stylesheet">
 @endsection
 @section('content')
     <style>
@@ -42,14 +40,15 @@
             width: 13px;
             padding: 0
         }
+
         /* @media only screen and (max-width: 600px) {
-            .img-btn{
-                width: 35%;
-            }
-} */
+                            .img-btn{
+                                width: 35%;
+                            }
+                } */
     </style>
     @foreach ($slides as $id => $slide)
-    <div class="w3-content w3-display-container" style="max-width:100%">
+        <div class="w3-content w3-display-container" style="max-width:100%">
             @if ($slide->Status == 1)
                 <img class="mySlides" src="{{ asset('slide/' . $slide->Link) }}" style="width:100%">
             @endif
@@ -86,71 +85,67 @@
     </div>
     <section class="section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                    <div class="page-wrapper">
-                        <div class="blog-top clearfix">
-                            <h4 class="pull-left">Tất cả tin tức <a href="#"><i class="fa fa-rss"></i></a>
-                            </h4>
-                        </div><!-- end blog-top -->
-                        @foreach ( $tinmoi as $news)
-                        <div class="blog-box row">
-                            <div class="col-md-4">
-                                <div class="post-media">
-                                    <a href="{{ URL::to('tin/'.$news->IdTin) }}" title="">
-                                        <img src="{{ asset('img/AnhTinhTuc/'.$news->HinhAnh) }}" alt="" class="img-fluid">
-                                        <div class="hovereffect"></div>
-                                    </a>
-                                </div><!-- end media -->
-                            </div><!-- end col -->
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-top clearfix">
+                                <h4 class="pull-left">Tất cả tin tức <a href="#"><i class="fa fa-rss"></i></a>
+                                </h4>
+                            </div><!-- end blog-top -->
+                            <div class="blog-list clearfix">
+                                @foreach ( $tinmoi as $news)
+                                <div class="blog-box row">
+                                    <div class="col-md-4">
+                                        <div class="post-media">
+                                            <a href="{{ URL::to('tin/'.$news->IdTin) }}" title="">
+                                                <img src="{{ asset('img/AnhTinhTuc/'.$news->HinhAnh) }}" alt="" class="img-fluid">
+                                                <div class="hovereffect"></div>
+                                            </a>
+                                        </div><!-- end media -->
+                                    </div><!-- end col -->
 
-                            <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="{{ URL::to('tin/'.$news->IdTin) }}" title="">{{ $news->TieuDe }}</a></h4>
-                                <p>{{ $news->TomTat }}</p>
+                                    <div class="blog-meta big-meta col-md-8">
+                                        <h4><a href="{{ URL::to('tin/'.$news->IdTin) }}" title="">{{ $news->TieuDe }}</a></h4>
+                                        <p>{{ $news->TomTat }}</p>
 
-                                <small class="firstsmall"><a class="bg-orange" href="@if ($news->LinhVuc_id == 5)
-                                    {{ URL::to('tintuc/NongNghiep') }}
-                                @else
-                                @if ($news->LinhVuc_id == 6)
-                                    {{ URL::to('tintuc/CongNghiep') }}
-                                @else
-                                @if ($news->LinhVuc_id == 7)
-                                {{ URL::to('tintuc/TMDV') }}
-                                @else
+                                        <small class="firstsmall"><a class="bg-orange" href="@if ($news->LinhVuc_id == 5)
+                                            {{ URL::to('tintuc/NongNghiep') }}
+                                        @else
+                                        @if ($news->LinhVuc_id == 6)
+                                            {{ URL::to('tintuc/CongNghiep') }}
+                                        @else
+                                        @if ($news->LinhVuc_id == 7)
+                                        {{ URL::to('tintuc/TMDV') }}
+                                        @else
 
-                                @endif
-                                @endif
-                                @endif"     title="">{{ $news->TenLinhVuc }}</a></small>
-                                <small><a href="tech-single.html" title="">{{ $news->updated_at }}</a></small>
-                                <small><a href="tech-author.html" title="">by {{ $news->TacGia }}</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i>
-                                    {{ $news->LuotXem }}</a></small>
-                            </div><!-- end meta -->
-                        </div><!-- end blog-box -->
-                        <hr class="invis">
-                        @endforeach
+                                        @endif
+                                        @endif
+                                        @endif"     title="">{{ $news->TenLinhVuc }}</a></small>
+                                        <small><a href="tech-single.html" title="">{{ $news->updated_at }}</a></small>
+                                        <small><a href="tech-author.html" title="">by {{ $news->TacGia }}</a></small>
+                                        <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i>
+                                            {{ $news->LuotXem }}</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end blog-box -->
+                                <hr class="invis">
+                                @endforeach
 
-                        </div><!-- end blog-list -->
-                    </div><!-- end page-wrapper -->
+                            </div><!-- end blog-list -->
+                        </div><!-- end page-wrapper -->
 
                     <hr class="invis">
 
                     <div class="row">
                         <div class="col-md-12">
                             <nav aria-label="Page navigation">
-                                <ul class="pagination justify-content-start">
-                                    {{-- <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Trang kế</a>
-                                    </li> --}}
-                                    {{ $tinmoi->appends(Request::all())->links() }}123
-                                </ul>
+
+
+                                    {{ $tinmoi->appends(Request::all())->links() }}
+
                             </nav>
                         </div><!-- end col -->
                     </div><!-- end row -->
-                </div><!-- end col -->
+                </div> <!-- end col -->
 
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <div class="sidebar">
