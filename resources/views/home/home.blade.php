@@ -25,6 +25,299 @@
 @endsection
 @section('content')
     <style>
+@media only screen and (max-width: 600px) {
+    .btna, .btn2 {
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 35px;
+  color: rgba(255,255,255,0.9);
+  border-radius: 45px;
+  background: linear-gradient(-45deg, rgb(164, 190, 240), rgb(71, 71, 215), #00f, #0000b3);
+  background-size: 400%;
+  -webkit-animation: anime 15s linear infinite;
+          /* animation: anime 5s linear infinite; */
+}
+.btnspan{
+    font-family: 'Chivo Mono', monospace;
+    font-weight: bold;
+    color: rgba(255,255,255,0.9);
+}
+.col-sm{
+
+    width: 120px;
+}
+.btn2 {
+  position: absolute;
+  margin-top: -70px;
+  z-index: -1;
+  filter: blur(30px);
+  opacity: 0.8;
+}
+@-webkit-keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.btnslide{
+    height: 80px;
+    background-image: url({{ asset('img/ChuyenDoiSo_Web_Top_Back.png') }})
+}
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        .btna, .btn2 {
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 35px;
+  color: rgba(255,255,255,0.9);
+  border-radius: 45px;
+  background: linear-gradient(-45deg, rgb(164, 190, 240), rgb(71, 71, 215), #00f, #0000b3);
+  background-size: 400%;
+  -webkit-animation: anime 15s linear infinite;
+          /* animation: anime 5s linear infinite; */
+}
+.btnspan{
+    font-family: 'Chivo Mono', monospace;
+    font-weight: bold;
+    color: rgba(255,255,255,0.9);
+}
+.col-sm{
+    width: 60px;
+}
+.btn2 {
+  position: absolute;
+  margin-top: -70px;
+  z-index: -1;
+  filter: blur(30px);
+  opacity: 0.8;
+}
+@-webkit-keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.btnslide{
+    height: 80px;
+    background-image: url({{ asset('img/ChuyenDoiSo_Web_Top_Back.png') }})
+}
+
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+        .btna, .btn2 {
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 55px;
+  color: rgba(255,255,255,0.9);
+  border-radius: 45px;
+  background: linear-gradient(-45deg, rgb(164, 190, 240), rgb(71, 71, 215), #00f, #0000b3);
+  background-size: 400%;
+  -webkit-animation: anime 15s linear infinite;
+          /* animation: anime 5s linear infinite; */
+}
+.btnspan{
+    font-family: 'Chivo Mono', monospace;
+    font-weight: bold;
+    color: rgba(255,255,255,0.9);
+}
+.col-sm{
+    width: 100px;
+}
+.btn2 {
+  position: absolute;
+  margin-top: -70px;
+  z-index: -1;
+  filter: blur(30px);
+  opacity: 0.8;
+}
+@-webkit-keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.btnslide{
+    height: 100px;
+    background-image: url({{ asset('img/ChuyenDoiSo_Web_Top_Back.png') }})
+}
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        .btna, .btn2 {
+  width: 300px;
+  height: 80px;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 70px;
+  color: rgba(255,255,255,0.9);
+  border-radius: 45px;
+  background: linear-gradient(-45deg, rgb(164, 190, 240), rgb(71, 71, 215), #00f, #0000b3);
+  background-size: 400%;
+  -webkit-animation: anime 15s linear infinite;
+          /* animation: anime 5s linear infinite; */
+}
+.btnspan{
+    font-family: 'Chivo Mono', monospace;
+    font-weight: bold;
+    color: rgba(255,255,255,0.9);
+}
+.col-sm{
+    width: 100px;
+}
+.btn2 {
+  position: absolute;
+  margin-top: -70px;
+  z-index: -1;
+  filter: blur(30px);
+  opacity: 0.8;
+}
+@-webkit-keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.btnslide{
+    height: 120px;
+    background-image: url({{ asset('img/ChuyenDoiSo_Web_Top_Back.png') }})
+}
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+         .btna, .btn2 {
+  width: 300px;
+  height: 80px;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 80px;
+  color: rgba(255,255,255,0.9);
+  border-radius: 50px;
+  background: linear-gradient(-45deg, rgb(164, 190, 240), rgb(71, 71, 215), #00f, #0000b3);
+  background-size: 600%;
+  -webkit-animation: anime 15s linear infinite;
+          /* animation: anime 5s linear infinite; */
+}
+.btnspan{
+    font-family: 'Chivo Mono', monospace;
+    font-weight: bold;
+    color: rgba(255,255,255,0.9);
+}
+.btn2 {
+  position: absolute;
+  margin-top: -70px;
+  z-index: -1;
+  filter: blur(30px);
+  opacity: 0.8;
+}
+@-webkit-keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.btnslide{
+    height: 120px;
+    background-image: url({{ asset('img/ChuyenDoiSo_Web_Top_Back.png') }})
+}
+    }
+
         .mySlides {
             display: none
         }
@@ -46,9 +339,11 @@
                                 width: 35%;
                             }
                 } */
+
     </style>
+    <div class="w3-content w3-display-container" style="max-width:100%">
     @foreach ($slides as $id => $slide)
-        <div class="w3-content w3-display-container" style="max-width:100%">
+
             @if ($slide->Status == 1)
                 <img class="mySlides" src="{{ asset('slide/' . $slide->Link) }}" style="width:100%">
             @endif
@@ -64,21 +359,25 @@
         <span class="w3-badge demo w3-border w3-transparent w3-hover-white" style="cursor:pointer"
             onclick="currentDiv(3)"></span>
     </div>
-    </div>
-    <div style="background-image: url({{ asset('img/ChuyenDoiSo_Web_Top_Back.png') }}) ">
+</div>
+    <div  class=" btnslide"  >
         <div class=" container">
             <div class="row">
                 <div class="col-sm" style="margin-left: 1%; ">
-                    <a href="{{ URL::to('/tintuc/NongNghiep') }}" target="_blank"><img class="img-btn 1"
-                            src="{{ asset('img/NN.png') }}" width="90%"> </a>
+                        <div class="btna"><a href="{{ URL::to('/tintuc/NongNghiep') }}" ><span class="btnspan">Nông Nghiệp</span> </a></div>
+
+                        {{-- <div class="btn2"></div> --}}
+                </div>
+
+                <div class="col-sm" style="margin-left: 1%; ">
+                    <div class="btna"><a href="{{ URL::to('/tintuc/NongNghiep') }}" ><span class="btnspan">Công Nghiệp</span> </a></div>
+
+                    {{-- <div class="btn2"></div> --}}
                 </div>
                 <div class="col-sm" style="margin-left: 1%; ">
-                    <a href="{{ URL::to('/tintuc/NongNghiep') }}" target="_blank"><img class="img-btn 2"
-                            src="{{ asset('img/CN.png') }}" width="90%"> </a>
-                </div>
-                <div class="col-sm" style="margin-left: 1%; ">
-                    <a href="{{ URL::to('/tintuc/NongNghiep') }}" target="_blank"><img class="img-btn 3"
-                            src="{{ asset('img/DV.png') }}" width="90%"> </a>
+                    <div class="btna"><a href="{{ URL::to('/tintuc/NongNghiep') }}" ><span class="btnspan">Thương Mại</span> </a></div>
+
+                    {{-- <div class="btn2"></div> --}}
                 </div>
             </div>
         </div>
