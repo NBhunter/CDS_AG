@@ -69,6 +69,7 @@
 
         .column:hover .card .txt h1,
         .column:hover .card .txt p {
+            text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
             color: white;
             opacity: 1;
         }
@@ -91,6 +92,7 @@
             letter-spacing: 0.05rem;
             font-family: "Oswald", sans-serif;
             box-shadow: 0 0 21px rgba(0, 0, 0, 0.27);
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff
         }
 
         .card .txt {
@@ -115,23 +117,25 @@
 
         .card a {
             z-index: 3;
-            font-size: 0.7rem;
+            font-size: 1.7rem;
             color: black;
             margin-left: 1rem;
             position: relative;
             bottom: -0.5rem;
             text-transform: uppercase;
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
         }
 
         .card a:after {
             content: "";
             display: inline-block;
-            height: 0.5em;
+            height: 1.5em;
             width: 0;
             margin-right: -100%;
             margin-left: 10px;
             border-top: 1px solid white ;
             transition: 0.5s;
+            text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
         }
 
         .card .ico-card {
@@ -208,6 +212,7 @@
             letter-spacing: 0.05rem;
             font-family: "Oswald", sans-serif;
             box-shadow: 0 0 21px rgba(0, 0, 0, 0.27);
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
         }
 
         .card .txt {
@@ -316,11 +321,11 @@
             /* border: ; */
             border-radius: 0;
             color: black;
-            border: white;
-            text-shadow: 4px 4px white;
+            /* border: white; */
             letter-spacing: 0.05rem;
             font-family: "Oswald", sans-serif;
             box-shadow: 0 0 21px rgba(0, 0, 0, 0.27);
+            text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff;
         }
 
         .card .txt {
@@ -347,6 +352,7 @@
             z-index: 3;
             font-size: 0.7rem;
             color: black;
+            /* text-shadow: 44px 44px rgb(242, 0, 0); */
             margin-left: 1rem;
             position: relative;
             bottom: -0.5rem;

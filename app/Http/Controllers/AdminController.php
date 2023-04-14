@@ -25,7 +25,7 @@ class AdminController extends Controller
         Session::put('name',$user->name);
         Session::put('role',"Admin");
 
-            return view('admin.admindashboard');
+            return view('admin.home');
 
     }
     public function getuser(Request $request){
@@ -41,7 +41,18 @@ class AdminController extends Controller
             return view('admin.User')->with('User',$user);
 
     }
-    public function newuser(Request $request){
+
+public function getHSDN(Request $request){
+        $request->user()->authorizeRoles(['Admin']);
+        $user = $request->user();
+        Session::put('name',$user->name);
+        Session::put('role',"Admin");
+        $DoanhNghiep = DB::table('doanhnghiep')
+        ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
+        ->select('users.name As tennguoidung','users.id As idnguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*')->get();
+            return view('admin.User')->with('DoanhNghiep',$DoanhNghiep);
+
+    }    public function newuser(Request $request){
         $request->user()->authorizeRoles(['Admin']);
         $user = $request->user();
         Session::put('name',$user->name);
