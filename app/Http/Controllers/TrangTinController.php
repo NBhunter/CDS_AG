@@ -41,6 +41,43 @@ class TrangTinController extends Controller
         $slides = DB::table('slides')->get();
         return view('admin.slide.slide_list')->with('slides',$slides);
     }
+    public function getSlidesChiTiet(Request $request,$slides_id){
+        $request->user()->authorizeRoles(['Admin']);
+        $user = $request->user();
+        $Slides = DB::table('slides')->where('id',$slides_id)->first();
+        return view('admin.slide.slides_detail')->with("Slides",$Slides);
+    }
+    public function UpdateSlides(Request $request)
+    {
+
+        $request->user()->authorizeRoles(['Admin']);
+        $Slides = array();
+        $Slides['TenBanner'] = $request->TenBanner;
+        if($request->id == null)
+        {
+            try {
+                DB::table('slides')->insert($Slides)  ;
+           } catch (\Illuminate\Database\QueryException $ex) {
+               $alert = "Thêm slide không thành công";
+               return Redirect::to('/admin/slide_list')->with('alert',$alert);
+           }
+
+
+           $Success = "Đã thêm slide mới";
+               return Redirect::to('/admin/slide_list')->with('Success',$Success);
+
+        }else{
+    // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
+        try {
+             DB::table('slides')->where('id',$request->id)->update($Slides)  ;
+             $Success = "Đã sửa slide";
+               return Redirect::to('/admin/slide_list')->with('Success',$Success);
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $alert = "Thay đổi thông tin không thành công";
+            return Redirect::to('/admin/slide_list')->with('alert',$alert);
+        }
+    }
+}
     public function DeleteSlide(Request $request)
     {
 

@@ -12,7 +12,7 @@
     <div class="mb-3">
     <label class="small mb-1" for="inputUsername">Họ tên người dùng</label>
     <input class="form-control" id="Username" name="Username" type="text" placeholder="Enter user username" value="{{ $user->tennguoidung }}">
-    <input class="form-control" id="id" name="id" type="text" placeholder="Enter user username" value="{{ $user->idnguoidung }}" hidden>
+    <input class="form-control" id="id" name="id" type="text" placeholder="Nhập họ tên người dùng" value="{{ $user->idnguoidung }}" hidden>
     </div>
 
 
@@ -20,18 +20,18 @@
 
     <div class="col-md-6">
     <label class="small mb-1" for="inputOrgName">Tên doanh nghiệp</label>
-    <input class="form-control" id="inputOrgName" type="text" placeholder="" value="{{ $user->TenDoanhNghiep  }}">
+    <input class="form-control" id="inputOrgName" type="text" placeholder="Nhập tên doanh nghiệp" value="{{ $user->TenDoanhNghiep  }}">
     </div>
 
     <div class="col-md-6">
     <label class="small mb-1" for="inputLocation">Địa chỉ</label>
-    <input class="form-control" id="inputLocation" type="text" placeholder="" value="{{ $user->DiaChiTruSo  }}">
+    <input class="form-control" id="inputLocation" type="text" placeholder="Nhập địa chỉ" value="{{ $user->DiaChiTruSo  }}">
     </div>
     </div>
 
     <div class="mb-3">
     <label class="small mb-1" for="inputEmailAddress">Email</label>
-    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="{{ $user->email }}">
+    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Nhập địa chỉ Email" value="{{ $user->email }}">
     </div>
     <div class="form-group">
     <label for="inputEmailAddress">Quyền</label>
