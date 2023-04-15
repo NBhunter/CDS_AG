@@ -9,21 +9,21 @@
 
     <div class="mb-3">
     <label class="small mb-1" for="inputUsername">Họ tên người dùng</label>
-    <input class="form-control" id="fname" name="fname" type="text" placeholder="Enter user name" value="" autocomplete="off" >
+    <input class="form-control" id="fname" name="fname" type="text" placeholder="Nhập họ tên người dùng" value="" autocomplete="off" >
 
     </div>
     <div class="md-3">
     <label class="small mb-1" for="inputLocation">SĐT</label>
-    <input class="form-control" id="inputLocation" type="text" placeholder="Enter your number phone" value="">
+    <input class="form-control" id="inputLocation" type="text" placeholder="Nhập số điện thoại" value="">
     </div>
 
     <div class="mb-3">
     <label class="small mb-1" for="inputEmailAddress">Email</label>
-    <input class="form-control" id="inputEmailAddress" name="femail" type="email" placeholder="Enter your email address" value="">
+    <input class="form-control" id="inputEmailAddress" name="femail" type="email" placeholder="Nhập địa chỉ email" value="">
     </div>
     <div class="mb-3">
         <label class="small mb-1" for="inputEmailAddress">Password</label>
-        <input class="form-control" id="inputPassword" name="fPassword" type="fPassword" placeholder="Enter your Password" value="" >
+        <input class="form-control" id="inputPassword" name="fPassword" type="fPassword" placeholder="Nhập mật khẩu" value="" >
         </div>
     <div class="form-group">
     <label for="inputEmailAddress">Quyền</label>

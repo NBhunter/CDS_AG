@@ -1,6 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        #myVideo {
+          top: 70px;
+          left: 225px;
+          width: 100%;
+          height: 100%;
+          opacity: 80%;
 
+            }
+            </style>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -264,6 +274,7 @@
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
             <div id="content">
+
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                         <!-- Sidebar Toggle (Topbar) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -274,6 +285,7 @@
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 
                     </form>
+
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
@@ -323,17 +335,18 @@
                                     <i class="far fa-bell"></i>
                                 </div>
                             </div>
-                            <div>
+
 
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-size: 14px;"> Thông báo
                      <span class="caret"></span>
-                            </div>
-                        </a>
+                            </a></div>
+
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="messagesDropdown">
                     <h6 class="dropdown-header">
                        Tất cả sản phẩm
                     </h6>
+
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -355,7 +368,6 @@
                             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                             Đổi mật khẩu
                             </a>
-
 
 
 
@@ -387,9 +399,13 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" >
                                     <!-- Page Heading -->
+
+
                     @yield('content')
+
+
                     </div>
 					</div>
 
@@ -432,21 +448,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('admin_file/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('admin_file/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('admin_file/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('admin_file/js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="{{asset('admin/vendor/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('admin_file/vendor/chart.js/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{asset('admin/js/demo/chart-area-demo.js')}}"></script>
-    <script src="{{asset('admin/js/demo/chart-pie-demo.js')}}"></script>
+    <script src="{{asset('admin_file/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('admin_file/js/demo/chart-pie-demo.js')}}"></script>
 
 
 <script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>

@@ -6,7 +6,8 @@
   min-width: 100%;
   min-height: 100%;
   opacity: 80%;
-
+  width: 100%;
+  height: auto;
     }
     .container-fluid  {
   position: fixed;
@@ -17,6 +18,9 @@
   padding: 16px;
   background-color: rgba(255,255,255,0.8);
   border-radius: 5px;
+
+
+
 }
     </style>
 <x-guest-layout>

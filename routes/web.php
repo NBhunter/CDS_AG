@@ -122,6 +122,8 @@ Route::middleware([
     Route::get('/admin/slide_list','App\Http\Controllers\TrangTinController@getslides');
     Route::post('/save_slide','App\Http\Controllers\TrangTinController@saveslide');
     Route::post('/delete_slide','App\Http\Controllers\TrangTinController@DeleteSlide');
+    Route::get('/edit_Slides/{slides_id}','App\Http\Controllers\TrangtinController@getSlidesChiTiet');
+    Route::post('/update_Slides','App\Http\Controllers\TrangTinController@UpdateSlides');
 
     Route::get('/logout','Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy' );
 
