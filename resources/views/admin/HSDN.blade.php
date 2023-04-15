@@ -13,12 +13,12 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">THÔNG TIN NGƯỜI DÙNG</h1>
+            <h1 style="font-weight:bold;text-align:center;font-size:26px;color:#4e73df;font-style:Roboto;">HỒ SƠ DOANH NGHIỆP</h1>
 
             <!-- DataTales Example -->
             <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh sách doanh nghiệp</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -26,10 +26,10 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên</th>
+                                    <th>Tên doanh nghiệp</th>
                                     <th>Email</th>
-                                    <th>Doanh nghiệp</th>
-                                    <th>Phân Quyền</th>
+                                    <th>Địa chỉ trụ sở</th>
+                                    <th>Tên người đại diện</th>
                                     <th>Xử Lý</th>
                                 </tr>
                             </thead>
@@ -38,7 +38,7 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ( $User as $id => $nd )
+                                @foreach ( $DoanhNghiep as $id => $dn )
                                 <tr>
                                     @csrf
                                     <td>{{ ++$i }}</td>

@@ -306,6 +306,7 @@ enctype="multipart/form-data">
                                 <tr class="" style="text-align:center;font-weight:400;">
                                     <th rowspan="2" style="text-align:center;">{{ $i . '.' . $j . '.' . $y }}</th>
                                     <th rowspan="2">{{ $ctCauhoi->NoiDung }}</th>
+
                                     <th rowspan="1"class="noidung"> {{ $ctCauhoi->TenCauHoi }} </th>
 
                                     <th rowspan="2"> </th>
