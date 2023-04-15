@@ -13,14 +13,14 @@
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
 	<title>Chuyển đổi số tỉnh An Giang - Trang chuyên gia</title>
-    <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin_file/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!-- Custom styles for this template-->
 
-	<link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+	<link href="{{asset('admin_file/css/sb-admin-2.min.css')}}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
@@ -328,21 +328,21 @@
         </div>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
-        <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('admin_file/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('admin_file/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="{{asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+        <script src="{{asset('admin_file/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+        <script src="{{asset('admin_file/js/sb-admin-2.min.js')}}"></script>
 
         <!-- Page level plugins -->
-        <script src="{{asset('admin/vendor/chart.js/Chart.min.js')}}"></script>
+        <script src="{{asset('admin_file/vendor/chart.js/Chart.min.js')}}"></script>
 
         <!-- Page level custom scripts -->
-        <script src="{{asset('admin/js/demo/chart-area-demo.js')}}"></script>
-        <script src="{{asset('admin/js/demo/chart-pie-demo.js')}}"></script>
+        <script src="{{asset('admin_file/js/demo/chart-area-demo.js')}}"></script>
+        <script src="{{asset('admin_file/js/demo/chart-pie-demo.js')}}"></script>
 
 
     <script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>

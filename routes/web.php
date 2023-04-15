@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,16 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/','App\Http\Controllers\homeController@index' );
 Route::get('/trangchu','App\Http\Controllers\homeController@index' );
-Route::get('/tintuc','App\Http\Controllers\homeController@index' );
-Route::get('/tintuc/NongNghiep','App\Http\Controllers\homeController@index' );
+Route::get('/tintuc','App\Http\Controllers\homeController@indexAllnew' );
+Route::get('/tintuc/NongNghiep','App\Http\Controllers\homeController@NongNghiepIndex' );
 Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
 Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
-Route::get('/dangky', function () {
-    return view('home.dangkydoanhnghiep');
-});
+Route::get('/dangky','App\Http\Controllers\homeController@registerview' );
+Route::post('/BinhLuan','App\Http\Controllers\homeController@postcomment' );
+Route::post('/crate_profile','App\Http\Controllers\homeController@crate_profile' );
+// Route::get('/dangky', function () {
+//     return view('home.dangkydoanhnghiep');
+// });
 
 Route::get('/dashboard', function () {
     return view('DoanhNghiep.DKDoanhNghiepMoi');
@@ -97,6 +101,7 @@ Route::middleware([
     Route::get('/admin/xemphieuso4','App\Http\Controllers\DanhGia\DanhGia4Controller@getCauHoi' );
     //lấy user
     Route::get('/admin/user','App\Http\Controllers\AdminController@getuser');
+    Route::get('/admin/HSDN_AD','App\Http\Controllers\AdminController@getHSDN');
     // tạo user
     Route::get('/admin/new_user','App\Http\Controllers\AdminController@newuser');
     Route::post('/admin/new_user','App\Http\Controllers\AdminController@createuser');

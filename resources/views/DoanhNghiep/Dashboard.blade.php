@@ -14,7 +14,7 @@
 
 	<title>Chuyển đổi số tỉnh An Giang - Thông tin doanh nghiệp</title>
 
-    <script src="{{ asset('dasdboard/js/app.js') }}"></script>
+    {{-- <script src="{{ asset('dasdboard/js/app.js') }}"></script> --}}
 	<link href="{{asset('dasdboard/css/app.css')}}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -172,10 +172,10 @@
 
             </footer>
 
-	<script src="js/app.js"></script>
+
 
 	@yield('script')
-
+    <script src="{{ asset('dasdboard/js/app.js') }}"></script>
 </body>
 
 </html>
