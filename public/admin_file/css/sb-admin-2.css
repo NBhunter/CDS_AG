@@ -9797,7 +9797,7 @@ a:focus {
 }
 
 #wrapper #content-wrapper {
-  background-color: rgba(1, 0, 0, 1);
+  background-color: #f8f9fc;
   width: 100%;
   overflow-x: hidden;
 }
