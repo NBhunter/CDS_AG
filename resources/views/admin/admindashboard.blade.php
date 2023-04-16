@@ -312,6 +312,7 @@
                         </li>
                 <!-- Topbar -->
 
+<<<<<<< HEAD
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
@@ -375,6 +376,18 @@
                             <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#fcapnhatthongtin">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Hồ sơ cá nhân
+=======
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">1+</span>
+>>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
                             </a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#fdoimatkhau">
                             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -383,8 +396,11 @@
 
 
 
+<<<<<<< HEAD
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 <div class="dropdown-divider"></div>
+=======
+>>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
 
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 <div class="dropdown-divider"></div>
@@ -429,6 +445,13 @@
 >>>>>>> parent of 54c0d63 (thêm giao diện đăng ký, sửa lỗi đăng ký, thêm giao diện xử lý)
                     </div>
 					</div>
+=======
+                <div class="container-fluid" style="">
+                    <!-- Page Heading -->
+                    @yield('content')
+                </div>
+            </div>
+>>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
 
             <!-- Footer -->
             <div class="text-center p-3" style="background-color: #0038b0;">
@@ -469,6 +492,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
+<<<<<<< HEAD
     <script src="{{asset('admin_file/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admin_file/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -484,6 +508,23 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('admin_file/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('admin_file/js/demo/chart-pie-demo.js')}}"></script>
+=======
+    <script src="{{ asset('admin_file/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin_file/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('admin_file/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('admin_file/js/sb-admin-2.min.js') }}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{{ asset('admin_file/vendor/chart.js/Chart.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('admin_file/js/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ asset('admin_file/js/demo/chart-pie-demo.js') }}"></script>
+>>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
 
 
 <script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>
