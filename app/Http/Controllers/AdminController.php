@@ -113,25 +113,6 @@ class AdminController extends Controller
 
     	return Redirect::to('admin/themnganhnghe');
     }
-    public function Deletenganhnghe(Request $request)
-    {
-
-        $request->user()->authorizeRoles(['Admin']);
-
-        // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
-        try {
-             DB::table('nganhnghe')->where('id',$request->id)->delete();
-        } catch (\Illuminate\Database\QueryException $ex) {
-            $alert = "Xóa không thành công";
-            return Redirect::to('/admin/themnganhnghe')->with('alert',$alert);
-        }
-
-
-        $Success = "Đã xóa ngành nghề thành công";
-            return Redirect::to('/admin/themnganhnghe')->with('Success',$Success);
-
-
-    }
     public function saveloaihinh(Request $request){
         $request->user()->authorizeRoles(['Admin']);
         //thêm chi tiết
@@ -140,25 +121,6 @@ class AdminController extends Controller
         DB::table('loaihinhdoanhnghiep')->insert($ct);
 
     	return Redirect::to('admin/themloaihinh');
-    }
-    public function Deleteloaihinh(Request $request)
-    {
-
-        $request->user()->authorizeRoles(['Admin']);
-
-        // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
-        try {
-             DB::table('loaihinhdoanhnghiep')->where('id',$request->id)->delete();
-        } catch (\Illuminate\Database\QueryException $ex) {
-            $alert = "Xóa không thành công";
-            return Redirect::to('/admin/themloaihinh')->with('alert',$alert);
-        }
-
-
-        $Success = "Đã xóa loại hình doanh nghiệp thành công";
-            return Redirect::to('/admin/themloaihinh')->with('Success',$Success);
-
-
     }
     public function getLoaiTin(Request $request){
         $request->user()->authorizeRoles(['Admin']);

@@ -91,13 +91,11 @@
         <div class="container">
             <a class="navbar-brand" style="width: 5%;" href="{{ URL::to('trangchu') }}"><img
                     src="{{ asset('img/logo_ag.png') }}" alt="" width="100%" height="auto"></a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
@@ -128,7 +126,7 @@
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Tìm kiếm thông tin" aria-label="Search"
-                        style="width:200px;">
+                        style="width:300px;">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
             </div>

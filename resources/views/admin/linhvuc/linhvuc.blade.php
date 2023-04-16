@@ -58,7 +58,7 @@
                                     @csrf
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $lv->TenLinhVuc }}</td>
-                                    <td>{{ $lv->MoTa}}</td>
+                                    <td>{{ $lv->MoTa }}</td>
                                     <td>
 
                                     <a class="btn btn-warning " href="{{ URL::to('/edit_LV/'.$lv->Id) }}"><i class='fas fa-edit'></i></a></td>
