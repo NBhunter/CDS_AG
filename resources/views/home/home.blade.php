@@ -453,7 +453,7 @@
                 <div class="col-md-6 col-lg-4 column">
                     <div class="card gr-2">
                         <div class="txt">
-                            <h1>XÂY DỰNG </br>
+                            <h1>CÔNG NGHIỆP </br>
                                 & CÁC LĨNH VỰC LIÊN QUAN</h1>
                             {{-- <p>How design is implemented on the web.</p> --}}
                         </div>
@@ -603,28 +603,28 @@
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button facebook-button">
                                         <i class="fa fa-facebook"></i>
-                                        <p>27k</p>
+
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button twitter-button">
                                         <i class="fa fa-twitter"></i>
-                                        <p>98k</p>
+
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button google-button">
                                         <i class="fa fa-google-plus"></i>
-                                        <p>17k</p>
+
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button youtube-button">
                                         <i class="fa fa-youtube"></i>
-                                        <p>22k</p>
+
                                     </a>
                                 </div>
                             </div>
