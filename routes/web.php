@@ -64,9 +64,12 @@ Route::middleware([
     // thêm ngành nghề
 
     Route::get('/admin/themnganhnghe','App\Http\Controllers\AdminController@viewnganhnghe');
+    Route::post('/delete_nganhnghe','App\Http\Controllers\AdminController@Deletenganhnghe');
+
     Route::get('/admin/themloaihinh','App\Http\Controllers\AdminController@viewloaihinh');
     Route::post('/save-nganhnghe','App\Http\Controllers\AdminController@savenganhnghe');
     Route::post('/save-loaihinh','App\Http\Controllers\AdminController@saveloaihinh');
+    Route::post('/delete_loaihinh','App\Http\Controllers\AdminController@Deleteloaihinh');
 
     //form thêm phiếu
     Route::get('/admin/themcauhoiso1','App\Http\Controllers\DanhGia\DanhGia1Controller@getidCauHoi' );
