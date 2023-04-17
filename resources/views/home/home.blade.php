@@ -402,11 +402,7 @@
                                 & CÁC LĨNH VỰC LIÊN QUAN</h1>
 
                         </div>
-<<<<<<< HEAD
                         <a href="#">Xem thêm</a>
-=======
-                        <a class="link" href="{{ URL::to('/tintuc/NongNghiep') }}">more</a>
->>>>>>> f844323102cab8e606c25e12988e7060b9bdee42
                         <div class="ico-card">
                             <i class="fa fa-leaf"></i>
                         </div>
@@ -421,11 +417,7 @@
                                 & CÁC LĨNH VỰC LIÊN QUAN</h1>
                             {{-- <p>How design is implemented on the web.</p> --}}
                         </div>
-<<<<<<< HEAD
                         <a href="#">Xem thêm</a>
-=======
-                        <a class="link" href="{{ URL::to('/tintuc/CongNghiep') }}">more</a>
->>>>>>> f844323102cab8e606c25e12988e7060b9bdee42
                         <div class="ico-card">
                             <i class="fa fa-cog"></i>
                         </div>
@@ -439,11 +431,7 @@
                             <h1>THƯƠNG MẠI & DỊCH VỤ </br>& CÁC LĨNH VỰC LIÊN QUAN</h1>
                             {{-- <p>User Interface and User Experience Design.</p> --}}
                         </div>
-<<<<<<< HEAD
                         <a href="#">Xem thêm</a>
-=======
-                        <a class="link" href="{{ URL::to('/tintuc/TMDV') }}">more</a>
->>>>>>> f844323102cab8e606c25e12988e7060b9bdee42
                         <div class="ico-card">
                             <i class="fa fa-building"></i>
                         </div>
