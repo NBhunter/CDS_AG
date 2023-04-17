@@ -1,30 +1,7 @@
 <style>
-<<<<<<< HEAD
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  opacity: 80%;
-  width: 100%;
-  height: auto;
-    }
-    .container-fluid  {
-  position: fixed;
-  top:15%;
-  right: 25%;
-  margin: 20px;
-  width: 600px;
-  padding: 16px;
-  background-color: rgba(255,255,255,0.8);
-  border-radius: 5px;
 
 
 
-}
-    </style>
-=======
     #myVideo {
         position: fixed;
         right: 0;
@@ -122,7 +99,7 @@
         }
     }
 </style>
->>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
+
 <x-guest-layout>
     <section class="vh-100">
         <video autoplay muted loop id="myVideo">
