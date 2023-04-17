@@ -17,12 +17,14 @@ use App\Http\Controllers\HomeController;
 Route::get('/','App\Http\Controllers\homeController@index' );
 Route::get('/trangchu','App\Http\Controllers\homeController@index' );
 Route::get('/tintuc','App\Http\Controllers\homeController@indexAllnew' );
-Route::get('/tintuc/NongNghiep','App\Http\Controllers\homeController@NongNghiepIndex' );
-Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
-Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
+Route::get('/tintuc/{LinhVuc}','App\Http\Controllers\homeController@TinLinhVucIndex' );
+// Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
+// Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
 Route::get('/dangky','App\Http\Controllers\homeController@registerview' );
 Route::post('/BinhLuan','App\Http\Controllers\homeController@postcomment' );
-Route::post('/crate_profile','App\Http\Controllers\DoanhNghiepController@crate_profile' );
+Route::post('/crate_profile','App\Http\Controllers\homeController@crate_profile' );
+
+Route::get('/searching','App\Http\Controllers\homeController@searching' );
 // Route::get('/dangky', function () {
 //     return view('home.dangkydoanhnghiep');
 // });
