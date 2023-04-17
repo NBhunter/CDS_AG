@@ -1,105 +1,28 @@
 <style>
-
-
-
-    #myVideo {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-        opacity: 80%;
-
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 80%;
+  width: 100%;
+  height: auto;
     }
+    .container-fluid  {
+  position: fixed;
+  top:15%;
+  right: 25%;
+  margin: 20px;
+  width: 600px;
+  padding: 16px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 5px;
 
-    .container-fluid {
-        position: fixed;
-        top: 15%;
-        right: 25%;
-        /* margin: 20px; */
-        width: 600px;
-        /* padding: 16px; */
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 5px;
-    }
 
-    @media only screen and (max-width: 600px) {
-        .container-fluid {
-            position: fixed;
-            top: 15%;
-            right: 15%;
-            left: 15%;
-            margin-left: 200px;
-            width: 250px;
-            /* padding-left: 35%; */
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-        }
-        .login{
-            margin-left: 200px;
-        }
-    }
 
-    /* Small devices (portrait tablets and large phones, 600px and up) */
-    @media only screen and (min-width: 600px) {
-        .container-fluid {
-            position: fixed;
-            top: 15%;
-            right: 15%;
-            left: 15%;
-            /* margin: 20px; */
-            width: 350px;
-            /* padding: 16px; */
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-        }
-
-    }
-
-    /* Medium devices (landscape tablets, 768px and up) */
-    @media only screen and (min-width: 768px) {
-        .container-fluid {
-            position: fixed;
-            top: 15%;
-            right: 15%;
-            left: 15%;
-            /* margin: 20px; */
-            width: 400px;
-            /* padding: 16px; */
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-        }
-    }
-
-    /* Large devices (laptops/desktops, 992px and up) */
-    @media only screen and (min-width: 992px) {
-        .container-fluid {
-            position: fixed;
-            top: 15%;
-            right: 25%;
-            /* margin: 20px; */
-            width: 500px;
-            /* padding: 16px; */
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-        }
-    }
-
-    /* Extra large devices (large laptops and desktops, 1200px and up) */
-    @media only screen and (min-width: 1200px) {
-        .container-fluid {
-            position: fixed;
-            top: 15%;
-            right: 15%;
-            /* margin: 20px; */
-            width: 650px;
-            /* padding: 16px; */
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-        }
-    }
-</style>
-
+}
+    </style>
 <x-guest-layout>
     <section class="vh-100">
         <video autoplay muted loop id="myVideo">

@@ -43,7 +43,7 @@
                                     @csrf
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $nd->tennguoidung }}</td>
-                                    <td>{{ $nd->email }}</td>
+                                    <td>{{ $nd->Uemail }}</td>
                                     <td>
                                         @if ($nd->name == 'Admin' || $nd->name =='CTV')
                                         Tài Khoản Quản Trị

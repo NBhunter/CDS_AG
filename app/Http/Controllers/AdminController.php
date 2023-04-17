@@ -7,8 +7,10 @@ use Session;
 use DB;
 
 use App\Mail\CreateAccountmail;
+use App\Models\Role;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -19,13 +21,14 @@ class AdminController extends Controller
    }
 
     public function getdashboard(Request $request){
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin','QTV']);
         $user = $request->user();
         Session::put('user_id',$user->id);
         Session::put('name',$user->name);
-        Session::put('role',"Admin");
+        $role = DB::table('role_user')->leftjoin('Roles','role_user.Role_id','Roles.id')->where('role_user.User_id',$user->id)->first();
+        Session::put('role',$role->name);
 
-            return view('admin.admindashboard');
+            return view('admin.adminhome');
 
     }
     public function getuser(Request $request){
@@ -37,7 +40,7 @@ class AdminController extends Controller
         ->leftjoin('roles','roles.id','=','role_user.Role_id')
         ->leftjoin('dn_user','dn_user.User_id','=','users.id')
         ->leftjoin('doanhnghiep','doanhnghiep.Id','=','dn_user.DoanhNghiep_id')
-        ->select('users.name As tennguoidung','users.id As idnguoidung','users.*','roles.*','doanhnghiep.*','role_user.*','dn_user.*')->get();
+        ->select('users.name As tennguoidung','users.id As idnguoidung','users.email as Uemail','users.*','roles.*','doanhnghiep.email as EmailDN','doanhnghiep.*','role_user.*','dn_user.*')->get();
             return view('admin.User')->with('User',$user);
 
     }
@@ -57,16 +60,17 @@ class AdminController extends Controller
     }
     public function createuser(Request $request){
         $request->user()->authorizeRoles(['Admin']);
-        $user = $request->user();
-        Session::put('user_id',$user->id);
-        Session::put('name',$user->name);
-        Session::put('role',"Admin");
         $user = array();
         $user['name'] = $request->fname;
         $user['email'] = $request->femail;
-        $user['Password'] = md5($request->fPassword);
-
-        return view('admin.new_user')->with('Roles',$roles);
+        $user['Password'] = Hash::make($request->fPassword);
+        $user['status'] = '1';
+        $role = array();
+        $role['Role_id']= $request->role;
+        $role['User_id'] = DB::table('users')->insertGetId($user);
+        DB::table('role_user')->insert($role);
+        $roles =DB::table('roles')->WHERE('name','not like','DoanhNghiep%')->get();
+        return Redirect::to('admin/user');
 
     }
 

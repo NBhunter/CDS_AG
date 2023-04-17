@@ -141,13 +141,14 @@
                                                     <h5>{{  $cmt->TenNguoiBL }}</h5>
                                                     <p>{{ $cmt->NoiDung }}</p>
                                                     <a href="#">Like</a>
-                                                    <a class="active replybtn" data-id="{{ $cmt->Id }}">Reply</a>
-                                                    <form action="{{ URL::to('/BinhLuan') }}" method="post" id="reply" style="display: none;" target="hidden-form" enctype="multipart/form-data">
+                                                    <a class="active replybtn " data-id="{{ $cmt->Id }}">Reply</a>
+                                                    <form action="{{ URL::to('/BinhLuan') }}" method="post" id="{{ $cmt->Id  }}" style="display: none;" target="hidden-form" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="col-12 col-md-6">
                                                                 <div class="form-group">
-                                                                    <input type="hidden" class="form-control" name="IdNews" value="{{ $TinTuc->Id }}" id="contact-name" >
+                                                                    <input type="hidden" class="form-control" name="IdCon" value="{{  $cmt->Id  }}" id="contact-name" >
+                                                                    <input type="hidden" class="form-control" name="IdNews" value="{{  $TinTuc->Id  }}" id="contact-name" >
                                                                     <input type="text" class="form-control" name="Name" id="contact-name" placeholder="Name">
                                                                 </div>
                                                             </div>
@@ -255,12 +256,14 @@
             @if(session('alert'))   
             window.onload = function(){
                 alert('{{session('alert')}}');
+                window.location.reload();
             }
 
 
     @endif  
             $('.replybtn').click(function(){
-                const form = document.getElementById('reply');
+                var id = $(this).data("id");
+                const form = document.getElementById(id);
                 if (form.style.display === 'none') {
     // 👇️ this SHOWS the form
     form.style.display = 'block';

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     @yield('link')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <!-- link root -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" type="image/ico" href="{{ asset('img/logo_ag.ico') }}" />
@@ -124,14 +126,27 @@
                     <!-- </div> -->
                     </li>
                 </ul>
+<<<<<<< HEAD
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Tìm kiếm thông tin" aria-label="Search"
                         style="width:200px;">
+=======
+                <div class="">
+                <form class="d-flex input-group">
+                    <input type="search" id="search" name="search" class="form-control rounded" placeholder="Search" />
+>>>>>>> f844323102cab8e606c25e12988e7060b9bdee42
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
+
+            </div>
             </div>
         </div>
+
     </nav>
+    <div class="mycard " style="position: absolute;z-index: 4;margin-left:62%;">
+
+    </div>
+
     @if (session('alert'))
         <div class="alert alert-danger alert-dismissible" role="alert">
             <div>
@@ -185,7 +200,29 @@
                 href="https://fit.agu.edu.vn/" style="color: #00d7eb; font-weight: bold;">FIT - TRƯỜNG ĐH AN GIANG</a>
         </p>
     </div>
+
     <!-- Copyright -->
 </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#search').on('keyup', function(){
+            var value = $(this).val();
+            $.ajax({
+                type: "get",
+                url: "/searching",
+                data: {'search':value},
+                success: function (data) {
+                    // document.getElementById("searchcard").style.display = block;
+                    // $('.searchcard').style.display
+                    $('.mycard').html(data);
+                }
+            });
+        });
 
+        });
+        </script>
 </html>
