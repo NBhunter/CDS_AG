@@ -64,6 +64,7 @@
             <div class="sidebar-heading">
                 Người dùng
             </div>
+            @if (Session::get('role') == 'Admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{ URL::to('admin/user') }}">
                     <i class="fas fa-address-book"></i>
@@ -74,6 +75,10 @@
                     <i class="	fas fa-users"></i>
                     <span> Nhóm người dùng</span></a>
             </li>
+            @else
+
+            @endif
+
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -312,7 +317,6 @@
                         </li>
                 <!-- Topbar -->
 
-<<<<<<< HEAD
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
@@ -336,30 +340,17 @@
                                     <i class="far fa-bell"></i>
                                 </div>
                             </div>
-<<<<<<< HEAD
 
 
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-size: 14px;"> Thông báo
                      <span class="caret"></span>
                             </a></div>
 
-=======
-                            <div>
-
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-size: 14px;"> Thông báo
-                     <span class="caret"></span>
-                            </div>
-                        </a>
->>>>>>> parent of 54c0d63 (thêm giao diện đăng ký, sửa lỗi đăng ký, thêm giao diện xử lý)
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="messagesDropdown">
                     <h6 class="dropdown-header">
                        Tất cả sản phẩm
                     </h6>
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 54c0d63 (thêm giao diện đăng ký, sửa lỗi đăng ký, thêm giao diện xử lý)
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -376,18 +367,7 @@
                             <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#fcapnhatthongtin">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Hồ sơ cá nhân
-=======
-                        <!-- Sidebar Toggle (Topbar) -->
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">1+</span>
->>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
+
                             </a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#fdoimatkhau">
                             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -396,23 +376,18 @@
 
 
 
-<<<<<<< HEAD
-                            <form method="POST" action="{{ route('logout') }}" x-data>
-                                <div class="dropdown-divider"></div>
-=======
->>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
 
-                            <form method="POST" action="{{ route('logout') }}" x-data>
+
                                 <div class="dropdown-divider"></div>
 
-                                <form method="POST" action="{{ route('logout') }}" x-data>
-                                    @csrf
+        <form method="POST" action="{{ route('logout') }}" x-data>
+            @csrf
 
-                                    <x-jet-responsive-nav-link href="/"
-                                                   @click.prevent="$root.submit();">
-                                        {{ __('Thoát') }}
-                                    </x-jet-responsive-nav-link>
-                                </form>
+            <x-jet-dropdown-link class="dropdown-item" style="font-family: Roboto;color:black;font-size:14px;" href="{{ route('logout') }}"
+                     @click.prevent="$root.submit();">
+               Thoát
+            </x-jet-dropdown-link>
+        </form>
 
 
 
@@ -430,28 +405,12 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-<<<<<<< HEAD
-                <div class="container-fluid" >
-                                    <!-- Page Heading -->
-
-
-                    @yield('content')
-
-
-=======
                 <div class="container-fluid">
                                     <!-- Page Heading -->
                     @yield('content')
->>>>>>> parent of 54c0d63 (thêm giao diện đăng ký, sửa lỗi đăng ký, thêm giao diện xử lý)
                     </div>
 					</div>
-=======
-                <div class="container-fluid" style="">
-                    <!-- Page Heading -->
-                    @yield('content')
-                </div>
-            </div>
->>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
+
 
             <!-- Footer -->
             <div class="text-center p-3" style="background-color: #0038b0;">
@@ -492,7 +451,6 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-<<<<<<< HEAD
     <script src="{{asset('admin_file/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admin_file/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -508,23 +466,6 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('admin_file/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('admin_file/js/demo/chart-pie-demo.js')}}"></script>
-=======
-    <script src="{{ asset('admin_file/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin_file/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('admin_file/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('admin_file/js/sb-admin-2.min.js') }}"></script>
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('admin_file/vendor/chart.js/Chart.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('admin_file/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('admin_file/js/demo/chart-pie-demo.js') }}"></script>
->>>>>>> 54c0d638be19d20be81f7b78b40a3283ec27bbaf
 
 
 <script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>
