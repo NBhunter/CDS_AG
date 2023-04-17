@@ -39,15 +39,13 @@
 
         <select class="form-control input-sm m-bot15" id="role" name="role" >
             @foreach ($Roles as $id => $role )
-
-            @if ($role->id == $user->Role_id)
+            @if ($role->id !='1' && $role->id != '4')
+            @if ($role->id == $user->Role_id )
             <option for = "role"value="{{ $role->id }}" selected>{{ $role->name }}</option>
             @else
             <option for = "role" value="{{ $role->id }}">{{ $role->name }}</option>
             @endif
-
-
-
+            @endif
             @endforeach
           </select>
 
