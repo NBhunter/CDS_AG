@@ -396,7 +396,7 @@
                                 & CÁC LĨNH VỰC LIÊN QUAN</h1>
                             {{-- <p>Visual communication and problem-solving</p> --}}
                         </div>
-                        <a href="#">more</a>
+                        <a href="#">Xem thêm</a>
                         <div class="ico-card">
                             <i class="fa fa-leaf"></i>
                         </div>
@@ -405,11 +405,11 @@
                 <div class="col-md-6 col-lg-4 column">
                     <div class="card gr-2">
                         <div class="txt">
-                            <h1>XÂY DỰNG </br>
+                            <h1>CÔNG NGHIỆP </br>
                                 & CÁC LĨNH VỰC LIÊN QUAN</h1>
                             {{-- <p>How design is implemented on the web.</p> --}}
                         </div>
-                        <a href="#">more</a>
+                        <a href="#">Xem thêm</a>
                         <div class="ico-card">
                             <i class="fa fa-cog"></i>
                         </div>
@@ -421,7 +421,7 @@
                             <h1>THƯƠNG MẠI & DỊCH VỤ </br>& CÁC LĨNH VỰC LIÊN QUAN</h1>
                             {{-- <p>User Interface and User Experience Design.</p> --}}
                         </div>
-                        <a href="#">more</a>
+                        <a href="#">Xem thêm</a>
                         <div class="ico-card">
                             <i class="fa fa-building"></i>
                         </div>
