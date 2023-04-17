@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Session;
 use DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -26,22 +31,41 @@ class HomeController extends Controller
     {
         $slides = DB::table('slides')->get();
         $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('updated_at', 'desc')->paginate(6);
-
-        return view('home.home')->with('slides', $slides)->with('tinmoi', $tinmoi);
+        $tinnoibat =  DB::table('tintucs')
+        ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')
+        ->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('LuotXem', 'desc')->limit(5)->get();
+        return view('home.home')->with('slides', $slides)->with('tinmoi', $tinmoi)->with('tinnoibat',$tinnoibat);
     }
     public function indexAllnew()
     {
         $slides = DB::table('slides')->get();
         $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('updated_at', 'desc')->paginate(6);
-
-        return view('home.home')->with('slides', $slides)->with('tinmoi', $tinmoi);
+        $tinnoibat =  DB::table('tintucs')
+        ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')
+        ->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('LuotXem', 'desc')->limit(5)->get();
+        return view('home.home')->with('slides', $slides)->with('tinmoi', $tinmoi)->with('tinnoibat',$tinnoibat);
     }
-    public function NongNghiepIndex()
+    public function TinLinhVucIndex($LinhVuc)
     {
-        $slides = DB::table('slides')->get();
-        $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('updated_at', 'desc')->paginate(6);
+        if($LinhVuc == 'NongNghiep'){
+            $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*','tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '1')->orderBy('updated_at', 'desc')->paginate(6);
+            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức nông nghiệp");
+        }
+        if($LinhVuc == 'CongNghiep'){
+            $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*','tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '2')->orderBy('updated_at', 'desc')->paginate(6);
+            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức công nghiệp");
+        }
+        if($LinhVuc == 'TMDV'){
+            $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*','tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '3')->orderBy('updated_at', 'desc')->paginate(6);
+            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức thương mại dịch vụ");
+        }
+        if($LinhVuc == 'Khac '){
+            $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*','tintucs.LinhVuc_id', 'linhvuc.*')->orderBy('updated_at', 'desc')->paginate(6);
+            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức tổng hợp");
+        }
 
-        return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức nông nghiệp");
+
+
     }
     public function adminHome()
     {
@@ -60,9 +84,9 @@ class HomeController extends Controller
         $input = $request->collect();
         $cmt = array();
 
-        if(isset($input['reply_id']))
+        if(isset($input['IdCon']))
         {
-            $cmt['IdCon'] = $input['reply_id'];
+            $cmt['IdCon'] = $input['IdCon'];
         }
         $cmt['NoiDung']= $input['message'];
         $cmt['TrangThai'] = '0';
@@ -80,5 +104,52 @@ class HomeController extends Controller
 
         return redirect()->back()->with('alert',$alert);
 
+    }
+    public function crate_profile(Request $request)
+    {
+        $DN = array();
+        $DN['Id'] = $request->MST;
+        $DN['TenDoanhNghiep'] = $request->TenDN;
+        $DN['TenVietTat'] = $request->TenVT;
+        $DN['DiaChiTruSo'] = $request->TruSo;
+        $DN['DiaPhuong'] = $request->DiaPhuong;
+        $DN['SoLuongLaoDong'] = $request->QuyMo;
+        $DN['email'] = $request->Email;
+        $DN['SoDienThoai'] = $request->SDT;
+        $DN['LinhVuc_Id'] = $request->LinhVuc;
+        $DN['TrangThai_HienThi'] = '0';
+        $CTDN = array();
+        // $id = $request->idCT;
+        $CTDN['DoanhNghiep_id'] = DB::table('doanhnghiep')->insertGetId($DN);
+        $CTDN['MaSoThue'] = $request->MST;
+        $CTDN['NgayHoatDong'] = $request->NHD;
+        $CTDN['LoaiHinhDN'] = $request->LoaiHinh;
+        $CTDN['TenVietTat'] = $request->TenVT;
+        $CTDN['TenTiengAnh'] = $request->TenTA;
+        $CTDN['VonDieuLe'] = $request->VonDieuLe;
+        $CTDN['QuyMoNhanSu'] = $request->QuyMo;
+        $CTDN['DC_ThanhPho'] = $request->DC_ThanhPho;
+        $CTDN['DC_Huyen'] = $request->DC_Huyen;
+        $CTDN['DC_Phuong'] = $request->DC_Phuong;
+        $CTDN['DC_SoNha'] = $request->DC;
+        $CTDN['SDT'] = $request->SDT;
+        $CTDN['FAX'] = $request->Fax;
+        $CTDN['Website'] = $request->Web;
+        $CTDN['Zipcode'] = $request->Zip;
+
+            $CTDN['created_at'] = Carbon::now();
+            DB::table('chitiet_doanhnghiep')->insert($CTDN);
+            $alert = 'Đã đăng ký thông tin doanh nghiệp';
+        $User = new User();
+        $User['name'] = $request->Hoten;
+        $User['email'] = $request->EmailNguoiDaiDien;
+        $User['password'] = Hash::make($request->DienThoaiNguoiDaiDien);
+        $User['phone'] = $request->DienThoaiNguoiDaiDien;
+        $User['status'] = 0;
+        $User->save();
+
+        DB::table('role_user')->insert(['Role_id'=>'1','User_id'=> $User['id']]);
+        DB::table('dn_user')->insert(['DoanhNghiep_id'=>$CTDN['DoanhNghiep_id'],'User_id'=> $User['id']]);
+        return Redirect::to('/')->with('alert', $alert);
     }
 }

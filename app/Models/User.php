@@ -91,4 +91,6 @@ public function hasRole($role)
 {
   return null !== $this->roles()->where('name', $role)->first();
 }
+
+
 }

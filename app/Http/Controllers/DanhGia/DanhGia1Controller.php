@@ -31,7 +31,7 @@ class DanhGia1Controller extends Controller
         }
         $now = Carbon::now();
 
-        if ($updated->diffInMonths($now) > 3) {
+        if ($updated->diffInMonths($now) <10) {
             $Cauhoi = chitiet_P1::leftjoin('chitiet_cauhoi', 'chitiet_cauhoi.ChiTiet_id', '=', 'chitiet.id')
                 ->leftjoin('cauhoi', 'cauhoi.id', '=', 'chitiet_cauhoi.CauHoi_id')
                 ->select('chitiet.id AS idcauhoi', 'chitiet.*', 'cauhoi.*', 'chitiet_cauhoi.*')
@@ -223,6 +223,7 @@ class DanhGia1Controller extends Controller
                 Session::put('ID_C2_Truoc', $Ch->Id);
                 Session::push('temp', $Ch->Id);
             }
+
             if ($Ch->Cap == 3 && $request->maphieu != null && $request[$Ch->Id] != null && !in_array($Ch->Id, Session::get('temp'))) {
                 $chitietcauhoi = new phieu1_diem();
                 $chitietcauhoi['Phieu_id'] = $request->maphieu;
@@ -235,6 +236,34 @@ class DanhGia1Controller extends Controller
                 $chitietcauhoi->save();
                 Session::push('temp', $Ch->Id);
             }
+            // if ($Ch->Cap == 2  && $request[$Ch->Id] != null && in_array($Ch->Id, Session::get('temp')) && Session::get('DiemC2') > 0) {
+            //     if (Session::get('ID_C2_Truoc') != 0) {
+
+            //         $chitietcauhoiC2 = phieu1_diem::where('ChiTiet_id',Session::get('ID_C2_Truoc'))->where('Phieu_id',$request->maphieu);
+            //         $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
+            //         $chitietcauhoiC2['ChiTiet_id'] = Session::get('ID_C2_Truoc');
+            //         $chitietcauhoiC2['Diem'] = Session::get('DiemC2');
+            //         // DB::table('phieu1_diem')->insert($chitietcauhoiC2);
+            //         $chitietcauhoiC2->save();
+            //     }
+            //     Session::put('DiemC2', '0');
+            //     Session::put('ID_C2_Truoc', $Ch->Id);
+            //     Session::push('temp', $Ch->Id);
+            // }
+            // if ($Ch->Cap == 3 && $request->maphieu != null && $request[$Ch->Id] != null && in_array($Ch->Id, Session::get('temp'))) {
+            //     $chitietcauhoi = phieu1_diem::where('ChiTiet_id',$request[$Ch->Id])->where('Phieu_id',$request->maphieu);
+            //     // $chitietcauhoi['Phieu_id'] = $request->maphieu;
+            //     // $chitietcauhoi['ChiTiet_id'] = $Ch->Id;
+            //     $TongDiem -= $chitietcauhoi['Diem'];
+            //     $chitietcauhoi['Diem'] = $request[$Ch->Id];
+            //     $TongDiem += $request[$Ch->Id];
+            //     Session::put('DiemC1', Session::get('DiemC1') + $request[$Ch->Id]);
+            //     Session::put('DiemC2', Session::get('DiemC2') + $request[$Ch->Id]);
+            //     // DB::table('phieu1_diem')->insert($chitietcauhoi);
+            //     $chitietcauhoi->save();
+            //     Session::push('temp', $Ch->Id);
+            // }
+
 
         }
         $thongtinphieu['TongDiem'] = $TongDiem;

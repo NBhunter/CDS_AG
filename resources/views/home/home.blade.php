@@ -48,7 +48,7 @@
             transform: translateY(-50%);
         }
         .column {
-            margin-top: 18rem;
+            margin-top: 4rem;
             padding-left: 3rem;
         }
         .column:hover {
@@ -112,7 +112,7 @@
             text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
             text-transform: uppercase;
         }
-        .card a:after {
+        .card .link:after {
             content: "";
             display: inline-block;
             height: 0.5em;
@@ -145,18 +145,20 @@
         }
         .btnslide {
             height: 280px;
-            background: linear-gradient(115deg, #93EFED 0%, #44AEC2 25%, #4262C5 50%, #362999 100%);
+
             /* background-attachment: fixed; */
         }
         @media only screen and (max-width: 600px) {
             .btnslide {
-                height: 500px;
-                background: linear-gradient(145deg, #93EFED 0%, #44AEC2 25%, #4262C5 50%, #362999 100%);
+                /* margin-top: 10px; */
+                height: 50px;
+
                 /* background-attachment: fixed; */
             }
             .column {
-            margin-top: 25rem;
-            margin-bottom: -23rem;
+
+            margin-top: -23rem;
+            margin-bottom: 23rem;
             padding-left: -7rem;
         }
         .column:hover {
@@ -178,7 +180,9 @@
         }
         .card {
             min-height: 60px;
-            margin: 0;
+
+            margin-top: -16rem;
+            margin-bottom: 16rem;
             padding: 1.7rem 1.2rem;
             border: none;
             border-radius: 0;
@@ -247,7 +251,7 @@
         @media only screen and (max-width: 1200px) {
             .btnslide {
                 height: 450px;
-                background: linear-gradient(145deg, #93EFED 0%, #44AEC2 25%, #4262C5 50%, #362999 100%);
+                 ;
                 /* background-attachment: fixed; */
             }
             .column {
@@ -267,7 +271,7 @@
             color: white;
             opacity: 1;
         }
-        .column:hover a {
+        .column:hover .link {
             color: white;
         }
         .column:hover a:after {
@@ -303,7 +307,7 @@
             opacity: 0;
             color: white;
         }
-        .card a {
+        .card .link {
             z-index: 3;
             font-size: 0.7rem;
             color: black;
@@ -313,7 +317,7 @@
             text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
             text-transform: uppercase;
         }
-        .card a:after {
+        .card .link:after {
             content: "";
             display: inline-block;
             height: 0.5em;
@@ -368,7 +372,7 @@
                 } */
 
     </style>
-    <div class="w3-content w3-display-container" style="max-width:100%">
+    <div class="w3-content " style="max-width:100%">
     @foreach ($slides as $id => $slide)
 
             @if ($slide->Status == 1)
@@ -386,50 +390,57 @@
         <span class="w3-badge demo w3-border w3-transparent w3-hover-white" style="cursor:pointer"
             onclick="currentDiv(3)"></span>
     </div>
-    <div class=" btnslide">
-        <div class="container" style="">
-            <div class="row align-middle">
+    </div>
+    <section class="btnhome" style="background: linear-gradient(145deg, #93EFED 0%, #44AEC2 25%, #4262C5 50%, #362999 100%);">
+        <div class="container btnslide" style="">
+            <div class="row">
                 <div class="col-md-6 col-lg-4 column ">
+                    <a href="{{ URL::to('/tintuc/NongNghiep') }}">
                     <div class="card gr-1">
                         <div class="txt">
                             <h1>NÔNG NGHIỆP </br>
                                 & CÁC LĨNH VỰC LIÊN QUAN</h1>
-                            {{-- <p>Visual communication and problem-solving</p> --}}
+
                         </div>
-                        <a href="#">more</a>
+                        <a class="link" href="{{ URL::to('/tintuc/NongNghiep') }}">more</a>
                         <div class="ico-card">
                             <i class="fa fa-leaf"></i>
                         </div>
                     </div>
+                </a>
                 </div>
                 <div class="col-md-6 col-lg-4 column">
+                    <a href="{{ URL::to('/tintuc/CongNghiep') }}">
                     <div class="card gr-2">
                         <div class="txt">
-                            <h1>XÂY DỰNG </br>
+                            <h1>CÔNG NGHIỆP </br>
                                 & CÁC LĨNH VỰC LIÊN QUAN</h1>
                             {{-- <p>How design is implemented on the web.</p> --}}
                         </div>
-                        <a href="#">more</a>
+                        <a class="link" href="{{ URL::to('/tintuc/CongNghiep') }}">more</a>
                         <div class="ico-card">
                             <i class="fa fa-cog"></i>
                         </div>
                     </div>
+                </a>
                 </div>
                 <div class="col-md-6 col-lg-4 column">
+                    <a href="{{ URL::to('/tintuc/TMDV') }}">
                     <div class="card gr-3">
                         <div class="txt">
                             <h1>THƯƠNG MẠI & DỊCH VỤ </br>& CÁC LĨNH VỰC LIÊN QUAN</h1>
                             {{-- <p>User Interface and User Experience Design.</p> --}}
                         </div>
-                        <a href="#">more</a>
+                        <a class="link" href="{{ URL::to('/tintuc/TMDV') }}">more</a>
                         <div class="ico-card">
                             <i class="fa fa-building"></i>
                         </div>
                     </div>
+                </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <section class="section">
         <div class="container">
                 <div class="row">
@@ -509,35 +520,18 @@
                             <h2 class="widget-title">Tin phổ biến</h2>
                             <div class="blog-list-widget">
                                 <div class="list-group">
+                                    @foreach ( $tinnoibat as $topnews )
                                     <a href="tech-single.html"
                                         class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="w-100 justify-content-between">
-                                            <img src="upload/tech_blog_08.jpg" alt=""
+                                            <img src="{{ asset('img/AnhTinhTuc/'.$topnews->HinhAnh) }}" alt=""
                                                 class="img-fluid float-left">
-                                            <h5 class="mb-1">5 Beautiful buildings you need..</h5>
-                                            <small>12 Jan, 2016</small>
+                                            <h5 class="mb-1">{{ $topnews->TieuDe }}</h5>
+                                            <small>{{ $topnews->created_at }}</small>
                                         </div>
                                     </a>
+                                    @endforeach
 
-                                    <a href="tech-single.html"
-                                        class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="w-100 justify-content-between">
-                                            <img src="upload/tech_blog_01.jpg" alt=""
-                                                class="img-fluid float-left">
-                                            <h5 class="mb-1">Let's make an introduction for..</h5>
-                                            <small>11 Jan, 2016</small>
-                                        </div>
-                                    </a>
-
-                                    <a href="tech-single.html"
-                                        class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="w-100 last-item justify-content-between">
-                                            <img src="upload/tech_blog_03.jpg" alt=""
-                                                class="img-fluid float-left">
-                                            <h5 class="mb-1">Did you see the most beautiful..</h5>
-                                            <small>07 Jan, 2016</small>
-                                        </div>
-                                    </a>
                                 </div>
                             </div><!-- end blog-list -->
                         </div><!-- end widget -->
