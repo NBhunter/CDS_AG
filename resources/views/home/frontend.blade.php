@@ -126,7 +126,7 @@
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Tìm kiếm thông tin" aria-label="Search"
-                        style="width:300px;">
+                        style="width:200px;">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
             </div>
