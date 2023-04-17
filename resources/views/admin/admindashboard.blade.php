@@ -71,9 +71,9 @@
                     <span>Thông tin người dùng</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ URL::to('admin/groupuser') }}">
+                <a class="nav-link" href="{{ URL::to('admin/DSDoanhNghiep') }}">
                     <i class="	fas fa-users"></i>
-                    <span> Nhóm người dùng</span></a>
+                    <span> Danh sách doanh nghiệp</span></a>
             </li>
             @else
 
