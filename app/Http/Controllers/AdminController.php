@@ -28,7 +28,7 @@ class AdminController extends Controller
         $role = DB::table('role_user')->leftjoin('Roles','role_user.Role_id','Roles.id')->where('role_user.User_id',$user->id)->first();
         Session::put('role',$role->name);
 
-            return view('admin.admindashboard');
+            return view('admin.adminhome');
 
     }
     public function getuser(Request $request){
