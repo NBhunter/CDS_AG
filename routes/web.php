@@ -23,6 +23,8 @@ Route::get('/tintuc/{LinhVuc}','App\Http\Controllers\homeController@TinLinhVucIn
 Route::get('/dangky','App\Http\Controllers\homeController@registerview' );
 Route::post('/BinhLuan','App\Http\Controllers\homeController@postcomment' );
 Route::post('/crate_profile','App\Http\Controllers\homeController@crate_profile' );
+
+Route::get('/searching','App\Http\Controllers\homeController@searching' );
 // Route::get('/dangky', function () {
 //     return view('home.dangkydoanhnghiep');
 // });
