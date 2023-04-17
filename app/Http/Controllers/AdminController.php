@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Session;
 use DB;
 
+use Carbon\Carbon;
 use App\Mail\CreateAccountmail;
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
@@ -109,7 +111,7 @@ class AdminController extends Controller
     }
     public function savenganhnghe(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin', 'QTV']);
         //thêm chi tiết
         $ct = array();
         $ct['TenNganhNghe'] = $request->Ten;
@@ -120,7 +122,7 @@ class AdminController extends Controller
     }
     public function saveloaihinh(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin', 'QTV']);
         //thêm chi tiết
         $ct = array();
         $ct['TenLoaiHinh'] = $request->Ten;
@@ -130,14 +132,14 @@ class AdminController extends Controller
     }
     public function getLoaiTin(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin', 'QTV']);
         $user = $request->user();
         $LoaiTin = DB::table('loaitin')->get();
         return view('admin.loaitin.loaitin')->with("LoaiTin", $LoaiTin);
     }
     public function getLoaiTinMoi(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin', 'QTV']);
         $user = $request->user();
 
         return view('admin.loaitin.loaitin_new');
@@ -152,7 +154,7 @@ class AdminController extends Controller
     public function UpdateLoaiTin(Request $request)
     {
 
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin', 'QTV']);
         $LoaiTin = array();
         $LoaiTin['TenLoai'] = $request->TenLoai;
         if ($request->id == null) {
@@ -183,7 +185,7 @@ class AdminController extends Controller
     public function DeleteLoaiTin(Request $request)
     {
 
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin', 'QTV']);
 
         // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
         try {
@@ -207,11 +209,89 @@ class AdminController extends Controller
     public function getDNDetail(Request $re, $DN_id)
     {
         $re->user()->authorizeRoles(['Admin']);
-        $detail = DB::table('doanhnghiep')
+        $DN = DB::table('doanhnghiep')
                         ->leftjoin('chitiet_doanhnghiep','doanhnghiep.id','=','chitiet_doanhnghiep.DoanhNghiep_id')
                         ->leftjoin('dn_user','doanhnghiep.id','=','dn_user.DoanhNghiep_id')
-                        ->leftjoin('Users','dn_user.User_id','=','Users.id')->first();
-        return view('admin.DetailDN')->with('detail',$detail);
+                        ->leftjoin('Users','dn_user.User_id','=','Users.id')
+                        ->leftjoin('role_user','Users.id','=','role_user.User_id')
+                        ->leftjoin('Roles','Roles.id','=','role_user.Role_id')->where('doanhnghiep.Id',$DN_id)
+                        ->select('Users.email as EmailND','doanhnghiep.id as DNID','Users.name as TenND','Roles.name as RoleName','doanhnghiep.*','chitiet_doanhnghiep.*','Users.*')->first();
+                        $LinhVuc = DB::table('linhvuc')->get();
+        $LoaiHinh = DB::table('nganhnghe')->get();
+        return view('admin.DetailDN')->with('DN',$DN)->with('LinhVuc', $LinhVuc)->with('LoaiHinh', $LoaiHinh);
 
     }
+    public function saveDN(Request $request)
+    {
+        $DN = array();
+        $DN['Id'] = $request->MST;
+        $DN['TenDoanhNghiep'] = $request->TenDN;
+        $DN['TenVietTat'] = $request->TenVT;
+        $DN['DiaChiTruSo'] = $request->TruSo;
+        $DN['DiaPhuong'] = $request->DiaPhuong;
+        $DN['SoLuongLaoDong'] = $request->QuyMo;
+        $DN['email'] = $request->Email;
+        $DN['SoDienThoai'] = $request->SDT;
+        $DN['LinhVuc_Id'] = $request->LinhVuc;
+        $DN['TrangThai_XacThuc'] = '1';
+        $CTDN = array();
+        DB::table('doanhnghiep')->where('id',$request->idCT)->update($DN);
+        $CTDN['DoanhNghiep_id'] = $request->MST;
+        $CTDN['MaSoThue'] = $request->MST;
+        $CTDN['NgayHoatDong'] = $request->NHD;
+        $CTDN['LoaiHinhDN'] = $request->LoaiHinh;
+        $CTDN['TenVietTat'] = $request->TenVT;
+        $CTDN['TenTiengAnh'] = $request->TenTA;
+        $CTDN['VonDieuLe'] = $request->VonDieuLe;
+        $CTDN['QuyMoNhanSu'] = $request->QuyMo;
+        $CTDN['DC_ThanhPho'] = $request->DC_ThanhPho;
+        $CTDN['DC_Huyen'] = $request->DC_Huyen;
+        $CTDN['DC_Phuong'] = $request->DC_Phuong;
+        $CTDN['DC_SoNha'] = $request->DC;
+        $CTDN['SDT'] = $request->SDT;
+        $CTDN['FAX'] = $request->Fax;
+        $CTDN['Website'] = $request->Web;
+        $CTDN['Zipcode'] = $request->Zip;
+
+        $CTDN['created_at'] = Carbon::now();
+        DB::table('chitiet_doanhnghiep')->where('DoanhNghiep_id',$request->idCT)->update($CTDN);
+
+        $alert = 'Đã đăng ký thông tin doanh nghiệp';
+        $User = User::where('email',$request->EmailNguoiDaiDien)->first();
+        $User['status'] = 1;
+        $User->save();
+        return Redirect::to('/admin/DSDoanhNghiep')->with('alert', $alert);
+    }
+    public function updatePW(Request $request)
+    {
+        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $User = User::where('id',Session::get('user_id'))->where('password',hash::make($request->oldpw))->first();
+        // if(!empty($User))
+        // {
+        //     $alert = "Mật khẩu cũ sai!!!";
+        //     return Redirect::to('/admin/main')->with('alert', $alert);
+        // }else{
+            if( $request->Newpw == $request->repw   )
+            {
+                $User = User::where('id',Session::get('user_id'))->first();
+
+                if(Hash::check($request->oldpw,$User['password'])){
+                $User['password'] = hash::make($request->Newpw);
+
+                $User->save();
+                    $alert = "đã đổi mật khẩu!!!";
+                    return Redirect::to('/admin/main')->with('alert', $alert);
+                }else{
+                    // $alert = "Mật khẩu mới không trùng khớp!!!";
+                    // return Redirect::to('/admin/main')->with('alert', $alert);
+                }
+
+            }
+            else{
+                $alert = "Mật khẩu mới không trùng khớp!!!";
+                return Redirect::to('/admin/main')->with('alert', $alert);
+            }
+        }
+
+    // }
 }

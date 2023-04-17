@@ -112,6 +112,10 @@ Route::middleware([
 
     // lấy doanh nghiệp
     Route::get('/admin/DSDoanhNghiep', 'App\Http\Controllers\AdminController@getNewAcDN');
+    // lấy chi tiết doanh nghiệp
+    Route::get('/admin/profileDN/{DN_id}', 'App\Http\Controllers\AdminController@getDNDetail');
+    Route::post('/action_DN', 'App\Http\Controllers\AdminController@saveDN');
+
     Route::post('/update_LinhVuc', 'App\Http\Controllers\TrangTinController@UpdateLinhVuc');
     //xử lý lĩnh vực
     Route::get('/admin/xem_linh_vuc', 'App\Http\Controllers\TrangTinController@getLinhVuc');
@@ -130,6 +134,8 @@ Route::middleware([
     Route::post('/delete_slide', 'App\Http\Controllers\TrangTinController@DeleteSlide');
     Route::get('/edit_Slides/{slides_id}', 'App\Http\Controllers\TrangtinController@getSlidesChiTiet');
     Route::post('/update_Slides', 'App\Http\Controllers\TrangTinController@UpdateSlides');
+// đổi mk
+    Route::post('/changePW', 'App\Http\Controllers\AdminController@updatePW');
 
     Route::get('/logout', 'Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy');
 

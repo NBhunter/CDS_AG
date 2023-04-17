@@ -126,15 +126,9 @@
                     <!-- </div> -->
                     </li>
                 </ul>
-<<<<<<< HEAD
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Tìm kiếm thông tin" aria-label="Search"
                         style="width:200px;">
-=======
-                <div class="">
-                <form class="d-flex input-group">
-                    <input type="search" id="search" name="search" class="form-control rounded" placeholder="Search" />
->>>>>>> f844323102cab8e606c25e12988e7060b9bdee42
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
 
