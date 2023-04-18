@@ -173,12 +173,7 @@ class HomeController extends Controller
                     </div>
                 </div>
                 <hr>'
-                    // '<div class="card-body">
-                    // <img class="card-img-top" src="'.$tintuc->HinhAnh.'" alt="Card image cap">
-                    //     <h5 class="card-title"><b>'.$tintuc->TieuDe.'</b></h5>
-                    //     <h5 class="card-title"><b class="text-success">'.$tintuc->TomTat.'</b></h5>
-                    //     <h5 class="card-title">'.$tintuc->TieuDe.'</h5>
-                    // </div>
+
                   ;
 
                 }

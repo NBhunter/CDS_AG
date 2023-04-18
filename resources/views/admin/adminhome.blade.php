@@ -9,7 +9,7 @@
   right: 0px;
   bottom: 0px;
   width: 100%;
-  height: 100vh;
+  height: 170vh;
   background-color: #4e73df;
   /* background-image: linear-gradient(to bottom right, #7b86fa 0%,#182ae9 25%,#0918c5 50%, #030d85 74%); */
   -webkit-perspective: 9999px;
@@ -38,7 +38,7 @@
   display: block;
   width: 54%;
   height: 55vw;
-  max-height: 750px;
+  max-height: 1050px;
   margin-right: auto;
   margin-left: auto;
   border-top-left-radius: 10px;

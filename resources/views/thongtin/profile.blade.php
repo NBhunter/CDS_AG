@@ -171,7 +171,7 @@
                                 role="tab" aria-selected="true">
                                 Thông tin
                             </a>
-                            <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#password"
+                            <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#"
                                 role="tab" aria-selected="false" tabindex="-1">
                                 Người dùng
                             </a>

@@ -68,55 +68,38 @@
                                 <!-- Post Tags & Share -->
                                 <div class="post-tags-share">
                                     <!-- Tags -->
-                                    <ol class="popular-tags d-flex flex-wrap">
+                                    {{-- <ol class="popular-tags d-flex flex-wrap">
                                         <li><a href="#">HealthFood</a></li>
                                         <li><a href="#">Yoga</a></li>
                                         <li><a href="#">Life Style</a></li>
-                                    </ol>
+                                    </ol> --}}
                                 </div>
 
                                 <!-- Related Post Area -->
                                 <div class="related-posts clearfix">
                                     <!-- Headline -->
-                                    <h4 class="headline">related posts</h4>
+                                    <h4 class="headline">Tin liên quang</h4>
 
                                     <div class="row">
-
-                                        <!-- Single Blog Post -->
+                                        @foreach ( $News as $news )
                                         <div class="col-12 col-lg-6">
                                             <div class="single-blog-post mb-50">
                                                 <!-- Thumbnail -->
                                                 <div class="post-thumbnail">
-                                                    <a href="#"><img src="img/blog-img/1.jpg" alt=""></a>
+                                                    <a href="{{ URL::to('tin/'.$news->IdTin) }}"><img src="{{ asset('img/AnhTinhTuc/'.$news->HinhAnh) }}" alt=""></a>
                                                 </div>
                                                 <!-- Content -->
                                                 <div class="post-content">
-                                                    <p class="post-date">MAY 17, 2018 / lifestyle</p>
-                                                    <a href="#" class="post-title">
-                                                        <h4>A Closer Look At Our Front Porch Items From Lowe’s</h4>
+                                                    <p class="post-date">{{ $news->created_at }}</p>
+                                                    <a href="{{ URL::to('tin/'.$news->IdTin) }}" class="post-title">
+                                                        <h4>{{ $news->TieuDe }}</h4>
                                                     </a>
-                                                    <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+                                                    <p class="post-excerpt">{{ $news->TomTat }}</p>
                                                 </div>
                                             </div>
                                         </div>
-
+                                        @endforeach
                                         <!-- Single Blog Post -->
-                                        <div class="col-12 col-lg-6">
-                                            <div class="single-blog-post mb-50">
-                                                <!-- Thumbnail -->
-                                                <div class="post-thumbnail">
-                                                    <a href="#"><img src="img/blog-img/4.jpg" alt=""></a>
-                                                </div>
-                                                <!-- Content -->
-                                                <div class="post-content">
-                                                    <p class="post-date">MAY 25, 2018 / Fashion</p>
-                                                    <a href="#" class="post-title">
-                                                        <h4>5 Things to Know About Dating a Bisexual</h4>
-                                                    </a>
-                                                    <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                     </div>
                                 </div>
@@ -140,7 +123,7 @@
                                                     <span class="comment-date">{{  $cmt->NgayCMT }}</span>
                                                     <h5>{{  $cmt->TenNguoiBL }}</h5>
                                                     <p>{{ $cmt->NoiDung }}</p>
-                                                    <a href="#">Like</a>
+                                                    {{-- <a href="#">Like</a> --}}
                                                     <a class="active replybtn " data-id="{{ $cmt->Id }}">Reply</a>
                                                     <form action="{{ URL::to('/BinhLuan') }}" method="post" id="{{ $cmt->Id  }}" style="display: none;" target="hidden-form" enctype="multipart/form-data">
                                                         @csrf
@@ -184,7 +167,7 @@
                                                                     <span class="comment-date">{{  $chill->NgayCMT }}</span>
                                                                     <h5>{{  $chill->TenNguoiBL }}</h5>
                                                                     <p>{{ $chill->NoiDung }}</p>
-                                                                    <a href="#">Like</a>
+                                                                    {{-- <a href="#">Like</a> --}}
                                                                     <a class="active replybtn" data-id="{{ $chill->IdCon }}">Reply</a>
                                                                 </div>
                                                             </div>
