@@ -163,6 +163,7 @@
                                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Đổi mật khẩu
                                     </a>
+
                                 <a class="dropdown-item" href="#"><i class="align-middle me-1"
                                         data-feather="help-circle"></i> Trợ giúp</a>
                                 <div class="dropdown-divider"></div>
@@ -182,52 +183,8 @@
                     </ul>
                 </div>
             </nav>
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Đổi mật khẩu </h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="form" role="form" action="{{ URL::to('/changePW') }}" method="post"
-                                autocomplete="off">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="inputPasswordOld">mật khẩu cũ</label>
-                                    <input type="password" class="form-control" id="inputPasswordOld" name="oldpw"
-                                        required="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew">Mật khẩu mới</label>
-                                    <input type="password" class="form-control" name="Newpw" id="inputPasswordNew"
-                                        required="">
-                                    <span class="form-text small text-muted">
-                                        The password must be 8-20 characters, and must <em>not</em> contain spaces.
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNewVerify">nhập lại mật khẩu</label>
-                                    <input type="password" class="form-control" name="repw"
-                                        id="inputPasswordNewVerify" required="">
-                                    <span class="form-text small text-muted">
-                                        To confirm, type the new password again.
-                                    </span>
-                                </div>
-                                <div class="form-group">
 
-                                </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success btn-lg float-right">Save</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
             @if (session('alert'))
                 <div class="alert alert-danger alert-dismissible" role="alert">
 

@@ -50,20 +50,38 @@ class HomeController extends Controller
     public function TinLinhVucIndex($LinhVuc)
     {
         if ($LinhVuc == 'NongNghiep') {
-            $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*', 'tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '1')->orderBy('updated_at', 'desc')->paginate(6);
-            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức nông nghiệp");
+            $tinmoi = DB::table('tintucs')
+            ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')
+            ->select('tintucs.Id as IdTin', 'tintucs.*', 'tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '1')->orderBy('updated_at', 'desc')->paginate(6);
+            $tinnoibat =  DB::table('tintucs')
+            ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->where('tintucs.LinhVuc_id', '1')
+            ->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('LuotXem', 'desc')->limit(5)->get();
+            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('tinnoibat', $tinnoibat)->with('title', "Tin tức nông nghiệp");
         }
         if ($LinhVuc == 'CongNghiep') {
-            $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*', 'tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '2')->orderBy('updated_at', 'desc')->paginate(6);
-            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức công nghiệp");
+            $tinmoi = DB::table('tintucs')
+            ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')
+            ->select('tintucs.Id as IdTin', 'tintucs.*', 'tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '2')->orderBy('updated_at', 'desc')->paginate(6);
+            $tinnoibat =  DB::table('tintucs')
+            ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->where('tintucs.LinhVuc_id', '2')
+            ->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('LuotXem', 'desc')->limit(5)->get();
+            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('tinnoibat', $tinnoibat)->with('title', "Tin tức công nghiệp");
         }
         if ($LinhVuc == 'TMDV') {
-            $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*', 'tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '3')->orderBy('updated_at', 'desc')->paginate(6);
-            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức thương mại dịch vụ");
+            $tinmoi = DB::table('tintucs')
+            ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')
+            ->select('tintucs.Id as IdTin', 'tintucs.*', 'tintucs.LinhVuc_id', 'linhvuc.*')->where('tintucs.LinhVuc_id', '3')->orderBy('updated_at', 'desc')->paginate(6);
+            $tinnoibat =  DB::table('tintucs')
+            ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->where('tintucs.LinhVuc_id', '3')
+            ->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('LuotXem', 'desc')->limit(5)->get();
+            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('tinnoibat', $tinnoibat)->with('title', "Tin tức thương mại dịch vụ");
         }
-        if ($LinhVuc == 'Khac ') {
+        if ($LinhVuc == 'Khac') {
             $tinmoi = DB::table('tintucs')->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->select('tintucs.Id as IdTin', 'tintucs.*', 'tintucs.LinhVuc_id', 'linhvuc.*')->orderBy('updated_at', 'desc')->paginate(6);
-            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('title', "Tin tức tổng hợp");
+            $tinnoibat =  DB::table('tintucs')
+            ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')
+            ->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('LuotXem', 'desc')->limit(5)->get();
+            return view('home.TinLinhVuc')->with('tinmoi', $tinmoi)->with('tinnoibat', $tinnoibat)->with('title', "Tin tức tổng hợp");
         }
     }
     public function adminHome()

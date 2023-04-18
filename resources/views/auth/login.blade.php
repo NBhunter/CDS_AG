@@ -96,8 +96,8 @@
                     </x-jet-button>
                     {{-- <button type="button" class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;"> {{ __('Log in') }}</button> --}}
-                    <p class="small fw-bold mt-2 pt-1 mb-0" style="margin:10px;">Chưa có tài khoản ? <a
-                            href="{{ route('register') }}" class="link-danger">Đăng ký</a></p>
+                    {{-- <p class="small fw-bold mt-2 pt-1 mb-0" style="margin:10px;">Chưa có tài khoản ? <a
+                            href="{{ route('register') }}" class="link-danger">Đăng ký</a></p> --}}
                 </div>
 
             </form>
