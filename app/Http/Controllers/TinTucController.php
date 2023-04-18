@@ -54,6 +54,9 @@ class TinTucController extends Controller
         $luotxem = $TinTuc->LuotXem + 1;
         DB::table('tintucs')->where('tintucs.id',$id)->update(['LuotXem'=>$luotxem]);
         $comments = DB::table('binhluan')->where('TinTuc_id',$TinTuc->Id)->get();
-        return view('home.post')->with('TinTuc',$TinTuc)->with('comments',$comments);
+        $News =  DB::table('tintucs')
+        ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')->where('tintucs.LinhVuc_id',$TinTuc->LinhVuc_id)->where('tintucs.id','!=',$id)
+        ->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('LuotXem', 'desc')->limit(2)->get();
+        return view('home.post')->with('TinTuc',$TinTuc)->with('comments',$comments)->with('News',$News);
     }
 }

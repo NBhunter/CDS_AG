@@ -127,7 +127,7 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm thông tin" aria-label="Search"
+                    <input class="form-control me-2" type="search" id="search" placeholder="Tìm kiếm thông tin" aria-label="Search"
                         style="width:200px;">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
@@ -210,8 +210,6 @@
                 url: "/searching",
                 data: {'search':value},
                 success: function (data) {
-                    // document.getElementById("searchcard").style.display = block;
-                    // $('.searchcard').style.display
                     $('.mycard').html(data);
                 }
             });
