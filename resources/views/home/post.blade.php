@@ -81,6 +81,7 @@
                                     <h4 class="headline">Tin liên quang</h4>
 
                                     <div class="row">
+                                        @if (isset($News))
                                         @foreach ( $News as $news )
                                         <div class="col-12 col-lg-6">
                                             <div class="single-blog-post mb-50">
@@ -99,6 +100,10 @@
                                             </div>
                                         </div>
                                         @endforeach
+                                        @else
+
+                                        @endif
+
                                         <!-- Single Blog Post -->
 
                                     </div>
@@ -117,7 +122,7 @@
                                                 <div class="comment-wrapper d-flex">
                                                     <!-- Comment Meta -->
                                                     <div class="comment-author">
-                                                        <img src="{{ asset('img/FIT.png') }}" alt="">
+                                                        <img src="{{ asset('img/speech-bubble.gif') }}" alt="">
                                                     </div>
                                                 <div class="comment-content">
                                                     <span class="comment-date">{{  $cmt->NgayCMT }}</span>
@@ -160,7 +165,7 @@
                                                             <div class="comment-wrapper d-flex">
                                                                 <!-- Comment Meta -->
                                                                 <div class="comment-author">
-                                                                    <img src="{{ asset('img/FIT.png') }}" alt="">
+                                                                    <img src="{{ asset('img/speech-bubble.gif') }}" alt="">
                                                                 </div>
                                                                 <!-- Comment Content -->
                                                                 <div class="comment-content">

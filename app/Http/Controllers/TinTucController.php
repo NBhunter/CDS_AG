@@ -49,7 +49,6 @@ class TinTucController extends Controller
         return Redirect::to('admin/main');
     }
     public function getXemTinDetail($id){
-        // $request->user()->authorizeRoles(['Admin']);
         $TinTuc = DB::table('tintucs')->where('tintucs.id',$id)->first();
         $luotxem = $TinTuc->LuotXem + 1;
         DB::table('tintucs')->where('tintucs.id',$id)->update(['LuotXem'=>$luotxem]);
