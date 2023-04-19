@@ -14,21 +14,39 @@
                             <th>STT</th>
                             <th>Tên doanh nghiệp</th>
                             <th>Thời gian đánh giá </th>
-                            <th> Số điểm đánh giá </th>
+                            <th> Rào cản </th>
                             <th> Trạng thái </th>
                             <th>Xử lý</th>
                         </tr>
 
                     </thead>
+                    @php
+                        $i = 1;
+                    @endphp
+@foreach ( $Phieu3 as $P3 )
+<tr>
+    <td>{{ $i++ }}</td>
+    <td>{{ $P3->TenDoanhNghiep }}</td>
+    <td>{{ $P3->created_at }}</td>
+    <td>
+        @if (!isset($P3->RaoCan))
+        <span class="badge bg-primary text-light">Không có rào cản</span>
+        @else
+        {{ $P3->RaoCan }}
+        @endif
+        </td>
+    <td>
+        @if ($P3->status == 0 )
+        <span class="badge bg-danger text-light"> Chưa xem</span>
+        @else
+        <span class="badge bg-success text-light"> Đã xem</span>
+        @endif
+    </td>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-    <td></td>
-    <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
+<td><a class="btn btn-success" href="{{ URL::to('/chuyengia/P3_Chitiet/'.$P3->IDPhieu) }}"><i class='fas fa-edit'></i></a></td>
 </tr>
+@endforeach
+
 
 
                             </td>
@@ -87,6 +105,7 @@ alert("Data: " + data + "\nStatus: " + status);
 $("admin").click(function(){
 alert("Data: ");
 });
+$('#dataTable').DataTable();
 </script>
 
 @endsection

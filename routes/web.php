@@ -112,9 +112,12 @@ Route::middleware([
 
     // lấy doanh nghiệp
     Route::get('/admin/DSDoanhNghiep', 'App\Http\Controllers\AdminController@getNewAcDN');
+    Route::get('/chuyengia/DSDoanhNghiep', 'App\Http\Controllers\ChuyenGiaController@getNewAcDN');
     // lấy chi tiết doanh nghiệp
     Route::get('/admin/profileDN/{DN_id}', 'App\Http\Controllers\AdminController@getDNDetail');
     Route::post('/action_DN', 'App\Http\Controllers\AdminController@saveDN');
+    Route::get('/chuyengia/profileDN/{DN_id}', 'App\Http\Controllers\ChuyenGiaController@getDNDetail');
+    Route::post('/chuyengia/action_DN', 'App\Http\Controllers\ChuyenGiaController@saveDN');
 
     Route::post('/update_LinhVuc', 'App\Http\Controllers\TrangTinController@UpdateLinhVuc');
     //xử lý lĩnh vực
@@ -162,6 +165,9 @@ Route::middleware([
     Route::get('/chuyengia/P4_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P4');
     // chi tiết
     Route::get('/chuyengia/P1_Chitiet/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P1');
+    Route::get('/chuyengia/P2_Chitiet/{IDPhieu2}', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P2');
+    Route::get('/chuyengia/P3_Chitiet/{IDPhieu3}', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P3');
+    Route::get('/chuyengia/P4_Chitiet/{IDPhieu4}', 'App\Http\Controllers\ChuyenGiaController@getChiTiet_P4');
     Route::get('/chuyengia/kqphieu1/{IDPhieu1}', 'App\Http\Controllers\ChuyenGiaController@getkqPhieu1');
 
     Route::post('/thongbao', 'App\Http\Controllers\ChuyenGiaController@thongbaodanhgia');

@@ -85,6 +85,7 @@
 <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
 <!-- Bootstrap core JavaScript-->
 <script>
+
 function change($a) {
 $.post(
 {
@@ -98,6 +99,7 @@ alert("Data: " + data + "\nStatus: " + status);
 $("admin").click(function(){
 alert("Data: ");
 });
+$('#dataTable').DataTable();
 </script>
 
 @endsection

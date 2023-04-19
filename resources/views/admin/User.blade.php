@@ -122,6 +122,7 @@
     <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
 <!-- Bootstrap core JavaScript-->
 <script>
+     $('#dataTable').DataTable();
 function change($a) {
     $.post(
     {
@@ -135,7 +136,7 @@ function change($a) {
 $("admin").click(function(){
     alert("Data: ");
   });
-  $('#dataTable').DataTable();
+
 </script>
 
 @endsection
