@@ -87,6 +87,7 @@ alert("Data: " + data + "\nStatus: " + status);
 $("admin").click(function(){
 alert("Data: ");
 });
+$('#dataTable').DataTable();
 </script>
 
 @endsection

@@ -13,22 +13,45 @@
                         <tr>
                             <th>STT</th>
                             <th>Tên doanh nghiệp</th>
-                            <th>Thời gian đánh giá </th>
                             <th> Số điểm đánh giá </th>
                             <th> Trạng thái </th>
                             <th>Xử lý</th>
                         </tr>
 
                     </thead>
-
+                    @php
+                    $i = 1;
+                @endphp
+                    @foreach ( $Phieu4 as $P4 )
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-    <td></td>
-    <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
-</tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $P4->TenDoanhNghiep }}</td>
+                        <td>
+                            @if (!isset($P4->NhuCau)&&!isset($P4->DeXuat))
+                            <span class="badge bg-primary text-light">Không có tin nhắn</span>
+                            @else
+                            @if (!isset($P4->NhuCau))
+                            <span class="badge bg-primary text-light">Không có nhu cầu</span>
+                            @else
+                            @if (!isset($P4->DeXuat))
+                            <span class="badge bg-primary text-light">Không có đề xuất</span>
+                            @else
+                            <span class="badge bg-success text-light">có tin nhắn</span>
+                            @endif
+                            @endif
+                            @endif
+                            </td>
+                        <td>
+                            @if ($P4->status == 0 )
+                            <span class="badge bg-danger text-light"> Chưa xem</span>
+                            @else
+                            <span class="badge bg-success text-light"> Đã xem</span>
+                            @endif
+                        </td>
+
+                    <td><a class="btn btn-success" href="{{ URL::to('/chuyengia/P4_Chitiet/'.$P4->IDPhieu) }}"><i class='fas fa-edit'></i></a></td>
+                    </tr>
+                    @endforeach
 
 
                             </td>

@@ -74,6 +74,7 @@
 </a>
 
 <script>
+
     $(".thongbao").click(function(){
 
     var idDN = $(this).data('id');

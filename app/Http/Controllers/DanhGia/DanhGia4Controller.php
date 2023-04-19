@@ -22,7 +22,8 @@ class DanhGia4Controller extends Controller
     }
     public function saveCauHoi(Request $request){
         $ch = array();
-
+        $id =  "DG4-".date('ymdHis');
+        $ch['Id'] = $id;
     	$ch['NhuCau'] = $request->NhuCau;
     	$ch['DeXuat'] = $request->Hoi_Dap;
 

@@ -35,9 +35,25 @@ class DanhGia3Controller extends Controller
     }
 public function DanhGia(Request $request)
 {
-    $Cauhoi = DB::table('cauhoi_p3s')->get();
+    $Cauhoi = DB::table('cauhoi_p3')->get();
     $DoanhNghiep_id = Session::get('DoanhNghiep_id');
     $User_id = Session::get('User_id');
-
+    $id =  "DG3-".date('ymdHis');
+    $P3DG = array();
+    $P3DG['Id'] =$id;
+    $P3DG['DoanhNghiep_id'] =$DoanhNghiep_id;
+    $P3DG['RaoCan'] = $request->RaoCan;
+    $P3DG['created_at'] = now();
+    $P3DG['updated_at'] = now();
+    DB::table('phieu3_raocan')->insert($P3DG);
+    foreach($Cauhoi as $CH){
+        $KQCH = array();
+        $KQCH['Phieu3_id'] = $id;
+        $KQCH['CauHoiP3_id'] =$CH->Id;
+        $KQCH['DoanhNghiep_id'] =$DoanhNghiep_id;
+$KQCH['DanhGia'] = $request[$CH->Id];
+        DB::table('phieuso3')->insert($KQCH);
+    }
+    return Redirect::to('dnviews');
 }
 }
