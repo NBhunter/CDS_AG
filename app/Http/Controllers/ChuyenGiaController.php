@@ -220,7 +220,7 @@ foreach($Phieu1New as $P1 ){
         $user = $request->user();
         $Phieu2New = DB::table('phieuso2')->leftjoin('users','users.id','=','phieuso2.User_id')
         ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso2.DoanhNghiep_Id')->where('phieuso2.status','0')
-        ->select('phieuso2.created_at as ThoigianTao','phieuso2.id as IDphieu','phieuso2.*','doanhnghiep.*','users.*')->get();
+        ->select('phieuso2.created_at as ThoigianTao','phieuso2.id as IDphieu','phieuso2.status as TrangThai_Phieu','phieuso2.*','doanhnghiep.*','users.*')->get();
 
         return view('chuyengia.Phieu_2.P2_DanhGiaMoi')->with('Phieu2New',$Phieu2New);
     }
@@ -230,8 +230,8 @@ foreach($Phieu1New as $P1 ){
         $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
         $user = $request->user();
         $Phieu2New = DB::table('phieuso2')->leftjoin('users','users.id','=','phieuso2.User_id')
-        ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso2.DoanhNghiep_Id')->where('phieuso2.status','0')
-        ->select('phieuso2.created_at as ThoigianTao','phieuso2.id as IDphieu','phieuso2.*','doanhnghiep.*','users.*')->get();
+        ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso2.DoanhNghiep_Id')
+        ->select('phieuso2.created_at as ThoigianTao','phieuso2.id as IDphieu','phieuso2.status as TrangThai_Phieu','phieuso2.*','doanhnghiep.*','users.*')->get();
 
         return view('chuyengia.Phieu_2.P2_DaDanhGia')->with('Phieu2New',$Phieu2New);
     }

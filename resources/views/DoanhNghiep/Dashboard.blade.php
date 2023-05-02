@@ -12,6 +12,8 @@
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
+ <script src="https://kit.fontawesome.com/ab32c1f2a5.js" crossorigin="anonymous"></script>
+
     <title>Chuyển đổi số tỉnh An Giang - Thông tin doanh nghiệp</title>
     {{-- script modal popup --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

@@ -417,10 +417,10 @@ enctype="multipart/form-data">
             count++;
         }
     }
-            if(count >= 77){
+            if(count >= 91){
                 window.alert("Đã đánh giá xong!! Nhấn ok để trở về");
             window.location.replace("{{ URL::to('dnviews') }}");
-            }if(status == 0 && count < 77)
+            }if(status == 0 && count < 91)
             {
                 window.alert("Chưa đánh giá đủ. Vui lòng đánh giá lại");
             }

@@ -22,14 +22,14 @@
 <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle" style="font-family:Roboto;">Đánh Giá</span>
 </a>
 </li>
+<hr class="sidebar-divider" style="color:white;">
+<li class="sidebar-item">
+    <a class="sidebar-link" href="{{ URL::to('DNHoi') }}" style="background-color: #4e73df;">
+        <i class="align-middle" data-feather="message-square"></i><span class="align-middle" style="font-family:Roboto;">Hỏi Đáp</span>
+</a>
+</li>
 
 <li class="sidebar-item">
-
-{{-- <a class="sidebar-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" style="background-color: #4e73df;">
-<i class="align-middle" data-feather="log-out"></i> <span class="align-middle" style="font-family:Roboto;">Log out</span>
-</a> --}}
-
-</li>
 @endsection
 @section('content')
 <main class="content" style="background-image: url({{asset('img/bg_cauhoi1-02.jpg')}}) ;background-repeat: repeat;    background-size:100%;" >

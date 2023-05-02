@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Session;
 use DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class DoanhNghiepController extends Controller
@@ -46,7 +47,7 @@ class DoanhNghiepController extends Controller
     {
         $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
         $user = $request->user();
-
+        Session::forget('DoanhNghiep');
         Session::put('email', $user->email);
         $DoanhNghiep = DB::table('users')
             ->leftjoin('dn_user', 'dn_user.User_id', '=', 'users.id')
@@ -56,6 +57,7 @@ class DoanhNghiepController extends Controller
         Session::put('lienket_id', $DoanhNghiep->lienket_id);
         Session::put('DoanhNghiep_id', $DoanhNghiep->DoanhNghiep_id);
         Session::put('User_id', $DoanhNghiep->User_id);
+        Session::put('DoanhNghiep', $DoanhNghiep);
 
         //lấy điểm bảng 1
         $DanhGia1 = DB::table('phieuso1')->where('DoanhNghiep_Id', $DoanhNghiep->DoanhNghiep_id)->orderByDesc('created_at')->first();
@@ -152,19 +154,35 @@ class DoanhNghiepController extends Controller
     public function ChangePassword(Request $request)
     {
         $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
-        $user = $request->user();
-        $Us = DB::table('users')->where('id', $user->id)->first();
-        if ($request->NewPassword == $request->re_Password) {
-            if ($Us->password == md5($request->oldPassword)) {
-                return Redirect::to('profile')->withSuccess('IT WORKS!');
-            } else {
-                $alert = 'Mật khẩu sai';
-                return redirect()->back()->with('alert', $alert);
+
+
+        if( $request->NewPassword == $request->re_Password   )
+        {
+            $User = User::where('id',Session::get('User_id'))->first();
+
+            if(Hash::check($request->oldPassword,$User['password'])){
+            $User['password'] = hash::make($request->NewPassword);
+
+            $User->save();
+                $alert = "đã đổi mật khẩu!!!";
+                return Redirect::to('/dnviews')->with('alert', $alert);
+            }else{
+                $alert = "Mật khẩu sai!!!";
+                return Redirect::to('/dnviews')->with('alert', $alert);
             }
-        } else {
-            $alert = 'Mật khẩu không trùng khớp';
-            return redirect()->back()->with('alert', $alert);
+
         }
+        else{
+            $alert = "Mật khẩu mới không trùng khớp!!!";
+            return Redirect::to('/dnviews')->with('alert', $alert);
+        }
+    }
+    public function getmessage(Request $request)
+    {
+        $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
+        $thongbao = $this->laythongbao();
+        $DoanhNghiep = Session::get('DoanhNghiep');
+        return view('DoanhNghiep.hoidap_DN')->with('DoanhNghiep', $DoanhNghiep)->with('thongbao', $thongbao);
     }
 
 }

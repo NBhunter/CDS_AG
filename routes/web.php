@@ -18,11 +18,10 @@ Route::get('/', 'App\Http\Controllers\homeController@index');
 Route::get('/trangchu', 'App\Http\Controllers\homeController@index');
 Route::get('/tintuc', 'App\Http\Controllers\homeController@indexAllnew');
 Route::get('/tintuc/{LinhVuc}', 'App\Http\Controllers\homeController@TinLinhVucIndex');
-// Route::get('/tintuc/CongNghiep','App\Http\Controllers\homeController@index' );
-// Route::get('/tintuc/TMDV','App\Http\Controllers\homeController@index' );
 Route::get('/dangky', 'App\Http\Controllers\homeController@registerview');
 Route::post('/BinhLuan', 'App\Http\Controllers\homeController@postcomment');
 Route::post('/crate_profile', 'App\Http\Controllers\homeController@crate_profile');
+Route::get('/xemhoso', 'App\Http\Controllers\homeController@XemCDS');
 
 Route::get('/searching', 'App\Http\Controllers\homeController@searching');
 // Route::get('/dangky', function () {
@@ -49,6 +48,7 @@ Route::middleware([
 
     // doanh nghiep
     Route::get('/dnviews', 'App\Http\Controllers\DoanhNghiepController@getdanhnghiep');
+    Route::get('/DNHoi', 'App\Http\Controllers\DoanhNghiepController@getmessage');
 
     // phần thông tin doanh nghiệp
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile');

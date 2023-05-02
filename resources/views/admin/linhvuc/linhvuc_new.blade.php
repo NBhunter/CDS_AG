@@ -19,13 +19,13 @@
 
 
     <div class="mb-3">
-    <label class="small mb-1" for="inputOrgName">Mô Tả</label>
-    <textarea class="form-control" id="inputOrgName" rows="3" placeholder="" value=""></textarea>
+    <label class="small mb-1" for="mota">Mô Tả</label>
+    <input class="form-control" id="Username" name="MoTa" type="text" placeholder="Nhap mô tả" value="">
     </div>
 
 
     <div class="mb-3" style="margin-top: 1%">
-    <button type="submit" name="MoTa" class="btn btn-info" ><i class='fas fa-save'></i> Thêm</button>
+    <button type="submit" name="submit" class="btn btn-info" ><i class='fas fa-save'></i> Thêm</button>
 </div>
     </form>
     </div>
