@@ -1,36 +1,8 @@
-@extends('DoanhNghiep.dashboard')
+@extends('chuyengia.Dashboard')
  @section('link')
-
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 @endsection
-@section('nvar')
-<li class="sidebar-item ">
-    <a class="sidebar-link" href="{{ URL::to('dnviews') }}" style="background-color: #4e73df;">
-<i class="align-middle" data-feather="home"></i> <span class="align-middle" style="font-family:Roboto;">Trang điều khiển</span>
-</a>
-</li>
-<hr class="sidebar-divider" style="color:white;">
-<!-- Heading -->
 
-<li class="sidebar-item" >
-    <a class="sidebar-link" href="{{ URL::to('profile') }}" style="background-color: #4e73df;">
-<i class="align-middle" data-feather="user"></i> <span class="align-middle" style="font-family:Roboto;">Hồ sơ doanh nghiệp</span>
-</a>
-</li>
-<hr class="sidebar-divider" style="color:white;">
-<li class="sidebar-item">
-    <a class="sidebar-link" href="{{ URL::to('phieudanhgia1') }}" style="background-color: #4e73df;">
-<i class="align-middle" data-feather="check-circle"></i> <span class="align-middle" style="font-family:Roboto;">Đánh Giá</span>
-</a>
-</li>
-<hr class="sidebar-divider" style="color:white;">
-<li class="sidebar-item active">
-    <a class="sidebar-link" href="{{ URL::to('DNHoi') }}" style="background-color: #4e73df;">
-        <i class="align-middle" data-feather="message-square"></i><span class="align-middle" style="font-family:Roboto;">Hỏi Đáp</span>
-</a>
-</li>
-
-<li class="sidebar-item">
-@endsection
 @section('content')
 <style>
     .chat-search-box {
@@ -424,49 +396,15 @@ ul {
     </div>
     </div>
     </div>
-
-
-        <button  id="newquestion"  class="btn btn-info" data-toggle="modal" data-target="#myModal">
-
+    {{-- <button type="button" class="btn btn-info">
+        <div class="newquest">
             <i class="fa-solid fa-circle-plus"></i>
-
+        </div>
         <p class="name-time">
         <span class="name">Thêm câu hỏi mới</span>
 
         </p>
-    </button>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-
-            <h4 class="modal-title">Nhập tiêu đề câu hỏi</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <form action="">
-                @csrf
-                <div class="form-group">
-                <input type="text" id="questname" name="questname" placeholder="Nhập Tiêu Đề Câu Hỏi">
-                </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" >Save changes</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </form>
-        </div>
-
-      </div>
-    </div>
-
-
-
+    </button> --}}
     <ul class="users">
 
     <li class="person" data-chat="person1">
@@ -524,7 +462,7 @@ ul {
     </div>
     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
     <div class="selected-user">
-    <span>QA: <span class="name">Cách đánh giá phiếu số 1</span></span>
+    <span>To: <span class="name">CTY Lập Trình N&B  </span></span>
     </div>
     <div class="chat-container">
     <ul class="chat-box chatContainerScroll">
@@ -593,7 +531,7 @@ ul {
     </ul>
     <div class="row reply">
         <div class="col-sm-1 col-xs-1 reply-emojis">
-          <i class="fa fa-smile-o fa-2x"></i>
+          <i class="fas fa-smile fa-2x"></i>
         </div>
         <div class="col-sm-9 col-xs-9 reply-main">
           <textarea class="form-control" rows="1" id="comment"></textarea>
@@ -602,7 +540,7 @@ ul {
           <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
         </div>
         <div class="col-sm-1 col-xs-1 reply-send">
-          <i class="fa fa-send fa-2x" aria-hidden="true"></i>
+            <i class="fas fa-paper-plane fa-2x" ></i>
         </div>
       </div>
     </div>
@@ -619,8 +557,6 @@ ul {
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
-    $('#newquestion').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
+
     </script>
 @endsection
