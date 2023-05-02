@@ -1,4 +1,7 @@
 @extends( 'danhgia.frontend')
+@section('title')
+    Phiếu câu hỏi số 2
+@endsection
 @section('link')
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>

@@ -24,7 +24,7 @@ class AdminController extends Controller
 
     public function getdashboard(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $user = $request->user();
         Session::put('user_id', $user->id);
         Session::put('name', $user->name);
@@ -111,7 +111,7 @@ class AdminController extends Controller
     }
     public function savenganhnghe(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         //thêm chi tiết
         $ct = array();
         $ct['TenNganhNghe'] = $request->Ten;
@@ -122,7 +122,7 @@ class AdminController extends Controller
     }
     public function saveloaihinh(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         //thêm chi tiết
         $ct = array();
         $ct['TenLoaiHinh'] = $request->Ten;
@@ -132,14 +132,14 @@ class AdminController extends Controller
     }
     public function getLoaiTin(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $user = $request->user();
         $LoaiTin = DB::table('loaitin')->get();
         return view('admin.loaitin.loaitin')->with("LoaiTin", $LoaiTin);
     }
     public function getLoaiTinMoi(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $user = $request->user();
 
         return view('admin.loaitin.loaitin_new');
@@ -154,7 +154,7 @@ class AdminController extends Controller
     public function UpdateLoaiTin(Request $request)
     {
 
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $LoaiTin = array();
         $LoaiTin['TenLoai'] = $request->TenLoai;
         if ($request->id == null) {
@@ -185,7 +185,7 @@ class AdminController extends Controller
     public function DeleteLoaiTin(Request $request)
     {
 
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
 
         // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
         try {
@@ -264,13 +264,9 @@ class AdminController extends Controller
     }
     public function updatePW(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $User = User::where('id',Session::get('user_id'))->where('password',hash::make($request->oldpw))->first();
-        // if(!empty($User))
-        // {
-        //     $alert = "Mật khẩu cũ sai!!!";
-        //     return Redirect::to('/admin/main')->with('alert', $alert);
-        // }else{
+
             if( $request->Newpw == $request->repw   )
             {
                 $User = User::where('id',Session::get('user_id'))->first();
@@ -282,8 +278,8 @@ class AdminController extends Controller
                     $alert = "đã đổi mật khẩu!!!";
                     return Redirect::to('/admin/main')->with('alert', $alert);
                 }else{
-                    // $alert = "Mật khẩu mới không trùng khớp!!!";
-                    // return Redirect::to('/admin/main')->with('alert', $alert);
+                    $alert = "Mật khẩu sai!!!";
+                    return Redirect::to('/admin/main')->with('alert', $alert);
                 }
 
             }
@@ -293,5 +289,4 @@ class AdminController extends Controller
             }
         }
 
-    // }
 }

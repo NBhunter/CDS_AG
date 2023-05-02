@@ -137,9 +137,7 @@
         </div>
 
     </nav>
-    <div class="mycard " style="position: absolute;z-index: 4;margin-left:62%;">
 
-    </div>
 
     @if (session('alert'))
         <div class="alert alert-danger alert-dismissible" role="alert">

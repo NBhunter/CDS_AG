@@ -1,6 +1,8 @@
 @extends('admin.admindashboard')
 @section('content')
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<link href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
 {{-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> --}}
 {{--
 

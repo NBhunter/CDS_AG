@@ -2,24 +2,23 @@
 @section('content')
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> --}}
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-{{-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> --}}
-
+<link href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
 
 
     <!-- Main Content -->
     <div class="container mt-3">
-          @if(session('alert'))   
+          @if(session('alert'))
 
             <div class="alert alert-danger ">
                 {{session('alert')}}
               </div>
-        @endif  
-          @if(session('Success'))   
+        @endif
+          @if(session('Success'))
 
             <div class="alert alert-success ">
                 {{session('Success')}}
               </div>
-        @endif  
+        @endif
     </div>
 
 
@@ -101,13 +100,13 @@
 
 
 
-    <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('admin_file/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('admin_file/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('admin_file/js/sb-admin-2.min.js')}}"></script>
 <!-- Bootstrap core JavaScript-->
 <script>
 
