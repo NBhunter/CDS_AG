@@ -109,6 +109,9 @@ Route::middleware([
 
     Route::get('/role/{user_id}', 'App\Http\Controllers\AdminController@getdetail');
     Route::post('/update_user', 'App\Http\Controllers\AdminController@saveUser');
+    // trả lời
+
+    Route::get('/chuyengia/CGtraloi', 'App\Http\Controllers\ChuyenGiaController@getmessage');
 
     // lấy doanh nghiệp
     Route::get('/admin/DSDoanhNghiep', 'App\Http\Controllers\AdminController@getNewAcDN');

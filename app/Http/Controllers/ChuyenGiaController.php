@@ -356,7 +356,7 @@ foreach($Phieu1New as $P1 ){
     }
     public function getDNDetail(Request $re, $DN_id)
     {
-        $re->user()->authorizeRoles(['Admin']);
+        $re->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
         $DN = DB::table('doanhnghiep')
                         ->leftjoin('chitiet_doanhnghiep','doanhnghiep.id','=','chitiet_doanhnghiep.DoanhNghiep_id')
                         ->leftjoin('dn_user','doanhnghiep.id','=','dn_user.DoanhNghiep_id')
@@ -409,6 +409,11 @@ foreach($Phieu1New as $P1 ){
         $User['status'] = 1;
         $User->save();
         return Redirect::to('/admin/DSDoanhNghiep')->with('alert', $alert);
+    }
+    public function getmessage(Request $request)
+    {
+        $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
+        return view('chuyengia.hoidap_CG');
     }
 }
 
