@@ -49,7 +49,7 @@ Route::middleware([
     // doanh nghiep
     Route::get('/dnviews', 'App\Http\Controllers\DoanhNghiepController@getdanhnghiep');
     Route::get('/DNHoi', 'App\Http\Controllers\DoanhNghiepController@getmessage');
-
+    Route::post('/HoiDapMoi', 'App\Http\Controllers\DoanhNghiepController@hoidap');
     // phần thông tin doanh nghiệp
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile');
     Route::post('/update_profile', 'App\Http\Controllers\DoanhNghiepController@updateprofile');
