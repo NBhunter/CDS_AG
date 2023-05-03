@@ -7,7 +7,7 @@
     <div class="card-body">
 
     <form role="form" action="" method="post" enctype="multipart/form-data">
-
+        <div class="card mb-4" style="padding: 15px;">
     <div class="row gx-3 mb-3">
 
     <div class="col-md-6">
@@ -35,10 +35,12 @@
         </div>
         </div>
         <label for="inputEmailAddress">Đánh giá tổng thể</label>
-
-
         <input class="form-control" id="inputLocation" type="text" style="text-align: center; " placeholder="" value="{{  $Phieu1detail->MucDo }}" readonly>
 <br>
+
+    <label for="inputEmailAddress">Mô hình đề xuất</label>
+        <input class="form-control" id="inputLocation" type="text" style="text-align: center; " placeholder="" value="{{  $Phieu1detail->TenMoHinh . ' ('.$trangthaidx.')' }}" readonly>
+</div>
 <br>
 <div class="card mb-4">
 <div class="card-header py-3">

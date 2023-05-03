@@ -182,7 +182,26 @@ class DoanhNghiepController extends Controller
         $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
         $thongbao = $this->laythongbao();
         $DoanhNghiep = Session::get('DoanhNghiep');
-        return view('DoanhNghiep.hoidap_DN')->with('DoanhNghiep', $DoanhNghiep)->with('thongbao', $thongbao);
+        $TinNhan = DB::table('tinnhan')
+        ->leftjoin('chitiet_tinnhan','chitiet_tinnhan.TinNhan_id','=','tinnhan.id')
+        ->where('tinnhan.DoanhNghiep_id','=',$DoanhNghiep->DoanhNghiep_id)
+        ->where('tinnhan.Loai','=','1')->OrderBy('tinnhan.updated_at','desc')
+        ->select('tinnhan.created_at as thoigian','tinnhan.*','chitiet_tinnhan.*')->get();
+        return view('DoanhNghiep.hoidap_DN')->with('DoanhNghiep', $DoanhNghiep)->with('thongbao', $thongbao)->with('TinNhan',$TinNhan);
+    }
+    public function hoidap(Request $request)
+    {
+        $input = $request->collect();
+        $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
+        $HD = array();
+        $HD['DoanhNghiep_id'] = Session::get('DoanhNghiep_id');
+        $HD['status'] = '1';
+        $HD['Loai'] = '1';
+        $HD['TieuDe'] = $input['TieuDe'];
+        $HD['created_at'] = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $HD['updated_at'] = Carbon::now('Asia/Ho_Chi_Minh');
+        DB::table('tinnhan')->insert($HD);
+        return redirect()->back();
     }
 
 }
