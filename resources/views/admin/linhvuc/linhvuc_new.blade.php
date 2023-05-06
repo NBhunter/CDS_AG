@@ -20,7 +20,11 @@
 
     <div class="mb-3">
     <label class="small mb-1" for="mota">Mô Tả</label>
+<<<<<<< HEAD
     <input class="form-control" id="Username" name="MoTa" type="text" placeholder="Nhập thông tin mô tả" value="">
+=======
+    <input class="form-control" id="Username" name="MoTa" type="text" placeholder="Nhap mô tả" value="">
+>>>>>>> a495c806199d756b96ea5df3adac1cbde90fd413
     </div>
 
 

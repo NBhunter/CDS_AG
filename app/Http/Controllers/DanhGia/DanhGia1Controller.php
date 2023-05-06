@@ -31,7 +31,11 @@ class DanhGia1Controller extends Controller
         }
         $now = Carbon::now();
 
+<<<<<<< HEAD
         if ($updated->diffInMonths($now) >3) {
+=======
+        if ($updated->diffInMonths($now) > 3) {
+>>>>>>> a495c806199d756b96ea5df3adac1cbde90fd413
             $Cauhoi = chitiet_P1::leftjoin('chitiet_cauhoi', 'chitiet_cauhoi.ChiTiet_id', '=', 'chitiet.id')
                 ->leftjoin('cauhoi', 'cauhoi.id', '=', 'chitiet_cauhoi.CauHoi_id')
                 ->select('chitiet.id AS idcauhoi', 'chitiet.*', 'cauhoi.*', 'chitiet_cauhoi.*')
@@ -144,21 +148,10 @@ class DanhGia1Controller extends Controller
     // xử lý mô hình
     public function Chonmohinh($idPhieu)
     {
-        $Phieu1 = phieuso1::where('Id', $idPhieu)->first();
-        $TruCot = phieu1_diem::where('Phieu_id', $idPhieu)
-            ->join('chitiet', 'chitiet.id', '=', 'phieu1_diem.ChiTiet_id')->get();
-        $min = -1;
-        foreach ($TruCot as $TC) {
-            if ($TC->Cap == 1) {
-                if ($min == -1) {
-                    $min = $TC->Diem;
-                }
-                if ($min != -1 && $min > $TC->Diem) {
-                    $min = $TC->Diem;
-                }
-            }
-        }
+
     }
+    // xử lý
+
     // thực hiện đánh giá
     public function DanhGia(Request $request)
     {
@@ -170,7 +163,10 @@ class DanhGia1Controller extends Controller
         $TongDiem = 0;
         $Cap1 = 0;
         $Cap2 = 0;
+
         if (phieuso1::find($request->maphieu) == null) {
+
+        Session::put('count',0);
             Session::forget('ID_C1_Truoc');
             Session::forget('ID_C2_Truoc');
             Session::forget('DiemC1');
@@ -236,42 +232,13 @@ class DanhGia1Controller extends Controller
                 $chitietcauhoi->save();
                 Session::push('temp', $Ch->Id);
             }
-            // if ($Ch->Cap == 2  && $request[$Ch->Id] != null && in_array($Ch->Id, Session::get('temp')) && Session::get('DiemC2') > 0) {
-            //     if (Session::get('ID_C2_Truoc') != 0) {
-
-            //         $chitietcauhoiC2 = phieu1_diem::where('ChiTiet_id',Session::get('ID_C2_Truoc'))->where('Phieu_id',$request->maphieu);
-            //         $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
-            //         $chitietcauhoiC2['ChiTiet_id'] = Session::get('ID_C2_Truoc');
-            //         $chitietcauhoiC2['Diem'] = Session::get('DiemC2');
-            //         // DB::table('phieu1_diem')->insert($chitietcauhoiC2);
-            //         $chitietcauhoiC2->save();
-            //     }
-            //     Session::put('DiemC2', '0');
-            //     Session::put('ID_C2_Truoc', $Ch->Id);
-            //     Session::push('temp', $Ch->Id);
-            // }
-            // if ($Ch->Cap == 3 && $request->maphieu != null && $request[$Ch->Id] != null && in_array($Ch->Id, Session::get('temp'))) {
-            //     $chitietcauhoi = phieu1_diem::where('ChiTiet_id',$request[$Ch->Id])->where('Phieu_id',$request->maphieu);
-            //     // $chitietcauhoi['Phieu_id'] = $request->maphieu;
-            //     // $chitietcauhoi['ChiTiet_id'] = $Ch->Id;
-            //     $TongDiem -= $chitietcauhoi['Diem'];
-            //     $chitietcauhoi['Diem'] = $request[$Ch->Id];
-            //     $TongDiem += $request[$Ch->Id];
-            //     Session::put('DiemC1', Session::get('DiemC1') + $request[$Ch->Id]);
-            //     Session::put('DiemC2', Session::get('DiemC2') + $request[$Ch->Id]);
-            //     // DB::table('phieu1_diem')->insert($chitietcauhoi);
-            //     $chitietcauhoi->save();
-            //     Session::push('temp', $Ch->Id);
-            // }
-
-
         }
         $thongtinphieu['TongDiem'] = $TongDiem;
         $thongtinphieu['created_at'] = now();
         $thongtinphieu['status'] = 0;
         Session::put('count', count(Session::get('temp')));
         //    Lưu trụ cột cuối cùng
-        if (Session::get('count') >= '77') {
+        if (Session::get('count') >= '76') {
             $chitietcauhoiC1 = new phieu1_diem();
             $chitietcauhoiC1['Phieu_id'] = $request->maphieu;
             $chitietcauhoiC1['ChiTiet_id'] = Session::get('ID_C1_Truoc');
@@ -286,16 +253,66 @@ class DanhGia1Controller extends Controller
         }
 
         //    DB::table('phieuso1')->insert($thongtinphieu);
-        $thongtinphieu->save();
 
-        // xử lý đề xuất mô hình cho chuyên gia
-        $ThongBaoDeXuat = array();
-        $ThongBaoDeXuat['DoanhNghiep_id'] = session::get('DoanhNghiep_id');
-        $ThongBaoDeXuat['Loai'] = 3;
-        $ThongBaoDeXuat['TieuDe'] = 'Có doanh nghiệp vừa đánh giá';
-        $ThongBaoDeXuat['Status'] = 1;
-        $ThongBaoDeXuat['Link'] = '/chuyengia/P1_DGM';
-        $idtinnhan = DB::table('tinnshan')->insertGetId($ThongBaoDeXuat);
+
+        $thongtinphieu->save();
+        if (Session::get('count') >= '76') {
+            $Phieu1 = phieuso1::where('Id', $idPhieu)->first();
+        $TruCot = DB::table('phieuso1')->leftjoin('phieu1_diem','phieu1_diem.Phieu_id','=','phieuso1.id')
+        ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
+        ->where('chitiet.Cap','1')->where('phieuso1.id',$idPhieu)
+        ->where(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100)'),'>',10)
+        ->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*')->get();
+        $min = -1;
+        $min_id = 0;
+        foreach ($TruCot as $TC) {
+            if ($TC->Cap == 1) {
+                if ($min == -1) {
+                    $min = $TC->phantram;
+                    $min_id = $TC->Id;
+                }
+                if ($min != -1 && $min > $TC->phantram) {
+                    $min = $TC->phantram;
+                    $min_id = $TC->Id;
+                }
+            }
+        }
+        switch ($min_id) {
+            case 35:
+                $Phieu1->update(['MoHinh_id' => '1']);
+
+                break;
+            case 56:
+                $Phieu1->update(['MoHinh_id' => '1']);
+
+                break;
+            case 60:
+                $Phieu1->update(['MoHinh_id' => '5']);
+
+                break;
+            case 85:
+                $Phieu1->update(['MoHinh_id' => '2']);
+
+                break;
+            case 107:
+                $Phieu1->update(['MoHinh_id' => '4']);
+
+                break;
+            case 127:
+                $Phieu1->update(['MoHinh_id' => '4']);
+
+                break;
+        }
+            // xử lý đề xuất mô hình cho chuyên gia
+            $ThongBaoDeXuat = array();
+            $ThongBaoDeXuat['DoanhNghiep_id'] = session::get('DoanhNghiep_id');
+            $ThongBaoDeXuat['Loai'] = 3;
+            $ThongBaoDeXuat['TieuDe'] = 'Có doanh nghiệp vừa đánh giá';
+            $ThongBaoDeXuat['Status'] = 1;
+            $ThongBaoDeXuat['Link'] = '/chuyengia/P1_DGM';
+            $idtinnhan = DB::table('tinnshan')->insertGetId($ThongBaoDeXuat);
+        }
+
         // lưu nội dung
 
         //    return Redirect::to('dnviewas');

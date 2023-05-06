@@ -135,15 +135,63 @@ foreach($Phieu1New as $P1 ){
 
         $Phieu1 =  phieuso1::where('Id',$IdPhieu1);
         $Phieu1->update(['status' => 1]);
-        $Phieu1detail =DB::table('phieuso1')->leftjoin('users','users.id','=','phieuso1.User_id')
-        ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso1.DoanhNghiep_Id')->where('phieuso1.id',$IdPhieu1)
-        ->select('phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','doanhnghiep.*','users.*')->first();
-        // $Phieu1detail->MucDo = "";
-        $Phieu1detail = $this->xulymucdo($Phieu1detail,$IdPhieu1);
+
         $trucot = DB::table('phieuso1')->leftjoin('phieu1_diem','phieu1_diem.Phieu_id','=','phieuso1.id')
         ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
         ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
-        return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot);
+
+        $min = -1;
+        $min_id = 0;
+        foreach ($trucot as $TC) {
+            if ($TC->Cap == 1) {
+                if ($min == -1) {
+                    $min = $TC->phantram;
+                    $min_id = $TC->Id;
+                }
+                if ($min != -1 && $min > $TC->phantram) {
+                    $min = $TC->phantram;
+                    $min_id = $TC->Id;
+                }
+            }
+        }
+        switch ($min_id) {
+            case 35:
+                $Phieu1->update(['MoHinh_id' => '1']);
+
+                break;
+            case 56:
+                $Phieu1->update(['MoHinh_id' => '1']);
+
+                break;
+            case 60:
+                $Phieu1->update(['MoHinh_id' => '5']);
+
+                break;
+            case 85:
+                $Phieu1->update(['MoHinh_id' => '2']);
+
+                break;
+            case 107:
+                $Phieu1->update(['MoHinh_id' => '4']);
+
+                break;
+            case 127:
+                $Phieu1->update(['MoHinh_id' => '4']);
+
+                break;
+        }
+        $Phieu1detail =DB::table('phieuso1')->leftjoin('users','users.id','=','phieuso1.User_id')
+        ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso1.DoanhNghiep_Id')
+        ->leftjoin('mohinh','mohinh.id','=','phieuso1.MoHinh_id')->where('phieuso1.id',$IdPhieu1)
+        ->select('phieuso1.created_at as ThoiGianTao','mohinh.*','phieuso1.id as IDphieu','phieuso1.*','doanhnghiep.*','users.*')->first();
+        // $Phieu1detail->MucDo = "";
+        $Phieu1detail = $this->xulymucdo($Phieu1detail,$IdPhieu1);
+        if(DB::table('mohinh_doanhnghiep')->where('mohinh_doanhnghiep.DoanhNghiep_id','=',$Phieu1detail->DoanhNghiep_Id)->count() == 0)
+        {
+            $trangthaidx = "Đề xuất tự động";
+        }
+        return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with("trangthaidx",$trangthaidx);
+
 
         // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Nâng Cao');
     }
@@ -356,7 +404,7 @@ foreach($Phieu1New as $P1 ){
     }
     public function getDNDetail(Request $re, $DN_id)
     {
-        $re->user()->authorizeRoles(['Admin']);
+        $re->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
         $DN = DB::table('doanhnghiep')
                         ->leftjoin('chitiet_doanhnghiep','doanhnghiep.id','=','chitiet_doanhnghiep.DoanhNghiep_id')
                         ->leftjoin('dn_user','doanhnghiep.id','=','dn_user.DoanhNghiep_id')
@@ -409,6 +457,11 @@ foreach($Phieu1New as $P1 ){
         $User['status'] = 1;
         $User->save();
         return Redirect::to('/admin/DSDoanhNghiep')->with('alert', $alert);
+    }
+    public function getmessage(Request $request)
+    {
+        $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
+        return view('chuyengia.hoidap_CG');
     }
 }
 

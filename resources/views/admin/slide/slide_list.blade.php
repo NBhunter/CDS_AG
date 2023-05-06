@@ -1,8 +1,15 @@
 @extends('admin.admindashboard')
 @section('content')
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+=======
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+
+>>>>>>> a495c806199d756b96ea5df3adac1cbde90fd413
 <style>
     * {
       box-sizing: border-box;

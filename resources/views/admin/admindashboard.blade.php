@@ -62,11 +62,13 @@
             </li>
 
             <!-- Divider -->
+
+
+            @if (Session::get('role') == 'Admin')
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
                 Người dùng
             </div>
-            @if (Session::get('role') == 'Admin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ URL::to('admin/user') }}">
                         <i class="fas fa-address-book"></i>
@@ -97,7 +99,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Quản lý tin tức:</h6>
                         <a class="collapse-item" href="{{ URL::to('admin/themtintuc') }}">Tin tức mới đăng</a>
-                        <a class="collapse-item" href="{{ URL::to('admin/xemtin') }}">Tin tức đã duyệt</a>
+                        <a class="collapse-item" href="{{ URL::to('admin/xemtin') }}">Danh sách tin tức</a>
                     </div>
                 </div>
             </li>
@@ -163,7 +165,7 @@
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            @if (Session::get('role') == 'Admin')
             <!-- Heading -->
             <div class="sidebar-heading">
                 Doanh Nghiệp
@@ -244,7 +246,8 @@
 
             {{-- xem ngừoi dùng --}}
             <hr class="sidebar-divider">
-
+            @else
+            @endif
             <!-- Heading -->
             <div class="sidebar-heading">
                 Hệ thống

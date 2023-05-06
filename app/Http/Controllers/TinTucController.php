@@ -12,7 +12,7 @@ class TinTucController extends Controller
 
 
     public function getXemTin(Request $request){
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $user = $request->user();
         $TinTuc = DB::table('tintucs')->leftjoin('linhvuc','tintucs.LinhVuc_id','=','linhvuc.Id')
         ->leftjoin('loaitin','tintucs.LoaiTin_id','=','loaitin.Id')->get();
@@ -20,7 +20,7 @@ class TinTucController extends Controller
     }
     //
     public function getidThemTin(Request $request){
-        $request->user()->authorizeRoles(['Admin']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $LinhVuc = DB::table('linhvuc')->get();
         $LoaiTin = DB::table('loaitin')->get();
         return view('admin.themtin')->with('LinhVuc',$LinhVuc)->with('LoaiTin',$LoaiTin);

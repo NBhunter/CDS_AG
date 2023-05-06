@@ -204,4 +204,9 @@ class HomeController extends Controller
 
 
     }
+// xem hồ sơ chuyển đổi số
+public function XemCDS()
+{
+return view('home.HosoCDS');
+}
 }
