@@ -24,7 +24,7 @@ class AdminController extends Controller
 
     public function getdashboard(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $user = $request->user();
         Session::put('user_id', $user->id);
         Session::put('name', $user->name);
@@ -111,7 +111,7 @@ class AdminController extends Controller
     }
     public function savenganhnghe(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         //thêm chi tiết
         $ct = array();
         $ct['TenNganhNghe'] = $request->Ten;
@@ -134,7 +134,7 @@ class AdminController extends Controller
     }
     public function saveloaihinh(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         //thêm chi tiết
         $ct = array();
         $ct['TenLoaiHinh'] = $request->Ten;
@@ -161,14 +161,14 @@ class AdminController extends Controller
     }
     public function getLoaiTin(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $user = $request->user();
         $LoaiTin = DB::table('loaitin')->get();
         return view('admin.loaitin.loaitin')->with("LoaiTin", $LoaiTin);
     }
     public function getLoaiTinMoi(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $user = $request->user();
 
         return view('admin.loaitin.loaitin_new');
@@ -183,7 +183,7 @@ class AdminController extends Controller
     public function UpdateLoaiTin(Request $request)
     {
 
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $LoaiTin = array();
         $LoaiTin['TenLoai'] = $request->TenLoai;
         if ($request->id == null) {
@@ -214,7 +214,7 @@ class AdminController extends Controller
     public function DeleteLoaiTin(Request $request)
     {
 
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
 
         // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
         try {
@@ -293,7 +293,7 @@ class AdminController extends Controller
     }
     public function updatePW(Request $request)
     {
-        $request->user()->authorizeRoles(['Admin', 'QTV']);
+        $request->user()->authorizeRoles(['Admin', 'CTV']);
         $User = User::where('id',Session::get('user_id'))->where('password',hash::make($request->oldpw))->first();
 
             if( $request->Newpw == $request->repw   )

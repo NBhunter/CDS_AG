@@ -1,6 +1,8 @@
 @extends('admin.admindashboard')
 @section('content')
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
+<link href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
 {{--
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> --}}
@@ -22,7 +24,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table-bordered" width="1100px" style="text-align:center;font-weight:300;font-size:14px;">
+                        <table class="table-bordered" id="dataTable" width="1100px" style="text-align:center;font-weight:300;font-size:14px;">
                             <thead>
                                 <tr>
                                     <th width="5%">STT</th>
@@ -116,13 +118,13 @@
 
 
 {{-- <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script> --}}
-    <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('admin_file/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('admin_file/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('admin_file/js/sb-admin-2.min.js')}}"></script>
 <!-- Bootstrap core JavaScript-->
 <script>
 function change($a) {
@@ -138,6 +140,7 @@ function change($a) {
 $("admin").click(function(){
     alert("Data: ");
   });
+  $('#dataTable').DataTable();
 </script>
 
 @endsection

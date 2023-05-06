@@ -4,36 +4,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 @section('nvar')
-    <li class="sidebar-item ">
-        <a class="sidebar-link" href="{{ URL::to('dnviews') }}" style="background-color: #4e73df;">
-            <i class="align-middle" data-feather="home"></i> <span class="align-middle" style="font-family:Roboto;">Trang điều
-                khiển</span>
-        </a>
-    </li>
-    <hr class="sidebar-divider" style="color:white;">
-    <!-- Heading -->
+<li class="sidebar-item "style="background-color: #4e73df;">
+    <a class="sidebar-link" href="{{ URL::to('dnviews') }}">
+<i class="align-middle" data-feather="home"></i> <span class="align-middle" style="font-family:Roboto;">Trang điều khiển</span>
+</a>
+</li>
+<hr class="sidebar-divider" style="color:white;">
+<!-- Heading -->
 
-    <li class="sidebar-item active">
-        <a class="sidebar-link" href="{{ URL::to('profile') }}" style="background-color: #4e73df;">
-            <i class="align-middle" data-feather="user"></i> <span class="align-middle" style="font-family:Roboto;">Hồ sơ
-                doanh nghiệp</span>
-        </a>
-    </li>
-    <hr class="sidebar-divider" style="color:white;">
-    <li class="sidebar-item">
-        <a class="sidebar-link" href="{{ URL::to('phieudanhgia1') }}" style="background-color: #4e73df;">
-            <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle"
-                style="font-family:Roboto;">Đánh Giá</span>
-        </a>
-    </li>
+<li class="sidebar-item active" >
+    <a class="sidebar-link" href="{{ URL::to('profile') }}" style="background-color: #4e73df;">
+<i class="align-middle" data-feather="user"></i> <span class="align-middle" style="font-family:Roboto;">Hồ sơ doanh nghiệp</span>
+</a>
+</li>
+<hr class="sidebar-divider" style="color:white;">
+<li class="sidebar-item">
+    <a class="sidebar-link" href="{{ URL::to('phieudanhgia1') }}" style="background-color: #4e73df;">
+<i class="align-middle" data-feather="check-circle"></i> <span class="align-middle" style="font-family:Roboto;">Đánh Giá</span>
+</a>
+</li>
+<hr class="sidebar-divider" style="color:white;">
+<li class="sidebar-item">
+    <a class="sidebar-link" href="{{ URL::to('DNHoi') }}" style="background-color: #4e73df;">
+        <i class="align-middle" data-feather="message-square"></i><span class="align-middle" style="font-family:Roboto;">Hỏi Đáp</span>
+</a>
+</li>
 
-    <li class="sidebar-item">
-
-        {{-- <a class="sidebar-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" style="background-color: #4e73df;">
-<i class="align-middle" data-feather="log-out"></i> <span class="align-middle" style="font-family:Roboto;">Log out</span>
-</a> --}}
-
-    </li>
+<li class="sidebar-item">
 @endsection
 @section('content')
     {{-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">

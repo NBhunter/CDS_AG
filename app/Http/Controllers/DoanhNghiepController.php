@@ -47,7 +47,7 @@ class DoanhNghiepController extends Controller
     {
         $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
         $user = $request->user();
-
+        Session::forget('DoanhNghiep');
         Session::put('email', $user->email);
         $DoanhNghiep = DB::table('users')
             ->leftjoin('dn_user', 'dn_user.User_id', '=', 'users.id')
@@ -57,6 +57,7 @@ class DoanhNghiepController extends Controller
         Session::put('lienket_id', $DoanhNghiep->lienket_id);
         Session::put('DoanhNghiep_id', $DoanhNghiep->DoanhNghiep_id);
         Session::put('User_id', $DoanhNghiep->User_id);
+        Session::put('DoanhNghiep', $DoanhNghiep);
 
         //lấy điểm bảng 1
         $DanhGia1 = DB::table('phieuso1')->where('DoanhNghiep_Id', $DoanhNghiep->DoanhNghiep_id)->orderByDesc('created_at')->first();
@@ -170,11 +171,44 @@ class DoanhNghiepController extends Controller
                 return Redirect::to('/dnviews')->with('alert', $alert);
             }
 
+<<<<<<< HEAD
+        }
+        else{
+            $alert = "Mật khẩu mới không trùng khớp!!!";
+            return Redirect::to('/dnviews')->with('alert', $alert);
+=======
+>>>>>>> a495c806199d756b96ea5df3adac1cbde90fd413
         }
         else{
             $alert = "Mật khẩu mới không trùng khớp!!!";
             return Redirect::to('/dnviews')->with('alert', $alert);
         }
+    }
+    public function getmessage(Request $request)
+    {
+        $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
+        $thongbao = $this->laythongbao();
+        $DoanhNghiep = Session::get('DoanhNghiep');
+        $TinNhan = DB::table('tinnhan')
+        ->leftjoin('chitiet_tinnhan','chitiet_tinnhan.TinNhan_id','=','tinnhan.id')
+        ->where('tinnhan.DoanhNghiep_id','=',$DoanhNghiep->DoanhNghiep_id)
+        ->where('tinnhan.Loai','=','1')->OrderBy('tinnhan.updated_at','desc')
+        ->select('tinnhan.created_at as thoigian','tinnhan.*','chitiet_tinnhan.*')->get();
+        return view('DoanhNghiep.hoidap_DN')->with('DoanhNghiep', $DoanhNghiep)->with('thongbao', $thongbao)->with('TinNhan',$TinNhan);
+    }
+    public function hoidap(Request $request)
+    {
+        $input = $request->collect();
+        $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
+        $HD = array();
+        $HD['DoanhNghiep_id'] = Session::get('DoanhNghiep_id');
+        $HD['status'] = '1';
+        $HD['Loai'] = '1';
+        $HD['TieuDe'] = $input['TieuDe'];
+        $HD['created_at'] = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $HD['updated_at'] = Carbon::now('Asia/Ho_Chi_Minh');
+        DB::table('tinnhan')->insert($HD);
+        return redirect()->back();
     }
 
 }

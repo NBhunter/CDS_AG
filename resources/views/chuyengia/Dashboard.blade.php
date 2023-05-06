@@ -145,7 +145,12 @@
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('chuyengia/CGtraloi') }}">
+                        <i class="fas fa-comments"></i>
+                        <span>Trả lời</span></a>
+                </li>
+                <hr class="sidebar-divider">
                 <!-- Heading -->
 
                 <!-- Divider -->
