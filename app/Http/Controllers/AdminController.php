@@ -30,8 +30,23 @@ class AdminController extends Controller
         Session::put('name', $user->name);
         $role = DB::table('role_user')->leftjoin('Roles', 'role_user.Role_id', 'Roles.id')->where('role_user.User_id', $user->id)->first();
         Session::put('role', $role->name);
-
-        return view('admin.adminhome');
+        $P1 = DB::table('phieuso1')->select('phieuso1.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        ->get();
+        $P2 = DB::table('phieuso2')->select('phieuso2.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        ->get();
+        $P3 = DB::table('phieu3_raocan')->select('phieu3_raocan.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        ->get();
+        $P4 = DB::table('phieuso4')->select('phieuso4.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        ->get();
+        // đếm số tk doanh nghiệp hiện tại
+        $TKDN = DB::table('users')
+        ->leftjoin('role_user','users.id','=','role_user.User_id')
+        ->leftjoin('roles','roles.id','=','role_user.Role_id')
+        ->leftjoin('dn_user','dn_user.User_id','=','users.id')
+        ->leftjoin('doanhnghiep','doanhnghiep.id','=','dn_user.DoanhNghiep_id')
+        ->where('roles.name','DoanhNghiep-BGD')->orwhere('roles.name','DoanhNghiep-NV')->groupBy('doanhnghiep.TrangThai_XacThuc')
+        ->select('doanhnghiep.TrangThai_XacThuc' ,DB::raw('COUNT(doanhnghiep.TrangThai_XacThuc) as tong') )->get();
+        return view('admin.adminhome')->with('P1',$P1)->with('P2',$P2)->with('P3',$P3)->with('P4',$P4)->with('TKDN',$TKDN);
     }
     public function getuser(Request $request)
     {

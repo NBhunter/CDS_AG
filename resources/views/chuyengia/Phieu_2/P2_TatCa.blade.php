@@ -15,7 +15,7 @@
                             <th>Tên doanh nghiệp</th>
                             <th>Thời gian đánh giá </th>
                             <th> Số điểm đánh giá </th>
-                            <th> Trạng thái </th>
+                            <th> Thời gian đánh giá </th>
                             <th>Xử lý</th>
                         </tr>
 

@@ -32,12 +32,29 @@ class ChuyenGiaController extends Controller
             Session::put('title_page','Trang hiệp hội');
         }
         $home = 'true';
-            return view('chuyengia.Dashboard')->with('home',$home);
+        // điếm số doanh nghiệp đã đánh giá
+        $P1 = DB::table('phieuso1')->select('phieuso1.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        ->get();
+        $P2 = DB::table('phieuso2')->select('phieuso2.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        ->get();
+        $P3 = DB::table('phieu3_raocan')->select('phieu3_raocan.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        ->get();
+        $P4 = DB::table('phieuso4')->select('phieuso4.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        ->get();
+        // đếm số tk doanh nghiệp hiện tại
+        $TKDN = DB::table('users')
+        ->leftjoin('role_user','users.id','=','role_user.User_id')
+        ->leftjoin('roles','roles.id','=','role_user.Role_id')
+        ->leftjoin('dn_user','dn_user.User_id','=','users.id')
+        ->leftjoin('doanhnghiep','doanhnghiep.id','=','dn_user.DoanhNghiep_id')
+        ->where('roles.name','DoanhNghiep-BGD')->orwhere('roles.name','DoanhNghiep-NV')->groupBy('doanhnghiep.TrangThai_XacThuc')
+        ->select('doanhnghiep.TrangThai_XacThuc' ,DB::raw('COUNT(doanhnghiep.TrangThai_XacThuc) as tong') )->get();
+            return view('chuyengia.Dashboard')->with('home',$home)->with('P1',$P1)->with('P2',$P2)->with('P3',$P3)->with('P4',$P4)->with('TKDN',$TKDN);
 
     }
     public function xulymucdo($Phieu1detail,$IdPhieu1)
     {
-        $Phieu1detail->MucDo =sprintf('Chưa khởi động');
+        $Phieu1detail->MucDo ='Chưa khởi động';
         if($Phieu1detail->TongDiem  > 256){
             // lấy số cột đạt tiêu chuẩn
             $datmuc = DB::table('phieuso1')->leftjoin('phieu1_diem','phieu1_diem.Phieu_id','=','phieuso1.id')
@@ -49,7 +66,7 @@ class ChuyenGiaController extends Controller
                 ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
                 ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
                 // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Dẫn Dắt');
-                $Phieu1detail->MucDo =sprintf('Dẫn dắt');
+                $Phieu1detail->MucDo ='Dẫn dắt';
                 return  $Phieu1detail;
             }}
         if(  $Phieu1detail->TongDiem  > 192){
@@ -63,7 +80,7 @@ class ChuyenGiaController extends Controller
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
             // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Nâng Cao');
-            $Phieu1detail->MucDo =sprintf('Nâng cao');
+            $Phieu1detail->MucDo ='Nâng cao';
             return  $Phieu1detail;
         }}
         if(  $Phieu1detail->TongDiem  > 128){
@@ -71,12 +88,13 @@ class ChuyenGiaController extends Controller
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->where(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100)'),'>',40)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*')->get();
             $tongdatmuc = $datmuc->count();
+            var_dump($IdPhieu1);
             if($tongdatmuc >=4){
             $trucot = DB::table('phieuso1')->leftjoin('phieu1_diem','phieu1_diem.Phieu_id','=','phieuso1.id')
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
             // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Hình thành');
-            $Phieu1detail->MucDo =sprintf('Hình thành');
+            $Phieu1detail->MucDo ='Hình thành';
             return  $Phieu1detail;
         }}
         if( $Phieu1detail->TongDiem  > 64){
@@ -90,7 +108,7 @@ class ChuyenGiaController extends Controller
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
             // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Bắt đầu');
-            $Phieu1detail->MucDo =sprintf('Bắt đầu');
+            $Phieu1detail->MucDo ='Bắt đầu';
             return  $Phieu1detail;
         }}
         if( $Phieu1detail->TongDiem  > 20){
@@ -104,7 +122,7 @@ class ChuyenGiaController extends Controller
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*','chitiet.*','phieu1_diem.*')->get();
             // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Bắt đầu');
-            $Phieu1detail->MucDo =sprintf('Bắt đầu');
+            $Phieu1detail->MucDo ='Bắt đầu';
         }}
         return  $Phieu1detail;
     }
@@ -116,7 +134,7 @@ class ChuyenGiaController extends Controller
         ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso1.DoanhNghiep_Id')->where('phieuso1.status','0')
         ->select('phieuso1.created_at as ThoigianTao','phieuso1.id as IDphieu','phieuso1.*','doanhnghiep.*','users.*')->get();
 foreach($Phieu1New as $P1 ){
-            $P1 = $this->xulymucdo($P1,$P1->id);
+            $P1 = $this->xulymucdo($P1,$P1->IDphieu);
         }
         return view('chuyengia.Phieu_1.P1_DanhGiaMoi')->with('Phieu1New',$Phieu1New);
     }
@@ -127,7 +145,7 @@ foreach($Phieu1New as $P1 ){
         ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso1.DoanhNghiep_Id')
         ->select('phieuso1.created_at as ThoigianTao','phieuso1.id as IDphieu','phieuso1.*','doanhnghiep.*','users.*')->get();
         foreach($Phieu1New as $P1 ){
-            $P1 = $this->xulymucdo($P1,$P1->id);
+            $P1 = $this->xulymucdo($P1,$P1->IDphieu);
         }
         return view('chuyengia.Phieu_1.P1_TatCa')->with('Phieu1New',$Phieu1New);
     }
@@ -185,7 +203,7 @@ foreach($Phieu1New as $P1 ){
         ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso1.DoanhNghiep_Id')
         ->leftjoin('mohinh','mohinh.id','=','phieuso1.MoHinh_id')->where('phieuso1.id',$IdPhieu1)
         ->select('phieuso1.created_at as ThoiGianTao','mohinh.*','phieuso1.id as IDphieu','phieuso1.*','doanhnghiep.*','users.*')->first();
-        // $Phieu1detail->MucDo = "";
+
         $Phieu1detail = $this->xulymucdo($Phieu1detail,$IdPhieu1);
         if(DB::table('mohinh_doanhnghiep')->where('mohinh_doanhnghiep.DoanhNghiep_id','=',$Phieu1detail->DoanhNghiep_Id)->count() == 0)
         {

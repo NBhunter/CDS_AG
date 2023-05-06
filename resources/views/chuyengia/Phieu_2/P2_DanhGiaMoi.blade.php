@@ -13,14 +13,14 @@
                         <tr>
                             <th>STT</th>
                             <th>Tên doanh nghiệp</th>
-                            <th> Số điểm đánh giá </th>
                             <th> Trạng thái </th>
+                            <th> Thời gian đánh giá </th>
                             <th>Xử lý</th>
                         </tr>
 
                     </thead>
                     @php
-                    $i =0;
+                    $i =1;
                 @endphp
                     @foreach ( $Phieu2New as $P2)
                     <tr>
@@ -33,7 +33,7 @@
                             Đã xem
                             @endif
                         </td>
-                        <td></td>
+                        <td>{{ $P2->ThoigianTao }}</td>
                         <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
                     </tr>
                     @endforeach

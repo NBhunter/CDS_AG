@@ -523,9 +523,6 @@
     <!-- Page level plugins -->
     <script src="{{ asset('admin_file/vendor/chart.js/Chart.min.js') }}"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('admin_file/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('admin_file/js/demo/chart-pie-demo.js') }}"></script>
 
 
     <script src="{{ asset('public/backend/ckeditor/ckeditor.js') }}"></script>
