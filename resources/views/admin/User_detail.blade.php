@@ -16,22 +16,11 @@
     </div>
 
 
-    <div class="row gx-3 mb-3">
 
-    <div class="col-md-6">
-    <label class="small mb-1" for="inputOrgName">Tên doanh nghiệp</label>
-    <input class="form-control" id="inputOrgName" type="text" placeholder="Nhập tên doanh nghiệp" value="{{ $user->TenDoanhNghiep  }}">
-    </div>
-
-    <div class="col-md-6">
-    <label class="small mb-1" for="inputLocation">Địa chỉ</label>
-    <input class="form-control" id="inputLocation" type="text" placeholder="Nhập địa chỉ" value="{{ $user->DiaChiTruSo  }}">
-    </div>
-    </div>
 
     <div class="mb-3">
     <label class="small mb-1" for="inputEmailAddress">Email</label>
-    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Nhập địa chỉ Email" value="{{ $user->email }}">
+    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Nhập địa chỉ Email" value="{{ $user->Email }}">
     </div>
     <div class="form-group">
     <label for="inputEmailAddress">Quyền</label>

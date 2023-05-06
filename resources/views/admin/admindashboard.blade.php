@@ -425,7 +425,7 @@
                                     method="post" autocomplete="off">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="inputPasswordOld">mật khẩu cũ</label>
+                                        <label for="inputPasswordOld">Mật khẩu cũ</label>
                                         <input type="password" class="form-control" id="inputPasswordOld"
                                             name="oldpw" required="">
                                     </div>
@@ -434,15 +434,15 @@
                                         <input type="password" class="form-control" name="Newpw"
                                             id="inputPasswordNew" required="">
                                         <span class="form-text small text-muted">
-                                            The password must be 8-20 characters, and must <em>not</em> contain spaces.
+                                            Mật khẩu có độ dài từ 8-20 ký tự.
                                         </span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputPasswordNewVerify">nhập lại mật khẩu</label>
+                                        <label for="inputPasswordNewVerify">Nhập lại mật khẩu</label>
                                         <input type="password" class="form-control" name="repw"
                                             id="inputPasswordNewVerify" required="">
                                         <span class="form-text small text-muted">
-                                            To confirm, type the new password again.
+                                            Xác nhận lại mật khẩu.
                                         </span>
                                     </div>
                                     <div class="form-group">
@@ -451,7 +451,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-success btn-lg float-right">Save</button>
+                                <button type="submit" class="btn btn-success btn-lg float-right">Lưu thay đổi</button>
                             </div>
                             </form>
                         </div>

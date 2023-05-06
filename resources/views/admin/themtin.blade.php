@@ -23,7 +23,7 @@
                 <label>Loại tin</label>
                 <select class="form-control" name="LoaiTin">
                     @foreach ($LoaiTin as $id => $loaitin )
-                    <option for = "LoaiTin" value="{{ $linhvuc->Id }}">{{ $linhvuc->TenLoai }}</option>
+                    <option for = "LoaiTin" value="{{ $loaitin->Id }}">{{ $loaitin->TenLoai }}</option>
                     @endforeach
                 </select>
                 </div>

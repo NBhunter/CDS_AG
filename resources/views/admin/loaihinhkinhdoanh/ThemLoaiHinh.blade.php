@@ -1,5 +1,8 @@
 @extends('admin.admindashboard')
 @section('content')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 <div class="row">
     <div class="col-lg-12">
             <section class="panel">
@@ -28,11 +31,12 @@
 
                         <button type="submit" name="add_product" class="btn btn-info"><i class='fas fa-plus'></i>  Thêm </button>
                         </form>
+                    <br>
                     </div>
+                </div>
 
-                </div>
             </section>
-                </div>
+
                 <div class="card mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Danh sách loại hình</h6>
@@ -44,6 +48,7 @@
                                     <tr>
                                         <th>STT</th>
                                         <th>Tên</th>
+                                        <th>Xóa </th>
 
                                     </tr>
                                 </thead>
@@ -58,6 +63,8 @@
                                         <td>{{ $lh->Id }}</td>
                                         <td>{{ $lh->TenLoaiHinh }}</td>
 
+                                        <td>   <button class="btn btn-danger" id="delete" name = "delete" data-id="{{$lh->Id}}"><i class='fas fa-trash-alt'></i></button>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -66,5 +73,30 @@
                     </div>
                 </div>
     </div>
+</div>
+<script>
 
+
+    $("button").click(function() {
+
+    var id = $(this).data('id');
+    if(this.id == 'delete'){
+    const response = confirm(" Bạn có muốn xóa ?");
+     if(response){
+         $.post("{{ URL::to('/delete_LoaiHinh') }}", {
+                                     _token: $('meta[name=csrf-token]').attr('content'),
+                                     id:id
+                                     }).done(window.location.reload());
+     }else {
+             alert("Xóa không thành công");
+         }
+}});
+
+
+</script>
+<script>
+
+        $('#dataTable').DataTable();
+
+</script>
 @endsection

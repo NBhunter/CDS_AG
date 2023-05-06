@@ -1,7 +1,9 @@
 @extends('admin.admindashboard')
 @section('content')
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> --}}
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 {{-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> --}}
 
 
@@ -36,11 +38,11 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable"style="text-align:center;">
+                        <table class="table table-bordered" id="dataTable">
                             <thead>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên</th>
+                                <tr style="text-align:center;">
+                                    <th >STT</th>
+                                    <th >Tên</th>
                                     <th>Mô tả</th>
                                     {{-- <th>Doanh nghiệp</th>
                                     <th>Phân Quyền</th> --}}
@@ -57,7 +59,7 @@
                                 <tr>
                                     @csrf
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $lv->TenLinhVuc }}</td>
+                                    <td style="text-align:center;">{{ $lv->TenLinhVuc }}</td>
                                     <td>{{ $lv->MoTa }}</td>
                                     <td>
 

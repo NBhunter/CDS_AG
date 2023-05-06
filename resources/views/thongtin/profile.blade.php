@@ -36,8 +36,8 @@
     </li>
 @endsection
 @section('content')
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    {{-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> --}}
     <style>
         @import url(https://fonts.googleapis.com/css?family=Sanchez);
         @import url(https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css);
@@ -82,7 +82,7 @@
         #togglediv {
             height: 100px;
             width: 200px;
-            background: rgba(43, 43, 43, 1);
+background: rgba(43, 43, 43, 1);
             position: relative;
             /* top: calc(50vh - 50px);*/
             margin: auto;
@@ -145,13 +145,13 @@
         }
     </style>
     {{-- <div class="container mt-3">
-          @if (session('alert'))    <div class="alert alert-danger alert-dismissible" role="alert">
+          @if (session('alert'))    <div class="alert alert-danger alert-dismissible" role="alert">
 
             <div class="alert alert-danger alert-dismissible fade show">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 {{session('alert')}}
               </div>
-        @endif  
+        @endif
     </div> --}}
     <main class="content">
         <div class="container-fluid p-0">
@@ -171,9 +171,8 @@
                                 role="tab" aria-selected="true">
                                 Thông tin
                             </a>
-                            <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#"
-                                role="tab" aria-selected="false" tabindex="-1">
-                                Người dùng
+                            <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#password"role="tab" aria-selected="false" tabindex="-1">
+                                Đổi mật khẩu
                             </a>
 
                             <div class="card-header">
@@ -433,12 +432,13 @@
                                     </div>
 
 
-                                </form>
+
 
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
