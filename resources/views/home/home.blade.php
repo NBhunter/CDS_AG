@@ -491,7 +491,7 @@
                             </div><!-- end blog-list -->
                         </div><!-- end page-wrapper -->
 
-                    <hr class="invis">
+
 
                     <div class="row">
                         <div class="col-md-12">
@@ -545,28 +545,28 @@
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button facebook-button">
                                         <i class="fa fa-facebook"></i>
-                                        <p>27k</p>
+
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button twitter-button">
                                         <i class="fa fa-twitter"></i>
-                                        <p>98k</p>
+
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button google-button">
                                         <i class="fa fa-google-plus"></i>
-                                        <p>17k</p>
+
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button youtube-button">
                                         <i class="fa fa-youtube"></i>
-                                        <p>22k</p>
+
                                     </a>
                                 </div>
                             </div>

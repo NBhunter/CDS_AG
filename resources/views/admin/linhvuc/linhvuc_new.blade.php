@@ -11,8 +11,8 @@
 
     <div class="mb-3">
     <label class="small mb-1" for="inputUsername">Tên lĩnh vực</label>
-    <input class="form-control" id="Username" name="TenLinhVuc" type="text" placeholder="Enter user username" value="">
-    <input class="form-control" id="id" name="id" type="text" placeholder="Enter user username" value="" hidden>
+    <input class="form-control" id="Username" name="TenLinhVuc" type="text" placeholder="Nhập tên lĩnh vực" value="">
+    <input class="form-control" id="id" name="id" type="text" placeholder="Nhập tên lĩnh vực" value="" hidden>
     </div>
 
 
@@ -20,7 +20,11 @@
 
     <div class="mb-3">
     <label class="small mb-1" for="mota">Mô Tả</label>
+<<<<<<< HEAD
+    <input class="form-control" id="Username" name="MoTa" type="text" placeholder="Nhập thông tin mô tả" value="">
+=======
     <input class="form-control" id="Username" name="MoTa" type="text" placeholder="Nhap mô tả" value="">
+>>>>>>> a495c806199d756b96ea5df3adac1cbde90fd413
     </div>
 
 

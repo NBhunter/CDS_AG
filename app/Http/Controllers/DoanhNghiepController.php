@@ -182,6 +182,13 @@ class DoanhNghiepController extends Controller
                 return Redirect::to('/dnviews')->with('alert', $alert);
             }
 
+<<<<<<< HEAD
+        }
+        else{
+            $alert = "Mật khẩu mới không trùng khớp!!!";
+            return Redirect::to('/dnviews')->with('alert', $alert);
+=======
+>>>>>>> a495c806199d756b96ea5df3adac1cbde90fd413
         }
         else{
             $alert = "Mật khẩu mới không trùng khớp!!!";

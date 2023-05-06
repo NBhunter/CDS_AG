@@ -71,8 +71,9 @@ Route::middleware([
     Route::get('/admin/themnganhnghe', 'App\Http\Controllers\AdminController@viewnganhnghe');
     Route::get('/admin/themloaihinh', 'App\Http\Controllers\AdminController@viewloaihinh');
     Route::post('/save-nganhnghe', 'App\Http\Controllers\AdminController@savenganhnghe');
+    Route::post('/delete_nganhnghe', 'App\Http\Controllers\AdminController@destroysr');
     Route::post('/save-loaihinh', 'App\Http\Controllers\AdminController@saveloaihinh');
-
+    Route::post('/delete_LoaiHinh', 'App\Http\Controllers\AdminController@DeleteLoaiHinh');
     //form thêm phiếu
     Route::get('/admin/themcauhoiso1', 'App\Http\Controllers\DanhGia\DanhGia1Controller@getidCauHoi');
     Route::get('/admin/themcauhoiso2', 'App\Http\Controllers\DanhGia\DanhGia2Controller@getidCauHoi');
