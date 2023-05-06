@@ -1,5 +1,8 @@
 @extends('admin.admindashboard')
 @section('content')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 <style>
     * {
       box-sizing: border-box;
@@ -44,7 +47,7 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên</th>
-                                    <th>hình ảnh mẫu</th>
+                                    <th>Hình ảnh mẫu</th>
                                     {{-- <th>Doanh nghiệp</th> --}}
 
                                     <th>Sửa</th>

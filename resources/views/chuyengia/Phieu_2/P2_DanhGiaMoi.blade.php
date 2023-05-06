@@ -13,7 +13,6 @@
                         <tr>
                             <th>STT</th>
                             <th>Tên doanh nghiệp</th>
-                            <th>Thời gian đánh giá </th>
                             <th> Số điểm đánh giá </th>
                             <th> Trạng thái </th>
                             <th>Xử lý</th>
@@ -28,7 +27,7 @@
                         <td>{{ $i++; }}</td>
                         <td>{{ $P2->TenDoanhNghiep }}</td>
                         <td>
-                            @if ($P2->status == 0)
+                            @if ($P2->TrangThai_Phieu == 0)
                             Chưa Xem
                             @else
                             Đã xem

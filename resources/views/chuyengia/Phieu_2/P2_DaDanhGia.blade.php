@@ -27,7 +27,7 @@
                         <td>{{ $i++; }}</td>
                         <td>{{ $P2->TenDoanhNghiep }}</td>
                         <td>
-                            @if ($P2->status == 0)
+                            @if ($P2->TrangThai_Phieu == 0)
                             Chưa Xem
                             @else
                             Đã xem

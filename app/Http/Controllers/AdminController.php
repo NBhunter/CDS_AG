@@ -86,7 +86,7 @@ class AdminController extends Controller
             ->leftjoin('roles', 'roles.id', '=', 'role_user.Role_id')
             ->leftjoin('dn_user', 'dn_user.User_id', '=', 'users.id')
             ->leftjoin('doanhnghiep', 'doanhnghiep.Id', '=', 'dn_user.DoanhNghiep_id')
-            ->select('users.name As tennguoidung', 'users.id As idnguoidung', 'users.*', 'roles.*', 'doanhnghiep.*', 'role_user.*', 'dn_user.*')->where('users.id', $user_id)->first();
+            ->select('users.name As tennguoidung', 'users.id As idnguoidung','users.email as Email', 'users.*', 'roles.*', 'doanhnghiep.*', 'role_user.*', 'dn_user.*')->where('users.id', $user_id)->first();
         $roles = DB::table('roles')->get();
         return view('admin.User_detail')->with('user', $user)->with('Roles', $roles);
     }
@@ -101,7 +101,7 @@ class AdminController extends Controller
     }
     public function viewnganhnghe(Type $var = null)
     {
-        $NganhNghe = DB::table('nganhnghe')->leftjoin('linhvuc', 'linhvuc.id', '=', 'nganhnghe.LinhVuc_id')->get();
+        $NganhNghe = DB::table('nganhnghe')->select('nganhnghe.Id as IDNN','nganhnghe.*','linhvuc.*')->leftjoin('linhvuc', 'linhvuc.id', '=', 'nganhnghe.LinhVuc_id')->get();
         return view('admin.loaihinhkinhdoanh.ThemNganhNghe')->with('NganhNghe', $NganhNghe);
     }
     public function viewloaihinh(Type $var = null)
@@ -120,6 +120,18 @@ class AdminController extends Controller
 
         return Redirect::to('admin/themnganhnghe');
     }
+    public function destroysr(Request $request)
+    {
+        $request->user()->authorizeRoles(['Admin']);
+        try {
+            DB::table('nganhnghe')->where('Id', $request->id)->delete();
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $alert = "Xóa không thành công";
+            return Redirect::to('/admin/themnganhnghe')->with('alert', $alert);
+        }
+        $Success = "Đã xóa ngành nghề thành công";
+        return Redirect::to('/admin/themnganhnghe')->with('Success', $Success);
+    }
     public function saveloaihinh(Request $request)
     {
         $request->user()->authorizeRoles(['Admin', 'QTV']);
@@ -129,6 +141,23 @@ class AdminController extends Controller
         DB::table('loaihinhdoanhnghiep')->insert($ct);
 
         return Redirect::to('admin/themloaihinh');
+    }
+    public function DeleteLoaiHinh(Request $request)
+    {
+
+        $request->user()->authorizeRoles(['Admin']);
+
+        // nếu lỗi thì nó sẽ thông báo alert, nếu không thì success
+        try {
+            DB::table('loaihinhdoanhnghiep')->where('id', $request->id)->delete();
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $alert = "Xóa không thành công";
+            return Redirect::to('/admin/themloaihinh')->with('alert', $alert);
+        }
+
+
+        $Success = "Đã xóa loại hình doanh nghiệp thành công";
+        return Redirect::to('/admin/themloaihinh')->with('Success', $Success);
     }
     public function getLoaiTin(Request $request)
     {
@@ -266,11 +295,7 @@ class AdminController extends Controller
     {
         $request->user()->authorizeRoles(['Admin', 'QTV']);
         $User = User::where('id',Session::get('user_id'))->where('password',hash::make($request->oldpw))->first();
-        // if(!empty($User))
-        // {
-        //     $alert = "Mật khẩu cũ sai!!!";
-        //     return Redirect::to('/admin/main')->with('alert', $alert);
-        // }else{
+
             if( $request->Newpw == $request->repw   )
             {
                 $User = User::where('id',Session::get('user_id'))->first();
@@ -282,8 +307,8 @@ class AdminController extends Controller
                     $alert = "đã đổi mật khẩu!!!";
                     return Redirect::to('/admin/main')->with('alert', $alert);
                 }else{
-                    // $alert = "Mật khẩu mới không trùng khớp!!!";
-                    // return Redirect::to('/admin/main')->with('alert', $alert);
+                    $alert = "Mật khẩu sai!!!";
+                    return Redirect::to('/admin/main')->with('alert', $alert);
                 }
 
             }
@@ -293,5 +318,4 @@ class AdminController extends Controller
             }
         }
 
-    // }
 }

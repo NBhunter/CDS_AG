@@ -38,11 +38,11 @@
                         <i class="fab fa-facebook-f"></i>
                     </button>
 
-                    <button type="button" class="btn  btn-floating mx-1">
-                        <i class="fab fa-twitter"></i>
+                    <button type="button" class="btn btn-danger btn-floating mx-1">
+                        <i class="fas fa-envelope"></i>
                     </button>
 
-                    <button type="button" class="btn btn-floating mx-1">
+                    <button type="button" class="btn btn-info btn-floating mx-1">
                         <i class="fab fa-linkedin-in"></i>
                     </button>
                 </div>

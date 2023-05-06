@@ -11,7 +11,7 @@
 
     <div class="mb-3">
     <label class="small mb-1" for="inputUsername">Tên lĩnh vực</label>
-    <input class="form-control" id="Username" name="TenLinhVuc" type="text" placeholder="Enter user username" value="{{ $LinhVuc->TenLinhVuc }}">
+    <input class="form-control" id="Username" name="TenLinhVuc" type="text" placeholder="Nhập tên lĩnh vực" value="{{ $LinhVuc->TenLinhVuc }}">
     <input class="form-control" id="id" name="id" type="text" placeholder="Nhập tên lĩnh vực" value="{{ $LinhVuc->Id }}" hidden>
     </div>
 
