@@ -124,9 +124,12 @@
                                         </td>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         <td>
                                            1600891913
 =======
+=======
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
                                         <td style="text-align:center;">
                                             0100101114-030
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
@@ -159,7 +162,11 @@
                         <br>
                         <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <h3 style=" color: rgb(51, 51, 51); font-size: 18px;">Biểu đồ chuyển đổi số của doanh nghiệp
+=======
+                            <h3 style=" color:#0d6efd ; font-size: 18px;margin-left: 250px;">Bảng chỉ số
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
 =======
                             <h3 style=" color:#0d6efd ; font-size: 18px;margin-left: 250px;">Bảng chỉ số
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
@@ -177,6 +184,7 @@
         </div>
     </div>
     <script>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 const data = {
@@ -208,6 +216,8 @@ const data = {
   }]
 };
 =======
+=======
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
         const data = {
             labels: [65, 59, 80, 81, 56, 55, 40],
             datasets: [{
@@ -236,6 +246,9 @@ const data = {
                 borderWidth: 1
             }]
         };
+<<<<<<< HEAD
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
+=======
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
         const CDSChart = new Chart("CDSChart", {
             type: "horizontalBar",
