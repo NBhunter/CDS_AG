@@ -481,6 +481,13 @@
             };
         }
 
+<<<<<<< HEAD
 
+=======
+$(function() {
+        $('.form-select').select2();
+
+    });
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
 </script>
 @endsection

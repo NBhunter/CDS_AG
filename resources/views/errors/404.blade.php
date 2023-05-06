@@ -16,6 +16,10 @@
     }
 
     .page_404  img{ width:100%;}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
     .four_zero_four_bg{
 
      background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);

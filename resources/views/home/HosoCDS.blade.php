@@ -120,6 +120,7 @@
                                             1
                                         </td>
                                         <td style="width:40%">
+<<<<<<< HEAD
                                             CÔNG TY CP HƯNG LÂM
                                         </td>
 
@@ -130,6 +131,13 @@
 =======
 =======
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
+                                        <td style="text-align:center;">
+                                            0100101114-030
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
+=======
+                                            CÔNG TY LƯỚI ĐIỆN CAO THẾ-TỔNG CÔNG TY ĐIỆN LỰC TP HÀ NỘI
+                                        </td>
+
                                         <td style="text-align:center;">
                                             0100101114-030
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
@@ -163,7 +171,11 @@
                         <div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <h3 style=" color: rgb(51, 51, 51); font-size: 18px;">Biểu đồ chuyển đổi số của doanh nghiệp
+=======
+                            <h3 style=" color:#0d6efd ; font-size: 18px;margin-left: 250px;">Bảng chỉ số
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
 =======
                             <h3 style=" color:#0d6efd ; font-size: 18px;margin-left: 250px;">Bảng chỉ số
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
@@ -184,6 +196,7 @@
         </div>
     </div>
     <script>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -218,6 +231,8 @@ const data = {
 =======
 =======
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
+=======
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
         const data = {
             labels: [65, 59, 80, 81, 56, 55, 40],
             datasets: [{
@@ -247,6 +262,9 @@ const data = {
             }]
         };
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
+=======
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
 =======
 >>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747

@@ -77,7 +77,14 @@
                     <div class="form-check mb-0" style="font-family: Roboto;">
                         <x-jet-checkbox id="remember_me" name="remember" class="form-check-input me-2" />
                         <span class=" form-check-label ml-2 text-sm text-gray-600">{{ __('Ghi nhớ mật khẩu') }}</span>
+<<<<<<< HEAD
 
+=======
+                        {{-- <input class="form-check-input me-2" type="checkbox" value="" id="remember_me" name="remember" />
+                <label class="form-check-label" for="form2Example3">
+                  Remember me
+                </label> --}}
+>>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
                     </div>
                     @if (Route::has('password.request'))
                         <a class="underline text-sm text-gray-600 hover:text-gray-900"
