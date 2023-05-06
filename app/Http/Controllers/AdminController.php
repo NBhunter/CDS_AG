@@ -233,7 +233,7 @@ class AdminController extends Controller
         $DN['email'] = $request->Email;
         $DN['SoDienThoai'] = $request->SDT;
         $DN['LinhVuc_Id'] = $request->LinhVuc;
-        $DN['TrangThai_XacThuc'] = '1';
+        $DN['TrangThai_XacThuc'] = $request->TrangThai;
         $CTDN = array();
         DB::table('doanhnghiep')->where('id',$request->idCT)->update($DN);
         $CTDN['DoanhNghiep_id'] = $request->MST;

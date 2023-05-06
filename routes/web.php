@@ -50,6 +50,10 @@ Route::middleware([
     Route::get('/dnviews', 'App\Http\Controllers\DoanhNghiepController@getdanhnghiep');
     Route::get('/DNHoi', 'App\Http\Controllers\DoanhNghiepController@getmessage');
     Route::post('/HoiDapMoi', 'App\Http\Controllers\DoanhNghiepController@hoidap');
+    Route::post('/LayTinNhan', 'App\Http\Controllers\DoanhNghiepController@laynoidung');
+    Route::post('/SendDN', 'App\Http\Controllers\DoanhNghiepController@Themnoidung');
+    Route::post('/LayTinNhanCG', 'App\Http\Controllers\ChuyenGiaController@laynoidung');
+    Route::post('/SendCG', 'App\Http\Controllers\ChuyenGiaController@Themnoidung');
     // phần thông tin doanh nghiệp
     Route::get('/profile', 'App\Http\Controllers\DoanhNghiepController@getprofile');
     Route::post('/update_profile', 'App\Http\Controllers\DoanhNghiepController@updateprofile');

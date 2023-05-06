@@ -489,9 +489,9 @@
 
 
 
-                                        <ul class="users">
+                                        <ul id="listUL" class="users">
                                             @foreach ($TinNhan as $TN)
-                                            <li class="person" data-chat="{{ $TN->TinNhan_id }}">
+                                            <li class="person" id="{{ $TN->TNid }}" data-chat="{{ $TN->TNid }}">
                                                 <div class="user">
                                                     <img src="{{ asset('img/FIT.png') }}" alt="Retail Admin">
                                                     <span class="status offline"></span>
@@ -508,50 +508,14 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9" id="chatview">
                                     <div class="selected-user">
-                                        <span>QA: <span class="name">Cách đánh giá phiếu số 1</span></span>
+                                        <span>QA: <span class="name">Chưa chọn câu hỏi</span></span>
                                     </div>
                                     <div class="chat-container osition-static bottom-0 top-0">
-                                        <ul class="chat-box chatContainerScroll">
-                                            <li class="chat-right">
-                                                <div class="chat-hour">08:55 <span class="fa fa-check-circle"></span></div>
-                                                <div class="chat-text">Hello, Làm sao để có thể thực hiện đánh giá phiếu 1.
-                                                </div>
-                                                <div class="chat-avatar">
-                                                    <img src="{{ asset('img/FIT.png') }}" alt="Retail Admin">
-                                                    <div class="chat-name">Băng Nguyễn</div>
-                                                </div>
-
-                                            </li>
-                                            <li class="chat-left">
-                                                <div class="chat-avatar">
-                                                    <img src="{{ asset('img/FIT.png') }}" alt="Retail Admin">
-                                                    <div class="chat-name">Băng Nguyễn - Admin</div>
-                                                </div>
-
-                                                <div class="chat-text">Bạn có thể chọn vào đánh giá ở phía trái màng hình để
-                                                    đánh giá</div>
-                                                    <div class="chat-hour">08:56 <span class="fa fa-check-circle"></span></div>
-                                            </li>
-
-                                        </ul>
-                                        <div class="row  reply">
-                                            <div class="col-sm-1 col-xs-1 reply-emojis">
-                                                <i class="fas fa-smile fa-2x"></i>
-                                            </div>
-                                            <div class="col-sm-9 col-xs-9 reply-main">
-                                                <textarea class="form-control" rows="1" id="comment"></textarea>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1 reply-recording">
-                                                <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1 reply-send">
-                                                <i class="fas fa-paper-plane fa-2x"></i>
-                                            </div>
-                                        </div>
+                                        <h3 style="text-align: center"><span class="name">Vui lòng chọn câu hỏi </span></h3>
                                     </div>
-                                </div>
+
                             </div>
 
                         </div>
@@ -579,7 +543,38 @@
                                             }).done(window.location.reload());
 
 });
-  });
+$("#send").click(function(){
+alert('test');
+    });
+});
+
+        </script>
+        {{-- chuyển kênh chat --}}
+        <script>
+            var list = document.getElementById("listUL");
+
+function appendText() {
+    var chatid = this.id;
+    $.post("{{ URL::to('/LayTinNhan') }}", {
+                                            _token: $('meta[name=csrf-token]').attr('content'),
+                                            chatid:chatid,
+                                            },function(chatdetail){
+  $("#chatview").empty();
+   $("#chatview").append(chatdetail);
+                                            });
+
+}
+
+function find(item, index){
+if(item[1] == chatid){
+    detail = index;
+}
+
+}
+console.log(list);
+for(i=0;i<=list.childElementCount-1;i++){
+  list.children[i].addEventListener("click",appendText);
+  }
 
         </script>
     @endsection

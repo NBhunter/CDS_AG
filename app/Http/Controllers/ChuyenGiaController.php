@@ -14,6 +14,7 @@ use Symfony\Component\Console\Input;
 use App\Models\phieuso4;
 use App\Models\User;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\URL;
 
 class ChuyenGiaController extends Controller
 {
@@ -210,7 +211,7 @@ foreach($Phieu1New as $P1 ){
         ->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*','Phieu1_diem.*')->orderBy('idcauhoi')->get();
 
         return view('chuyengia.Phieu_1.Phieu1_kqdanhgia')->with('Cauhoi',$Cauhoi)->with('time',$IdPhieu1);
-        # code...
+
     }
     public function getChuaDanhGia_P1(Request $request){
         $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
@@ -461,7 +462,162 @@ foreach($Phieu1New as $P1 ){
     public function getmessage(Request $request)
     {
         $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
-        return view('chuyengia.hoidap_CG');
+        $TinNhan = DB::table('tinnhan')
+        ->leftjoin('doanhnghiep','doanhnghiep.id','=','tinnhan.DoanhNghiep_id')
+        ->where('tinnhan.Loai','=','1')->OrderBy('tinnhan.updated_at','desc')
+        ->select('tinnhan.created_at as thoigian','tinnhan.id as TNid','doanhnghiep.*','tinnhan.*')->get();
+        return view('chuyengia.hoidap_CG')->with('TinNhan',$TinNhan);
+    }
+    public function hoidap(Request $request)
+    {
+        $input = $request->collect();
+       $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
+        $HD = array();
+        $HD['DoanhNghiep_id'] = Session::get('DoanhNghiep_id');
+        $HD['status'] = '1';
+        $HD['Loai'] = '1';
+        $HD['TieuDe'] = $input['TieuDe'];
+        $HD['created_at'] = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $HD['updated_at'] = Carbon::now('Asia/Ho_Chi_Minh');
+        DB::table('tinnhan')->insert($HD);
+        return redirect()->back();
+    }
+    public function laynoidung(Request $request)
+    {
+        $input = $request->collect();
+       $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
+        $user =$request->user();
+        $TN = DB::table('tinnhan')
+        ->where('tinnhan.id','=',$input['chatid'])
+        ->where('tinnhan.Loai','=','1')->OrderBy('tinnhan.updated_at','desc')
+        ->select('tinnhan.created_at as thoigian','tinnhan.id as TNid','tinnhan.*')->first();
+        $DoanhNghiep = DB::table('users')
+            ->leftjoin('dn_user', 'dn_user.User_id', '=', 'users.id')
+            ->leftjoin('doanhnghiep', 'doanhnghiep.Id', '=', 'dn_user.DoanhNghiep_id')->where('doanhnghiep.Id', $TN->DoanhNghiep_id)
+            ->select('dn_user.id As lienket_id', 'users.*', 'dn_user.*', 'doanhnghiep.*')->first();
+
+        $ND = DB::table('tinnhan')
+        ->leftjoin('chitiet_tinnhan','chitiet_tinnhan.TinNhan_id','=','tinnhan.id')
+        ->where('tinnhan.id','=',$input['chatid'])
+        ->where('tinnhan.Loai','=','1')->OrderBy('tinnhan.updated_at','desc')
+        ->select('tinnhan.created_at as thoigian','tinnhan.id as TNid','tinnhan.*','chitiet_tinnhan.*')->get();
+        $head = '<div class="selected-user"><span>QA: <span class="name">'. $TN->TieuDe .'</span></span></div>';
+        $head .=  ' <div class="chat-container osition-static bottom-0 top-0"><ul class="chat-box chatContainerScroll">';
+        foreach( $ND as $detail){
+            if($detail->LoaiND == 1){
+               $time = Carbon::parse( $detail->created_at);
+                $head .= '<li class="chat-left">
+                <div class="chat-avatar">
+                <img src="'. asset("img/FIT.png") .'" alt="Retail Admin">
+                <div class="chat-name">'. $user->name . '<br>' . $DoanhNghiep->TenDoanhNghiep .'</div>
+            </div>
+
+                <div class="chat-text">'. $detail->NoiDung_TinNhan .'
+                </div>
+                <div class="chat-hour">'. $time->toTimeString() .'<span class="fa fa-check-circle"></span></div>
+
+            </li>';
+            }else if($detail->LoaiND == 2){
+                $time = Carbon::parse( $detail->created_at);
+              $chuyengia =   DB::table('users')
+            ->leftjoin('role_user', 'role_user.User_id', '=', 'users.id')
+            ->leftjoin('roles','roles.id','=','role_user.Role_id')->where('users.id','=',$detail->Byuser)->select('users.name as ten', 'roles.name as role')->first();
+            $head .= '<li class="chat-right">
+
+
+            <div class="chat-hour">'. $time->toTimeString() .' <span class="fa fa-check-circle"></span></div>
+            <div class="chat-text">'. $detail->NoiDung_TinNhan .'</div>
+            <div class="chat-avatar">
+                <img src="'. asset("img/FIT.png") .'" alt="Retail Admin">
+                <div class="chat-name">'.$chuyengia->ten . '<br>'.$chuyengia->role.'</div>
+            </div>
+        </li>';
+            }
+
+        }
+        $head .= '</ul>';
+        $head .= '<div class="row  reply">
+        <div class="col-sm-1 col-xs-1 reply-emojis"><i class="fas fa-smile fa-2x"></i></div>
+        <div class="col-sm-9 col-xs-9 reply-main"><textarea class="form-control" rows="1" id="comment"></textarea></div>
+        <div class="col-sm-1 col-xs-1 reply-recording"><i class="fa fa-microphone fa-2x" aria-hidden="true"></i></div>
+        <div class="col-sm-1 col-xs-1 reply-send"><i id ="send" class="fas fa-paper-plane fa-2x"></i></div></div>';
+
+
+        try{
+            $IDCha = DB::table('chitiet_tinnhan')->where('TinNhan_id',$TN->TNid)->OrderBy('Id','desc')->first();
+        } catch (\Illuminate\Database\QueryException $ex) {}
+        if(isset($IDCha)){
+            $head .= '<script> $(document).ready(function(){
+                $("#send").click(function(){
+                    var ND = $("#comment").val();
+                    $.post("'. URL::to('/SendDN') .'", {
+                        _token: $(\'meta[name=csrf-token]\').attr(\'content\'),
+                        status: "1",
+                        user:"'.$user->id.'",
+                        id : "'.$TN->TNid.'",
+                        ND: ND,
+                        idcha: "'.$IDCha->Id.'",
+                        }).done(reappendText('.$TN->TNid.'));
+    });
+              });
+              function reappendText(chatid) {
+
+                $.post("'. URL::to('/LayTinNhan') .'", {
+                    _token: $(\'meta[name=csrf-token]\').attr(\'content\'),
+                                                        chatid:chatid,
+                                                        },function(chatdetail){
+              $("#chatview").empty();
+               $("#chatview").append(chatdetail);
+                                                        });
+
+            }</script>';
+        }else{
+            $head .= '<script> $(document).ready(function(){
+                $("#send").click(function(){
+                    var ND = $("#comment").val();
+                    $.post("'. URL::to('/SendDN') .'", {
+                        _token: $(\'meta[name=csrf-token]\').attr(\'content\'),
+                        status: "1",
+                        user:"'.$DoanhNghiep->User_id.'",
+                        id : "'.$TN->TNid.'",
+                        ND: ND,
+                        idcha: "",
+                        }).done(reappendText('.$TN->TNid.'));
+    });
+              });
+              function reappendText(chatid) {
+
+                $.post("'. URL::to('/LayTinNhan') .'", {
+                    _token: $(\'meta[name=csrf-token]\').attr(\'content\'),
+                                                        chatid:chatid,
+                                                        },function(chatdetail){
+              $("#chatview").empty();
+               $("#chatview").append(chatdetail);
+                                                        });
+
+            }</script>';
+        }
+
+        return response($head);
+    }
+    public function Themnoidung(Request $request)
+    {
+        $input = $request->collect();
+       $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
+        $user =$request->user();
+        $DoanhNghiep = DB::table('users')
+            ->leftjoin('dn_user', 'dn_user.User_id', '=', 'users.id')
+            ->leftjoin('doanhnghiep', 'doanhnghiep.Id', '=', 'dn_user.DoanhNghiep_id')->where('users.email', $user->email)
+            ->select('dn_user.id As lienket_id', 'users.*', 'dn_user.*', 'doanhnghiep.*')->first();
+            $TinNhan = array();
+            $TinNhan['IdCha'] = $input['idcha'];
+            $TinNhan['LoaiND'] = '2';
+            $TinNhan['ByUser'] = $input['user'];
+            $TinNhan['TinNhan_id'] = $input['id'];
+            $TinNhan['NoiDung_TinNhan'] = $input['ND'];
+            $TinNhan['created_at'] = now();
+            DB::table('chitiet_tinnhan')->Insert($TinNhan);
+
     }
 }
 

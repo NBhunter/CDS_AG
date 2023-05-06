@@ -115,11 +115,11 @@
                                             1
                                         </td>
                                         <td style="width:40%">
-                                            CÔNG TY LƯỚI ĐIỆN CAO THẾ-TỔNG CÔNG TY ĐIỆN LỰC TP HÀ NỘI
+                                            CÔNG TY CP HƯNG LÂM
                                         </td>
 
                                         <td>
-                                            0100101114-030
+                                           1600891913
                                         </td>
                                         <td class="center">
                                             237
@@ -147,7 +147,7 @@
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6 " data-id-chart="container_503_3">
                         <div>
-                            <h3 style=" color: rgb(51, 51, 51); font-size: 18px;">Bên này là cái bản chỉ số nè
+                            <h3 style=" color: rgb(51, 51, 51); font-size: 18px;">Biểu đồ chuyển đổi số của doanh nghiệp
                             </h3>
                         </div>
                         <canvas id="CDSChart" style="width:100%;max-width:700px"></canvas>
@@ -162,11 +162,11 @@
     <script>
 
 const data = {
-  labels:[65, 59, 80, 81, 56, 55, 40],
+  labels:[237],
   datasets: [{
     axis: 'y',
-    label: [65, 59, 80, 81, 56, 55, 40],
-    data: [65, 59, 80, 81, 56, 55, 40],
+    label: [237],
+    data: [237],
     fill: false,
     backgroundColor: [
       'rgba(255, 99, 132, 0.2)',

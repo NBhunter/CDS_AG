@@ -481,9 +481,6 @@
             };
         }
 
-$(function() {
-        $('.form-select').select2();
 
-    });
 </script>
 @endsection
