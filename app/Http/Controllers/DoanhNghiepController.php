@@ -9,11 +9,8 @@ use Session;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\URL;
 use PhpParser\Node\Stmt\TryCatch;
-=======
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
 
 class DoanhNghiepController extends Controller
 {
@@ -25,10 +22,7 @@ class DoanhNghiepController extends Controller
     public function laythongbao()
     {
         $thongbao = DB::table('tinnhan')->leftjoin('chitiet_tinnhan', 'chitiet_tinnhan.TinNhan_id', '=', 'tinnhan.Id')
-<<<<<<< HEAD
         ->where('tinnhan.loai','<>',1)
-=======
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
             ->where('DoanhNghiep_id', Session::get('DoanhNghiep_id'))->get();
         foreach ($thongbao as $tb) {
             $updated = new Carbon($tb->created_at);
@@ -48,14 +42,9 @@ class DoanhNghiepController extends Controller
             } else {
                 $tb->lastOnline = $updated->diffInYears($now) > 1 ? sprintf("Thông báo cách đây: %d năm trước", $updated->diffInYears($now)) : sprintf("Thông báo cách đây: %d nămtrước", $updated->diffInYears($now));
             }
-<<<<<<< HEAD
 
         }
         return $thongbao;
-=======
-            return $thongbao;
-        }
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
     }
     //    @updateprofile
     public function getdanhnghiep(Request $request)
@@ -63,7 +52,6 @@ class DoanhNghiepController extends Controller
         $request->user()->authorizeRoles(['DoanhNghiep-NV', 'DoanhNghiep-BGD', 'Admin']);
         $user = $request->user();
         Session::forget('DoanhNghiep');
-<<<<<<< HEAD
         $DoanhNghiep = DB::table('users')
             ->leftjoin('dn_user', 'dn_user.User_id', '=', 'users.id')
             ->leftjoin('doanhnghiep', 'doanhnghiep.Id', '=', 'dn_user.DoanhNghiep_id')->where('users.email', $user->email)
@@ -98,35 +86,6 @@ class DoanhNghiepController extends Controller
                         return Redirect::to('/dnviews');
                     }
 
-=======
-        Session::put('email', $user->email);
-        $DoanhNghiep = DB::table('users')
-            ->leftjoin('dn_user', 'dn_user.User_id', '=', 'users.id')
-            ->leftjoin('doanhnghiep', 'doanhnghiep.Id', '=', 'dn_user.DoanhNghiep_id')->where('users.email', Session::get('email'))
-            ->select('dn_user.id As lienket_id', 'users.*', 'dn_user.*', 'doanhnghiep.*')->first();
-        Session::put('name', $user->name);
-        Session::put('lienket_id', $DoanhNghiep->lienket_id);
-        Session::put('DoanhNghiep_id', $DoanhNghiep->DoanhNghiep_id);
-        Session::put('User_id', $DoanhNghiep->User_id);
-        Session::put('DoanhNghiep', $DoanhNghiep);
-
-        //lấy điểm bảng 1
-        $DanhGia1 = DB::table('phieuso1')->where('DoanhNghiep_Id', $DoanhNghiep->DoanhNghiep_id)->orderByDesc('created_at')->first();
-        //lấy điểm bảng 2
-        $DanhGia2 = DB::table('phieuso2')->where('DoanhNghiep_Id', $DoanhNghiep->DoanhNghiep_id)->orderByDesc('created_at')->first();
-        $DanhGia3 = DB::table('phieuso3')->where('DoanhNghiep_Id', $DoanhNghiep->DoanhNghiep_id)->orderByDesc('created_at')->first();
-        $DanhGia4 = DB::table('phieuso4')->where('DoanhNghiep_Id', $DoanhNghiep->DoanhNghiep_id)->orderByDesc('created_at')->first();
-        $BanDanhGia = DB::table('phieuso1')->where('DoanhNghiep_Id', $DoanhNghiep->DoanhNghiep_id)->get();
-
-        //lấy thông báo
-
-        $thongbao = $this->laythongbao();
-
-
-        return view('DoanhNghiep.home')->with('DoanhNghiep', $DoanhNghiep)
-            ->with('DanhGia1', $DanhGia1)->with('DanhGia2', $DanhGia2)->with('DanhGia3', $DanhGia3)
-            ->with('DanhGia4', $DanhGia4)->with('BanDanhGia', $BanDanhGia)->with('thongbao', $thongbao);
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
     }
 
     public function getprofile(Request $request)
@@ -223,13 +182,10 @@ class DoanhNghiepController extends Controller
                 return Redirect::to('/dnviews')->with('alert', $alert);
             }
 
-<<<<<<< HEAD
         }
         else{
             $alert = "Mật khẩu mới không trùng khớp!!!";
             return Redirect::to('/dnviews')->with('alert', $alert);
-=======
->>>>>>> a495c806199d756b96ea5df3adac1cbde90fd413
         }
         else{
             $alert = "Mật khẩu mới không trùng khớp!!!";
@@ -242,16 +198,9 @@ class DoanhNghiepController extends Controller
         $thongbao = $this->laythongbao();
         $DoanhNghiep = Session::get('DoanhNghiep');
         $TinNhan = DB::table('tinnhan')
-<<<<<<< HEAD
         ->where('tinnhan.DoanhNghiep_id','=',$DoanhNghiep->DoanhNghiep_id)
         ->where('tinnhan.Loai','=','1')->OrderBy('tinnhan.updated_at','desc')
         ->select('tinnhan.created_at as thoigian','tinnhan.id as TNid','tinnhan.*')->get();
-=======
-        ->leftjoin('chitiet_tinnhan','chitiet_tinnhan.TinNhan_id','=','tinnhan.id')
-        ->where('tinnhan.DoanhNghiep_id','=',$DoanhNghiep->DoanhNghiep_id)
-        ->where('tinnhan.Loai','=','1')->OrderBy('tinnhan.updated_at','desc')
-        ->select('tinnhan.created_at as thoigian','tinnhan.*','chitiet_tinnhan.*')->get();
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
         return view('DoanhNghiep.hoidap_DN')->with('DoanhNghiep', $DoanhNghiep)->with('thongbao', $thongbao)->with('TinNhan',$TinNhan);
     }
     public function hoidap(Request $request)
@@ -268,7 +217,6 @@ class DoanhNghiepController extends Controller
         DB::table('tinnhan')->insert($HD);
         return redirect()->back();
     }
-<<<<<<< HEAD
     public function laynoidung(Request $request)
     {
         $input = $request->collect();
@@ -405,7 +353,4 @@ class DoanhNghiepController extends Controller
             DB::table('chitiet_tinnhan')->Insert($TinNhan);
 
     }
-=======
-
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
 }

@@ -30,7 +30,6 @@ class AdminController extends Controller
         Session::put('name', $user->name);
         $role = DB::table('role_user')->leftjoin('Roles', 'role_user.Role_id', 'Roles.id')->where('role_user.User_id', $user->id)->first();
         Session::put('role', $role->name);
-<<<<<<< HEAD
         $P1 = DB::table('phieuso1')->select('phieuso1.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
         ->get();
         $P2 = DB::table('phieuso2')->select('phieuso2.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
@@ -48,10 +47,6 @@ class AdminController extends Controller
         ->where('roles.name','DoanhNghiep-BGD')->orwhere('roles.name','DoanhNghiep-NV')->groupBy('doanhnghiep.TrangThai_XacThuc')
         ->select('doanhnghiep.TrangThai_XacThuc' ,DB::raw('COUNT(doanhnghiep.TrangThai_XacThuc) as tong') )->get();
         return view('admin.adminhome')->with('P1',$P1)->with('P2',$P2)->with('P3',$P3)->with('P4',$P4)->with('TKDN',$TKDN);
-=======
-
-        return view('admin.adminhome');
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
     }
     public function getuser(Request $request)
     {
@@ -282,11 +277,7 @@ class AdminController extends Controller
         $DN['email'] = $request->Email;
         $DN['SoDienThoai'] = $request->SDT;
         $DN['LinhVuc_Id'] = $request->LinhVuc;
-<<<<<<< HEAD
         $DN['TrangThai_XacThuc'] = $request->TrangThai;
-=======
-        $DN['TrangThai_XacThuc'] = '1';
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
         $CTDN = array();
         DB::table('doanhnghiep')->where('id',$request->idCT)->update($DN);
         $CTDN['DoanhNghiep_id'] = $request->MST;
