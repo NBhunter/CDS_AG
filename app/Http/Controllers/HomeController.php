@@ -35,6 +35,8 @@ class HomeController extends Controller
         $tinnoibat =  DB::table('tintucs')
             ->leftjoin('linhvuc', 'linhvuc.Id', '=', 'tintucs.LinhVuc_id')
             ->select('tintucs.Id as IdTin', 'tintucs.*', 'linhvuc.*')->orderBy('LuotXem', 'desc')->limit(5)->get();
+
+
         return view('home.home')->with('slides', $slides)->with('tinmoi', $tinmoi)->with('tinnoibat', $tinnoibat);
     }
     public function indexAllnew()
