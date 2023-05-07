@@ -44,10 +44,10 @@
 
 
         /************************************************
-     ************************************************
-             Users Container
-     ************************************************
-    ************************************************/
+                                         ************************************************
+                                                 Users Container
+                                         ************************************************
+                                        ************************************************/
 
         .users-container {
             position: relative;
@@ -60,16 +60,17 @@
             flex-direction: column;
         }
 
-        .chatContainerScroll{
+        .chatContainerScroll {
             width: auto;
-  height: 500px;
+            height: 500px;
             overflow: scroll;
         }
+
         /************************************************
-     ************************************************
-               Users
-     ************************************************
-    ************************************************/
+                                         ************************************************
+                                                   Users
+                                         ************************************************
+                                        ************************************************/
 
         .users {
             padding: 0;
@@ -191,10 +192,10 @@
 
 
         /************************************************
-     ************************************************
-             Chat right side
-     ************************************************
-    ************************************************/
+                                         ************************************************
+                                                 Chat right side
+                                         ************************************************
+                                        ************************************************/
 
         .selected-user {
             width: 100%;
@@ -421,42 +422,45 @@
 
         </p>
     </button> --}}
-    <ul id="listUL" class="users">
-        @foreach ($TinNhan as $TN)
-        <li class="person" id="{{ $TN->TNid }}" data-chat="{{ $TN->TNid }}">
-            <div class="user">
-                <img src="{{ asset('img/FIT.png') }}" alt="Retail Admin">
-                <span class="status offline"></span>
-            </div>
+                                    <ul id="listUL" class="users">
+                                        @foreach ($TinNhan as $TN)
+                                            <li class="person" id="{{ $TN->TNid }}" data-chat="{{ $TN->TNid }}">
+                                                <div class="user">
+                                                    <img src="{{ asset('img/FIT.png') }}" alt="Retail Admin">
+                                                    <span class="status offline"></span>
+                                                </div>
 
-            <p class="name-time">
-                <span class="name">{{$TN->TenDoanhNghiep }}</span> <span class="time">{{$TN->thoigian }}</span>
-                <br>
-                <span class="name">{{$TN->TieuDe }}</span>
+                                                <p class="name-time">
+                                                    <span class="name">{{ $TN->TenDoanhNghiep }}</span> <span
+                                                        class="time">{{ $TN->thoigian }}</span>
+                                                    <br>
+                                                    <span class="name">{{ $TN->TieuDe }}</span>
 
 
-            </p>
-        </li>
-        @endforeach
-    </ul>
-</div>
-</div>
+                                                </p>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9" id="chatview">
-                                <div class="selected-user">
-                                    <span>To: <span class="name">Vui lòng chọn câu hỏi </span></span>
-                                </div>
+
                                 <div class="chat-container osition-static bottom-0 top-0">
-                                    <h3 style="text-align: center"><span class="name">Vui lòng chọn câu hỏi </span></h3>
+                                    <h1 style="text-align: center; font-size:24px;color:#4e73df;font-weight:bold;"><span
+                                            class="name">Vui
+                                            lòng chọn câu
+                                            hỏi </span></h1>
                                 </div>
-                            </div></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
+    </div>
+
+    </div>
 
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -465,29 +469,29 @@
     <script>
         var list = document.getElementById("listUL");
 
-function appendText() {
-var chatid = this.id;
-$.post("{{ URL::to('/LayTinNhanCG') }}", {
-                                        _token: $('meta[name=csrf-token]').attr('content'),
-                                        chatid:chatid,
-                                        },function(chatdetail){
-var foot = '<div class="row  reply"><div class="col-sm-1 col-xs-1 reply-emojis"><i class="fas fa-smile fa-2x"></i></div><div class="col-sm-9 col-xs-9 reply-main"><textarea class="form-control" rows="1" id="comment"></textarea></div><div class="col-sm-1 col-xs-1 reply-recording"><i class="fa fa-microphone fa-2x" aria-hidden="true"></i></div><div class="col-sm-1 col-xs-1 reply-send"><i id ="send" class="fas fa-paper-plane fa-2x"></i></div></div>';         // Create text with DOM
-$("#chatview").empty();
-$("#chatview").append(chatdetail);
-                                        });
+        function appendText() {
+            var chatid = this.id;
+            $.post("{{ URL::to('/LayTinNhanCG') }}", {
+                _token: $('meta[name=csrf-token]').attr('content'),
+                chatid: chatid,
+            }, function(chatdetail) {
+                var foot =
+                    '<div class="row  reply"><div class="col-sm-1 col-xs-1 reply-emojis"><i class="fas fa-smile fa-2x"></i></div><div class="col-sm-9 col-xs-9 reply-main"><textarea class="form-control" rows="1" id="comment"></textarea></div><div class="col-sm-1 col-xs-1 reply-recording"><i class="fa fa-microphone fa-2x" aria-hidden="true"></i></div><div class="col-sm-1 col-xs-1 reply-send"><i id ="send" class="fas fa-paper-plane fa-2x"></i></div></div>'; // Create text with DOM
+                $("#chatview").empty();
+                $("#chatview").append(chatdetail);
+            });
 
-}
+        }
 
-function find(item, index){
-if(item[1] == chatid){
-detail = index;
-}
+        function find(item, index) {
+            if (item[1] == chatid) {
+                detail = index;
+            }
 
-}
-console.log(list);
-for(i=0;i<=list.childElementCount-1;i++){
-list.children[i].addEventListener("click",appendText);
-}
-
+        }
+        console.log(list);
+        for (i = 0; i <= list.childElementCount - 1; i++) {
+            list.children[i].addEventListener("click", appendText);
+        }
     </script>
 @endsection
