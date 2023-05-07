@@ -154,13 +154,14 @@
                     <div class="col-sm-12 col-md-6 col-lg-6 " data-id-chart="container_503_3">
                         <br>
                         <br>
+                        <br>
                         <div>
 
                             <h3 style=" color:#0d6efd ; font-size: 18px;margin-left: 250px;">Bảng chỉ số
                             </h3>
                         </div>
-                        <br>
-                        <br>
+
+
                         <canvas id="CDSChart" style="width:100%;max-width:700px;"></canvas>
                     </div>
 
@@ -171,7 +172,6 @@
         </div>
     </div>
     <script>
-
         const data = {
             labels: [65, 59, 80, 81, 56, 55, 40],
             datasets: [{

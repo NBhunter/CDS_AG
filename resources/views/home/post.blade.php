@@ -32,7 +32,8 @@
                                 <h2 class="post-title">{{ $TinTuc->TieuDe }}</h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <a href="#"><span>by</span> {{ $TinTuc->TacGia }}</a>
+                                    <a href="#" style="font-weight:bold;"><span>Tác giả: </span>
+                                        {{ $TinTuc->TacGia }}</a>
                                     {{-- <a href="#">03 <span>Comments</span></a> --}}
                                 </div>
                             </div>
