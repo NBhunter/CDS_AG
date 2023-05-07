@@ -13,23 +13,14 @@
                         <tr>
                             <th>STT</th>
                             <th>Tên doanh nghiệp</th>
-<<<<<<< HEAD
                             <th> Trạng thái </th>
                             <th> Thời gian đánh giá </th>
-=======
-                            <th> Số điểm đánh giá </th>
-                            <th> Trạng thái </th>
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
                             <th>Xử lý</th>
                         </tr>
 
                     </thead>
                     @php
-<<<<<<< HEAD
                     $i =1;
-=======
-                    $i =0;
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
                 @endphp
                     @foreach ( $Phieu2New as $P2)
                     <tr>
@@ -42,11 +33,7 @@
                             Đã xem
                             @endif
                         </td>
-<<<<<<< HEAD
                         <td>{{ $P2->ThoigianTao }}</td>
-=======
-                        <td></td>
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
                         <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
                     </tr>
                     @endforeach

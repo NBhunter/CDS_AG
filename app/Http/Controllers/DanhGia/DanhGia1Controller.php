@@ -31,11 +31,7 @@ class DanhGia1Controller extends Controller
         }
         $now = Carbon::now();
 
-<<<<<<< HEAD
         if ($updated->diffInMonths($now) >3) {
-=======
-        if ($updated->diffInMonths($now) > 3) {
->>>>>>> a495c806199d756b96ea5df3adac1cbde90fd413
             $Cauhoi = chitiet_P1::leftjoin('chitiet_cauhoi', 'chitiet_cauhoi.ChiTiet_id', '=', 'chitiet.id')
                 ->leftjoin('cauhoi', 'cauhoi.id', '=', 'chitiet_cauhoi.CauHoi_id')
                 ->select('chitiet.id AS idcauhoi', 'chitiet.*', 'cauhoi.*', 'chitiet_cauhoi.*')
