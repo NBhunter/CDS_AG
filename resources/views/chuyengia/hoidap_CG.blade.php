@@ -60,7 +60,11 @@
             flex-direction: column;
         }
 
-
+        .chatContainerScroll{
+            width: auto;
+  height: 500px;
+            overflow: scroll;
+        }
         /************************************************
      ************************************************
                Users

@@ -224,7 +224,11 @@
              Chat right side
      ************************************************
     ************************************************/
-
+    .chatContainerScroll{
+            width: auto;
+  height: 500px;
+            overflow: scroll;
+        }
             .selected-user {
                 width: 100%;
                 padding: 0 15px;
