@@ -65,10 +65,10 @@
 
 
             @if (Session::get('role') == 'Admin')
-            <hr class="sidebar-divider">
-            <div class="sidebar-heading">
-                Người dùng
-            </div>
+                <hr class="sidebar-divider">
+                <div class="sidebar-heading">
+                    Người dùng
+                </div>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ URL::to('admin/user') }}">
                         <i class="fas fa-address-book"></i>
@@ -166,86 +166,86 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             @if (Session::get('role') == 'Admin')
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Doanh Nghiệp
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-regular fa-clipboard"></i>
-                    <span>Phiếu số 1</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
-
-                        <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso1') }}">Thêm câu hỏi</a>
-
-                    </div>
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Doanh Nghiệp
                 </div>
-            </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
-                    aria-expanded="true" aria-controls="collapseThree">
-                    <i class="	fas fa-file-alt"></i>
-                    <span>Phiếu số 2</span>
-                </a>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
 
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-regular fa-clipboard"></i>
+                        <span>Phiếu số 1</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
 
+                            <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso1') }}">Thêm câu hỏi</a>
 
-                        <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso2') }}">Thêm câu hỏi</a>
-                        <div class="collapse-divider"></div>
-
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
-                    aria-expanded="true" aria-controls="collapseFour">
-                    <i class="	fas fa-clipboard-list"></i>
-                    <span>Phiếu số 3</span>
-                </a>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
+                </li>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="true" aria-controls="collapseThree">
+                        <i class="	fas fa-file-alt"></i>
+                        <span>Phiếu số 2</span>
+                    </a>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
 
 
-                        <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso3') }}">Thêm câu hỏi</a>
-                        <div class="collapse-divider"></div>
 
+                            <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso2') }}">Thêm câu hỏi</a>
+                            <div class="collapse-divider"></div>
+
+                        </div>
                     </div>
-                </div>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne1"
-                    aria-expanded="true" aria-controls="collapseOne1">
-                    <i class='fas fa-business-time'></i>
-                    <span>Quản lý ngành nghề</span>
-                </a>
-                <div id="collapseOne1" class="collapse" aria-labelledby="headingOne"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Ngành nghề:</h6>
-                        <a class="collapse-item" href="{{ URL::to('admin/themnganhnghe') }}">Thêm ngành nghề</a>
-                        <h6 class="collapse-header">Loại hình:</h6>
-                        <a class="collapse-item" href="{{ URL::to('admin/themloaihinh') }}">Thêm loại hình</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+                        aria-expanded="true" aria-controls="collapseFour">
+                        <i class="	fas fa-clipboard-list"></i>
+                        <span>Phiếu số 3</span>
+                    </a>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">PHẦN CÂU HỎI:</h6>
 
+
+                            <a class="collapse-item" href="{{ URL::to('admin/themcauhoiso3') }}">Thêm câu hỏi</a>
+                            <div class="collapse-divider"></div>
+
+                        </div>
                     </div>
-                </div>
-            </li>
-            <!-- Divider -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne1"
+                        aria-expanded="true" aria-controls="collapseOne1">
+                        <i class='fas fa-business-time'></i>
+                        <span>Quản lý ngành nghề</span>
+                    </a>
+                    <div id="collapseOne1" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Ngành nghề:</h6>
+                            <a class="collapse-item" href="{{ URL::to('admin/themnganhnghe') }}">Thêm ngành nghề</a>
+                            <h6 class="collapse-header">Loại hình:</h6>
+                            <a class="collapse-item" href="{{ URL::to('admin/themloaihinh') }}">Thêm loại hình</a>
 
-            {{-- xem ngừoi dùng --}}
-            <hr class="sidebar-divider">
+                        </div>
+                    </div>
+                </li>
+                <!-- Divider -->
+
+                {{-- xem ngừoi dùng --}}
+                <hr class="sidebar-divider">
             @else
             @endif
             <!-- Heading -->
@@ -269,24 +269,17 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
+            <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-
-
-
         </ul>
         <!-- End of Sidebar -->
-
-        </ul>
-        <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
             <div id="content">
-
+                <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -295,9 +288,16 @@
 
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary"type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
                     </form>
-
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
@@ -305,6 +305,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
+
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
@@ -322,12 +323,7 @@
                                 </form>
                             </div>
                         </li>
-                        <!-- Topbar -->
-
-                        <!-- Sidebar Toggle (Topbar) -->
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
+                        <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -350,7 +346,8 @@
 
 
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                                        style="font-size: 14px;"> Thông báo
+                                        style="font-size: 14px;">
+                                        Thông báo
                                         <span class="caret"></span>
                                 </a>
                             </div>
@@ -407,6 +404,7 @@
                                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                                     <i class="fa fa-bars"></i>
                                 </button>
+
                             </div>
                         </li>
 
@@ -454,7 +452,8 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-success btn-lg float-right">Lưu thay đổi</button>
+                                <button type="submit" class="btn btn-info float-right">Lưu thay
+                                    đổi</button>
                             </div>
                             </form>
                         </div>
