@@ -154,7 +154,7 @@ td{
 <div class="card-body" align="center" background="black" >
 @php
     $i=0;
-    $j=0;
+    $j=1;
     $y=0;
     $countpoint = 1;
 @endphp
@@ -177,7 +177,7 @@ td{
 
 @endphp
 <tr class=""style="text-align:center;font-weight:400;">
-    <th class="stt" >{{ $i }}</th>
+    <th class="stt" >{{ $i   }}</th>
     <th class="">{{ $ctCauhoi->NoiDung }}</th>
     <th class=""> </th>
     <th class=""  style="text-align:center;">{{ $ctCauhoi->DiemToiDa }}</th>
@@ -190,7 +190,7 @@ td{
     $y=0;
 @endphp
 <tr class="" style="text-align:center;font-weight:400;">
-    <th class="stt" style="text-align:center;">{{ $i.".".$j }}</th>
+    <th class="stt" style="text-align:center;">{{ $i.".".$j  }}</th>
     <th class="">{{ $ctCauhoi->NoiDung }}</th>
     <th class=""> </th>
     <th class=""  style="text-align:center;">{{ $ctCauhoi->DiemToiDa }}</th>
@@ -210,7 +210,7 @@ td{
     $y++;
 @endphp
 <tr class="" style="text-align:center;font-weight:400;">
-    <th rowspan="2" style="text-align:center;">{{ $i.".".$j.".".$y}}</th>
+    <th rowspan="2" style="text-align:center;">{{ $i.".".$j.".".$y }}</th>
     <th rowspan="2" >{{ $ctCauhoi->NoiDung }}</th>
     <th rowspan="1"class="noidung"> {{ $ctCauhoi->TenCauHoi }}   </th>
 

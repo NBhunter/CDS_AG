@@ -88,7 +88,6 @@ class ChuyenGiaController extends Controller
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
             ->where('chitiet.Cap','1')->where('phieuso1.id',$IdPhieu1)->where(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100)'),'>',40)->select(DB::raw('(phieu1_diem.Diem / chitiet.DiemToiDa*100) as phantram'),'phieuso1.created_at as ThoiGianTao','phieuso1.id as IDphieu','phieuso1.*')->get();
             $tongdatmuc = $datmuc->count();
-            var_dump($IdPhieu1);
             if($tongdatmuc >=4){
             $trucot = DB::table('phieuso1')->leftjoin('phieu1_diem','phieu1_diem.Phieu_id','=','phieuso1.id')
             ->leftjoin('chitiet','chitiet.id','=','phieu1_diem.chitiet_id')
@@ -171,6 +170,9 @@ foreach($Phieu1New as $P1 ){
                     $min = $TC->phantram;
                     $min_id = $TC->Id;
                 }
+                if($min = 100.0000){
+                    $min_id = -1;
+                }
             }
         }
         switch ($min_id) {
@@ -196,8 +198,10 @@ foreach($Phieu1New as $P1 ){
                 break;
             case 127:
                 $Phieu1->update(['MoHinh_id' => '4']);
-
                 break;
+            case -1:
+                    $Phieu1->update(['MoHinh_id' => '0']);
+                    break;
         }
         $Phieu1detail =DB::table('phieuso1')->leftjoin('users','users.id','=','phieuso1.User_id')
         ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso1.DoanhNghiep_Id')
@@ -213,6 +217,20 @@ foreach($Phieu1New as $P1 ){
 
         // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Nâng Cao');
     }
+    public function hoidapCG(Request $request)
+    {
+        $input = $request->collect();
+        $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
+        $HD = array();
+        $HD['DoanhNghiep_id'] = $input['DoanhNghiep'];
+        $HD['status'] = '1';
+        $HD['Loai'] = '1';
+        $HD['TieuDe'] = $input['TieuDe'];
+        $HD['created_at'] = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $HD['updated_at'] = Carbon::now('Asia/Ho_Chi_Minh');
+        DB::table('tinnhan')->insert($HD);
+        // return Redirect::to('chuyengia/CGtraloi');
+    }
     public function getkqPhieu1(Request $request,$IdPhieu1)
     {
         $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
@@ -225,7 +243,7 @@ foreach($Phieu1New as $P1 ){
         ->leftjoin('phieu1_diem','phieu1_diem.ChiTiet_id','=','chitiet.id')
         ->leftjoin('phieuso1','phieu1_diem.Phieu_id','=','phieuso1.id')
         ->leftjoin('cauhoi','cauhoi.id','=','chitiet_cauhoi.CauHoi_id')->where('phieuso1.id',$IdPhieu1)->orwhere('chitiet.Cap',0)
-        ->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*','Phieu1_diem.*')->orderBy('idcauhoi')->get();
+        ->select('chitiet.id AS idcauhoi','chitiet.*','cauhoi.*','chitiet_cauhoi.*','Phieu1_diem.*')->orderBy('idcauhoi' )->get();
 
         return view('chuyengia.Phieu_1.Phieu1_kqdanhgia')->with('Cauhoi',$Cauhoi)->with('time',$IdPhieu1);
     }

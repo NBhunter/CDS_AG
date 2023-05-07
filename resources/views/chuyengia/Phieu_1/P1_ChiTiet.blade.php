@@ -39,7 +39,11 @@
 <br>
 
     <label for="inputEmailAddress">Mô hình đề xuất</label>
-        <input class="form-control" id="inputLocation" type="text" style="text-align: center; " placeholder="" value="{{  $Phieu1detail->TenMoHinh . ' ('.$trangthaidx.')' }}" readonly>
+        <input class="form-control" id="inputLocation" type="text" style="text-align: center; " placeholder="" value="@if ($Phieu1detail->TenMoHinh == null)
+            Không có đề xuất
+        @else
+        {{  $Phieu1detail->TenMoHinh . ' ('.$trangthaidx.')' }}
+        @endif" readonly>
 </div>
 <br>
 <div class="card mb-4">
@@ -70,7 +74,7 @@
 
     <a  href ="{{ URL::to('/chuyengia/kqphieu1/'.$Phieu1detail->IDphieu) }}" name="add_product" class="btn btn-info"><i class='fas fa-eye'></i> Xem chi tiết</a>
     <button type="submit" name="add_product" class="btn btn-warning"><i class='fas fa-chalkboard-teacher'></i> Chọn lộ trình</button>
-
+    <button type="button" name="add_product" id="thongbao" class="btn btn-success"><i class="fas fa-solid fa-reply"></i> Phản hồi phiếu</button>
 
     </form>
 
@@ -90,5 +94,17 @@ $('.dropdown-el').click(function(e) {
 $(document).click(function() {
   $('.dropdown-el').removeClass('expanded');
 });
+
+                $("#thongbao").click(function(){
+
+    $.post("{{ URL::to('/PhanHoiP1') }}", {
+                                            _token: $('meta[name=csrf-token]').attr('content'),
+                                            status: "1",
+                                            DoanhNghiep:"{!! json_encode($Phieu1detail->DoanhNghiep_Id) !!}",
+                                            TieuDe: 'Phản hồi phiếu 1 (Mã phiếu:{!! json_encode($Phieu1detail->IDphieu) !!})',
+                                            }).done(window.location.assign('../../chuyengia/CGtraloi'));
+
+});
+
     </script>
 @endsection

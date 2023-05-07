@@ -155,7 +155,7 @@ class DanhGia1Controller extends Controller
         $request->user()->authorizeRoles(['DoanhNghiep-BGD', 'DoanhNghiep-NV', 'Admin']);
         $DoanhNghiep_id = Session::get('DoanhNghiep_id');
         $User_id = Session::get('User_id');
-        $Cauhoi = DB::table('chitiet')->get();
+        $Cauhoi = DB::table('chitiet')->orderBy('chitiet.id')->get();
         $TongDiem = 0;
         $Cap1 = 0;
         $Cap2 = 0;
@@ -202,13 +202,15 @@ class DanhGia1Controller extends Controller
                 Session::push('temp', $Ch->Id);
                 $Cap1++;
             }
-            if ($Ch->Cap == 2  && $request[$Ch->Id] != null && !in_array($Ch->Id, Session::get('temp')) && Session::get('DiemC2') > 0) {
+            if ($Ch->Cap == 2  && $request[$Ch->Id] != null && !in_array($Ch->Id, Session::get('temp')) ) {
+
+
                 if (Session::get('ID_C2_Truoc') != 0) {
+                    var_dump("trong if:".$Ch->Id);
                     $chitietcauhoiC2 = new phieu1_diem();
                     $chitietcauhoiC2['Phieu_id'] = $request->maphieu;
                     $chitietcauhoiC2['ChiTiet_id'] = Session::get('ID_C2_Truoc');
                     $chitietcauhoiC2['Diem'] = Session::get('DiemC2');
-                    // DB::table('phieu1_diem')->insert($chitietcauhoiC2);
                     $chitietcauhoiC2->save();
                 }
                 Session::put('DiemC2', '0');

@@ -158,6 +158,7 @@ Route::middleware([
     Route::get('/chuyengia/P1_Tatca', 'App\Http\Controllers\ChuyenGiaController@getTatCa_P1');
     Route::get('/chuyengia/P1_ChuaDG', 'App\Http\Controllers\ChuyenGiaController@getChuaDanhGia_P1');
     Route::get('/chuyengia/P1_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P1');
+    Route::post('/PhanHoiP1', 'App\Http\Controllers\ChuyenGiaController@hoidapCG');
     // Phiếu 2
     Route::get('/chuyengia/P2_DGMoi', 'App\Http\Controllers\ChuyenGiaController@getDGMoi_P2');
     Route::get('/chuyengia/P2_DaDG', 'App\Http\Controllers\ChuyenGiaController@getDaDanhGia_P2');
