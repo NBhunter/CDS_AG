@@ -120,27 +120,13 @@
                                             1
                                         </td>
                                         <td style="width:40%">
-<<<<<<< HEAD
+
                                             CÔNG TY CP HƯNG LÂM
                                         </td>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                        <td>
-                                           1600891913
-=======
-=======
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
                                         <td style="text-align:center;">
                                             0100101114-030
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
-=======
-                                            CÔNG TY LƯỚI ĐIỆN CAO THẾ-TỔNG CÔNG TY ĐIỆN LỰC TP HÀ NỘI
-                                        </td>
 
-                                        <td style="text-align:center;">
-                                            0100101114-030
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
                                         </td>
                                         <td class="center">
                                             237
@@ -169,19 +155,8 @@
                         <br>
                         <br>
                         <div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                            <h3 style=" color: rgb(51, 51, 51); font-size: 18px;">Biểu đồ chuyển đổi số của doanh nghiệp
-=======
+
                             <h3 style=" color:#0d6efd ; font-size: 18px;margin-left: 250px;">Bảng chỉ số
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
-=======
-                            <h3 style=" color:#0d6efd ; font-size: 18px;margin-left: 250px;">Bảng chỉ số
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
-=======
-                            <h3 style=" color:#0d6efd ; font-size: 18px;margin-left: 250px;">Bảng chỉ số
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
                             </h3>
                         </div>
                         <br>
@@ -196,43 +171,7 @@
         </div>
     </div>
     <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-const data = {
-  labels:[237],
-  datasets: [{
-    axis: 'y',
-    label: [237],
-    data: [237],
-    fill: false,
-    backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 205, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(153, 102, 255, 0.2)',
-      'rgba(201, 203, 207, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 159, 64)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(54, 162, 235)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)'
-    ],
-    borderWidth: 1
-  }]
-};
-=======
-=======
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
-=======
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
         const data = {
             labels: [65, 59, 80, 81, 56, 55, 40],
             datasets: [{
@@ -261,13 +200,7 @@ const data = {
                 borderWidth: 1
             }]
         };
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
-=======
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
-=======
->>>>>>> 9b9fd46856e371a23c34272d4ebc49b20d8b5747
+
         const CDSChart = new Chart("CDSChart", {
             type: "horizontalBar",
             data,
