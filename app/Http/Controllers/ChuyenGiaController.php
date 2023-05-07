@@ -566,9 +566,9 @@ foreach($Phieu1New as $P1 ){
             $head .= '<script> $(document).ready(function(){
                 $("#send").click(function(){
                     var ND = $("#comment").val();
-                    $.post("'. URL::to('/SendDN') .'", {
+                    $.post("'. URL::to('/SendCG') .'", {
                         _token: $(\'meta[name=csrf-token]\').attr(\'content\'),
-                        status: "1",
+                        status: "2",
                         user:"'.$user->id.'",
                         id : "'.$TN->TNid.'",
                         ND: ND,
@@ -578,7 +578,7 @@ foreach($Phieu1New as $P1 ){
               });
               function reappendText(chatid) {
 
-                $.post("'. URL::to('/LayTinNhan') .'", {
+                $.post("'. URL::to('/LayTinNhanCG') .'", {
                     _token: $(\'meta[name=csrf-token]\').attr(\'content\'),
                                                         chatid:chatid,
                                                         },function(chatdetail){
