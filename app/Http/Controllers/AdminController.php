@@ -30,9 +30,9 @@ class AdminController extends Controller
         Session::put('name', $user->name);
         $role = DB::table('role_user')->leftjoin('Roles', 'role_user.Role_id', 'Roles.id')->where('role_user.User_id', $user->id)->first();
         Session::put('role', $role->name);
-        $P1 = DB::table('phieuso1')->select('phieuso1.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        $P1 = DB::table('users')->select('users.id')->where('users.created_at','>=',Carbon::now()->toDateString())
         ->get();
-        $P2 = DB::table('phieuso2')->select('phieuso2.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
+        $P2 = DB::table('tintucs')->select('tintucs.id')->where('tintucs.created_at','>=',Carbon::now()->toDateString())
         ->get();
         $P3 = DB::table('phieu3_raocan')->select('phieu3_raocan.DoanhNghiep_ID')->groupBy('DoanhNghiep_Id')
         ->get();

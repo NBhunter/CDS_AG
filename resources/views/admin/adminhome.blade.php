@@ -21,16 +21,16 @@
                                     Người dùng</div>
                                 @if ($P1->count() > 0)
                                     <div class="font-weight-bold">Đã có
-                                        {{ $P1->count() }} <br> doanh nghiệp đánh giá</div>
+                                        {{ $P1->count() }} <br> Người dùng mới trong tháng này</div>
                                 @else
                                     <div class="font-weight-bold">Chưa có
-                                        <br> đánh giá
+                                        <br> đăng ký mới
                                     </div>
                                 @endif
 
                             </div>
                             <div class="col-auto">
-                                <i class="	fas fa-clipboard fa-2x text-success-300"></i>
+                                <i class="fas fa-user-edit fa-2x text-success-300"></i>
                             </div>
                         </div>
                     </div>
@@ -47,10 +47,10 @@
                                     Tin tức</div>
                                 @if ($P2->count() > 0)
                                     <div class="font-weight-bold text-gray-800">Đã có
-                                        {{ $P2->count() }} <br>doanh nghiệp<br> đánh giá</div>
+                                        {{ $P2->count() }} <br>tin tức mới<br>trong tháng</div>
                                 @else
                                     <div class="font-weight-bold text-gray-800">Chưa có
-                                        <br>doanh nghiệp<br>đánh giá
+                                        <br>tin tức mới<br>trong tháng
                                     </div>
                                 @endif
                             </div>
@@ -69,14 +69,13 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                    Chuyên gia
+                                    Bình luận mới
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
                                         @if ($P3->count() > 0)
                                             <div class=" font-weight-bold text-gray-800">Đã
-                                                có {{ $P3->count() }} <br>doanh nghiệp<br> đánh
-                                                giá
+                                                có {{ $P3->count() }} <br>bình luận mới<br> chưa duyệt
                                             </div>
                                         @else
                                             <div class="font-weight-bold text-gray-800">
@@ -89,7 +88,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-check fa-2x text-gray-300"></i>
+                                <a href=""> <i class="fas fa-comment-dots fa-2x text-gray-300"></i></a>
                             </div>
                         </div>
                     </div>
@@ -103,18 +102,18 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                    Cộng tác viên</div>
+                                    Lượng truy cập trong ngày</div>
                                 @if ($P4->count() > 0)
                                     <div class="font-weight-bold text-gray-800">Đã có
-                                        {{ $P4->count() }} <br>doanh nghiệp<br> phản hồi</div>
+                                        {{ $P4->count() }} <br>người <br>truy cập</div>
                                 @else
                                     <div class=" font-weight-bold text-gray-800">Chưa
-                                        có<br>doanh nghiệp<br>phản hồi</div>
+                                        có<br>người <br>truy cập</div>
                                 @endif
                             </div>
 
                             <div class="col-auto">
-                                <i class="fas fa-edit fa-2x text-gray-300"></i>
+                                <i class="fas fa-eye fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -165,10 +164,7 @@
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-4 d-flex flex-row align-items-center justify-content-between"
                         style="height:40px;">
-                        <h6 class="m-0 font-weight-bold text-primary" style="position: absolute; left: 30%;">Số lượng đánh
-                            giá trong năm
-                        </h6>
-
+                        <h6 class="m-0 font-weight-bold text-primary" style="position: absolute; left: 43%;">Số truy cập trong tháng</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -244,12 +240,19 @@
     </script>
     <script>
         var ctx = document.getElementById("myAreaChart");
+        var day = new Array();
+        var view = new Array(23, 3, 5, 20, 33, 33, 21, 4, 30, 32, 34, 11, 28, 12, 29, 16, 36, 37, 17, 3, 49, 21, 27, 21, 4, 18, 11, 16, 26, 47, 42);
+        for (let i = 1; i <=31; i++){
+            day.push("Ngày "+i);
+
+        }
+
         var myLineChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                labels: day,
                 datasets: [{
-                    label: "Doanh nghiệp",
+                    label: "lượt xem:",
                     lineTension: 0.3,
                     backgroundColor: "rgba(78, 115, 223, 0.05)",
                     borderColor: "rgba(78, 115, 223, 1)",
@@ -261,7 +264,7 @@
                     pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                     pointHitRadius: 10,
                     pointBorderWidth: 2,
-                    data: [0, 2, 3, 4, 3, 4, 5, 7, 6, 10, 6, 8],
+                    data: view,
                 }],
             },
             options: {
@@ -277,7 +280,7 @@
                 scales: {
                     xAxes: [{
                         time: {
-                            unit: 'date'
+                            unit: 'day'
                         },
                         gridLines: {
                             display: false,
@@ -289,8 +292,8 @@
                     }],
                     yAxes: [{
                         ticks: {
-                            maxTicksLimit: 5,
-                            padding: 10,
+                            maxTicksLimit: 6,
+                            padding: 5,
                             // Include a dollar sign in the ticks
                             callback: function(value, index, values) {
                                 return value;

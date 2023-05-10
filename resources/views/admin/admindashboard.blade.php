@@ -325,7 +325,7 @@
                         </li>
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                            {{-- <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
@@ -350,7 +350,7 @@
                                         Thông báo
                                         <span class="caret"></span>
                                 </a>
-                            </div>
+                            </div> --}}
 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
@@ -521,11 +521,6 @@
 
     <!-- Page level plugins -->
     <script src="{{ asset('admin_file/vendor/chart.js/Chart.min.js') }}"></script>
-
-
-
-
-    <script src="{{ asset('public/backend/ckeditor/ckeditor.js') }}"></script>
 
 </body>
 

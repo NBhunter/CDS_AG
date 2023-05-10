@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\NoficationMail;
 use App\Models\phieu1\phieuso1;
 use App\Models\Phieu3_RaoCan;
+use App\Models\phieuso2;
 use Illuminate\Http\Request;
 use Session;
 use DB;
@@ -216,6 +217,18 @@ foreach($Phieu1New as $P1 ){
 
 
         // return view('chuyengia.Phieu_1.P1_ChiTiet')->with("Phieu1detail",$Phieu1detail)->with("trucot",$trucot)->with('MucDo','Nâng Cao');
+    }
+    public function getChiTiet_P2(Request $request,$IdPhieu2){
+        $request->user()->authorizeRoles(['Admin','Chuyên Gia','Ban Chấp Hành']);
+
+        $Phieu2 =  phieuso2::where('Id',$IdPhieu2);
+        $Phieu2->update(['status' => 1]);
+        $Phieu2detail =DB::table('phieuso2')->leftjoin('users','users.id','=','phieuso2.User_id')
+        ->leftjoin('doanhnghiep','doanhnghiep.id','=','phieuso2.DoanhNghiep_Id')
+        ->where('phieuso2.id',$IdPhieu2)
+        ->select('phieuso2.created_at as ThoiGianTao','phieuso2.id as IDphieu','phieuso2.*','doanhnghiep.*','users.*')->first();
+
+        return view('chuyengia.Phieu_2.P2_ChiTiet')->with("Phieu2detail",$Phieu2detail);
     }
     public function hoidapCG(Request $request)
     {

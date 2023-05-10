@@ -34,7 +34,7 @@
                             @endif
                         </td>
                         <td>{{ $P2->ThoigianTao }}</td>
-                        <td><a class="btn btn-success" href=""><i class='fas fa-edit'></i></a></td>
+                        <td><a class="btn btn-success" href="{{ URL::to('/chuyengia/P2_Chitiet/'.$P2->IDphieu) }}"><i class='fas fa-edit'></i></a></td>
                     </tr>
                     @endforeach
 
